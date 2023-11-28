@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "gitpush":"git add . && git commit -m 'ok' && git push"
   },
   "dependencies": {
     "@ant-design/icons": "^5.2.6",
