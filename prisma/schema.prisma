@@ -1,0 +1,88 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("POSTGRES_PRISMA_URL")
+}
+
+model Human {
+  id            Int      @id @default(autoincrement())
+  username      String? 
+  email         String   @unique
+  password      String?
+  phonenumber   String    
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt 
+}
+
+model TagType {
+  id        Int         @id @default(autoincrement())
+  title     String
+  countries Countries[]
+}
+
+model Countries {
+  id       Int      @id @default(autoincrement())
+  title    String
+  details String
+  tagId    Int
+  overview String
+  countryname String
+  tag      TagType  @relation(fields: [tagId], references: [id])
+  visaRequirement VisaRequirements[]
+  travelitinerary TravelItinerary[] 
+}
+
+model VisaRequirements {
+  id Int @id @default(autoincrement())
+  title String
+  description String
+  countryid Int
+  countries  Countries @relation(fields: [countryid], references: [id])
+}
+
+model TravelItinerary {
+  id Int @id @default(autoincrement())
+  title String
+  description String
+  countryid Int
+  countries  Countries @relation(fields: [countryid], references: [id])
+}
+
+model ServiceCategory{
+  id Int @id @default(autoincrement())
+  title String
+  services Services[]
+}
+
+model Services{
+  id Int @id @default(autoincrement())
+  title String
+  metadata String
+  categoryid Int
+  category    ServiceCategory  @relation(fields: [categoryid], references: [id])
+  addsection Section[]
+  addbox Box[]
+}
+
+model Section{
+  id Int @id @default(autoincrement())
+  title String
+  description String
+  serviceid Int
+  services  Services @relation(fields: [serviceid], references: [id])
+}
+
+model Box{
+  id Int @id @default(autoincrement())
+  title String
+  description String
+  image String
+  serviceid Int
+  services  Services @relation(fields: [serviceid], references: [id])
+}

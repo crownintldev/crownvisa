@@ -2,26 +2,203 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
-}
-
 body {
-  color: rgb(var(--foreground-rgb));
+  box-sizing: border-box;
+}
+
+.mega-menu {
+  display: none;
+  left: 0;
+  position: absolute;
+  text-align: left;
+  width: 100%;
+}
+
+/* #hoverable Class Styles
+  –––––––––––––––––––––––––––––––––––––––––––––––––– */
+.hoverable {
+  position: static;
+}
+
+.hoverable > a:after {
+  content: "\25BC";
+  font-size: 10px;
+  padding-left: 6px;
+  position: relative;
+  top: -1px;
+}
+
+.hoverable:hover .mega-menu {
+  display: block;
+}
+
+/* #toggle Class Styles
+  –––––––––––––––––––––––––––––––––––––––––––––––––– */
+
+.toggleable > label:after {
+  content: "\25BC";
+  font-size: 10px;
+  padding-left: 6px;
+  position: relative;
+  top: -1px;
+}
+
+.toggle-input {
+  display: none;
+}
+.toggle-input:not(checked) ~ .mega-menu {
+  display: none;
+}
+
+.toggle-input:checked ~ .mega-menu {
+  display: block;
+}
+
+.toggle-input:checked + label {
+  color: white;
+  background: #2c5282; /*@apply bg-blue-800 */
+}
+
+.toggle-input:checked ~ label:after {
+  content: "\25B2";
+  font-size: 10px;
+  padding-left: 6px;
+  position: relative;
+  top: -1px;
+}
+
+.card {
+  width: 300px;
+  padding: 20px;
+  border: 1px solid #eaeaea;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.icon {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.title {
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.description {
+  font-size: 16px;
+}
+
+.countries-slider .swiper-slide {
+  text-align: center;
+  font-size: 18px;
+  background: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.countries-slider .swiper-slide img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.countries-slider .swiper {
+  width: 100%;
+  height: 300px;
+  margin: 20px auto;
+}
+
+.companies-slider .swiper {
+  width: 100%;
+  height: 100px;
+  margin: 20px auto;
+}
+
+.centered-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+  align-items: center;
+  height: 100%; 
+}
+
+.card-shadow {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.18);
+}
+
+.gradient {
+  background: rgb(145, 144, 140);
   background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+    360deg,
+    transparent 85%,
+    rgba(246, 245, 242, 1) 100%
+  );
+}
+
+.ant-rate-star:not(.ant-rate-star-zero)
+  .ant-rate-star-full
+  > .ant-rate-star-first,
+.ant-rate-star:not(.ant-rate-star-zero)
+  .ant-rate-star-full
+  > .ant-rate-star-second {
+  color: black; /* Full star color */
+}
+
+.ant-rate-star-zero .ant-rate-star-first,
+.ant-rate-star-zero .ant-rate-star-second {
+  color: rgba(0, 0, 0, 0.25); /* Half star or empty star color */
+}
+
+.slide-with-gradient::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgb(246, 244, 242);
+  background: linear-gradient(
+    180deg,
+    rgba(246, 244, 242, 0) 58%,
+    rgba(226, 175, 35, 1) 64%
+  );
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  pointer-events: none; /* This ensures that the pseudo-element does not interfere with mouse events */
+}
+
+.slide-with-gradient:hover::after {
+  opacity: 0.5;
+}
+
+.cover-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* This will cover the area, cropping the image if necessary */
+}
+
+.team img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.gradient-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(246,244,242,0) 58%, rgba(4,4,3,0.7) 64%);
+  z-index: 1; /* Below the content */
+  transition: background 0.3s; /* Smooth transition for background change */
+}
+
+/* Add a CSS rule for when the parent div is hovered */
+.parent-div:hover .gradient-overlay {
+  background: none; /* Remove background gradient when parent is hovered */
 }
