@@ -1,15 +1,11 @@
 //@ts-nocheck
 "use client";
-import React, { useState } from "react";
+import React from "react";
 import { Button, Form, Input, Select } from "antd";
 import axios from "axios";
 import { useQuery, useQueryClient, useMutation } from "react-query";
-import dynamic from "next/dynamic";
 import { useRouter } from "next/navigation";
 import { useTitleContext } from "@/app/ContextProvider";
-import CustomSteps from "../CustomSteps";
-
-const ReactQuill = dynamic(() => import("react-quill"), { ssr: false });
 
 const { TextArea } = Input;
 
@@ -38,68 +34,60 @@ const handleChange = (value: string) => {
   console.log(`selected ${value}`);
 };
 
-const fetchCountryTypes = async () => {
-  const { data } = await axios.get("/api/visaapi/countriestype");
-  return data.countrytype;
+const fetchserviceTypes = async () => {
+  const { data } = await axios.get("/api/serviceapi/servicecategory");
+  return data.visacategory;
 };
 
-const postCountryData = async (countryData) => {
-  const response = await axios.post("/api/visaapi/countries", countryData);
+const postserviceData = async (serviceData) => {
+  const response = await axios.post("/api/serviceapi/services", serviceData);
   return response.data;
 };
 
-const CountriesForm: React.FC = () => {
+const ServiceForm: React.FC = () => {
   const router = useRouter();
   const { setTitle } = useTitleContext();
   const [form] = Form.useForm();
-  const [text, setText] = useState("");
   const queryClient = useQueryClient();
   // useQuery for initial data fetch and to provide queryClient with the data
-  useQuery("countryTypes", fetchCountryTypes, {
+  useQuery("serviceTypes", fetchserviceTypes, {
     onSuccess: (data) => {
       // Set query data manually
-      queryClient.setQueryData("countryTypes", data);
+      queryClient.setQueryData("serviceTypes", data);
     },
   });
-  const tagTypes: TagType[] = queryClient.getQueryData("countryTypes") || [];
+  const tagTypes: TagType[] = queryClient.getQueryData("serviceTypes") || [];
 
-  const OverviewChange = (content: string) => {
-    setText(content);
-  };
-
-  const mutation = useMutation(postCountryData, {
+  const mutation = useMutation(postserviceData, {
     onSuccess: () => {
       // Perform actions on successful data posting
-      console.log("Country data posted successfully");
-      router.push(`/VisaFormPage/VisaRequirementsPage`);
+      console.log("Service data posted successfully");
+    //   router.push(`/VisaFormPage/VisaRequirementsPage`);
     },
     onError: (error) => {
       // Handle any errors here
-      console.error("Error posting country data:", error);
+      console.error("Error posting Service data:", error);
     },
   });
 
   const onFinish = (values: any) => {
     console.log("Success:", values);
     setTitle(values.title); // Set the title in context
-    const countrydata = {
+    const servicedata = {
       title: values.title,
-      details: values.details,
-      overview: values.overview,
-      tagId: values.tagId,
-      countryname: values.countryname,
+      metadata: values.metadata,
+      categoryid: values.categoryid,
     };
-    mutation.mutate(countrydata);
+    mutation.mutate(servicedata);
   };
   return (
-    <div className="flex justify-center flex-col items-center h-screen">
-      <CustomSteps step1></CustomSteps>
+    <div className="flex justify-center items-center h-screen">
       <div className="border border-black p-5">
         <Form
-          name="countryform"
+          name="serviceform"
           labelCol={{ span: 8 }}
           wrapperCol={{ span: 16 }}
-          style={{ maxWidth: 800 }}
+          style={{ minWidth: 500 }}
           form={form}
           initialValues={{ remember: true }}
           onFinish={onFinish}
@@ -116,7 +104,7 @@ const CountriesForm: React.FC = () => {
 
           <Form.Item<FieldType>
             label="Details"
-            name="details"
+            name="metadata"
             rules={[{ required: true, message: "Please input your Details!" }]}
           >
             <TextArea
@@ -127,9 +115,9 @@ const CountriesForm: React.FC = () => {
           </Form.Item>
 
           <Form.Item<FieldType>
-            label="Select Visa Type"
-            name="tagId"
-            rules={[{ required: true, message: "Please select visa type!" }]}
+            label="Select Category Type"
+            name="categoryid"
+            rules={[{ required: true, message: "Please select category type!" }]}
           >
             <Select
               defaultValue={tagTypes[0]?.title}
@@ -139,24 +127,6 @@ const CountriesForm: React.FC = () => {
                 label: tag.title,
               }))}
             />
-          </Form.Item>
-
-          <Form.Item<FieldType>
-            label="Country Name"
-            name="countryname"
-            rules={[
-              { required: true, message: "Please input your country name!" },
-            ]}
-          >
-            <Input placeholder="Enter Country Name" />
-          </Form.Item>
-
-          <Form.Item<FieldType>
-            label="Overview"
-            name="overview"
-            rules={[{ required: true, message: "Please input your username!" }]}
-          >
-            <ReactQuill value={text} onChange={OverviewChange} />
           </Form.Item>
 
           <Form.Item wrapperCol={{ offset: 8, span: 16 }}>
@@ -173,4 +143,4 @@ const CountriesForm: React.FC = () => {
   );
 };
 
-export default CountriesForm;
+export default ServiceForm;

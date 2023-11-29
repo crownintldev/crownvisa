@@ -8,6 +8,7 @@ import { useRouter } from "next/navigation";
 import { useTitleContext } from "@/app/ContextProvider";
 import { useQuery, useQueryClient, useMutation } from "react-query";
 import axios from "axios";
+import CustomSteps from "../CustomSteps";
 
 const ReactQuill = dynamic(() => import("react-quill"), { ssr: false });
 
@@ -78,19 +79,21 @@ const VisaRequirements: React.FC = () => {
     });
     router.push(`VisaFormPage/TravelItineraryPage`);
   };
+
   const OverviewChange = (content: string) => {
     setText(content);
   };
 
   return (
-    <div className="flex justify-center items-center h-screen">
+    <div className="flex justify-center flex-col items-center h-screen">
+      <CustomSteps step2></CustomSteps>
       <div className="border border-black p-5">
         <Form
-          labelCol={{ span: 6 }}
-          wrapperCol={{ span: 18 }}
+          labelCol={{ span: 8 }}
+          wrapperCol={{ span: 16 }}
           form={form}
           name="dynamic_form_complex"
-          style={{ maxWidth: 600 }}
+          style={{ minWidth: 500 }}
           autoComplete="off"
           onFinish={onSubmitVisaRequirements}
           initialValues={{ items: [{}] }}

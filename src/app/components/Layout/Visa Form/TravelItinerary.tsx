@@ -9,6 +9,7 @@ import { useRouter } from 'next/navigation';
 import { useTitleContext } from '@/app/ContextProvider';
 import axios from 'axios';
 import { useQuery, useQueryClient, useMutation } from 'react-query';
+import CustomSteps from '../CustomSteps';
 
 const TravelItinerary: React.FC = () => {
   const [form] = Form.useForm();
@@ -79,7 +80,8 @@ const TravelItinerary: React.FC = () => {
   };
 
   return (
-    <div className="flex justify-center items-center h-screen">
+    <div className="flex justify-center flex-col items-center h-screen">
+      <CustomSteps step3></CustomSteps>
       <div className="border border-black p-5">
       <Form
       labelCol={{ span: 6 }}
