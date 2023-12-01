@@ -9,13 +9,7 @@ const Navbar = () => {
   return (
     <div className="flex justify-between items-center font-medium z-10 container mx-auto">
       <div className="py-5 flex justify-between lg:w-auto w-full">
-        <Image
-          src="https://kodesolution.com/html/2023/immigro-html/images/logo.png"
-          alt=""
-          className="bg-black pl-3"
-          width={100}
-          height={100}
-        />
+        <h1 className='text-[35px] color-blue-700 font-bold'>Crown Travels</h1>
         <div className="text-3xl lg:hidden" onClick={() => setOpen(!open)}>
           <AiOutlineMenuFold />
         </div>
