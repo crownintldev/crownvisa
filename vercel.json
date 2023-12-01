@@ -1,0 +1,12 @@
+{
+    "build": {
+      "env": {
+        "PRISMA_CLIENT_GENERATE": "true"
+      },
+      "functions": {
+        "api/*": {
+          "runtime": "nodejs14"
+        }
+      }
+    }
+  }
