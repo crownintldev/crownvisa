@@ -7,17 +7,17 @@ export const postvisarequirements = async (req: Request) => {
   const { title, description, countryid } = body;
   console.log(body);
   try {
-    const existingvisarequirement = await prisma.visaRequirements.findFirst({
-      where: { title: title },
-    });
-    if (existingvisarequirement) {
-      return new NextResponse(
-        JSON.stringify({ error: 'Visa Requirement already exists' }),
-        {
-          status: 400,
-        }
-      );
-    }
+    // const existingvisarequirement = await prisma.visaRequirements.findFirst({
+    //   where: { title: title },
+    // });
+    // if (existingvisarequirement) {
+    //   return new NextResponse(
+    //     JSON.stringify({ error: 'Visa Requirement already exists' }),
+    //     {
+    //       status: 400,
+    //     }
+    //   );
+    // }
     const newvisarequirement = await prisma.visaRequirements.create({
       data: { title, description, countryid },
     });

@@ -42,3 +42,22 @@ export const getservicesbyid = async (
     return new NextResponse(JSON.stringify({ services }), { status: 200 });
   }
 };
+
+export const getservicesbytitle = async (
+  req: Request,
+  { params }: { params: Params }
+) => {
+  const title = params.title;
+  const service = await prisma.services.findFirst({
+    where: {
+      title,
+    },
+  });
+  if (!service) {
+    return new NextResponse(JSON.stringify({ error: 'title not found' }), {
+      status: 400,
+    });
+  } else {
+    return new NextResponse(JSON.stringify({ service }), { status: 200 });
+  }
+};

@@ -1,79 +1,103 @@
 //@ts-nocheck
 'use client';
-import React, { useEffect, useState } from 'react';
-import { CloseOutlined } from '@ant-design/icons';
-import { Button, Card, Form, Input, Space, Typography } from 'antd';
-import dynamic from 'next/dynamic';
-const ReactQuill = dynamic(() => import('react-quill'), { ssr: false });
-import { useRouter } from 'next/navigation';
 import { useTitleContext } from '@/app/ContextProvider';
+import { CloseOutlined } from '@ant-design/icons';
+import { Button, Card, Form, Input, Typography } from 'antd';
 import axios from 'axios';
-import { useQuery, useQueryClient, useMutation } from 'react-query';
-import CustomSteps from '../CustomSteps';
+import dynamic from 'next/dynamic';
+import { useRouter } from 'next/navigation';
+import React, { useEffect, useState } from 'react';
+import { useMutation, useQuery, useQueryClient } from 'react-query';
+import CustomVisaSteps from './CustomVisaSteps';
+const ReactQuill = dynamic(() => import('react-quill'), { ssr: false });
 
 const TravelItinerary: React.FC = () => {
   const [form] = Form.useForm();
   const [text, setText] = useState('');
   const router = useRouter();
   const { title } = useTitleContext();
+  const [countryData, setCountryData] = useState(null);
 
   useEffect(() => {
+    const fetchCountryData = async () => {
+      try {
+        const { data } = await axios.get(`/api/visaapi/countries/title/${title}`);
+        setCountryData(data.country.id); // Update state with fetched data
+      } catch (error) {
+        console.error('Error fetching country data:', error);
+      }
+    };
+
     if (title) {
-      console.log('Title from context:', title);
+      fetchCountryData();
     }
   }, [title]);
 
-  const fetchCountryData = async () => {
-    const { data } = await axios.get(`/api/visaapi/countries/title/${title}`);
-    console.log(data.country.id);
-    return data.country.id;
-  };
+  // const fetchCountryData = async () => {
+  //   const { data } = await axios.get(`/api/visaapi/countries/title/${title}`);
+  //   console.log(data.country.id);
+  //   return data.country.id;
+  // };
 
-  const queryClient = useQueryClient();
-  // useQuery for initial data fetch and to provide queryClient with the data
-  useQuery('countryData', fetchCountryData, {
-    onSuccess: (data) => {
-      // Set query data manually
-      queryClient.setQueryData('countryData', data);
-    },
-  });
-  const countrydata = queryClient.getQueryData('countryData');
-  console.log(countrydata);
+  // const queryClient = useQueryClient();
+  // // useQuery for initial data fetch and to provide queryClient with the data
+  // useQuery('countryData', fetchCountryData, {
+  //   onSuccess: (data) => {
+  //     // Set query data manually
+  //     queryClient.setQueryData('countryData', data);
+  //   },
+  // });
+  // const countrydata = queryClient.getQueryData('countryData');
+  // console.log(countrydata);
 
-  const postVisaRequirements = async (VisaRequirements) => {
-    const response = await axios.post('/api/visaapi/travelitinerary', VisaRequirements);
-    return response.data;
-  };
+  // const postVisaRequirements = async (VisaRequirements) => {
+  //   const response = await axios.post('/api/visaapi/travelitinerary', VisaRequirements);
+  //   return response.data;
+  // };
 
-  const mutation = useMutation(postVisaRequirements, {
-    onSuccess: () => {
-      // Perform actions on successful data posting
-      console.log('Country data posted successfully');
-      //   router.push(`/VisaRequirementsPage?title=${encodeURIComponent(values.title)}`);
-    },
-    onError: (error) => {
-      // Handle any errors here
-      console.error('Error posting country data:', error);
-    },
-  });
+  // const mutation = useMutation(postVisaRequirements, {
+  //   onSuccess: () => {
+  //     // Perform actions on successful data posting
+  //     console.log('Country data posted successfully');
+  //     //   router.push(`/VisaRequirementsPage?title=${encodeURIComponent(values.title)}`);
+  //   },
+  //   onError: (error) => {
+  //     // Handle any errors here
+  //     console.error('Error posting country data:', error);
+  //   },
+  // });
 
-  const onSubmitVisaRequirements = (values: any) => {
+  const onSubmitVisaRequirements = async(values: any) => {
     console.log('onSubmitVisaRequirements' + values);
     // Accessing the items array
     const items = values.items;
     console.log('Items:', items);
     // You can now process each item as needed
-    items.forEach((item, index) => {
-      console.log(`Item ${index + 1}:`, item.title);
-      const VisaRequirementsData = {
-        title: item.title,
-        description: item.description,
-        countryid: countrydata,
-      };
-      console.log(VisaRequirementsData);
-      mutation.mutate(VisaRequirementsData);
-    });
-    router.push(`VisaFormPage/CountriesFormPage`);
+    // items.forEach((item, index) => {
+    //   console.log(`Item ${index + 1}:`, item.title);
+    //   const VisaRequirementsData = {
+    //     title: item.title,
+    //     description: item.description,
+    //     countryid: countrydata,
+    //   };
+    //   console.log(VisaRequirementsData);
+    //   mutation.mutate(VisaRequirementsData);
+    // });
+    // router.push(`/VisaFormPage/CountriesFormPage`);
+    try {
+      for (const item of items) {
+        const visaRequirementsData = {
+          title: item.title,
+          description: item.description,
+          countryid: countryData,
+        };
+        await axios.post('/api/visaapi/travelitinerary', visaRequirementsData);
+      }
+      console.log('Country data posted successfully');
+      router.push(`/VisaFormPage/CountriesFormPage`);
+    } catch (error) {
+      console.error('Error posting country data:', error);
+    }
   };
   const OverviewChange = (content: string) => {
     setText(content);
@@ -81,11 +105,11 @@ const TravelItinerary: React.FC = () => {
 
   return (
     <div className="flex justify-center flex-col items-center h-screen">
-      <CustomSteps step3></CustomSteps>
+      <CustomVisaSteps step3></CustomVisaSteps>
       <div className="border border-black p-5">
       <Form
-      labelCol={{ span: 6 }}
-      wrapperCol={{ span: 18 }}
+      // labelCol={{ span: 6 }}
+      wrapperCol={{ span: 24 }}
       form={form}
       name="dynamic_form_complex"
       style={{ maxWidth: 600 }}
@@ -111,7 +135,6 @@ const TravelItinerary: React.FC = () => {
               >
                 {/* <Form onFinish={onSubmitVisaRequirements}> */}
                 <Form.Item
-                  label="Title"
                   name={[field.name, 'title']}
                   rules={[{ required: true }]}
                 >
@@ -119,7 +142,6 @@ const TravelItinerary: React.FC = () => {
                 </Form.Item>
 
                 <Form.Item
-                  label="Description"
                   name={[field.name, 'description']}
                   rules={[
                     {

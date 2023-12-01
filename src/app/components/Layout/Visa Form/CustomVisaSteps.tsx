@@ -7,7 +7,7 @@ interface CheckoutStepsProps {
   step4?: boolean;
 }
 
-const CustomSteps: React.FC<CheckoutStepsProps> = (props) => {
+const CustomVisaSteps: React.FC<CheckoutStepsProps> = (props) => {
   return (
     <div className="flex w-full mb-4 checkout-step">
       <div
@@ -35,4 +35,4 @@ const CustomSteps: React.FC<CheckoutStepsProps> = (props) => {
   );
 };
 
-export default CustomSteps;
+export default CustomVisaSteps;

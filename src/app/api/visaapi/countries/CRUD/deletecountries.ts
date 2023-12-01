@@ -19,6 +19,16 @@ export const deleteCountry = async (
     });
   } else {
     try {
+      const deletevisarequirements=await prisma.visaRequirements.deleteMany({
+        where:{
+          countryid: parseInt(id, 10),
+        }
+      });
+      const deletetravelitinerary=await prisma.travelItinerary.deleteMany({
+        where:{
+          countryid:parseInt(id, 10),
+        }
+      });
       const deletecountry = await prisma.countries.delete({
         where: {
           id: parseInt(id, 10),

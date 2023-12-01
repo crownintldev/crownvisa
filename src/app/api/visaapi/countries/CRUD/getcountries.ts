@@ -8,6 +8,8 @@ export const getcountries = async (req: Request) => {
     const countries = await prisma.countries.findMany({
       include: {
         tag: true, // Include data from the TagType model
+        visaRequirement:true,
+        travelitinerary:true,
         // Add other relations if needed
       },
     });
@@ -30,6 +32,12 @@ export const getcountriesbyid = async (
 ) => {
   const id = params.id;
   const country = await prisma.countries.findUnique({
+    include: {
+      tag: true, // Include data from the TagType model
+      visaRequirement:true,
+      travelitinerary:true,
+      // Add other relations if needed
+    },
     where: {
       id: parseInt(id, 10),
     },

@@ -6,6 +6,7 @@ import axios from "axios";
 import { useQuery, useQueryClient, useMutation } from "react-query";
 import { useRouter } from "next/navigation";
 import { useTitleContext } from "@/app/ContextProvider";
+import CustomServiceSteps from "./CustomServiceSteps";
 
 const { TextArea } = Input;
 
@@ -49,14 +50,14 @@ const ServiceForm: React.FC = () => {
   const { setTitle } = useTitleContext();
   const [form] = Form.useForm();
   const queryClient = useQueryClient();
-  // useQuery for initial data fetch and to provide queryClient with the data
-  useQuery("serviceTypes", fetchserviceTypes, {
+  const [tagTypes, setTagTypes] = useState<TagType[]>([]); // New state variable
+
+  // useQuery for initial data fetch
+  const { data: countryTypesData } = useQuery("serviceTypes", fetchserviceTypes, {
     onSuccess: (data) => {
-      // Set query data manually
-      queryClient.setQueryData("serviceTypes", data);
+      setTagTypes(data); // Update state when data is successfully fetched
     },
   });
-  const tagTypes: TagType[] = queryClient.getQueryData("serviceTypes") || [];
 
   const mutation = useMutation(postserviceData, {
     onSuccess: () => {
@@ -81,7 +82,8 @@ const ServiceForm: React.FC = () => {
     mutation.mutate(servicedata);
   };
   return (
-    <div className="flex justify-center items-center h-screen">
+    <div className="flex justify-center flex-col items-center h-screen">
+      <CustomServiceSteps step1></CustomServiceSteps>
       <div className="border border-black p-5">
         <Form
           name="serviceform"
