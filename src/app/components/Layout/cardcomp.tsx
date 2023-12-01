@@ -1,4 +1,5 @@
 import { Avatar, Rate } from 'antd';
+import Image from 'next/image';
 import React from 'react';
 
 interface CardProps {
@@ -23,7 +24,7 @@ const CardComp: React.FC<CardProps> = ({
   return (
     <div className="border rounded-lg overflow-hidden max-w-sm p-5 my-5 relative border-2 border-white w-[90%]">
       <a href="/VisaDescription">
-        <img
+        <Image
           src={imageUrl}
           alt={altText}
           width={350}
@@ -58,7 +59,7 @@ const CardComp: React.FC<CardProps> = ({
             <Rate allowHalf defaultValue={rating} className="mt-2" />
           </div>
           <Avatar
-            src={<img src={flagUrl} alt="avatar" />}
+            src={<Image src={flagUrl} alt="avatar" width={50} height={50} />}
             size={45}
             className="absolute bottom-[90px] right-[40px]"
           />

@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import React from 'react';
 
 const TeamComp = () => {
@@ -15,10 +16,12 @@ const TeamComp = () => {
         </div>
         <div className="grid gap-8 lg:gap-16 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
           <div className="text-center text-gray-500 dark:text-gray-400 border p-3 bg-white">
-            <img
+            <Image
               className="mx-auto mb-4 w-36 h-36 rounded-full"
               src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/avatars/bonnie-green.png"
               alt="Bonnie Avatar"
+              height={100}
+              width={100}
             />
             <h3 className="mb-1 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
               <a href="#">Bonnie Green</a>
@@ -100,10 +103,12 @@ const TeamComp = () => {
             </ul>
           </div>
           <div className="text-center text-gray-500 dark:text-gray-400 border p-3 bg-white">
-            <img
+            <Image
               className="mx-auto mb-4 w-36 h-36 rounded-full"
               src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/avatars/helene-engels.png"
               alt="Helene Avatar"
+              height={100}
+              width={100}
             />
             <h3 className="mb-1 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
               <a href="#">Helene Engels</a>
@@ -185,10 +190,12 @@ const TeamComp = () => {
             </ul>
           </div>
           <div className="text-center text-gray-500 dark:text-gray-400 border p-3 bg-white">
-            <img
+            <Image
               className="mx-auto mb-4 w-36 h-36 rounded-full"
               src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/avatars/jese-leos.png"
               alt="Jese Avatar"
+              width={100}
+              height={100}
             />
             <h3 className="mb-1 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
               <a href="#">Jese Leos</a>
@@ -270,10 +277,12 @@ const TeamComp = () => {
             </ul>
           </div>
           <div className="text-center text-gray-500 dark:text-gray-400 border p-3 bg-white">
-            <img
+            <Image
               className="mx-auto mb-4 w-36 h-36 rounded-full"
               src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/avatars/joseph-mcfall.png"
               alt="Joseph Avatar"
+              width={100}
+              height={100}
             />
             <h3 className="mb-1 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
               <a href="#">Joseph Mcfall</a>
@@ -355,10 +364,12 @@ const TeamComp = () => {
             </ul>
           </div>
           <div className="text-center text-gray-500 dark:text-gray-400 border p-3 bg-white">
-            <img
+            <Image
               className="mx-auto mb-4 w-36 h-36 rounded-full"
               src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/avatars/sofia-mcguire.png"
               alt="Sofia Avatar"
+              width={100}
+              height={100}
             />
             <h3 className="mb-1 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
               <a href="#">Lana Byrd</a>
@@ -440,10 +451,12 @@ const TeamComp = () => {
             </ul>
           </div>
           <div className="text-center text-gray-500 dark:text-gray-400 border p-3 bg-white">
-            <img
+            <Image
               className="mx-auto mb-4 w-36 h-36 rounded-full"
               src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/avatars/thomas-lean.png"
               alt="Leslie Avatar"
+              width={100}
+              height={100}
             />
             <h3 className="mb-1 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
               <a href="#">Leslie Livingston</a>
@@ -525,10 +538,12 @@ const TeamComp = () => {
             </ul>
           </div>
           <div className="text-center text-gray-500 dark:text-gray-400 border p-3 bg-white">
-            <img
+            <Image
               className="mx-auto mb-4 w-36 h-36 rounded-full"
               src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/avatars/michael-gouch.png"
               alt="Michael Avatar"
+              width={100}
+              height={100}
             />
             <h3 className="mb-1 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
               <a href="#">Michael Gough</a>
@@ -610,10 +625,12 @@ const TeamComp = () => {
             </ul>
           </div>
           <div className="text-center text-gray-500 dark:text-gray-400 border p-3 bg-white">
-            <img
+            <Image
               className="mx-auto mb-4 w-36 h-36 rounded-full"
               src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/avatars/neil-sims.png"
               alt="Neil Avatar"
+              width={100}
+              height={100}
             />
             <h3 className="mb-1 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
               <a href="#">Neil Sims</a>
