@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import React, { useState, useEffect } from 'react';
 import {
   BsFillArrowLeftCircleFill,
@@ -27,10 +28,12 @@ const CarouselComp: React.FC<CarouselProps> = ({ images, duration = 3000 }) => {
   };
   return (
     <div className="relative">
-      <img
+      <Image
         src={images[activeIndex]}
         alt="carousel-item"
         className="w-full h-[600px]"
+        width={600}
+        height={600}
       />
       <button
         onClick={goToPrevious}

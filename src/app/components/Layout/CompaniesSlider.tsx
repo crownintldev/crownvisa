@@ -10,6 +10,7 @@ import 'swiper/css/navigation';
 
 // import required modules
 import { Pagination, Navigation, Autoplay } from 'swiper/modules';
+import Image from 'next/image';
 
 export default function CompaniesSlider() {
   const [swiperRef, setSwiperRef] = useState(null);
@@ -59,11 +60,12 @@ export default function CompaniesSlider() {
                 }
               }}
             >
-              <img
+              <Image
                 src="amazon.svg"
                 alt=""
                 className="mx-auto"
-                style={{ width: '150px', height: '150px' }}
+                width={150}
+                height={150}
               />
             </SwiperSlide>
           ))}

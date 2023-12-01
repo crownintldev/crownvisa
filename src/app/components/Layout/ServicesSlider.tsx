@@ -11,6 +11,7 @@ import 'swiper/css/navigation';
 // import required modules
 import { Pagination, Navigation, Autoplay } from 'swiper/modules';
 import { BsFillArrowRightCircleFill } from 'react-icons/bs';
+import Image from 'next/image';
 
 export default function ServicesSlider() {
   const [swiperRef, setSwiperRef] = useState(null);
@@ -57,10 +58,12 @@ export default function ServicesSlider() {
             }}
           >
             <div>
-              <img
+              <Image
                 src="https://www.crownintltravels.com/wp-content/uploads/2023/09/3405911-936597760.jpg"
                 alt=""
                 className="cover-image hover:blur-sm group-hover:blur-sm"
+                width={400}
+                height={400}
               />
               <div className="group">
                 <BsFillArrowRightCircleFill

@@ -3,15 +3,18 @@ import Link from 'next/link';
 import NavLinks from './NavLinks';
 import { AiFillCloseCircle, AiOutlineMenuFold } from 'react-icons/ai';
 import { Button } from 'antd';
+import Image from 'next/image';
 const Navbar = () => {
   const [open, setOpen] = useState(false);
   return (
     <div className="flex justify-between items-center font-medium z-10 container mx-auto">
       <div className="py-5 flex justify-between lg:w-auto w-full">
-        <img
+        <Image
           src="https://kodesolution.com/html/2023/immigro-html/images/logo.png"
           alt=""
           className="bg-black pl-3"
+          width={100}
+          height={100}
         />
         <div className="text-3xl lg:hidden" onClick={() => setOpen(!open)}>
           <AiOutlineMenuFold />

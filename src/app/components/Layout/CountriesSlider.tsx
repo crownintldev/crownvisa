@@ -12,6 +12,7 @@ import 'swiper/css/navigation';
 import { Pagination, Navigation, Autoplay } from 'swiper/modules';
 import { Avatar } from 'antd';
 import { AiFillLeftCircle, AiFillRightCircle } from 'react-icons/ai';
+import Image from 'next/image';
 
 export default function CountriesSlider() {
   const [swiperRef, setSwiperRef] = useState(null);
@@ -71,19 +72,23 @@ export default function CountriesSlider() {
             }}
           >
             <div>
-              <img
+              <Image
                 src="https://www.crownintltravels.com/wp-content/uploads/2023/09/3405911-936597760.jpg"
                 alt=""
                 className="cover-image"
+                width={250}
+                height={250}
               />
               <div className="gradient-overlay"></div>
               <div className="centered-content">
                 <Avatar
                   className="absolute bottom-1/3 right-1/5 0group-hover:absolute transition-all duration-500"
                   src={
-                    <img
+                    <Image
                       src="https://www.crownintltravels.com/wp-content/uploads/2023/08/indonesia-512.webp"
                       alt="avatar"
+                      width={50}
+                      height={50}
                     />
                   }
                   size={85}

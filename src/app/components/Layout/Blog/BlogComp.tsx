@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import React from 'react';
 
 interface BlogCompProps {
@@ -18,7 +19,7 @@ const BlogComp: React.FC<BlogCompProps> = ({
       <div className="w-full px-4 md:w-1/2 lg:w-1/3">
         <div className="mb-10 w-full">
           <div className="mb-8 overflow-hidden rounded">
-            <img src={image} alt="" className="w-full" />
+            <Image src={image} alt="" className="w-full"  width={500} height={500} />
           </div>
           <div>
             {date && (

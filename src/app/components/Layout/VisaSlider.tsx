@@ -12,6 +12,7 @@ import "swiper/css/navigation";
 import { Pagination, Navigation, Autoplay } from "swiper/modules";
 import { Avatar, Badge, Button, Rate } from "antd";
 import { FaStar } from "react-icons/fa6";
+import Image from "next/image";
 
 const imgurl = [
   "https://www.crownintltravels.com/wp-content/uploads/2023/09/1000_F_100218316_WbRzPWf4xNTI2xUfljBxKv7R3RILjVq6-e1695710038465.jpg",
@@ -90,7 +91,7 @@ export default function VisaSlider() {
               <div className="border bg-white rounded-lg overflow-hidden max-w-sm p-5 my-5 relative border-2 border-white card-shadow">
                 <div className="relative">
                   <a href="/VisaDescription">
-                    <img
+                    <Image
                       src={imgurl[index]}
                       alt="Kuala Lumpur"
                       width={350}
@@ -100,9 +101,11 @@ export default function VisaSlider() {
                   </a>
                   <Avatar
                     src={
-                      <img
+                      <Image
                         src="https://www.crownintltravels.com/wp-content/uploads/2023/03/circle-flag-of-malaysia-free-png.webp"
                         alt="avatar"
+                        width={100}
+                        height={100}
                       />
                     }
                     size={35}

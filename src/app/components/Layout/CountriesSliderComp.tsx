@@ -10,6 +10,7 @@ import 'swiper/css/navigation';
 
 // import required modules
 import { Avatar } from 'antd';
+import Image from 'next/image';
 
 interface CardProps {
   index: number;
@@ -50,7 +51,7 @@ const CountriesSliderComp: React.FC<CardProps> = ({
         <Avatar
           className="absolute bottom-[40px] right-[110px] group-hover:absolute group-hover:bottom-[70px] transition-all duration-500"
           src={
-            <img
+            <Image
               src={flagUrl}
               alt={altText}
               //   src="https://www.crownintltravels.com/wp-content/uploads/2023/08/indonesia-512.webp"
