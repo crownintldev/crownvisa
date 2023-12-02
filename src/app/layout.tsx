@@ -1,11 +1,13 @@
 //@ts-nocheck
+import "@splidejs/splide/dist/css/splide.min.css";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
-import "./globals.css";
-import "@splidejs/splide/dist/css/splide.min.css";
 import "react-quill/dist/quill.snow.css";
-import QueryProvider from "./QueryProvider";
+import { ToastContainer } from 'react-toastify';
+import "react-toastify/dist/ReactToastify.css";
 import ContextProvider from "./ContextProvider";
+import QueryProvider from "./QueryProvider";
+import "./globals.css";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -23,7 +25,22 @@ export default function RootLayout({
     <html lang="en">
       <body className={inter.className}>
         <QueryProvider>
-          <ContextProvider>{children}</ContextProvider>
+          <ContextProvider>
+            <ToastContainer
+              position="top-right"
+              autoClose={5000}
+              hideProgressBar={false}
+              newestOnTop={false}
+              closeOnClick
+              rtl={false}
+              pauseOnFocusLoss
+              draggable
+              pauseOnHover
+              theme="light"
+            />
+            {children}
+            <ToastContainer />
+          </ContextProvider>
         </QueryProvider>
       </body>
     </html>

@@ -20,7 +20,7 @@ export const updatecountries = async (
   } else {
     const body = await req.json();
     console.log(body);
-    const { details, tagId, overview, countryname } = body;
+    const {title, details, tagId, overview, countryname } = body;
     try {
       const existingtagid = await prisma.tagType.findUnique({
         where: {
@@ -40,7 +40,7 @@ export const updatecountries = async (
         where: {
           id: parseInt(id, 10),
         },
-        data: { details, tagId, overview, countryname },
+        data: {title, details, tagId, overview, countryname },
       });
       return new NextResponse(
         JSON.stringify({ error: 'Country updated successfully' }),
