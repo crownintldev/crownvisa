@@ -38,15 +38,15 @@ const handleChange = (value: string) => {
   console.log(`selected ${value}`);
 };
 
-// const fetchCountryTypes = async () => {
-//   const { data } = await axios.get("/api/visaapi/countriestype");
-//   return data.countrytype;
-// };
+const fetchCountryTypes = async () => {
+  const { data } = await axios.get("/api/visaapi/countriestype");
+  return data.countrytype;
+};
 
-// const postCountryData = async (countryData) => {
-//   const response = await axios.post("/api/visaapi/countries", countryData);
-//   return response.data;
-// };
+const postCountryData = async (countryData) => {
+  const response = await axios.post("/api/visaapi/countries", countryData);
+  return response.data;
+};
 
 const CountriesForm: React.FC = () => {
   const router = useRouter();
@@ -56,43 +56,28 @@ const CountriesForm: React.FC = () => {
   const queryClient = useQueryClient();
   const [tagTypes, setTagTypes] = useState<TagType[]>([]); // New state variable
 
-  // // useQuery for initial data fetch
-  // const { data: countryTypesData } = useQuery("countryTypes", fetchCountryTypes, {
-  //   onSuccess: (data) => {
-  //     setTagTypes(data); // Update state when data is successfully fetched
-  //   },
-  // });
-
-  // Fetch country types on mount
-
-  useEffect(() => {
-    const fetchCountryTypes = async () => {
-      try {
-        const response = await axios.get("/api/visaapi/countriestype");
-        setTagTypes(response.data.countrytype);
-      } catch (error) {
-        console.error('Error fetching country types:', error);
-      }
-    };
-
-    fetchCountryTypes();
-  }, []);
+  // useQuery for initial data fetch
+  const { data: countryTypesData } = useQuery("countryTypes", fetchCountryTypes, {
+    onSuccess: (data) => {
+      setTagTypes(data); // Update state when data is successfully fetched
+    },
+  });
 
   const OverviewChange = (content: string) => {
     setText(content);
   };
 
-  // const mutation = useMutation(postCountryData, {
-  //   onSuccess: () => {
-  //     // Perform actions on successful data posting
-  //     console.log("Country data posted successfully");
-  //     router.push(`/VisaFormPage/VisaRequirementsPage`);
-  //   },
-  //   onError: (error) => {
-  //     // Handle any errors here
-  //     console.error("Error posting country data:", error);
-  //   },
-  // });
+  const mutation = useMutation(postCountryData, {
+    onSuccess: () => {
+      // Perform actions on successful data posting
+      console.log("Country data posted successfully");
+      router.push(`/VisaFormPage/VisaRequirementsPage`);
+    },
+    onError: (error) => {
+      // Handle any errors here
+      console.error("Error posting country data:", error);
+    },
+  });
 
   const onFinish = async (values: any) => {
     console.log("Success:", values);
@@ -105,14 +90,7 @@ const CountriesForm: React.FC = () => {
       countryname: values.countryname,
     };
     console.log(countrydata);
-    try {
-      await axios.post("/api/visaapi/countries", countrydata);
-      console.log("Country data posted successfully");
-      router.push(`/VisaFormPage/VisaRequirementsPage`);
-    } catch (error) {
-      console.error("Error posting country data:", error);
-    }
-    // mutation.mutate(countrydata);
+    mutation.mutate(countrydata);
   };
   return (
     <div className="flex justify-center flex-col items-center h-screen">

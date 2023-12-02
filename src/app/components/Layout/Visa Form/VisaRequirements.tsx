@@ -36,42 +36,25 @@ const VisaRequirements: React.FC = () => {
     }
   }, [title]);
 
-  // const fetchCountryData = async () => {
-  //   const { data } = await axios.get(`/api/visaapi/countries/title/${title}`);
-  //   console.log(data.country.id);
-  //   return data.country.id;
-  // };
+  const postVisaRequirements = async (VisaRequirements) => {
+    const response = await axios.post(
+      "/api/visaapi/visarequirements",
+      VisaRequirements
+    );
+    return response.data;
+  };
 
-  // const queryClient = useQueryClient();
-  // // useQuery for initial data fetch and to provide queryClient with the data
-  // useQuery("countryData", fetchCountryData, {
-  //   onSuccess: (data) => {
-  //     // Set query data manually
-  //     queryClient.setQueryData("countryData", data);
-  //   },
-  // });
-  // const countrydata = queryClient.getQueryData("countryData");
-  // console.log(countrydata);
-
-  // const postVisaRequirements = async (VisaRequirements) => {
-  //   const response = await axios.post(
-  //     "/api/visaapi/visarequirements",
-  //     VisaRequirements
-  //   );
-  //   return response.data;
-  // };
-
-  // const mutation = useMutation(postVisaRequirements, {
-  //   onSuccess: () => {
-  //     // Perform actions on successful data posting
-  //     console.log("Country data posted successfully");
-  //     //   router.push(`/VisaRequirementsPage?title=${encodeURIComponent(values.title)}`);
-  //   },
-  //   onError: (error) => {
-  //     // Handle any errors here
-  //     console.error("Error posting country data:", error);
-  //   },
-  // });
+  const mutation = useMutation(postVisaRequirements, {
+    onSuccess: () => {
+      // Perform actions on successful data posting
+      console.log("Country data posted successfully");
+      //   router.push(`/VisaRequirementsPage?title=${encodeURIComponent(values.title)}`);
+    },
+    onError: (error) => {
+      // Handle any errors here
+      console.error("Error posting country data:", error);
+    },
+  });
 
   const onSubmitVisaRequirements = async(values: any) => {
     console.log("onSubmitVisaRequirements" + values);
@@ -79,33 +62,17 @@ const VisaRequirements: React.FC = () => {
     const items = values.items;
     console.log("Items:", items);
     // You can now process each item as needed
-    // items.forEach((item, index) => {
-    //   console.log(`Item ${index + 1}:`, item.title);
-    //   const VisaRequirementsData = {
-    //     title: item.title,
-    //     description: item.description,
-    //     countryid: countrydata,
-    //   };
-    //   console.log(VisaRequirementsData);
-    //   mutation.mutate(VisaRequirementsData);
-    // });
-    // router.push(`/VisaFormPage/TravelItineraryPage`);
-    try {
-      for (const item of items) {
-        console.log(`Item:`, item.title);
-        const VisaRequirementsData = {
-          title: item.title,
-          description: item.description,
-          countryid: countryData,
-        };
-        console.log(VisaRequirementsData);
-        await axios.post("/api/visaapi/visarequirements", VisaRequirementsData);
-      }
-      console.log("Country data posted successfully");
-      router.push(`/VisaFormPage/TravelItineraryPage`);
-    } catch (error) {
-      console.error("Error posting country data:", error);
-    }
+    items.forEach((item, index) => {
+      console.log(`Item ${index + 1}:`, item.title);
+      const VisaRequirementsData = {
+        title: item.title,
+        description: item.description,
+        countryid: countryData,
+      };
+      console.log(VisaRequirementsData);
+      mutation.mutate(VisaRequirementsData);
+    });
+    router.push(`/VisaFormPage/TravelItineraryPage`);
   };
 
   const OverviewChange = (content: string) => {
