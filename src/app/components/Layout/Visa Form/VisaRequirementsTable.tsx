@@ -10,29 +10,25 @@ import { useRouter } from "next/navigation";
 interface DataType {
   key: number;
   title: string;
-  details: string;
-  tags: string[];
-  countryname: string;
-  overview: string;
+  description: string;
+  country:string;
 }
 
-interface TagType {
+interface VisaRequirements{
+    key: string;
+    id: number;
+    title: string;
+    description: string;
+    countryid: number;
+    countries:CountryType[];
+  }
+
+interface CountryType {
   id: number;
   title: string;
 }
 
-interface Country {
-  key: string;
-  id: number;
-  title: string;
-  details: string;
-  tagId: number;
-  overview: string;
-  countryname: string;
-  tag: TagType;
-}
-
-const CountriesTable: React.FC = () => {
+const VisaRequirementsTable: React.FC = () => {
   const [data, setData] = useState<DataType[]>([]);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedId, setSelectedId] = useState<number | null>(null);
@@ -42,25 +38,18 @@ const CountriesTable: React.FC = () => {
     const fetchData = async () => {
       console.log("Selected ID:", selectedId);
       try {
-        const countryTypesResponse = await axios.get(
-          "/api/visaapi/countriestype"
-        );
-        const countriesResponse = await axios.get("/api/visaapi/countries");
+        const visarequirementsResponse = await axios.get("/api/visaapi/visarequirements");
+        const visarequirementsdata = visarequirementsResponse.data.visaRequirements;
+        console.log("visarequirements data:", visarequirementsdata);
 
-        const countryTypesData = countryTypesResponse.data.countrytype;
-        const countriesData = countriesResponse.data.countries;
-
-        const transformedData = countriesData.map((country: Country) => {
-          const tagType = countryTypesData.find(
-            (tag: TagType) => tag.id === country.tagId
-          );
+        const transformedData = visarequirementsdata.map((data: VisaRequirements) => {
+        //   const tagType = countryTypesData.find(
+        //     (tag: TagType) => tag.id === country.tagId
+        //   );
           return {
-            key: country.id,
-            title: country.title,
-            details: country.details,
-            tags: tagType ? [tagType.title] : [],
-            countryname: country.countryname,
-            overview: country.overview,
+            key: data.id,
+            title: data.title,
+            description: data.description,
           };
         });
         setData(transformedData);
@@ -96,57 +85,21 @@ const CountriesTable: React.FC = () => {
 
   const columns: ColumnsType<DataType> = [
     {
-      title: "Name",
+      title: "Title",
       dataIndex: "title",
       key: "title",
       render: (text) => <a>{text}</a>,
     },
     {
-      title: "Address",
-      dataIndex: "details",
-      key: "details",
-    },
-    {
-      title: "Tags",
-      key: "tags",
-      dataIndex: "tags",
-      render: (_, { tags }) => (
-        <>
-          {tags.map((tag) => {
-            let color = tag.length > 5 ? "geekblue" : "green";
-            if (tag === "loser") {
-              color = "volcano";
-            }
-            return (
-              <Tag color={color} key={tag}>
-                {tag.toUpperCase()}
-              </Tag>
-            );
-          })}
-        </>
-      ),
-    },
-    {
-      title: "country name",
-      key: "countryname",
-      dataIndex: "countryname",
-    },
-    {
-      title: "overview",
-      key: "overview",
-      dataIndex: "overview",
+      title: "Description",
+      dataIndex: "description",
+      key: "description",
     },
     {
       title: "Action",
       key: "action",
       render: (_, record: DataType) => (
         <Space size="middle">
-          <Button type="primary" className="bg-blue-700">
-            Visa Requirements
-          </Button>
-          <Button type="primary" className="bg-blue-700">
-            Travel Itinerary
-          </Button>
           <Button
             type="primary"
             className="bg-green-700"
@@ -179,7 +132,7 @@ const CountriesTable: React.FC = () => {
           Travel Itinerary
         </Button>
       </div>
-      <Table columns={columns} dataSource={data} bordered={true} className="mx-3" />{" "}
+      <Table columns={columns} dataSource={data} bordered />{" "}
       <CustomModal
         isOpen={isModalOpen}
         onClose={handleCloseModal}
@@ -189,4 +142,4 @@ const CountriesTable: React.FC = () => {
   );
 };
 
-export default CountriesTable;
+export default VisaRequirementsTable;

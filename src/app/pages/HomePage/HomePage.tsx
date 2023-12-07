@@ -22,12 +22,11 @@ export default function HomePage() {
       <HeaderComp />
       <HeroSectionComp />
       <div className="container mx-auto flex flex-col my-3 px-4">
-      <a href="http://localhost:3000/VisaFormPage/CountriesFormPage">click  </a>
-
         <h2 className="font-bold lg:text-[25px] md:text-[15px] text-center my-3">
           We Have Authorized Embassy Visa Application Centre & Dropbox
         </h2>
         <VisaSlider />
+        <CompaniesSlider />
         <div className="flex justify-center">
           <Button type="primary" className="bg-black">
             Explore All Visas
@@ -51,7 +50,6 @@ export default function HomePage() {
         <TestinominalComp />
         <Blog />
         <FaqComp />
-        <CompaniesSlider />
         <Newsletter />
       </div>
       <FooterComp />
