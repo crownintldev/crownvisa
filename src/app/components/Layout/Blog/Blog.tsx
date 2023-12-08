@@ -4,11 +4,11 @@ import BlogComp from "./BlogComp";
 const Blog = () => {
   return (
     <>
-      <section className="bg-white pb-10 pt-20 dark:bg-dark lg:pb-20 lg:pt-[120px]">
+      <section className="bg-white dark:bg-dark mb-10">
         <div className="container">
           <div className="-mx-4 flex flex-wrap">
             <div className="w-full px-4">
-              <div className="mx-auto mb-[60px] max-w-[510px] text-center lg:mb-20">
+              <div className="mx-auto max-w-[510px] text-center mb-5">
                 <h2 className="mb-4 text-3xl font-bold text-dark sm:text-4xl md:text-[40px]">
                   Our Recent Blogs
                 </h2>
