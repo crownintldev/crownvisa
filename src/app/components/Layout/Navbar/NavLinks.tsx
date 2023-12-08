@@ -12,7 +12,7 @@ const NavLinks = () => {
         <div key={link.id} className="px-3">
           <div className="md:cursor-pointer group">
             <h2
-              className="py-7 flex justify-between items-center md:pr-0 group"
+              className="py-1 flex justify-between items-center md:pr-0 group"
               onClick={() => {
                 heading !== link.name ? setHeading(link.name) : setHeading('');
                 setSubHeading('');

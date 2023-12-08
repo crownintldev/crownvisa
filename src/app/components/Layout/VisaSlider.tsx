@@ -148,11 +148,11 @@ export default function VisaSlider() {
                       </h2>
                       <div className="flex space-x-2 mx-2">
                         <div className="flex  items-center  space-x-1">
-                          <FaStar className="text-yellow-500" size={13} />
-                          <FaStar className="text-yellow-500" size={13} />
-                          <FaStar className="text-yellow-500" size={13} />
-                          <FaStar className="text-yellow-500" size={13} />
-                          <FaStar className="text-yellow-500" size={13} />
+                          <FaStar className="text-[#FFC224]" size={13} />
+                          <FaStar className="text-[#FFC224]" size={13} />
+                          <FaStar className="text-[#FFC224]" size={13} />
+                          <FaStar className="text-[#FFC224]" size={13} />
+                          <FaStar className="text-[#FFC224]" size={13} />
                         </div>
                       </div>
                     </div>

@@ -43,7 +43,7 @@ const Newsletter = () => {
               <div>
                 <button
                   type="submit"
-                  className="py-3 px-5 w-full text-sm font-medium text-center text-white rounded-lg border cursor-pointer bg-primary-700 border-primary-600 sm:rounded-none sm:rounded-r-lg hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 "
+                  className="py-3 px-5 w-full text-sm font-medium text-center text-black rounded-lg border cursor-pointer bg-[#FFC224] border-[#FFC224] sm:rounded-none sm:rounded-r-lg focus:ring-4 focus:ring-primary-300 "
                 >
                   Subscribe
                 </button>
@@ -53,7 +53,7 @@ const Newsletter = () => {
               We care about the protection of your data.{' '}
               <a
                 href="#"
-                className="font-medium text-primary-600 dark:text-primary-500 hover:underline"
+                className="font-medium text-[#FFC224] dark:text-primary-500 hover:underline"
               >
                 Read our Privacy Policy
               </a>

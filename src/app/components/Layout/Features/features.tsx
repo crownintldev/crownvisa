@@ -27,7 +27,7 @@ const Features = () => {
   }, []);
 
   return (
-    <>
+    <div className='mb-10'>
       <h2 className="font-bold text-[25px] mb-5 text-center">
         WHY Choose CROWN INTERNATIONAL TRAVELS
       </h2>
@@ -69,7 +69,7 @@ const Features = () => {
           </div>
         </div>
       </div>
-    </>
+    </div>
   );
 };
 

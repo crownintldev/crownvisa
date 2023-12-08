@@ -2,8 +2,8 @@ import React from 'react';
 
 const PriceComp = () => {
   return (
-    <section className="">
-      <div className="py-8 px-4 mx-auto max-w-screen-xl lg:py-16 lg:px-6">
+    <section className="mb-10">
+      <div className="px-4 mx-auto max-w-screen-xl lg:px-6">
         <div className="mx-auto max-w-screen-md text-center mb-8 lg:mb-12">
           <h2 className="mb-4 text-4xl tracking-tight font-extrabold text-gray-900">
             Designed for business teams like yours
@@ -116,7 +116,7 @@ const PriceComp = () => {
             </ul>
             <a
               href="#"
-              className="text-white bg-primary-600 hover:bg-primary-700 focus:ring-4 focus:ring-primary-200 font-medium rounded-lg text-sm px-5 py-2.5 text-center"
+              className="text-black bg-[#FFC224] focus:ring-4 focus:ring-primary-200 font-medium rounded-lg text-sm px-5 py-2.5 text-center"
             >
               Get started
             </a>
@@ -224,7 +224,7 @@ const PriceComp = () => {
             </ul>
             <a
               href="#"
-              className="text-white bg-primary-600 hover:bg-primary-700 focus:ring-4 focus:ring-primary-200 font-medium rounded-lg text-sm px-5 py-2.5 text-center"
+              className="text-black bg-[#FFC224] focus:ring-4 focus:ring-primary-200 font-medium rounded-lg text-sm px-5 py-2.5 text-center"
             >
               Get started
             </a>
@@ -332,7 +332,7 @@ const PriceComp = () => {
             </ul>
             <a
               href="#"
-              className="text-white bg-primary-600 hover:bg-primary-700 focus:ring-4 focus:ring-primary-200 font-medium rounded-lg text-sm px-5 py-2.5 text-center"
+              className="text-black bg-[#FFC224] focus:ring-4 focus:ring-primary-200 font-medium rounded-lg text-sm px-5 py-2.5 text-center"
             >
               Get started
             </a>
