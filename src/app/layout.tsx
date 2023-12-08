@@ -7,7 +7,6 @@ import { ToastContainer } from 'react-toastify';
 import "react-toastify/dist/ReactToastify.css";
 import ContextProvider from "./ContextProvider";
 import QueryProvider from "./QueryProvider";
-import { SpeedInsights } from '@vercel/speed-insights/next';
 import "./globals.css";
 
 const inter = Inter({ subsets: ["latin"] });
@@ -40,7 +39,6 @@ export default function RootLayout({
               theme="light"
             />
             {children}
-            <SpeedInsights />
             <ToastContainer />
           </ContextProvider>
         </QueryProvider>
