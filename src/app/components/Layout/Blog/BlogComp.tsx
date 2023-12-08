@@ -1,5 +1,6 @@
-import Image from 'next/image';
-import React from 'react';
+import { Badge } from "antd";
+import Image from "next/image";
+import React from "react";
 
 interface BlogCompProps {
   image: string;
@@ -18,15 +19,22 @@ const BlogComp: React.FC<BlogCompProps> = ({
     <>
       <div className="w-full px-4 md:w-1/2 lg:w-1/3">
         <div className="mb-10 w-full">
-          <div className="mb-8 overflow-hidden rounded">
-            <Image src={image} alt="" className="w-full"  width={500} height={500} />
+          <div className="mb-8 rounded hover:scale-105 transition-all">
+            <Badge.Ribbon
+              text={date}
+              color="#FFC224"
+              className="p-1 pr-3"
+            >
+              <Image
+                src={image}
+                alt=""
+                className="w-full"
+                width={500}
+                height={500}
+              />
+            </Badge.Ribbon>
           </div>
           <div>
-            {date && (
-              <span className="mb-5 inline-block rounded bg-primary px-4 py-1 text-center text-xs font-semibold leading-loose">
-                {date}
-              </span>
-            )}
             <h3>
               <a
                 href="/#"

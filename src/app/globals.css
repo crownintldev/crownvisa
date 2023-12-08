@@ -202,3 +202,7 @@ body {
 .parent-div:hover .gradient-overlay {
   background: none; /* Remove background gradient when parent is hovered */
 }
+
+:where(.css-dev-only-do-not-override-xu9wm8).ant-ribbon .ant-ribbon-text{
+  color:black
+}

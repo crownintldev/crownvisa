@@ -41,8 +41,8 @@ const Services = () => {
   ];
 
   return (
-    <>
-      <h2 className="font-bold text-[25px] text-center my-3">Services</h2>
+    <div className='mb-10'>
+      <h2 className="font-bold text-[25px] text-center">Services</h2>
       <div className={`flex ${services.length > 1 ? 'flex-wrap justify-center' : 'justify-center'} my-3`}>
         {services.map((service, index) => (
           <div key={index} className="lg:w-1/4 md:w-1/2 w-full p-2">
@@ -54,7 +54,7 @@ const Services = () => {
           </div>
         ))}
       </div>
-    </>
+    </div>
   );
 };
 

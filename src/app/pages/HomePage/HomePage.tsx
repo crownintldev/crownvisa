@@ -12,9 +12,10 @@ import Blog from '@/app/components/Layout/Blog/Blog';
 import CompaniesSlider from '@/app/components/Layout/CompaniesSlider';
 import Newsletter from '@/app/components/Layout/Newsletter';
 import FooterComp from '@/app/components/Layout/footer';
-import StatsComponent from '@/app/components/Layout/StatsComp';
+import StatsComponent from '@/app/components/Layout/Stats/StatsComp';
 import Services from '@/app/components/Layout/Services/Services';
 import FaqComp from '@/app/components/Layout/FaqComp';
+import Stats from '@/app/components/Layout/Stats/Stats';
 
 export default function HomePage() {
   return (
@@ -27,12 +28,12 @@ export default function HomePage() {
         </h2>
         <VisaSlider />
         <CompaniesSlider />
-        <div className="flex justify-center">
+        {/* <div className="flex justify-center">
           <Button type="primary" className="bg-black">
             Explore All Visas
           </Button>
-        </div>
-        <div className="flex justify-center items-center w-full mt-5">
+        </div> */}
+        {/* <div className="flex justify-center items-center w-full mt-5">
           <Input placeholder="Track Your Passport" className="w-[60%]" />
           <Button
             type="primary"
@@ -40,9 +41,9 @@ export default function HomePage() {
           >
             Submit
           </Button>
-        </div>
+        </div> */}
         <Services />
-        <StatsComponent />
+        <Stats/>
         <ServicesSlider />
         <CountriesSlider />
         <Features />

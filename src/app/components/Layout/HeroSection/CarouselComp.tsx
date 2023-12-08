@@ -34,18 +34,18 @@ const CarouselComp: React.FC<CarouselProps> = ({ images, duration = 3000 }) => {
       <Image
         src={images[activeIndex]}
         alt="carousel-item"
-        className="w-full h-[600px] rounded-[50px]"
+        className="w-full h-[600px] rounded-[30px]"
         width={600}
         height={600}
       />
       <button
         onClick={goToPrevious}
-        className="absolute top-1/2 left-[20px] p-2 border rounded-xl hover:bg-white duration-200 transition text-white hover:text-blue-500"
+        className="absolute top-1/2 left-[20px] p-2 border rounded-xl hover:bg-white duration-200 transition text-white hover:text-[#FFC224]"
       >
-        <FaArrowLeft  size={30}  />
+        <FaArrowLeft  size={25}  />
       </button>
-      <button onClick={goToNext} className="absolute top-1/2 right-[20px] p-2 border rounded-xl hover:bg-white duration-200 transition text-white hover:text-blue-500">
-        <FaArrowRight size={30} />
+      <button onClick={goToNext} className="absolute top-1/2 right-[20px] p-2 border rounded-xl hover:bg-white duration-200 transition text-white hover:text-[#FFC224]">
+        <FaArrowRight size={25} />
       </button>
     </div>
   );

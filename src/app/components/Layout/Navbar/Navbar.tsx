@@ -1,15 +1,14 @@
-import React, { useState } from 'react';
-import Link from 'next/link';
-import NavLinks from './NavLinks';
-import { AiFillCloseCircle, AiOutlineMenuFold } from 'react-icons/ai';
 import { Button } from 'antd';
-import Image from 'next/image';
+import Link from 'next/link';
+import { useState } from 'react';
+import { AiFillCloseCircle, AiOutlineMenuFold } from 'react-icons/ai';
+import NavLinks from './NavLinks';
 const Navbar = () => {
   const [open, setOpen] = useState(false);
   return (
-    <div className="flex justify-between items-center font-medium z-10 container mx-auto">
-      <div className="py-5 flex justify-between lg:w-auto w-full">
-        <h1 className='text-[35px] color-blue-700 font-bold'>Crown Travels</h1>
+    <div className="flex justify-between items-center z-10 font-medium container mx-auto">
+      <div className="py-1 flex justify-between lg:w-auto w-full">
+        <h1 className='text-[35px] text-[#FFC224] font-bold'>Crown Travels</h1>
         <div className="text-3xl lg:hidden" onClick={() => setOpen(!open)}>
           <AiOutlineMenuFold />
         </div>
@@ -17,13 +16,13 @@ const Navbar = () => {
       <div>
         <ul className="lg:flex hidden uppercase items-center gap-8 font-[Poppins]">
           <li>
-            <Link href="/" className="py-7 px-3 inline-block">
+            <Link href="/" className="py-1 px-3 inline-block">
               Home
             </Link>
-            <Link href="/AboutPage" className="py-7 px-3 inline-block">
+            <Link href="/AboutPage" className="py-1 px-3 inline-block">
               About
             </Link>
-            <Link href="/ContactPage" className="py-7 px-3 inline-block">
+            <Link href="/ContactPage" className="py-1 px-3 inline-block">
               Contact
             </Link>
           </li>
@@ -31,7 +30,7 @@ const Navbar = () => {
         </ul>
       </div>
       <div className="lg:block hidden">
-        <Button className="btn bg-blue-700 text-white mr-3 flex justify-center items-center lg:p-[20px] md:p-[5px] rounded-3xl" href='/AuthPage'>
+        <Button className="btn bg-[#FFC224] text-black mr-3 flex justify-center items-center lg:p-[10px] md:p-[5px] rounded-3xl" href='/AuthPage'>
           Get Started
         </Button>
       </div>
@@ -62,8 +61,8 @@ const Navbar = () => {
           </li>
           <NavLinks />
           <div className="py-5">
-            <Button className="btn bg-blue-700 text-white mr-3 flex justify-center items-center lg:p-[20px] md:p-[5px] rounded-3xl">
-              Default Button
+            <Button className="btn bg-[#FFC224] text-black mr-3 flex justify-center items-center lg:p-[20px] md:p-[5px] rounded-3xl">
+             Get Started
             </Button>
           </div>
         </ul>

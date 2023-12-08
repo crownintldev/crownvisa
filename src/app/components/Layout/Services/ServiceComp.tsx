@@ -1,5 +1,4 @@
 // components/ServiceCard.tsx
-import { Button } from "antd";
 import React from "react";
 
 interface Props {
@@ -10,16 +9,6 @@ interface Props {
 
 const ServiceComp: React.FC<Props> = ({ icon, title, description }) => {
   return (
-    // <div className="card flex justify-center items-center flex-col bg-white hover:scale-105">
-    //   <div className="icon">{icon}</div>
-    //   <h2 className="title">{title}</h2>
-    //   <p className="description">{description}</p>
-    //   <div>
-    //     <Button type="primary" className="bg-black">
-    //       Details
-    //     </Button>
-    //   </div>
-    // </div>
     <div className="max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 hover:scale-105">
       {icon}
       <a href="#">
@@ -32,7 +21,7 @@ const ServiceComp: React.FC<Props> = ({ icon, title, description }) => {
       </p>
       <a
         href="#"
-        className="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+        className="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-black bg-[#FFC224] rounded-lg focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
       >
         Read more
         <svg

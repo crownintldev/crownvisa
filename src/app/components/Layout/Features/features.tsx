@@ -29,7 +29,7 @@ const Features = () => {
   return (
     <>
       <h2 className="font-bold text-[25px] mb-5 text-center">
-        WHY CROWN INTERNATIONAL TRAVELS
+        WHY Choose CROWN INTERNATIONAL TRAVELS
       </h2>
       <div className="grid grid-cols-12 gap-6">
         <div
@@ -40,28 +40,28 @@ const Features = () => {
           <div className="grid grid-cols-12 gap-6">
             <div className="md:col-span-6 col-span-6">
               <FeatureComponents
-                icon={<CiTimer />}
+                icon={<CiTimer size={40} />}
                 title="EMERGENCY SERVICES"
                 description="We are available to serve our clients 24/7 for any emergency travel needs, accessible via mobile."
               />
             </div>
             <div className="md:col-span-6 col-span-6">
               <FeatureComponents
-                icon={<MdFlightTakeoff />}
+                icon={<MdFlightTakeoff size={40} />}
                 title="CHARTERED AIR FLIGHTS"
                 description="Crown International Aviation, in partnership with its affiliates, offers air ambulance and small plane services."
               />
             </div>
             <div className="md:col-span-6 col-span-6">
               <FeatureComponents
-                icon={<FaUsers />}
+                icon={<FaUsers size={40} />}
                 title="B2B SERVICES"
                 description="We offer competitive airfares for worldwide destinations, empowering travel agents to increase profitability."
               />
             </div>
             <div className="md:col-span-6 col-span-6">
               <FeatureComponents
-                icon={<TbWorld />}
+                icon={<TbWorld size={40} />}
                 title="World Wide Tours"
                 description="At Crown International, we specialize in designing holiday and tour packages tailored to our clients’ needs and preferences."
               />

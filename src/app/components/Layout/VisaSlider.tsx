@@ -47,12 +47,12 @@ export default function VisaSlider() {
   const buttonClass = (index) =>
     `${
       index === activeIndex
-        ? "text-blue-700 hover:text-white border border-blue-600 bg-white hover:bg-blue-700 focus:ring-4 focus:outline-none focus:ring-blue-300 rounded-full text-base font-medium px-5 py-2.5 text-center me-3 mb-3 dark:border-blue-500 dark:text-blue-500 dark:hover:text-white dark:hover:bg-blue-500 dark:bg-gray-900 dark:focus:ring-blue-800"
-        : "text-gray-900 border border-white hover:border-gray-200 dark:border-gray-900 dark:bg-gray-900 dark:hover:border-gray-700 bg-white focus:ring-4 focus:outline-none focus:ring-gray-300 rounded-full text-base font-medium px-5 py-2.5 text-center me-3 mb-3 dark:text-white dark:focus:ring-gray-800"
+        ? "text-black border border-[#FFC224] bg-[#FFC224] focus:ring-4 focus:outline-none focus:ring-blue-300 rounded-full text-base font-medium px-4 py-1.5 text-center me-3 mb-3 dark:border-blue-500 dark:text-blue-500 dark:hover:bg-blue-500 dark:bg-gray-900 dark:focus:ring-blue-800"
+        : "text-gray-900 border border-white hover:border-gray-200 dark:border-gray-900 dark:bg-gray-900 dark:hover:border-gray-700 bg-white focus:ring-4 focus:outline-none focus:ring-gray-300 rounded-full text-base font-medium px-4 py-1.5 text-center me-3 mb-3 dark:text-white dark:focus:ring-gray-800"
     }`;
 
   return (
-    <div>
+    <div className="mb-10">
       <div className="flex justify-center my-2">
         <button
           type="button"
@@ -102,25 +102,25 @@ export default function VisaSlider() {
         className="mySwiper container mx-auto px-4"
       >
         {[...Array(13)].map((_, index) => (
-          <SwiperSlide key={index - 1}>
+          <SwiperSlide key={index - 1} >
             <div className=" max-w-sm my-5 relative">
-              <div className="relative hover:scale-105">
+              <div className="relative hover:scale-105 transition-all">
                 <a href="/VisaDescription">
                   <Badge.Ribbon
                     text="Visa Application Center"
-                    color="#D6AA33"
-                    className="p-1"
+                    color="#FFC224"
+                    className="p-1 pr-3"
                   >
                     <Image
                       src={imgurl[index]}
                       alt="Kuala Lumpur"
                       width={350}
                       height={250}
-                      className="rounded-lg transition duration-300 w-full"
+                      className="rounded-xl transition duration-300 w-full"
                     />
                   </Badge.Ribbon>
                 </a>
-                <div className="absolute bottom-[-10px] right-[25px]  bg-white p-2 rounded-full">
+                <div className="absolute bottom-[-10px] right-[25px]  bg-white p-[2px] rounded-full shadow">
                   <Avatar
                     src={
                       <Image
@@ -130,7 +130,7 @@ export default function VisaSlider() {
                         height={100}
                       />
                     }
-                    size={45}
+                    size={55}
                   />
                 </div>
               </div>
