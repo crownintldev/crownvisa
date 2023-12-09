@@ -1,8 +1,7 @@
 //@ts-nocheck
 "use client";
-import React, { useEffect, useRef } from "react";
 import lottie from "lottie-web";
-import { Button } from "antd";
+import { useEffect, useRef } from "react";
 import CarouselComp from "./CarouselComp";
 
 const images = [

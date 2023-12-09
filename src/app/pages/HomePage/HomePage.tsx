@@ -1,21 +1,19 @@
-'use client';
-import { Button, Input } from 'antd';
-import HeaderComp from '@/app/components/Layout/Navbar/header';
-import HeroSectionComp from '@/app/components/Layout/HeroSection/HeroSectionComp';
-import VisaSlider from '@/app/components/Layout/VisaSlider';
-import ServicesSlider from '@/app/components/Layout/ServicesSlider';
-import CountriesSlider from '@/app/components/Layout/CountriesSlider';
-import Features from '@/app/components/Layout/Features/features';
-import PriceComp from '@/app/components/Layout/PriceComp';
-import TestinominalComp from '@/app/components/Layout/TestinominalComp';
-import Blog from '@/app/components/Layout/Blog/Blog';
-import CompaniesSlider from '@/app/components/Layout/CompaniesSlider';
-import Newsletter from '@/app/components/Layout/Newsletter';
-import FooterComp from '@/app/components/Layout/footer';
-import StatsComponent from '@/app/components/Layout/Stats/StatsComp';
-import Services from '@/app/components/Layout/Services/Services';
-import FaqComp from '@/app/components/Layout/FaqComp';
-import Stats from '@/app/components/Layout/Stats/Stats';
+"use client";
+import Blog from "@/app/components/Layout/Blog/Blog";
+import CompaniesSlider from "@/app/components/Layout/CompaniesSlider";
+import CountriesSlider from "@/app/components/Layout/CountriesSlider";
+import FaqComp from "@/app/components/Layout/FaqComp";
+import Features from "@/app/components/Layout/Features/features";
+import HeroSectionComp from "@/app/components/Layout/HeroSection/HeroSectionComp";
+import HeaderComp from "@/app/components/Layout/Navbar/header";
+import Newsletter from "@/app/components/Layout/Newsletter";
+import PriceComp from "@/app/components/Layout/PriceComp";
+import Services from "@/app/components/Layout/Services/Services";
+import ServicesSlider from "@/app/components/Layout/ServicesSlider";
+import Stats from "@/app/components/Layout/Stats/Stats";
+import TestinominalComp from "@/app/components/Layout/TestinominalComp";
+import VisaSlider from "@/app/components/Layout/VisaSlider";
+import FooterComp from "@/app/components/Layout/footer";
 
 export default function HomePage() {
   return (
@@ -43,7 +41,7 @@ export default function HomePage() {
           </Button>
         </div> */}
         <Services />
-        <Stats/>
+        <Stats />
         <ServicesSlider />
         <CountriesSlider />
         <Features />

@@ -1,11 +1,10 @@
 "use client";
-import React, { useEffect, useState } from "react";
-import { Button, Space, Table, Tag } from "antd";
+import { Button, Space, Table } from "antd";
 import type { ColumnsType } from "antd/es/table";
 import axios from "axios";
-import { useQuery } from "react-query";
-import CustomModal from "../CustomModel";
 import { useRouter } from "next/navigation";
+import React, { useEffect, useState } from "react";
+import CustomModal from "../CustomModel";
 
 interface DataType {
   key: number;

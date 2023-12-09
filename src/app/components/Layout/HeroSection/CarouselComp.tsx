@@ -1,10 +1,5 @@
 import Image from "next/image";
-import React, { useState, useEffect } from "react";
-import { AiFillLeftCircle, AiFillRightCircle } from "react-icons/ai";
-import {
-  BsFillArrowLeftCircleFill,
-  BsFillArrowRightCircleFill,
-} from "react-icons/bs";
+import React, { useEffect, useState } from "react";
 import { FaArrowRight } from "react-icons/fa";
 import { FaArrowLeft } from "react-icons/fa6";
 

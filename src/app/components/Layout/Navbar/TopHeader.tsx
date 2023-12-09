@@ -1,8 +1,6 @@
-import React from "react";
-import { AiOutlineGooglePlus, AiOutlineTwitter } from "react-icons/ai";
 import { BiLogoFacebook } from "react-icons/bi";
 import { BsTelephoneFill, BsWhatsapp } from "react-icons/bs";
-import { FaInstagram, FaLinkedinIn } from "react-icons/fa6";
+import { FaInstagram } from "react-icons/fa6";
 import { MdEmail } from "react-icons/md";
 
 const TopHeader = () => {
