@@ -18,7 +18,7 @@ export default function CompaniesSlider() {
   return (
     <div className='mb-10'>
       <div className="flex justify-center items center">
-        <h2 className="text-[25px] font-bold">Our Clients & Partners</h2>
+        <h2 className="text-[25px] font-bold mb-3">Our Clients & Partners</h2>
       </div>
       <div className="companies-slider">
         <Swiper
