@@ -5,6 +5,7 @@ import { Inter } from "next/font/google";
 import "react-quill/dist/quill.snow.css";
 import { ToastContainer } from 'react-toastify';
 import "react-toastify/dist/ReactToastify.css";
+import 'keen-slider/keen-slider.min.css';
 import ContextProvider from "./ContextProvider";
 import QueryProvider from "./QueryProvider";
 import "./globals.css";

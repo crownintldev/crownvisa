@@ -11,7 +11,7 @@ import PriceComp from "@/app/components/Layout/PriceComp";
 import Services from "@/app/components/Layout/Services/Services";
 import ServicesSlider from "@/app/components/Layout/ServicesSlider";
 import Stats from "@/app/components/Layout/Stats/Stats";
-import TestinominalComp from "@/app/components/Layout/TestinominalComp";
+import Testinominal from "@/app/components/Layout/Testinominal/Testinominal";
 import VisaSlider from "@/app/components/Layout/VisaSlider";
 import FooterComp from "@/app/components/Layout/footer";
 
@@ -46,7 +46,7 @@ export default function HomePage() {
         <CountriesSlider />
         <Features />
         <PriceComp />
-        <TestinominalComp />
+        <Testinominal />
         <Blog />
         <FaqComp />
         <Newsletter />
