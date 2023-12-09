@@ -19,7 +19,7 @@ const Features = () => {
       loop: true,
       autoplay: true,
       // Here, include the path to your Lottie JSON file
-      path: 'Animation - 1698671406291.json',
+      path: 'Animations/Animation - 1698671406291.json',
     });
     anim.current.setSpeed(1);
 

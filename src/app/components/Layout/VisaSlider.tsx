@@ -30,6 +30,23 @@ const imgurl = [
   "https://www.crownintltravels.com/wp-content/uploads/2023/09/1000_F_100218316_WbRzPWf4xNTI2xUfljBxKv7R3RILjVq6-e1695710038465.jpg",
 ];
 
+const title=[
+  "Malaysian Visa",
+  "Vietnam Visa",
+  "Indonesian Visa",
+  "Thailand Visa",
+  "Singapore Visa",
+  "SriLanka Visa",
+  "Nepal Visa",
+  "Cambodia Visa",
+  "Azerbaijan Visa",
+  "Tajikistan Visa",
+  "Uzbekistan Visa",
+  "Egypt Visa",
+  "Kenya Visa",
+  "Turkey Visa",
+]
+
 export default function VisaSlider() {
   const [swiperRef, setSwiperRef] = useState(null);
   const [activeIndex, setActiveIndex] = useState(1); // State to track the active index
@@ -143,7 +160,7 @@ export default function VisaSlider() {
                           href="/VisaDescription"
                           className="no-underline hover:text-black"
                         >
-                          Malaysia Visa
+                          {title[index]}
                         </a>
                       </h2>
                       <div className="flex space-x-2 mx-2">

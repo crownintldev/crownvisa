@@ -9,10 +9,10 @@ const NavLinks = () => {
   return (
     <>
       {links.map((link) => (
-        <div key={link.id} className="px-3">
+        <div key={link.id} className="px-1">
           <div className="md:cursor-pointer group">
             <h2
-              className="py-1 flex justify-between items-center md:pr-0 group"
+              className="py-1 flex justify-between items-center md:px-0 group px-3"
               onClick={() => {
                 heading !== link.name ? setHeading(link.name) : setHeading('');
                 setSubHeading('');
@@ -31,7 +31,7 @@ const NavLinks = () => {
                 <div className="absolute left-0 top-35 hidden w-screen group-hover:md:block hover:md:block bg-white">
                   <div className="grid grid-cols-12 gap-10 container mx-auto">
                     {link.sublinks.map((mysublinks) => (
-                      <div key={mysublinks.id} className="col-span-4">
+                      <div key={mysublinks.id} className="lg:col-span-4 md:col-span-6 col-span-12">
                         <h1 className="text-lg font-semibold">
                           {mysublinks.Head}
                         </h1>
@@ -56,44 +56,7 @@ const NavLinks = () => {
             )}
           </div>
           {/* Mobile menus */}
-          <div
-            className={`
-            ${heading === link.name ? 'md:hidden' : 'hidden'}
-          `}
-          >
-            {/* sublinks */}
-            {link.sublinks.map((slinks) => (
-              <div key={slinks.id}>
-                <div>
-                  <h1
-                    onClick={() =>
-                      subHeading !== slinks.Head
-                        ? setSubHeading(slinks.Head)
-                        : setSubHeading('')
-                    }
-                    className="py-4 pl-7 font-semibold md:pr-0 pr-5 flex justify-between items-center md:pr-0 pr-5"
-                  >
-                    {slinks.Head}
-
-                    <span className="text-xl md:mt-1 md:ml-2 inline">
-                      <AiOutlineDown />
-                    </span>
-                  </h1>
-                  <div
-                    className={`${
-                      subHeading === slinks.Head ? 'md:hidden' : 'hidden'
-                    }`}
-                  >
-                    {slinks.sublink.map((slink) => (
-                      <li className="py-3 pl-14" key={slink.id}>
-                        <Link href={slink.link}>{slink.name}</Link>
-                      </li>
-                    ))}
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
+          
         </div>
       ))}
     </>

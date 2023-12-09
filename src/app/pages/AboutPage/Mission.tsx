@@ -14,7 +14,7 @@ const Mission = () => {
       loop: true,
       autoplay: true,
       // Here, include the path to your Lottie JSON file
-      path: 'Animation - 1699368991346.json',
+      path: 'Animations/Animation - 1699368991346.json',
     });
     anim.current.setSpeed(1);
 

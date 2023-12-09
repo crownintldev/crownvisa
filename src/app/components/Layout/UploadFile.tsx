@@ -19,6 +19,7 @@ const UploadFile = () => {
         console.log(result);
         if (result.success) {
             setUploadedFilePath(result.path); // Update state with the file path
+            console.log(result.path);
         }
     };
 

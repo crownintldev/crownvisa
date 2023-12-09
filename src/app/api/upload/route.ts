@@ -9,7 +9,7 @@ export async function POST(req) {
         return NextResponse.json({ "message": "no image found", success: false });
     }
 
-    const path = `./public/${file.name}`;
+    const path = `./public/images/${file.name}`;
 
     try {
         // Check if the file already exists

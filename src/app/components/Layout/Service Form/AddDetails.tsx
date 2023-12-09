@@ -135,7 +135,7 @@ const AddDetails: React.FC = () => {
         serviceid: servicedata,
       };
       console.log(contentsection);
-      sectionmutation.mutate(contentsection);
+      // sectionmutation.mutate(contentsection);
     });
     items1.forEach((item, index) => {
       // console.log(`Item ${index + 1}:`, item.title);
@@ -146,9 +146,9 @@ const AddDetails: React.FC = () => {
         serviceid: servicedata,
       };
       console.log(boxsection);
-      boxmutation.mutate(boxsection);
+      // boxmutation.mutate(boxsection);
     });
-    router.push(`/ServiceFormPage/AddDetailsPage`);
+    // router.push(`/ServiceFormPage/AddDetailsPage`);
   };
 
   const OverviewChange = (content: string) => {
@@ -173,6 +173,7 @@ const AddDetails: React.FC = () => {
       newFileList = newFileList.slice(-1);
     }
     setFileList(newFileList);
+    console.log(fileList);
   };
 
   return (
