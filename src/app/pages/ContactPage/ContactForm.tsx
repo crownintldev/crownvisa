@@ -82,10 +82,10 @@ const ContactForm = () => {
           />
         </div>
         <div className="flex justify-start py-3">
-          <Button className="btn bg-blue-700 text-white mr-3 flex justify-center items-center p-[20px] rounded-3xl">
+          <Button className="btn bg-[#FFC224] text-black mr-3 flex justify-center items-center p-[20px] rounded-3xl">
             Submit
           </Button>
-          <Button className="btn bg-blue-700 text-white mr-3 flex justify-center items-center p-[20px] rounded-3xl">
+          <Button className="btn bg-[#FFC224] text-black mr-3 flex justify-center items-center p-[20px] rounded-3xl">
             Reset
           </Button>
         </div>

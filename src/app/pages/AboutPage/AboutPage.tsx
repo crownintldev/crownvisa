@@ -1,9 +1,10 @@
 //@ts-nocheck
 import { Breadcrumb } from 'antd';
 import React from 'react';
-import TeamComp from './TeamComp';
+import TeamComp from '../../components/Layout/Team/TeamComp';
 import Mission from './Mission';
 import About from './About';
+import Team from '../../components/Layout/Team/Team';
 
 const AboutPage = () => {
   return (
@@ -34,7 +35,7 @@ const AboutPage = () => {
       <div className="container mx-auto px-4">
         <About />
         <Mission />
-        <TeamComp />
+        <Team />
       </div>
     </div>
   );

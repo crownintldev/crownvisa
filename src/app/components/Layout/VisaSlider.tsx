@@ -30,7 +30,7 @@ const imgurl = [
   "https://www.crownintltravels.com/wp-content/uploads/2023/09/1000_F_100218316_WbRzPWf4xNTI2xUfljBxKv7R3RILjVq6-e1695710038465.jpg",
 ];
 
-const title=[
+const title = [
   "Malaysian Visa",
   "Vietnam Visa",
   "Indonesian Visa",
@@ -45,7 +45,7 @@ const title=[
   "Egypt Visa",
   "Kenya Visa",
   "Turkey Visa",
-]
+];
 
 export default function VisaSlider() {
   const [swiperRef, setSwiperRef] = useState(null);
@@ -114,30 +114,31 @@ export default function VisaSlider() {
             spaceBetween: 30,
           },
         }}
-        autoplay={false}
+        autoplay={true}
         modules={[Pagination, Navigation, Autoplay]}
         className="mySwiper container mx-auto px-4"
       >
         {[...Array(13)].map((_, index) => (
-          <SwiperSlide key={index - 1} >
+          <SwiperSlide key={index - 1}>
             <div className=" max-w-sm my-5 relative">
-              <div className="relative hover:scale-105 transition-all">
+              <div className="relative hover:scale-105 transition-all mx-5">
                 <a href="/VisaDescription">
                   <Badge.Ribbon
                     text="Visa Application Center"
                     color="#FFC224"
-                    className="p-1 pr-3"
+                    className="p-1 pl-4"
+                    placement="start"
                   >
                     <Image
                       src={imgurl[index]}
                       alt="Kuala Lumpur"
                       width={350}
                       height={250}
-                      className="rounded-xl transition duration-300 w-full"
+                      className="rounded-xl transition duration-300 w-full h-[350px]"
                     />
                   </Badge.Ribbon>
                 </a>
-                <div className="absolute bottom-[-10px] right-[25px]  bg-white p-[2px] rounded-full shadow">
+                <div className="absolute top-[10px] right-[15px] bg-white p-[2px] rounded-full shadow">
                   <Avatar
                     src={
                       <Image
@@ -147,40 +148,34 @@ export default function VisaSlider() {
                         height={100}
                       />
                     }
-                    size={55}
+                    size={45}
                   />
                 </div>
-              </div>
-              <div>
-                <div className="flex justify-center items-center mb-2">
-                  <div className="card-shadow p-2 w-[93%]">
-                    <div className="flex">
-                      <h2 className="text-xl font-semibold mt-2">
-                        <a
-                          href="/VisaDescription"
-                          className="no-underline hover:text-black"
-                        >
-                          {title[index]}
-                        </a>
-                      </h2>
-                      <div className="flex space-x-2 mx-2">
-                        <div className="flex  items-center  space-x-1">
-                          <FaStar className="text-[#FFC224]" size={13} />
-                          <FaStar className="text-[#FFC224]" size={13} />
-                          <FaStar className="text-[#FFC224]" size={13} />
-                          <FaStar className="text-[#FFC224]" size={13} />
-                          <FaStar className="text-[#FFC224]" size={13} />
+                <div className="absolute bottom-0 left-0 z-10 mx-3">
+                  <div className="flex justify-center items-center mb-2 bg-white">
+                    <div className="p-2">
+                      <div className="flex">
+                        <h2 className="text-xl font-semibold mt-2 text-black">
+                          <a href="/VisaDescription" className="no-underline">
+                            {title[index]}
+                          </a>
+                        </h2>
+                        <div className="flex space-x-2 mx-2">
+                          <div className="flex  items-center  space-x-1">
+                            <FaStar className="text-[#FFC224]" size={13} />
+                            <FaStar className="text-[#FFC224]" size={13} />
+                            <FaStar className="text-[#FFC224]" size={13} />
+                            <FaStar className="text-[#FFC224]" size={13} />
+                            <FaStar className="text-[#FFC224]" size={13} />
+                          </div>
                         </div>
                       </div>
+                      <p className="text-black mt-1">
+                        <a href="/VisaDescription" className="no-underline">
+                          Officially Authorized Visa Application Center
+                        </a>
+                      </p>
                     </div>
-                    <p className="text-gray-600 mt-1">
-                      <a
-                        href="/VisaDescription"
-                        className="no-underline hover:text-black"
-                      >
-                        Officially Authorized Visa Application Center
-                      </a>
-                    </p>
                   </div>
                 </div>
               </div>

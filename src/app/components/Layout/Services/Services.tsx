@@ -14,27 +14,37 @@ const Services = () => {
     },
     {
       icon: <FaMapLocationDot size={40} />,
-      title: "Air Tickets",
+      title: "Visa Services",
       description: "We are a leading online ticketing agency that specializes in both domestic and international flights.",
     },
     {
       icon: <GiPathDistance size={40} />,
-      title: "Air Tickets",
+      title: "Tours & holidays",
       description: "We are a leading online ticketing agency that specializes in both domestic and international flights.",
     },
     {
       icon: <FaCcVisa size={40} />,
-      title: "Air Tickets",
+      title: "File Processing",
       description: "We are a leading online ticketing agency that specializes in both domestic and international flights.",
     },
     {
       icon: <AiFillCar size={40} />,
-      title: "Air Tickets",
+      title: "Travel Insurrance",
       description: "We are a leading online ticketing agency that specializes in both domestic and international flights.",
     },
     {
       icon: <BiSolidTruck size={40} />,
-      title: "Air Tickets",
+      title: "Hotel Booking",
+      description: "We are a leading online ticketing agency that specializes in both domestic and international flights.",
+    },
+    {
+      icon: <BiSolidTruck size={40} />,
+      title: "Hajj & Umrah",
+      description: "We are a leading online ticketing agency that specializes in both domestic and international flights.",
+    },
+    {
+      icon: <BiSolidTruck size={40} />,
+      title: "Rent a Car",
       description: "We are a leading online ticketing agency that specializes in both domestic and international flights.",
     },
     // ... add other service objects here

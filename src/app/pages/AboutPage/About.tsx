@@ -26,7 +26,7 @@ const About = () => {
         <h2>ABOUT THE COMPANY</h2>
         <h1 className="text-[35px] font-bold">
           Providing the best immigration{' '}
-          <span className="text-[#FA8714]">services</span>
+          <span className="text-[#FFC224]">services</span>
         </h1>
         <p className="py-2">
           Lorem ipsum dolor sit, amet consectetur adipisicing elit. Mollitia,
@@ -34,7 +34,7 @@ const About = () => {
           explicabo vel odio facere libero repellendus sequi deserunt eum natus!
           Distinctio, sapiente!
         </p>
-        <Button className="btn bg-blue-700 text-white mr-3 flex justify-center items-center p-[20px] rounded-3xl">
+        <Button className="btn bg-[#FFC224] text-black mr-3 flex justify-center items-center p-[20px] rounded-3xl">
           Discover More
         </Button>
       </div>

@@ -17,7 +17,7 @@ const BlogComp: React.FC<BlogCompProps> = ({
 }) => {
   return (
     <>
-      <div className="w-full px-4 md:w-1/2 lg:w-1/3">
+      <div className="w-full px-4 md:w-1/2 lg:w-1/4">
         <div className="mb-10 w-full">
           <div className="mb-8 rounded hover:scale-105 transition-all">
             <Badge.Ribbon

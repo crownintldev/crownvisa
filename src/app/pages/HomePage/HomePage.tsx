@@ -7,7 +7,7 @@ import Features from "@/app/components/Layout/Features/features";
 import HeroSectionComp from "@/app/components/Layout/HeroSection/HeroSectionComp";
 import HeaderComp from "@/app/components/Layout/Navbar/header";
 import Newsletter from "@/app/components/Layout/Newsletter";
-import PriceComp from "@/app/components/Layout/PriceComp";
+import Price from "@/app/components/Layout/Price/Price";
 import Services from "@/app/components/Layout/Services/Services";
 import ServicesSlider from "@/app/components/Layout/ServicesSlider";
 import Stats from "@/app/components/Layout/Stats/Stats";
@@ -45,7 +45,7 @@ export default function HomePage() {
         <ServicesSlider />
         <CountriesSlider />
         <Features />
-        <PriceComp />
+        <Price/>
         <Testinominal />
         <Blog />
         <FaqComp />
