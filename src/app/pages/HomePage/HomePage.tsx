@@ -17,7 +17,7 @@ import FooterComp from "@/app/components/Layout/footer";
 
 export default function HomePage() {
   return (
-    <div>
+    <div className="">
       <HeaderComp />
       <HeroSectionComp />
       <div className="container mx-auto flex flex-col my-3 px-4">

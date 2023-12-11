@@ -121,7 +121,7 @@ export default function VisaSlider() {
         {[...Array(13)].map((_, index) => (
           <SwiperSlide key={index - 1}>
             <div className=" max-w-sm my-5 relative">
-              <div className="relative hover:scale-105 transition-all mx-5">
+              <div className="relative hover:scale-105 transition-all mx-5 group">
                 <a href="/VisaDescription">
                   <Badge.Ribbon
                     text="Visa Application Center"
@@ -134,7 +134,7 @@ export default function VisaSlider() {
                       alt="Kuala Lumpur"
                       width={350}
                       height={250}
-                      className="rounded-xl transition duration-300 w-full h-[350px]"
+                      className="rounded-xl transition-all duration-300 w-full h-[350px]"
                     />
                   </Badge.Ribbon>
                 </a>
@@ -154,9 +154,9 @@ export default function VisaSlider() {
                 <div className="absolute bottom-0 left-0 z-10 mx-3">
                   <div className="flex justify-center items-center mb-2 bg-white">
                     <div className="p-2">
-                      <div className="flex">
+                      <div className="flex group">
                         <h2 className="text-xl font-semibold mt-2 text-black">
-                          <a href="/VisaDescription" className="no-underline">
+                          <a href="/VisaDescription"  className="no-underline group group-hover:underline transition-all duration-700">
                             {title[index]}
                           </a>
                         </h2>
@@ -171,7 +171,7 @@ export default function VisaSlider() {
                         </div>
                       </div>
                       <p className="text-black mt-1">
-                        <a href="/VisaDescription" className="no-underline">
+                        <a href="/VisaDescription" className="no-underline group-hover:underline">
                           Officially Authorized Visa Application Center
                         </a>
                       </p>

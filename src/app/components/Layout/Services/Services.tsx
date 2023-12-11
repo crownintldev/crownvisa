@@ -1,6 +1,6 @@
 import { MdFlightTakeoff } from 'react-icons/md';
 import ServiceComp from './ServiceComp';
-import { FaCcVisa, FaMapLocationDot } from 'react-icons/fa6';
+import { FaCcVisa, FaHotel, FaMapLocationDot } from 'react-icons/fa6';
 import { AiFillCar } from 'react-icons/ai';
 import { BiSolidTruck } from 'react-icons/bi';
 import { GiPathDistance } from 'react-icons/gi';
@@ -33,7 +33,7 @@ const Services = () => {
       description: "We are a leading online ticketing agency that specializes in both domestic and international flights.",
     },
     {
-      icon: <BiSolidTruck size={40} />,
+      icon: <FaHotel  size={40} />,
       title: "Hotel Booking",
       description: "We are a leading online ticketing agency that specializes in both domestic and international flights.",
     },

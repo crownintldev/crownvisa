@@ -8,26 +8,25 @@ import Team from '../../components/Layout/Team/Team';
 
 const AboutPage = () => {
   return (
-    <div>
+    <div className='pt-[100px]'>
       <div
         style={{
           backgroundImage: `url(https://www.usinformationsearch.com/wp-content/uploads/2016/05/custom-background-checks-you-can-trust1-5.jpg)`,
         }}
-        className="h-[300px] flex justify-center pl-[60px] items-start flex-col"
+        className="h-[400px] flex justify-center pl-[60px] items-center flex-col rounded-[30px] mx-[35px]"
       >
-        <h2 className="text-[35px]">About us</h2>
+        <h2 className="text-[55px]">About us</h2>
         <Breadcrumb
-          separator=">"
           items={[
             {
               title: 'Home',
               href: '/',
-              className: 'bg-white',
+              className:"font-bold"
             },
             {
               title: 'About',
               href: '/AboutPage',
-              className: 'bg-white',
+              className:"font-bold"
             },
           ]}
         />
