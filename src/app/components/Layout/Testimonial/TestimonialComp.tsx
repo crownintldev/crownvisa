@@ -6,7 +6,7 @@ interface Props {
   author: string;
 }
 
-const TestinominalComp: React.FC<Props> = ({ title, description, author }) => {
+const TestimonialComp: React.FC<Props> = ({ title, description, author }) => {
   return (
     <div className="keen-slider__slide">
       <blockquote className="flex h-full flex-col justify-between bg-white p-6 shadow-sm sm:p-8 lg:p-12">
@@ -40,4 +40,4 @@ const TestinominalComp: React.FC<Props> = ({ title, description, author }) => {
   );
 };
 
-export default TestinominalComp;
+export default TestimonialComp;

@@ -9,7 +9,7 @@ interface Props {
 
 const ServiceComp: React.FC<Props> = ({ icon, title, description }) => {
   return (
-    <div className="max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 hover:scale-105 mb-3 mr-3  ">
+    <div className="max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 hover:scale-105 mb-3 mr-3 h-full ">
       {icon}
       <a href="#">
         <h5 className="mb-2 text-2xl font-semibold tracking-tight text-gray-900 dark:text-white">

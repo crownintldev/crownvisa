@@ -2,7 +2,7 @@
 import Blog from "@/app/components/Layout/Blog/Blog";
 import CompaniesSlider from "@/app/components/Layout/CompaniesSlider";
 import CountriesSlider from "@/app/components/Layout/CountriesSlider";
-import FaqComp from "@/app/components/Layout/FaqComp";
+import Faq from "@/app/components/Layout/Faq/Faq";
 import Features from "@/app/components/Layout/Features/features";
 import HeroSectionComp from "@/app/components/Layout/HeroSection/HeroSectionComp";
 import HeaderComp from "@/app/components/Layout/Navbar/header";
@@ -11,7 +11,7 @@ import Price from "@/app/components/Layout/Price/Price";
 import Services from "@/app/components/Layout/Services/Services";
 import ServicesSlider from "@/app/components/Layout/ServicesSlider";
 import Stats from "@/app/components/Layout/Stats/Stats";
-import Testinominal from "@/app/components/Layout/Testinominal/Testinominal";
+import Testimonial from "@/app/components/Layout/Testimonial/Testimonial";
 import VisaSlider from "@/app/components/Layout/VisaSlider";
 import FooterComp from "@/app/components/Layout/footer";
 
@@ -45,10 +45,10 @@ export default function HomePage() {
         <ServicesSlider />
         <CountriesSlider />
         <Features />
-        <Price/>
-        <Testinominal />
+        <Price />
+        <Testimonial />
         <Blog />
-        <FaqComp />
+        <Faq />
         <Newsletter />
       </div>
       <FooterComp />

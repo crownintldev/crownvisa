@@ -7,28 +7,28 @@ const TopHeader = () => {
   return (
     <div className="lg:flex hidden items-center justify-between container mx-auto py-1 border-b-2 border-[#FFC224]">
       <div className="flex items-center text-black ml-3">
-        <MdEmail className="mx-2 text-[#FFC224]" />
-        <p className="mx-2 lg:text-[13px] md:text-[10px]">
+        <MdEmail className="mx-1 text-[#FFC224]" />
+        <p className="mx-1 lg:text-[13px] md:text-[10px]">
           needhelp@company.com
         </p>
-        <p className="mx-2">/</p>
-        <BsTelephoneFill className="mx-2 text-[#FFC224]" />
-        <p className="mx-2 lg:text-[13px] md:text-[10px]">+60123456789</p>
-        <p className="mx-2">/</p>
-        <BsTelephoneFill className="mx-2 text-[#FFC224]" />
-        <p className="mx-2 lg:text-[13px] md:text-[10px]">+60123456789</p>
+        <p className="mx-1">/</p>
+        <BsTelephoneFill className="mx-1 text-[#FFC224]" />
+        <p className="mx-1 lg:text-[13px] md:text-[10px]">+60123456789</p>
+        <p className="mx-1">/</p>
+        <BsTelephoneFill className="mx-1 text-[#FFC224]" />
+        <p className="mx-1 lg:text-[13px] md:text-[10px]">+60123456789</p>
       </div>
       <div className="text-black flex items-center mr-2 lg:flex-row md:flex-col">
         <p>
-          <a href="" className="mx-2 lg:text-[13px] md:text-[10px]">
+          <a href="" className="mx-1 lg:text-[13px] md:text-[10px]">
             Terms and Conditions
           </a>
           |
-          <a href="" className="mx-2 lg:text-[13px] md:text-[10px]">
+          <a href="" className="mx-1 lg:text-[13px] md:text-[10px]">
             Cancellation Policy{" "}
           </a>
           |
-          <a href="" className="mx-2 lg:text-[13px] md:text-[10px]">
+          <a href="" className="mx-1 lg:text-[13px] md:text-[10px]">
             Refund Policy
           </a>
         </p>

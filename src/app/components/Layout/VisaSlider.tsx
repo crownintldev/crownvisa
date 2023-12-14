@@ -49,7 +49,8 @@ const title = [
 
 export default function VisaSlider() {
   const [swiperRef, setSwiperRef] = useState(null);
-  const [activeIndex, setActiveIndex] = useState(1); // State to track the active index
+  const [activeIndex, setActiveIndex] = useState(0); 
+  // State to track the active index
 
   // Swiper update event to set active slide index
   const onSwiperUpdate = (swiper) => {
@@ -73,22 +74,22 @@ export default function VisaSlider() {
       <div className="flex justify-center my-2">
         <button
           type="button"
-          className={buttonClass(1)}
-          onClick={moveToSlide(1)}
+          className={buttonClass(0)}
+          onClick={moveToSlide(0)}
         >
           All categories
         </button>
         <button
           type="button"
-          className={buttonClass(5)}
-          onClick={moveToSlide(5)}
+          className={buttonClass(4)}
+          onClick={moveToSlide(4)}
         >
           Shoes
         </button>
         <button
           type="button"
-          className={buttonClass(9)}
-          onClick={moveToSlide(9)}
+          className={buttonClass(8)}
+          onClick={moveToSlide(8)}
         >
           Bags
         </button>
@@ -114,19 +115,19 @@ export default function VisaSlider() {
             spaceBetween: 30,
           },
         }}
-        autoplay={true}
+        autoplay={false}
         modules={[Pagination, Navigation, Autoplay]}
         className="mySwiper container mx-auto px-4"
       >
         {[...Array(13)].map((_, index) => (
           <SwiperSlide key={index - 1}>
             <div className=" max-w-sm my-5 relative">
-              <div className="relative hover:scale-105 transition-all mx-5 group">
+              <div className="relative hover:scale-105 transition-all mx-1 group">
                 <a href="/VisaDescription">
                   <Badge.Ribbon
                     text="Visa Application Center"
                     color="#FFC224"
-                    className="p-1 pl-4"
+                    className="p-1 pl-2"
                     placement="start"
                   >
                     <Image
@@ -155,7 +156,7 @@ export default function VisaSlider() {
                   <div className="flex justify-center items-center mb-2 bg-white">
                     <div className="p-2">
                       <div className="flex group">
-                        <h2 className="text-xl font-semibold mt-2 text-black">
+                        <h2 className="text-md font-semibold mt-2 text-black">
                           <a href="/VisaDescription"  className="no-underline group group-hover:underline transition-all duration-700">
                             {title[index]}
                           </a>
@@ -170,7 +171,7 @@ export default function VisaSlider() {
                           </div>
                         </div>
                       </div>
-                      <p className="text-black mt-1">
+                      <p className="text-black mt-1 text-sm">
                         <a href="/VisaDescription" className="no-underline group-hover:underline">
                           Officially Authorized Visa Application Center
                         </a>

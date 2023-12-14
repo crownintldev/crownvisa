@@ -1,8 +1,8 @@
 import KeenSlider, { KeenSliderInstance } from "keen-slider";
 import { useEffect, useRef, useState } from "react";
-import TestinominalComp from "./TestinominalComp";
+import TestimonialComp from "./TestimonialComp";
 
-const Testinominal = () => {
+const Testimonial = () => {
   const [slider, setSlider] = useState<KeenSliderInstance | null>(null);
   const sliderContainerRef = useRef<HTMLDivElement>(null);
 
@@ -103,7 +103,7 @@ const Testinominal = () => {
               className="keen-slider"
               ref={sliderContainerRef}
             >
-              <TestinominalComp
+              <TestimonialComp
                 title="Stayin Alive"
                 description="No, Rose, they are not breathing. And they have no arms
                         or legs … Where are they? You know what? If we come
@@ -112,7 +112,7 @@ const Testinominal = () => {
                         have there?"
                 author="Michael Scott"
               />
-              <TestinominalComp
+              <TestimonialComp
                 title="Stayin Alive"
                 description="No, Rose, they are not breathing. And they have no arms
                         or legs … Where are they? You know what? If we come
@@ -121,7 +121,7 @@ const Testinominal = () => {
                         have there?"
                 author="Michael Scott"
               />
-              <TestinominalComp
+              <TestimonialComp
                 title="Stayin Alive"
                 description="No, Rose, they are not breathing. And they have no arms
                         or legs … Where are they? You know what? If we come
@@ -139,7 +139,7 @@ const Testinominal = () => {
             onClick={() => slider?.prev()}
             aria-label="Previous slide"
             id="keen-slider-previous"
-            className="rounded-full border border-rose-600 p-4 text-rose-600 transition hover:bg-rose-600 hover:text-white"
+            className="rounded-full border border-[#FFC224] p-4 text-[#FFC224] transition hover:bg-[#FFC224] hover:text-black"
           >
             <svg
               className="h-5 w-5 -rotate-180 transform"
@@ -161,7 +161,7 @@ const Testinominal = () => {
             onClick={() => slider?.next()}
             aria-label="Next slide"
             id="keen-slider-next"
-            className="rounded-full border border-rose-600 p-4 text-rose-600 transition hover:bg-rose-600 hover:text-white"
+            className="rounded-full border border-[#FFC224] p-4 text-[#FFC224] transition hover:bg-[#FFC224] hover:text-black"
           >
             <svg
               className="h-5 w-5"
@@ -184,4 +184,4 @@ const Testinominal = () => {
   );
 };
 
-export default Testinominal;
+export default Testimonial;

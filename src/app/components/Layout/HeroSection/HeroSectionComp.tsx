@@ -30,7 +30,7 @@ const HeroSectionComp = () => {
     <>
       <div className="relative bg-transparent rounded-[30px] mx-[35px] pt-[100px]">
         <CarouselComp images={images} />
-        <div className="absolute md:top-[240px] md:left-[150px] top-[100px] right-[100px]">
+        <div className="absolute md:top-[200px] md:left-[100px] top-[100px] right-[80px]">
           <section>
             <div className="py-8 px-4 mx-auto max-w-screen-xl text-center lg:py-16" style={{
               background: "transparent",
@@ -39,7 +39,7 @@ const HeroSectionComp = () => {
               <h1 className="mb-4 text-4xl font-extrabold tracking-tight leading-none text-white md:text-5xl lg:text-6xl dark:text-white">
                 We invest in the world’s potential
               </h1>
-              <p className="mb-8 text-lg font-normal text-white lg:text-xl sm:px-16 lg:px-48 dark:text-gray-400">
+              <p className="mb-8 text-lg font-normal text-white lg:text-xl sm:px-16 lg:px-15 dark:text-gray-400">
                 Here at Flowbite we focus on markets where technology,
                 innovation, and capital can unlock long-term value and drive
                 economic growth.
