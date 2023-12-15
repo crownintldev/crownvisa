@@ -45,7 +45,7 @@ export default function ServicesSlider() {
         {[...Array(9)].map((_, index) => (
           <SwiperSlide
             key={index}
-            className="relative group cursor-pointer card-shadow slide-with-gradient"
+            className="relative group cursor-pointer slide-with-gradient"
             onMouseEnter={() => {
               if (swiperRef && swiperRef.autoplay) {
                 swiperRef.autoplay.stop();
@@ -57,11 +57,11 @@ export default function ServicesSlider() {
               }
             }}
           >
-            <div>
+            <div  className='rounded-xl'>
               <Image
                 src="https://www.crownintltravels.com/wp-content/uploads/2023/09/3405911-936597760.jpg"
                 alt=""
-                className="cover-image hover:blur-sm group-hover:blur-sm"
+                className="cover-image hover:blur-sm group-hover:blur-sm rounded-xl"
                 width={400}
                 height={400}
               />

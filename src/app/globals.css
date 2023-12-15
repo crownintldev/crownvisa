@@ -205,20 +205,21 @@ h3 {
 
 .gradient-overlay {
   position: absolute;
+  height: 100%;
   inset: 0;
   background: linear-gradient(
     180deg,
-    rgba(246, 244, 242, 0) 58%,
-    rgba(4, 4, 3, 0.7) 64%
+    rgba(63, 62, 62, 0) 0%,
+    rgba(26, 26, 26, 0.7) 0%
   );
-  z-index: 1; /* Below the content */
+  z-index: 0; /* Below the content */
   transition: background 0.3s; /* Smooth transition for background change */
 }
 
 /* Add a CSS rule for when the parent div is hovered */
-.parent-div:hover .gradient-overlay {
-  background: none; /* Remove background gradient when parent is hovered */
-}
+/* .parent-div:hover .gradient-overlay {
+  background: none; 
+} */
 
 :where(.css-dev-only-do-not-override-xu9wm8).ant-ribbon .ant-ribbon-text {
   color: black;
@@ -283,4 +284,28 @@ h3 {
 .hire:hover {
   background: #000;
   border: 1px solid #4070f4;
+}
+
+.hover-underline-animation {
+  display: inline-block;
+  position: relative;
+}
+
+.hover-underline-animation:after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  transform: scaleX(0);
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: 
+  #FFC224;
+  transform-origin: bottom right;
+  transition: transform 0.25s ease-out;
+}
+
+.hover-underline-animation:hover:after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
 }

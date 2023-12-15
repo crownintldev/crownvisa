@@ -3,10 +3,33 @@
 import lottie from "lottie-web";
 import { useEffect, useRef } from "react";
 import CarouselComp from "./CarouselComp";
+import { Tabs } from "antd";
 
 const images = [
   "https://creativelayers.net/themes/viatours-html/img/hero/1/1.png",
   "https://rn53themes.net/themes/demo/travelz/images/gallery/t4.jpg",
+];
+
+const onChange = (key: string) => {
+  console.log(key);
+};
+
+const items: TabsProps['items'] = [
+  {
+    key: '1',
+    label: 'Tab 1',
+    children: 'Content of Tab Pane 1',
+  },
+  {
+    key: '2',
+    label: 'Tab 2',
+    children: 'Content of Tab Pane 2',
+  },
+  {
+    key: '3',
+    label: 'Tab 3',
+    children: 'Content of Tab Pane 3',
+  },
 ];
 
 const HeroSectionComp = () => {
@@ -44,6 +67,7 @@ const HeroSectionComp = () => {
                 innovation, and capital can unlock long-term value and drive
                 economic growth.
               </p>
+              {/* <Tabs defaultActiveKey="1" items={items} onChange={onChange} centered type="card" /> */}
             </div>
           </section>
         </div>

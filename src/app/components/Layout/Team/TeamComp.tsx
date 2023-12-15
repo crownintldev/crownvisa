@@ -18,7 +18,7 @@ const TeamComp: React.FC<Props> = ({ imageurl, alt, name, details }) => {
         height={100}
         width={100}
       />
-      <div className="absolute right-[-300px] transition-all duration-300 bottom-0 w-full group group-hover:right-0 bg-[#FFC224] rounded-l-full">
+      <div className="absolute right-[-300px] transition-all duration-1500 bottom-0 w-full group group-hover:right-0 bg-[#FFC224] rounded-l-full">
         <h3 className="mb-1 text-2xl font-bold tracking-tight text-black dark:text-white">
           <a href="#">{name}</a>
         </h3>

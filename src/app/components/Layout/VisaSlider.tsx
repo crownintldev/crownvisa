@@ -49,7 +49,7 @@ const title = [
 
 export default function VisaSlider() {
   const [swiperRef, setSwiperRef] = useState(null);
-  const [activeIndex, setActiveIndex] = useState(0); 
+  const [activeIndex, setActiveIndex] = useState(0);
   // State to track the active index
 
   // Swiper update event to set active slide index
@@ -155,24 +155,30 @@ export default function VisaSlider() {
                 <div className="absolute bottom-0 left-0 z-10 mx-3">
                   <div className="flex justify-center items-center mb-2 bg-white">
                     <div className="p-2">
-                      <div className="flex group">
+                      <div className="flex flex-col group">
                         <h2 className="text-md font-semibold mt-2 text-black">
-                          <a href="/VisaDescription"  className="no-underline group group-hover:underline transition-all duration-700">
+                          <a
+                            href="/VisaDescription"
+                            className="no-underline group hover-underline-animation transition-all duration-700"
+                          >
                             {title[index]}
                           </a>
                         </h2>
                         <div className="flex space-x-2 mx-2">
                           <div className="flex  items-center  space-x-1">
-                            <FaStar className="text-[#FFC224]" size={13} />
-                            <FaStar className="text-[#FFC224]" size={13} />
-                            <FaStar className="text-[#FFC224]" size={13} />
-                            <FaStar className="text-[#FFC224]" size={13} />
-                            <FaStar className="text-[#FFC224]" size={13} />
+                            <FaStar className="text-[#FFC224]" size={12} />
+                            <FaStar className="text-[#FFC224]" size={12} />
+                            <FaStar className="text-[#FFC224]" size={12} />
+                            <FaStar className="text-[#FFC224]" size={12} />
+                            <FaStar className="text-[#FFC224]" size={12} />
                           </div>
                         </div>
                       </div>
-                      <p className="text-black mt-1 text-sm">
-                        <a href="/VisaDescription" className="no-underline group-hover:underline">
+                      <p className="text-black mt-1 text-sm ">
+                        <a
+                          href="/VisaDescription"
+                          className="no-underline hover-underline-animation"
+                        >
                           Officially Authorized Visa Application Center
                         </a>
                       </p>

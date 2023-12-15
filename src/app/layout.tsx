@@ -9,6 +9,7 @@ import 'keen-slider/keen-slider.min.css';
 import ContextProvider from "./ContextProvider";
 import QueryProvider from "./QueryProvider";
 import "./globals.css";
+import 'aos/dist/aos.css';
 
 const inter = Inter({ subsets: ["latin"] });
 

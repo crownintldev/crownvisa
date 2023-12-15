@@ -25,14 +25,17 @@ const Navbar = () => {
           height={70}
         />
         {/* <h1 className="text-[35px] text-[#FFC224] font-bold">Crown Travels</h1> */}
-        <div className="text-3xl lg:hidden flex justify-center items-center mr-4" onClick={() => setOpen(!open)}>
+        <div
+          className="text-3xl lg:hidden flex justify-center items-center mr-4"
+          onClick={() => setOpen(!open)}
+        >
           <AiOutlineMenuFold />
         </div>
       </div>
       <div>
         <ul className="lg:flex hidden uppercase items-center gap-4 font-[Poppins]">
           <li>
-            <Link href="/" className="py-1 px-1 inline-block">
+            <Link href="/" className="py-1 px-1 inline-block hover-underline-animation">
               Home
             </Link>
           </li>
@@ -42,22 +45,22 @@ const Navbar = () => {
             onClick={toggleDropdown}
             className="flex items-center group"
           >
-            <span className="py-1 px-1 inline-block">About</span>
+            <span className="py-1 px-1 inline-block hover-underline-animation">About</span>
             <span>
               <AiOutlineDown />
             </span>
             {showDropdown && (
-              <div className="dropdown-content  absolute top-[90px] left-[530px] bg-white">
+              <div className="dropdown-content  absolute top-[90px] left-[530px] bg-white shadow-none backdrop-blur-none opacity-100">
                 {/* Your dropdown links here */}
                 <ul>
                   <li className="border-b border-black px-10 py-2">
-                    <Link href="/About/AboutCeoPage">About Ceo</Link>
+                    <Link href="/AboutCeoPage">About Ceo</Link>
                   </li>
                   <li className="border-b border-black px-10 py-2">
-                    <Link href="/About/AboutPage">About Company</Link>
+                    <Link href="/AboutPage">About Company</Link>
                   </li>
                   <li className="border-b border-black px-10 py-2">
-                    <Link href="/About/AboutTeamPage">Our Team</Link>
+                    <Link href="/AboutTeamPage">Our Team</Link>
                   </li>
                   <li className="border-b border-black px-10 py-2">
                     <Link href="/Option4">Company Profile</Link>
@@ -67,7 +70,7 @@ const Navbar = () => {
             )}
           </li>
           <li>
-            <Link href="/ContactPage" className="py-1 px-1 inline-block">
+            <Link href="/ContactPage" className="py-1 px-1 inline-block hover-underline-animation">
               Contact
             </Link>
           </li>
@@ -76,18 +79,18 @@ const Navbar = () => {
       </div>
       <div className="lg:block hidden">
         <div className="flex">
-          <Button
-            className="btn bg-[#FFC224] text-black mr-3 flex justify-center items-center lg:p-[10px] md:p-[5px] rounded-3xl"
-            href="/AuthPage"
-          >
-            Visa Tracking
-          </Button>
-          <Button
-            className="btn bg-[#FFC224] text-black mr-3 flex justify-center items-center lg:p-[10px] md:p-[5px] rounded-3xl"
-            href="/AuthPage"
-          >
-            Get Started
-          </Button>
+          <a href="/AuthPage">
+            <button className="btn bg-[#FFC224] text-sm text-black mr-3 flex justify-center items-center md:p-[5px]">
+              Visa Tracking
+            </button>
+          </a>
+          <a href="/AuthPage">
+            <button
+              className="btn bg-[#FFC224] text-sm text-black mr-3 flex justify-center items-center md:p-[5px]"
+            >
+              Get Started
+            </button>
+          </a>
         </div>
       </div>
       {/* Mobile nav */}
