@@ -25,7 +25,7 @@ const Navbar = () => {
           height={70}
         />
         {/* <h1 className="text-[35px] text-[#FFC224] font-bold">Crown Travels</h1> */}
-        <div className="text-3xl lg:hidden" onClick={() => setOpen(!open)}>
+        <div className="text-3xl lg:hidden flex justify-center items-center mr-4" onClick={() => setOpen(!open)}>
           <AiOutlineMenuFold />
         </div>
       </div>
@@ -47,17 +47,17 @@ const Navbar = () => {
               <AiOutlineDown />
             </span>
             {showDropdown && (
-              <div className="dropdown-content  absolute top-[100px] left-[600px] bg-white">
+              <div className="dropdown-content  absolute top-[90px] left-[530px] bg-white">
                 {/* Your dropdown links here */}
                 <ul>
                   <li className="border-b border-black px-10 py-2">
-                    <Link href="/Option1">About Ceo</Link>
+                    <Link href="/About/AboutCeoPage">About Ceo</Link>
                   </li>
                   <li className="border-b border-black px-10 py-2">
-                    <Link href="/Option2">About Company</Link>
+                    <Link href="/About/AboutPage">About Company</Link>
                   </li>
                   <li className="border-b border-black px-10 py-2">
-                    <Link href="/Option3">Our Team</Link>
+                    <Link href="/About/AboutTeamPage">Our Team</Link>
                   </li>
                   <li className="border-b border-black px-10 py-2">
                     <Link href="/Option4">Company Profile</Link>
@@ -98,7 +98,7 @@ const Navbar = () => {
     `}
       >
         <div
-          className="text-3xl lg:hidden flex justify-end items-end"
+          className="text-3xl lg:hidden flex justify-end items-center"
           onClick={() => setOpen(!open)}
         >
           <AiFillCloseCircle />

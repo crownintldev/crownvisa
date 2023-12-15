@@ -28,7 +28,7 @@ const HeroSectionComp = () => {
 
   return (
     <>
-      <div className="relative bg-transparent rounded-[30px] mx-[35px] pt-[100px]">
+      <div className="relative bg-transparent rounded-[30px] mx-[35px] lg:pt-[100px]">
         <CarouselComp images={images} />
         <div className="absolute md:top-[200px] md:left-[100px] top-[100px] right-[80px]">
           <section>
