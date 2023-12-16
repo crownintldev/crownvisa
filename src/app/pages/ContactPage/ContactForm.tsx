@@ -10,7 +10,7 @@ import { FaServicestack } from 'react-icons/fa6';
 const ContactForm = () => {
   return (
     <div className="grid grid-cols-12 gap-6 mt-3 mb-3">
-      <div className="col-span-6">
+      <div className="md:col-span-6 col-span-12">
         <h2 className="text-[35px] font-bold">Get in touch</h2>
         <p>Do you want to know more or contact our sales department?</p>
         <div className="flex  mt-3 mb-3 hover:scale-105 transition duration-300">
@@ -44,7 +44,7 @@ const ContactForm = () => {
           </div>
         </div>
       </div>
-      <div className="col-span-6">
+      <div className="md:col-span-6 col-span-12">
         <div className="flex justify-between py-3">
           <Input
             size="large"
@@ -82,12 +82,12 @@ const ContactForm = () => {
           />
         </div>
         <div className="flex justify-start py-3">
-          <Button className="btn bg-[#FFC224] text-black mr-3 flex justify-center items-center p-[20px] rounded-3xl">
+          <button className="btn bg-[#FFC224] text-black mr-3 flex justify-center items-center p-[10px]">
             Submit
-          </Button>
-          <Button className="btn bg-[#FFC224] text-black mr-3 flex justify-center items-center p-[20px] rounded-3xl">
+          </button>
+          <button className="btn bg-[#FFC224] text-black mr-3 flex justify-center items-center p-[10px]">
             Reset
-          </Button>
+          </button>
         </div>
       </div>
       <div className="col-span-12">

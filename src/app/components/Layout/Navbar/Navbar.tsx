@@ -35,7 +35,10 @@ const Navbar = () => {
       <div>
         <ul className="lg:flex hidden uppercase items-center gap-4 font-[Poppins]">
           <li>
-            <Link href="/" className="py-1 px-1 inline-block hover-underline-animation">
+            <Link
+              href="/"
+              className="py-1 px-1 inline-block hover-underline-animation"
+            >
               Home
             </Link>
           </li>
@@ -45,7 +48,9 @@ const Navbar = () => {
             onClick={toggleDropdown}
             className="flex items-center group"
           >
-            <span className="py-1 px-1 inline-block hover-underline-animation">About</span>
+            <span className="py-1 px-1 inline-block hover-underline-animation">
+              About
+            </span>
             <span>
               <AiOutlineDown />
             </span>
@@ -70,7 +75,10 @@ const Navbar = () => {
             )}
           </li>
           <li>
-            <Link href="/ContactPage" className="py-1 px-1 inline-block hover-underline-animation">
+            <Link
+              href="/ContactPage"
+              className="py-1 px-1 inline-block hover-underline-animation"
+            >
               Contact
             </Link>
           </li>
@@ -85,9 +93,7 @@ const Navbar = () => {
             </button>
           </a>
           <a href="/AuthPage">
-            <button
-              className="btn bg-[#FFC224] text-sm text-black mr-3 flex justify-center items-center md:p-[5px]"
-            >
+            <button className="btn bg-[#FFC224] text-sm text-black mr-3 flex justify-center items-center md:p-[5px]">
               Get Started
             </button>
           </a>
@@ -125,12 +131,16 @@ const Navbar = () => {
           <NavLinks />
           <div className="py-5">
             <div className="flex flex-col">
-              <Button className="btn bg-[#FFC224] text-black mr-3 flex justify-center items-center lg:p-[20px] md:p-[5px] rounded-3xl">
-                Visa Tracking
-              </Button>
-              <Button className="btn bg-[#FFC224] text-black mr-3 flex justify-center items-center lg:p-[20px] md:p-[5px] rounded-3xl">
-                Get Started
-              </Button>
+              <a href="/AuthPage">
+                <button className="btn bg-[#FFC224] text-sm text-black mr-3 flex justify-center items-center md:p-[5px]">
+                  Visa Tracking
+                </button>
+              </a>
+              <a href="/AuthPage">
+                <button className="btn bg-[#FFC224] text-sm text-black mr-3 flex justify-center items-center md:p-[5px]">
+                  Get Started
+                </button>
+              </a>
             </div>
           </div>
         </ul>

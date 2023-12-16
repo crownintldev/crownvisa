@@ -15,14 +15,18 @@ const About = () => {
       loop: true,
       autoplay: true,
       // Here, include the path to your Lottie JSON file
-      path: 'Animations/Animation - 1699202342622.json',
+      path: 'Animations/Animation - 1702725027865.json',
     });
 
     return () => anim.current?.destroy(); // Optional clean up for unmounting
   }, []);
   return (
     <div className="grid grid-cols-12 gap-6 my-3">
-      <div className="md:col-span-6 col-span-12">
+      <div
+        ref={animationContainer}
+        className="relative md:col-span-4 col-span-12 h-[300px]"
+      ></div>
+      <div className="md:col-span-8 col-span-12">
         <h2>ABOUT THE COMPANY</h2>
         <h1 className="text-[35px] font-bold">
           Providing the best immigration{' '}
@@ -38,10 +42,6 @@ const About = () => {
           Discover More
         </Button>
       </div>
-      <div
-        ref={animationContainer}
-        className="relative col-span-6 col-span-12 w-[100%] h-[300px]"
-      ></div>
     </div>
   );
 };

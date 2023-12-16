@@ -24,9 +24,9 @@ const Mission = () => {
     <div className="grid grid-cols-12 gap-6 py-3">
       <div
         ref={animationContainer}
-        className="relative md:col-span-6 col-span-12 h-[300px]"
+        className="relative md:col-span-4 col-span-12 h-[300px]"
       ></div>
-      <div className="md:col-span-6 col-span-12">
+      <div className="md:col-span-8 col-span-12">
         <h2 className="font-bold text-[35px] mb-5">
           Our <span className="text-[#FFC224]">Mission</span>
         </h2>

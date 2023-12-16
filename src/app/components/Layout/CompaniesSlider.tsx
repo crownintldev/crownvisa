@@ -1,75 +1,81 @@
 //@ts-nocheck
-import React, { useState } from 'react';
-// Import Swiper React components
-import { Swiper, SwiperSlide } from 'swiper/react';
+import Image from "next/image";
+import styled, { css, keyframes } from "styled-components";
+const AppContainer = styled.div`
+  position: relative;
+  display: flex;
+  overflow: hidden;
+  margin: 15px 0;
+`;
 
-// Import Swiper styles
-import 'swiper/css';
-import 'swiper/css/pagination';
-import 'swiper/css/navigation';
+const Wrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+`;
 
-// import required modules
-import { Pagination, Navigation, Autoplay } from 'swiper/modules';
-import Image from 'next/image';
+const Marquee = styled.div`
+  display: flex;
+  overflow: hidden;
+  user-select: none;
+`;
+
+const scrollX = keyframes`
+  from {
+    left: translateX(0);
+  }
+  to {
+    transform: translateX(-100%);
+  }
+`;
+
+const common = css`
+  display: flex;
+  animation: ${scrollX} 30s linear infinite;
+`;
+
+const MarqueeGroup = styled.div`
+  ${common}
+`;
+
+const ImageGroup = styled.div`
+  display: grid;
+  place-items: center;
+  width: clamp(10rem, 1rem + 40vmin, 30rem);
+  opacity: 0.5;
+`;
 
 export default function CompaniesSlider() {
-  const [swiperRef, setSwiperRef] = useState(null);
-
   return (
-    <div className='mb-10'>
+    <div className="mb-10">
       <div className="flex justify-center items center">
         <h2 className="text-[25px] font-bold mb-3">Our Clients & Partners</h2>
       </div>
-      <div className="companies-slider">
-        <Swiper
-          //@ts-ignore
-          onSwiper={setSwiperRef}
-          slidesPerView={1}
-          spaceBetween={30}
-          breakpoints={{
-            640: {
-              slidesPerView: 2,
-              spaceBetween: 20,
-            },
-            768: {
-              slidesPerView: 4,
-              spaceBetween: 30,
-            },
-            1024: {
-              slidesPerView: 5,
-              spaceBetween: 30,
-            },
-          }}
-          autoplay={true}
-          modules={[Pagination, Navigation, Autoplay]}
-          className="mySwiper flex justify-center"
-        >
-          {[...Array(9)].map((_, index) => (
-            <SwiperSlide
-              className="bg-white"
-              key={index}
-              onMouseEnter={() => {
-                if (swiperRef && swiperRef.autoplay) {
-                  swiperRef.autoplay.stop();
-                }
-              }}
-              onMouseLeave={() => {
-                if (swiperRef && swiperRef.autoplay) {
-                  swiperRef.autoplay.start();
-                }
-              }}
-            >
-              <Image
-                src="amazon.svg"
-                alt=""
-                className="mx-auto"
-                width={150}
-                height={150}
-              />
-            </SwiperSlide>
-          ))}
-        </Swiper>
-      </div>
+      <AppContainer>
+        <Wrapper>
+          <Marquee>
+            <MarqueeGroup>
+              <ImageGroup>
+                <Image src="amazon.svg" alt="image" height={100} width={100} />
+              </ImageGroup>
+              <ImageGroup>
+                <Image src="amazon.svg" alt="image" height={100} width={100} />
+              </ImageGroup>
+              <ImageGroup>
+                <Image src="amazon.svg" alt="image" height={100} width={100} />
+              </ImageGroup>
+              <ImageGroup>
+                <Image src="amazon.svg" alt="image" height={100} width={100} />
+              </ImageGroup>
+              <ImageGroup>
+                <Image src="amazon.svg" alt="image" height={100} width={100} />
+              </ImageGroup>
+              <ImageGroup>
+                <Image src="amazon.svg" alt="image" height={100} width={100} />
+              </ImageGroup>
+            </MarqueeGroup>
+          </Marquee>
+        </Wrapper>
+      </AppContainer>
     </div>
   );
 }

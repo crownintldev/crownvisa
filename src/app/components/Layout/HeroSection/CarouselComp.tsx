@@ -25,21 +25,21 @@ const CarouselComp: React.FC<CarouselProps> = ({ images, duration = 3000 }) => {
     setActiveIndex((prevIndex) => (prevIndex + 1) % images.length);
   };
   return (
-    <div className="relative">
-      <Image
-        src={images[activeIndex]}
-        alt="carousel-item"
-        className="w-full h-[600px] rounded-[30px]"
-        width={600}
-        height={600}
+    <div className="relative w-full h-[600px] rounded-[30px] overflow-hidden">
+      <div
+        style={{ backgroundImage: `url(${images[activeIndex]})` }}
+        className="w-full h-full bg-cover bg-fixed"
       />
       <button
         onClick={goToPrevious}
-        className="absolute top-1/2 left-[20px] p-2 border rounded-xl hover:bg-white duration-200 transition text-white hover:text-[#FFC224]"
+        className="absolute top-1/2 left-[20px] transform -translate-y-1/2 p-2 border rounded-xl hover:bg-white duration-200 transition text-white hover:text-[#FFC224] z-10"
       >
-        <FaArrowLeft  size={25}  />
+        <FaArrowLeft size={25} />
       </button>
-      <button onClick={goToNext} className="absolute top-1/2 right-[20px] p-2 border rounded-xl hover:bg-white duration-200 transition text-white hover:text-[#FFC224]">
+      <button
+        onClick={goToNext}
+        className="absolute top-1/2 right-[20px] transform -translate-y-1/2 p-2 border rounded-xl hover:bg-white duration-200 transition text-white hover:text-[#FFC224] z-10"
+      >
         <FaArrowRight size={25} />
       </button>
     </div>

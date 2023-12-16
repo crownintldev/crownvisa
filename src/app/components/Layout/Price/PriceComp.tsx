@@ -39,7 +39,7 @@ const PriceComp: React.FC<Props> = ({ title, description, price, details }) => {
       </ul>
       <a
         href="#"
-        className="text-black bg-[#FFC224] focus:ring-4 focus:ring-primary-200 font-medium rounded-lg text-sm px-5 py-2.5 text-center"
+        className="text-black bg-[#FFC224] focus:ring-4 focus:ring-primary-200 font-medium text-sm px-5 py-2.5 text-center"
       >
         Get started
       </a>
