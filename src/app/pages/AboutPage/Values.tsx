@@ -3,7 +3,7 @@
 import React, { useEffect, useRef } from 'react';
 import lottie from 'lottie-web';
 
-const Mission = () => {
+const Values = () => {
   const animationContainer = useRef(null);
   const anim = useRef(null);
 
@@ -14,21 +14,21 @@ const Mission = () => {
       loop: true,
       autoplay: true,
       // Here, include the path to your Lottie JSON file
-      path: 'Animations/Animation - 1699368991346.json',
+      path: 'Animations/Animation - 1702986384338.json',
     });
     anim.current.setSpeed(1);
 
     return () => anim.current?.destroy(); // Optional clean up for unmounting
   }, []);
   return (
-    <div className='col-span-4'>
+    <div className="col-span-4">
       <div
         ref={animationContainer}
         className="relative h-[200px]"
       ></div>
       <div className="">
         <h2 className="font-bold text-[35px] mb-5">
-          Our <span className="text-[#FFC224]">Mission</span>
+          Our <span className="text-[#FFC224]">Values</span>
         </h2>
         <p className='text-justify'>
           Crown International Technology’s aim is to empower people, businesses,
@@ -45,4 +45,4 @@ const Mission = () => {
   );
 };
 
-export default Mission;
+export default Values;

@@ -1,13 +1,13 @@
 //@ts-nocheck
 import About from "./About";
 import Mission from "./Mission";
+import Values from "./Values";
+import Vision from "./Vision";
 
 const AboutPage = () => {
   return (
-    <div className="lg:pt-[100px]">
-      <div
-        className="h-[400px] flex justify-center pl-[60px] items-center flex-col rounded-[30px] mx-[35px] bg-[url('https://motivoweb.com/saga/wp-content/themes/saga/assets/images/bg-titlebar.jpg')] bg-fixed bg-cover bg-no-repeat"
-      >
+    <div className="lg:pt-[110px]">
+      <div className="h-[400px] flex justify-center pl-[60px] items-center flex-col rounded-[30px] mx-[35px] bg-[url('https://motivoweb.com/saga/wp-content/themes/saga/assets/images/bg-titlebar.jpg')] bg-fixed bg-cover bg-no-repeat mb-10">
         <h2 className="text-[55px]">About us</h2>
         <nav className="flex" aria-label="Breadcrumb">
           <ol className="inline-flex items-center space-x-1 md:space-x-2 rtl:space-x-reverse">
@@ -56,9 +56,11 @@ const AboutPage = () => {
           </ol>
         </nav>
       </div>
-      <div className="container mx-auto px-4">
-        <About />
+      <div className="container mx-auto px-4 grid grid-cols-12 gap-6  mb-10">
+        {/* <About /> */}
         <Mission />
+        <Vision />
+        <Values />
       </div>
     </div>
   );

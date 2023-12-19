@@ -36,7 +36,7 @@ const MegaMenu = () => {
               <div>
                 <div className="absolute left-0 top-35 hidden w-screen group-hover:md:block hover:md:block bg-white py-5">
                   <div className="grid grid-cols-12 gap-10 container mx-auto">
-                    <div className="lg:col-span-4 md:col-span-6 col-span-12 border-r border-black">
+                    <div className="lg:col-span-2 md:col-span-6 col-span-12 border-r border-black">
                       {link.sublinks.map((mysublinks) => (
                         <h2
                           className="text-lg font-semibold py-2"

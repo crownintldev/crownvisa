@@ -10,7 +10,7 @@ interface Props {
 
 const TeamComp: React.FC<Props> = ({ imageurl, alt, name, details }) => {
   return (
-    <div className="text-center text-gray-500 dark:text-gray-400 border bg-white overflow-hidden relative group">
+    <div className="text-center text-gray-500 dark:text-gray-400 border bg-white overflow-hidden relative group hover:scale-105 transition-300">
       <Image
         className="w-full"
         src={imageurl}

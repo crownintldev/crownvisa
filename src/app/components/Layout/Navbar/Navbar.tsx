@@ -8,6 +8,7 @@ import {
 } from "react-icons/ai";
 import NavLinks from "./NavLinks";
 import Image from "next/image";
+import MegaMenu from "./MegaMenu";
 const Navbar = () => {
   const [open, setOpen] = useState(false);
   const [showDropdown, setShowDropdown] = useState(false);
@@ -81,16 +82,14 @@ const Navbar = () => {
               Contact
             </Link>
           </li>
-          <NavLinks />
+          <MegaMenu />
         </ul>
       </div>
       <div className="lg:block hidden">
         <div className="flex">
-          <a href="/AuthPage">
-            <button className="btn bg-[#FFC224] text-sm text-black mr-3 flex justify-center items-center md:p-[5px]">
-              Visa Tracking
-            </button>
-          </a>
+          <button className="btn bg-[#FFC224] text-sm text-black mr-3 flex justify-center items-center md:p-[5px]">
+            Visa Tracking
+          </button>
           <a href="/AuthPage">
             <button className="btn bg-[#FFC224] text-sm text-black mr-3 flex justify-center items-center md:p-[5px]">
               Get Started

@@ -31,7 +31,7 @@ const HeroSectionComp = () => {
     <>
       <div className="relative bg-transparent rounded-[30px] mx-[35px] lg:pt-[110px]">
         <CarouselComp images={images} />
-        <div className="absolute md:top-[140px] md:left-[100px] top-[100px] left-0">
+        <div className="absolute md:top-[140px] lg:top-[230px] md:left-[100px] top-[100px] left-0">
           <section>
             <div
               className="py-8 md:px-4 mx-auto max-w-screen-xl text-center lg:py-16"
@@ -77,7 +77,7 @@ const HeroSectionComp = () => {
                 {/* Tab Content */}
                 {activeTab === "Visa" && (
                   <div className="flex justify-center items-center">
-                    <div className="flex md:flex-row flex-col justify-between items-center bg-white md:w-[700px] w-[300px] p-4">
+                    <div className="flex md:flex-row flex-col justify-between items-center rounded-lg bg-white md:w-[700px] w-[300px] p-4">
                       <div className="flex items-center">
                         <div className="mr-2">
                           <FaLocationDot size={30} />
@@ -142,7 +142,7 @@ const HeroSectionComp = () => {
                 )}
                 {activeTab === "Flights" && (
                   <div className="flex justify-center items-center">
-                    <div className="flex justify-between items-center bg-white w-[700px] p-4">
+                    <div className="flex justify-between items-center rounded-lg bg-white w-[700px] p-4">
                       <div className="flex items-center">
                         <div className="mr-2">
                           <FaLocationDot size={30} />
@@ -207,7 +207,7 @@ const HeroSectionComp = () => {
                 )}
                 {activeTab === "Hotels" && (
                   <div className="flex justify-center items-center">
-                    <div className="flex justify-between items-center bg-white w-[700px] p-4">
+                    <div className="flex justify-between items-center rounded-lg bg-white w-[700px] p-4">
                       <div className="flex items-center">
                         <div className="mr-2">
                           <FaLocationDot size={30} />
@@ -272,7 +272,7 @@ const HeroSectionComp = () => {
                 )}
                 {activeTab === "Insurance" && (
                   <div className="flex justify-center items-center">
-                    <div className="flex justify-between items-center bg-white w-[700px] p-4">
+                    <div className="flex justify-between items-center rounded-lg bg-white w-[700px] p-4">
                       <div className="flex items-center">
                         <div className="mr-2">
                           <FaLocationDot size={30} />
