@@ -3,13 +3,14 @@ import "@splidejs/splide/dist/css/splide.min.css";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "react-quill/dist/quill.snow.css";
-import { ToastContainer } from 'react-toastify';
+import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import 'keen-slider/keen-slider.min.css';
+import "keen-slider/keen-slider.min.css";
 import ContextProvider from "./ContextProvider";
 import QueryProvider from "./QueryProvider";
 import "./globals.css";
-import 'aos/dist/aos.css';
+import "aos/dist/aos.css";
+import Script from "next/script";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -44,6 +45,7 @@ export default function RootLayout({
             <ToastContainer />
           </ContextProvider>
         </QueryProvider>
+        <Script src="../path/to/flowbite/dist/flowbite.min.js"></Script>
       </body>
     </html>
   );

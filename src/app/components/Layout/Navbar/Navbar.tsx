@@ -24,7 +24,6 @@ const Navbar = () => {
           width={70}
           height={70}
         />
-        {/* <h1 className="text-[35px] text-[#FFC224] font-bold">Crown Travels</h1> */}
         <div
           className="text-3xl lg:hidden flex justify-center items-center mr-4"
           onClick={() => setOpen(!open)}

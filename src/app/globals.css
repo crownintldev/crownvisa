@@ -231,16 +231,14 @@ h3 {
 }
 
 .pic {
-  height: auto;
-  width: 302px;
+  height:100%;
 }
 
 .about {
-  width: 1130px;
-  max-width: 85%;
+  padding:10px 0;
   margin: 0 auto;
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: space-around;
 }
 

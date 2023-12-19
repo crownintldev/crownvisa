@@ -8,7 +8,7 @@ const Stats = () => {
   const [counter, setcounter] = useState(false);
   return (
     <ScrollTrigger onEnter={() => setcounter(true)} className="mb-10">
-      <div className="bg-white backdrop-blur-lg rounded-3xl shadow-2xl mb-16 shadow">
+      <div className="bg-white rounded-3xl mb-16 card-shadow">
         {counter && (
           <div className="py-8 lg:py-16 grid grid-cols-12 gap-6 text-black">
             <div className="lg:col-start-2 lg:col-span-2 md:col-start-1 md:col-span-4 col-span-12 flex flex-col justify-center items-center">

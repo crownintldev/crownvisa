@@ -38,9 +38,9 @@ const About = () => {
           explicabo vel odio facere libero repellendus sequi deserunt eum natus!
           Distinctio, sapiente!
         </p>
-        <Button className="btn bg-[#FFC224] text-black mr-3 flex justify-center items-center p-[20px] rounded-3xl">
+        <button className="btn bg-[#FFC224] text-black mr-3 flex justify-center items-center p-[10px]">
           Discover More
-        </Button>
+        </button>
       </div>
     </div>
   );

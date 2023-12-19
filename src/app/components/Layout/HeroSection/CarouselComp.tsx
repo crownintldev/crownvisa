@@ -24,6 +24,9 @@ const CarouselComp: React.FC<CarouselProps> = ({ images, duration = 3000 }) => {
   const goToNext = () => {
     setActiveIndex((prevIndex) => (prevIndex + 1) % images.length);
   };
+  const goToSlide = (index: number) => {
+    setActiveIndex(index);
+  };
   return (
     <div className="relative w-full h-[600px] rounded-[30px] overflow-hidden">
       <div
@@ -42,6 +45,17 @@ const CarouselComp: React.FC<CarouselProps> = ({ images, duration = 3000 }) => {
       >
         <FaArrowRight size={25} />
       </button>
+      <div className="absolute bottom-5 left-1/2 transform -translate-x-1/2 flex space-x-3">
+        {images.map((_, index) => (
+          <span
+            key={index}
+            onClick={() => goToSlide(index)}
+            className={`cursor-pointer block w-3 h-3 rounded-full ${
+              index === activeIndex ? "bg-white" : "bg-gray-700"
+            }`}
+          />
+        ))}
+      </div>
     </div>
   );
 };
