@@ -53,7 +53,7 @@ const HeroSectionComp = () => {
                     {tabs.map((tab) => (
                       <li key={tab} className="me-2" role="presentation">
                         <button
-                          className={`inline-block w-full px-2 text-md text-gray-900 rounded-lg focus:ring-4 focus:ring-blue-300 active focus:outline-none ${
+                          className={`inline-block w-full px-2 text-md text-gray-900 rounded-lg  active focus:outline-none ${
                             activeTab === tab
                               ? "bg-[#FFC224] text-black"
                               : "bg-gray-100 hover:text-gray-600"
@@ -137,8 +137,8 @@ const HeroSectionComp = () => {
                   </div>
                 )}
                 {activeTab === "Flights" && (
-                  <div className="flex justify-center items-center">
-                    <div className="flex md:flex-row flex-col justify-between items-center rounded-lg bg-white md:w-[700px] w-[300px] p-2">
+                  <div className="flex justify-center">
+                    <div className="flex md:flex-row flex-col justify-between rounded-lg bg-white md:w-[700px] w-[300px] p-2">
                       <div className="flex items-center">
                         <div className="mr-2">
                           <FaLocationDot size={30} />
@@ -195,7 +195,7 @@ const HeroSectionComp = () => {
                         </div>
                       </div>
                       <div>
-                        <button className="btn bg-[#FFC224] text-sm text-black mr-3 flex justify-center items-center md:p-[5px] rounded-md">
+                        <button className="btn bg-[#fe720f] text-sm text-black flex justify-center items-center md:p-[7px] rounded-md h-full">
                           Search
                         </button>
                       </div>
@@ -203,136 +203,136 @@ const HeroSectionComp = () => {
                   </div>
                 )}
                 {activeTab === "Hotels" && (
-                  <div className="flex justify-center items-center">
-                  <div className="flex md:flex-row flex-col justify-between items-center rounded-lg bg-white md:w-[700px] w-[300px] p-2">
-                    <div className="flex items-center">
-                      <div className="mr-2">
-                        <FaLocationDot size={30} />
+                  <div className="flex justify-center">
+                    <div className="flex md:flex-row flex-col justify-between rounded-lg bg-white md:w-[700px] w-[300px] p-2">
+                      <div className="flex items-center">
+                        <div className="mr-2">
+                          <FaLocationDot size={30} />
+                        </div>
+                        <div>
+                          <p>Where</p>
+                          <Select
+                            defaultValue="lucy"
+                            className="w-[150px]"
+                            onChange={handleChange}
+                            options={[
+                              { value: "jack", label: "Jack" },
+                              { value: "lucy", label: "Lucy" },
+                              { value: "Yiminghe", label: "yiminghe" },
+                              {
+                                value: "disabled",
+                                label: "Disabled",
+                                disabled: true,
+                              },
+                            ]}
+                          />
+                        </div>
+                      </div>
+                      <div className="flex items-center">
+                        <div className="mr-2">
+                          <MdDateRange size={30} />
+                        </div>
+                        <div>
+                          <p>When</p>
+                          <DatePicker onChange={onChange} />
+                        </div>
+                      </div>
+                      <div className="flex items-center">
+                        <div className="mr-2">
+                          <MdTour size={30} />
+                        </div>
+                        <div>
+                          <p>Where</p>
+                          <Select
+                            defaultValue="lucy"
+                            className="w-[150px]"
+                            onChange={handleChange}
+                            options={[
+                              { value: "jack", label: "Jack" },
+                              { value: "lucy", label: "Lucy" },
+                              { value: "Yiminghe", label: "yiminghe" },
+                              {
+                                value: "disabled",
+                                label: "Disabled",
+                                disabled: true,
+                              },
+                            ]}
+                          />
+                        </div>
                       </div>
                       <div>
-                        <p>Where</p>
-                        <Select
-                          defaultValue="lucy"
-                          className="w-[150px]"
-                          onChange={handleChange}
-                          options={[
-                            { value: "jack", label: "Jack" },
-                            { value: "lucy", label: "Lucy" },
-                            { value: "Yiminghe", label: "yiminghe" },
-                            {
-                              value: "disabled",
-                              label: "Disabled",
-                              disabled: true,
-                            },
-                          ]}
-                        />
+                        <button className="btn bg-[#fe720f] text-sm text-black flex justify-center items-center md:p-[7px] rounded-md h-full">
+                          Search
+                        </button>
                       </div>
-                    </div>
-                    <div className="flex items-center">
-                      <div className="mr-2">
-                        <MdDateRange size={30} />
-                      </div>
-                      <div>
-                        <p>When</p>
-                        <DatePicker onChange={onChange} />
-                      </div>
-                    </div>
-                    <div className="flex items-center">
-                      <div className="mr-2">
-                        <MdTour size={30} />
-                      </div>
-                      <div>
-                        <p>Where</p>
-                        <Select
-                          defaultValue="lucy"
-                          className="w-[150px]"
-                          onChange={handleChange}
-                          options={[
-                            { value: "jack", label: "Jack" },
-                            { value: "lucy", label: "Lucy" },
-                            { value: "Yiminghe", label: "yiminghe" },
-                            {
-                              value: "disabled",
-                              label: "Disabled",
-                              disabled: true,
-                            },
-                          ]}
-                        />
-                      </div>
-                    </div>
-                    <div>
-                      <button className="btn bg-[#FFC224] text-sm text-black mr-3 flex justify-center items-center md:p-[5px] rounded-md">
-                        Search
-                      </button>
                     </div>
                   </div>
-                </div>
                 )}
                 {activeTab === "Insurance" && (
-                  <div className="flex justify-center items-center">
-                  <div className="flex md:flex-row flex-col justify-between items-center rounded-lg bg-white md:w-[700px] w-[300px] p-2">
-                    <div className="flex items-center">
-                      <div className="mr-2">
-                        <FaLocationDot size={30} />
+                  <div className="flex justify-center">
+                    <div className="flex md:flex-row flex-col justify-between rounded-lg bg-white md:w-[700px] w-[300px] p-2">
+                      <div className="flex items-center">
+                        <div className="mr-2">
+                          <FaLocationDot size={30} />
+                        </div>
+                        <div>
+                          <p>Where</p>
+                          <Select
+                            defaultValue="lucy"
+                            className="w-[150px]"
+                            onChange={handleChange}
+                            options={[
+                              { value: "jack", label: "Jack" },
+                              { value: "lucy", label: "Lucy" },
+                              { value: "Yiminghe", label: "yiminghe" },
+                              {
+                                value: "disabled",
+                                label: "Disabled",
+                                disabled: true,
+                              },
+                            ]}
+                          />
+                        </div>
+                      </div>
+                      <div className="flex items-center">
+                        <div className="mr-2">
+                          <MdDateRange size={30} />
+                        </div>
+                        <div>
+                          <p>When</p>
+                          <DatePicker onChange={onChange} />
+                        </div>
+                      </div>
+                      <div className="flex items-center">
+                        <div className="mr-2">
+                          <MdTour size={30} />
+                        </div>
+                        <div>
+                          <p>Where</p>
+                          <Select
+                            defaultValue="lucy"
+                            className="w-[150px]"
+                            onChange={handleChange}
+                            options={[
+                              { value: "jack", label: "Jack" },
+                              { value: "lucy", label: "Lucy" },
+                              { value: "Yiminghe", label: "yiminghe" },
+                              {
+                                value: "disabled",
+                                label: "Disabled",
+                                disabled: true,
+                              },
+                            ]}
+                          />
+                        </div>
                       </div>
                       <div>
-                        <p>Where</p>
-                        <Select
-                          defaultValue="lucy"
-                          className="w-[150px]"
-                          onChange={handleChange}
-                          options={[
-                            { value: "jack", label: "Jack" },
-                            { value: "lucy", label: "Lucy" },
-                            { value: "Yiminghe", label: "yiminghe" },
-                            {
-                              value: "disabled",
-                              label: "Disabled",
-                              disabled: true,
-                            },
-                          ]}
-                        />
+                        <button className="btn bg-[#fe720f] text-sm text-black flex justify-center items-center md:p-[7px] rounded-md h-full">
+                          Search
+                        </button>
                       </div>
-                    </div>
-                    <div className="flex items-center">
-                      <div className="mr-2">
-                        <MdDateRange size={30} />
-                      </div>
-                      <div>
-                        <p>When</p>
-                        <DatePicker onChange={onChange} />
-                      </div>
-                    </div>
-                    <div className="flex items-center">
-                      <div className="mr-2">
-                        <MdTour size={30} />
-                      </div>
-                      <div>
-                        <p>Where</p>
-                        <Select
-                          defaultValue="lucy"
-                          className="w-[150px]"
-                          onChange={handleChange}
-                          options={[
-                            { value: "jack", label: "Jack" },
-                            { value: "lucy", label: "Lucy" },
-                            { value: "Yiminghe", label: "yiminghe" },
-                            {
-                              value: "disabled",
-                              label: "Disabled",
-                              disabled: true,
-                            },
-                          ]}
-                        />
-                      </div>
-                    </div>
-                    <div>
-                      <button className="btn bg-[#FFC224] text-sm text-black mr-3 flex justify-center items-center md:p-[5px] rounded-md">
-                        Search
-                      </button>
                     </div>
                   </div>
-                </div>
                 )}
               </div>
             </div>
