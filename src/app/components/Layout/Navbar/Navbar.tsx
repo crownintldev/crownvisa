@@ -55,7 +55,7 @@ const Navbar = () => {
               <AiOutlineDown />
             </span>
             {showDropdown && (
-              <div className="dropdown-content  absolute top-[90px] left-[530px] bg-white shadow-none backdrop-blur-none opacity-100">
+              <div className="dropdown-content  absolute top-[90px] left-[530px] bg-white shadow-none backdrop-blur-sm opacity-100 card-shadow">
                 {/* Your dropdown links here */}
                 <ul>
                   <li className="border-b border-black px-10 py-2">

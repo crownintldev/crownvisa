@@ -1,11 +1,11 @@
 "use client";
 import React from "react";
-import { Card, Timeline } from "antd";
+import { Card, Collapse, CollapseProps, Tabs, Timeline } from "antd";
 
 import { Space, Table, Tag } from "antd";
 import type { ColumnsType } from "antd/es/table";
 import {
-    CheckCircleTwoTone,
+  CheckCircleTwoTone,
   EditOutlined,
   EllipsisOutlined,
   SettingOutlined,
@@ -99,12 +99,53 @@ const data: DataType[] = [
   },
 ];
 
+const text = `
+  A dog is a type of domesticated animal.
+  Known for its loyalty and faithfulness,
+  it can be found as a welcome guest in many households across the world.
+`;
+
+const items: CollapseProps['items'] = [
+  {
+    key: '1',
+    label: 'This is panel header 1',
+    children: <p>{text}</p>,
+  },
+  {
+    key: '2',
+    label: 'This is panel header 2',
+    children: <p>{text}</p>,
+  },
+  {
+    key: '3',
+    label: 'This is panel header 3',
+    children: <p>{text}</p>,
+  },
+];
+
 const VisaDescriptionPage = () => {
+  const onChange = (key: string | string[]) => {
+    console.log(key);
+  };
   return (
-    <div className="bg-[#F3F3F3]">
+    <div className="bg-[#F3F3F3] pt-[110px]">
       <div className=" container mx-auto flex justify-between border p-5 bg-white">
         <div className="w-[50%]">
           <h1 className="font-bold text-[35px]">Visa Description Page</h1>
+          <Tabs
+            defaultActiveKey="1"
+            type="card"
+            size="large"
+            items={new Array(3).fill(null).map((_, i) => {
+              const id = String(i + 1);
+              return {
+                label: `Card Tab ${id}`,
+                key: id,
+                children: `Content of card tab ${id}`,
+              };
+            })}
+          />
+          <Collapse items={items} defaultActiveKey={['1']} onChange={onChange} />
           <div className="my-3">
             <h2 className="text-[25px]">Required Documents</h2>
             <p className="text-justify">
@@ -164,25 +205,62 @@ const VisaDescriptionPage = () => {
           <Card
             title="Trip Information"
             style={{ width: "100%" }}
-            headStyle={{background:'#253D52',color:'white'}}
+            headStyle={{ background: "#253D52", color: "white" }}
             className="mb-4"
           >
-            <p><CheckCircleTwoTone className="mr-5" />Location : Rio,Brazil</p>
-            <p><CheckCircleTwoTone className="mr-5" />Arrival Date: Nov 12, 2017</p>
-            <p><CheckCircleTwoTone className="mr-5" />Departure Date: Nov 21, 2017</p>
-            <p><CheckCircleTwoTone className="mr-5" />Free Sightseeing & Hotel</p>
+            <p>
+              <CheckCircleTwoTone className="mr-5" />
+              Location : Rio,Brazil
+            </p>
+            <p>
+              <CheckCircleTwoTone className="mr-5" />
+              Arrival Date: Nov 12, 2017
+            </p>
+            <p>
+              <CheckCircleTwoTone className="mr-5" />
+              Departure Date: Nov 21, 2017
+            </p>
+            <p>
+              <CheckCircleTwoTone className="mr-5" />
+              Free Sightseeing & Hotel
+            </p>
           </Card>
           <Card
             title="Trip Information"
             style={{ width: "100%" }}
-            headStyle={{background:'#253D52',color:'white'}}
+            headStyle={{ background: "#253D52", color: "white" }}
           >
             <div className="flex">
-            <p className="border border-black rounded-3xl p-2 mr-2 bg-[#3B5998]"><BiLogoFacebook size={25} style={{ color: 'white', fontSize: '24px' }}/></p>
-            <p className="border border-black rounded-3xl p-2 mr-2 bg-[#DD4B39]"><AiOutlineGooglePlus size={25} style={{ color: 'white', fontSize: '24px' }}/></p>
-            <p className="border border-black rounded-3xl p-2 mr-2 bg-[#55acee]"><AiOutlineTwitter size={25} style={{ color: 'white', fontSize: '24px' }}/></p>
-            <p className="border border-black rounded-3xl p-2 mr-2 bg-[#0077b5]"><FaLinkedinIn size={25} style={{ color: 'white', fontSize: '24px' }}/></p>
-            <p className="border border-black rounded-3xl p-2 mr-2 bg-[#3ead19]"><BsWhatsapp size={25} style={{ color: 'white', fontSize: '24px' }}/></p>
+              <p className="border border-black rounded-3xl p-2 mr-2 bg-[#3B5998]">
+                <BiLogoFacebook
+                  size={25}
+                  style={{ color: "white", fontSize: "24px" }}
+                />
+              </p>
+              <p className="border border-black rounded-3xl p-2 mr-2 bg-[#DD4B39]">
+                <AiOutlineGooglePlus
+                  size={25}
+                  style={{ color: "white", fontSize: "24px" }}
+                />
+              </p>
+              <p className="border border-black rounded-3xl p-2 mr-2 bg-[#55acee]">
+                <AiOutlineTwitter
+                  size={25}
+                  style={{ color: "white", fontSize: "24px" }}
+                />
+              </p>
+              <p className="border border-black rounded-3xl p-2 mr-2 bg-[#0077b5]">
+                <FaLinkedinIn
+                  size={25}
+                  style={{ color: "white", fontSize: "24px" }}
+                />
+              </p>
+              <p className="border border-black rounded-3xl p-2 mr-2 bg-[#3ead19]">
+                <BsWhatsapp
+                  size={25}
+                  style={{ color: "white", fontSize: "24px" }}
+                />
+              </p>
             </div>
           </Card>
         </div>

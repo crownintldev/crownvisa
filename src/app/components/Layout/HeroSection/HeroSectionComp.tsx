@@ -1,6 +1,5 @@
-//@ts-nocheck
 "use client";
-import { DatePicker, Select } from "antd";
+import { DatePicker, DatePickerProps, Select } from "antd";
 import { useState } from "react";
 import { FaLocationDot } from "react-icons/fa6";
 import { MdDateRange, MdTour } from "react-icons/md";
@@ -14,6 +13,7 @@ const images = [
 const handleChange = (value: string) => {
   console.log(`selected ${value}`);
 };
+
 const onChange: DatePickerProps["onChange"] = (date, dateString) => {
   console.log(date, dateString);
 };
@@ -23,7 +23,7 @@ const HeroSectionComp = () => {
   const tabs = ["Visa", "Flights", "Hotels", "Insurance"];
 
   // Function to change the active tab
-  const handleTabClick = (tab) => {
+  const handleTabClick = (tab: string) => {
     setActiveTab(tab);
   };
 

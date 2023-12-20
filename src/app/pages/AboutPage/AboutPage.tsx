@@ -1,4 +1,5 @@
 //@ts-nocheck
+import Stats from "@/app/components/Layout/Stats/Stats";
 import About from "./About";
 import Mission from "./Mission";
 import Values from "./Values";
@@ -61,6 +62,9 @@ const AboutPage = () => {
         <Mission />
         <Vision />
         <Values />
+      </div>
+      <div className="container mx-auto flex flex-col my-3 px-4">
+        <Stats/>
       </div>
     </div>
   );

@@ -1,4 +1,5 @@
 //@ts-nocheck
+"use client"
 import React, { useState } from "react";
 import StatsComp from "./StatsComp";
 import { BsFillBarChartFill } from "react-icons/bs";

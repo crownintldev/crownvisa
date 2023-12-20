@@ -1,4 +1,3 @@
-import Image from "next/image";
 import React, { useEffect, useState } from "react";
 import { FaArrowRight } from "react-icons/fa";
 import { FaArrowLeft } from "react-icons/fa6";
@@ -50,7 +49,7 @@ const CarouselComp: React.FC<CarouselProps> = ({ images, duration = 3000 }) => {
           <span
             key={index}
             onClick={() => goToSlide(index)}
-            className={`cursor-pointer block w-3 h-3 rounded-full ${
+            className={`cursor-pointer block w-2 h-2 rounded-full ${
               index === activeIndex ? "bg-white" : "bg-gray-700"
             }`}
           />
