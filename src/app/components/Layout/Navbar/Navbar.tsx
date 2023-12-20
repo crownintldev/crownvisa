@@ -16,7 +16,7 @@ const Navbar = () => {
     setShowDropdown(!showDropdown);
   };
   return (
-    <div className="flex justify-between items-center z-10 font-medium container mx-auto">
+    <div className="flex justify-between items-center z-10 font-medium container mx-auto lg:backdrop-blur-lg lg:opacity-90">
       <div className="py-1 flex justify-between lg:w-auto w-full">
         <Image
           src="https://www.crownintltravels.com/wp-content/uploads/2023/07/crown-logo-1.png"
@@ -55,19 +55,19 @@ const Navbar = () => {
               <AiOutlineDown />
             </span>
             {showDropdown && (
-              <div className="dropdown-content  absolute top-[90px] left-[530px] bg-white shadow-none backdrop-blur-sm opacity-100 card-shadow">
+              <div className="dropdown-content  absolute top-[70px] left-[530px] bg-white shadow-none backdrop-blur-sm opacity-100 card-shadow">
                 {/* Your dropdown links here */}
                 <ul>
-                  <li className="border-b border-black px-10 py-2">
+                  <li className="border-b border-black px-8 py-2">
                     <Link href="/AboutCeoPage">About Ceo</Link>
                   </li>
-                  <li className="border-b border-black px-10 py-2">
+                  <li className="border-b border-black px-8 py-2">
                     <Link href="/AboutPage">About Company</Link>
                   </li>
-                  <li className="border-b border-black px-10 py-2">
+                  <li className="border-b border-black px-8 py-2">
                     <Link href="/AboutTeamPage">Our Team</Link>
                   </li>
-                  <li className="border-b border-black px-10 py-2">
+                  <li className="border-b border-black px-8 py-2">
                     <Link href="/Option4">Company Profile</Link>
                   </li>
                 </ul>
