@@ -13,16 +13,16 @@ const TestimonialComp: React.FC<Props> = ({ title, description, author }) => {
         <div>
           <div className="flex space-x-2 mx-2">
             <div className="flex  items-center  space-x-1">
-              <FaStar className="text-[#FFC224]" size={13} />
-              <FaStar className="text-[#FFC224]" size={13} />
-              <FaStar className="text-[#FFC224]" size={13} />
-              <FaStar className="text-[#FFC224]" size={13} />
-              <FaStar className="text-[#FFC224]" size={13} />
+              <FaStar className="text-[#fe720f]" size={13} />
+              <FaStar className="text-[#fe720f]" size={13} />
+              <FaStar className="text-[#fe720f]" size={13} />
+              <FaStar className="text-[#fe720f]" size={13} />
+              <FaStar className="text-[#fe720f]" size={13} />
             </div>
           </div>
 
           <div className="mt-4">
-            <p className="text-2xl font-bold text-[#FFC224] sm:text-3xl">
+            <p className="text-2xl font-bold text-[#fe720f] sm:text-3xl">
               {title}
             </p>
 

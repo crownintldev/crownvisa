@@ -87,11 +87,11 @@ const Navbar = () => {
       </div>
       <div className="lg:block hidden">
         <div className="flex">
-          <button className="btn bg-[#FFC224] text-sm text-black mr-3 flex justify-center items-center md:p-[5px]">
+          <button className="btn bg-[#fe720f] px-3 py-3 rounded-md text-sm text-black mr-3 flex justify-center items-center ">
             Visa Tracking
           </button>
           <a href="/AuthPage">
-            <button className="btn bg-[#FFC224] text-sm text-black mr-3 flex justify-center items-center md:p-[5px]">
+            <button className="btn bg-[#fe720f] px-3 py-3 rounded-md text-sm text-black mr-3 flex justify-center items-center ">
               Get Started
             </button>
           </a>

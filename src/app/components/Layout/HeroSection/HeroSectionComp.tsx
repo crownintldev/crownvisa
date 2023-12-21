@@ -7,7 +7,7 @@ import CarouselComp from "./CarouselComp";
 
 const images = [
   "https://creativelayers.net/themes/viatours-html/img/hero/1/1.png",
-  "https://rn53themes.net/themes/demo/travelz/images/gallery/t4.jpg",
+  "https://wallpapers.com/images/featured/travel-ibk7fgrvtvhs7qzg.jpg",
 ];
 
 const handleChange = (value: string) => {
@@ -41,7 +41,7 @@ const HeroSectionComp = () => {
               }}
             >
               <h1 className="mb-8 md:text-[65px] text-9xl font-bold tracking-tight leading-none text-white dark:text-white">
-                We invest in the world’s potential
+                We invest in the world’s potential 
               </h1>
               <div>
                 <div className="mb-1">
@@ -53,9 +53,9 @@ const HeroSectionComp = () => {
                     {tabs.map((tab) => (
                       <li key={tab} className="me-2" role="presentation">
                         <button
-                          className={`inline-block w-full px-2 text-md text-gray-900 rounded-lg  active focus:outline-none ${
+                          className={`inline-block w-full px-3 text-md text-gray-900 rounded-lg  active focus:outline-none ${
                             activeTab === tab
-                              ? "bg-[#FFC224] text-black"
+                              ? "bg-[#fe720f] text-black"
                               : "bg-gray-100 hover:text-gray-600"
                           }`}
                           type="button"
@@ -129,7 +129,7 @@ const HeroSectionComp = () => {
                         </div>
                       </div>
                       <div>
-                        <button className="btn bg-[#fe720f] text-sm text-black flex justify-center items-center md:p-[7px] rounded-md h-full">
+                        <button className="btn bg-[#fe720f] px-3 py-3 text-sm text-black flex justify-center items-center rounded-md h-full">
                           Search
                         </button>
                       </div>

@@ -69,7 +69,7 @@ export default function ServicesSlider() {
                 <BsFillArrowRightCircleFill
                   size={25}
                   className="absolute top-[10px] right-[10px] group-hover:top-[-30px]"
-                  style={{ color: '#FFC224', fontSize: '24px' }}
+                  style={{ color: '#fe720f', fontSize: '24px' }}
                 />
                 <h2
                   className="text-start text-[25px] text-white font-bold absolute bottom-[20px] left-[10px] z-10 group-hover:z-0"
@@ -92,7 +92,7 @@ export default function ServicesSlider() {
                     <BsFillArrowRightCircleFill
                       size={25}
                       className="absolute top-0 right-0"
-                      style={{ color: '#FFC224', fontSize: '24px' }}
+                      style={{ color: '#fe720f', fontSize: '24px' }}
                     />
                   </div>
                 </div>

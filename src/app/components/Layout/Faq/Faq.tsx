@@ -38,7 +38,7 @@ const Faq = () => {
           <a
             href="#"
             title=""
-            className="font-medium text-blue-600 transition-all duration-200 hover:text-blue-700 focus:text-blue-700 hover:underline"
+            className="font-medium text-[#fe720f] transition-all duration-200 hover:text-[#fe720f] focus:text-blue-700 hover:underline"
           >
             Contact our support
           </a>

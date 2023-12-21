@@ -26,10 +26,10 @@ export default function CountriesSlider() {
         </div>
         <div>
           <button onClick={() => swiperRef && swiperRef.slidePrev()}>
-            <AiFillLeftCircle size={35} />
+            <AiFillLeftCircle size={35} style={{ color: "#fe720f" }} />
           </button>
           <button onClick={() => swiperRef && swiperRef.slideNext()}>
-            <AiFillRightCircle size={35} />
+            <AiFillRightCircle size={35} style={{ color: "#fe720f" }} />
           </button>
         </div>
       </div>

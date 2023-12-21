@@ -1,10 +1,11 @@
 "use client";
-import { Button, Space, Table, Tag } from "antd";
+import { Button, Drawer, DrawerProps, Space, Table, Tag } from "antd";
 import type { ColumnsType } from "antd/es/table";
 import axios from "axios";
 import { useRouter } from "next/navigation";
 import React, { useEffect, useState } from "react";
 import CustomModal from "../../../utils/CustomModel";
+import CountriesForm from "./countriesForm";
 
 interface DataType {
   key: number;
@@ -36,6 +37,16 @@ const CountriesTable: React.FC = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedId, setSelectedId] = useState<number | null>(null);
   const router = useRouter();
+  const [open, setOpen] = useState(false);
+  const [placement, setPlacement] = useState<DrawerProps["placement"]>("right");
+
+  const showDrawer = () => {
+    setOpen(true);
+  };
+
+  const onClose = () => {
+    setOpen(false);
+  };
 
   useEffect(() => {
     const fetchData = async () => {
@@ -168,7 +179,11 @@ const CountriesTable: React.FC = () => {
   return (
     <>
       <div className="flex justify-end">
-        <Button type="primary" className="bg-blue-700 mx-2 my-2">
+        <Button
+          type="primary"
+          className="bg-blue-700 mx-2 my-2"
+          onClick={showDrawer}
+        >
           Add
         </Button>
         <Button type="primary" className="bg-blue-700 mx-2 my-2">
@@ -178,12 +193,28 @@ const CountriesTable: React.FC = () => {
           Travel Itinerary
         </Button>
       </div>
-      <Table columns={columns} dataSource={data} bordered={true} className="mx-3" />{" "}
+      <Table
+        columns={columns}
+        dataSource={data}
+        bordered={true}
+        className="mx-3"
+      />{" "}
       <CustomModal
         isOpen={isModalOpen}
         onClose={handleCloseModal}
         onConfirm={handleConfirmDelete}
       />
+      <Drawer
+        title="Basic Drawer"
+        placement={placement}
+        closable={false}
+        onClose={onClose}
+        open={open}
+        key={placement}
+        width={600}
+      >
+        <CountriesForm />
+      </Drawer>
     </>
   );
 };

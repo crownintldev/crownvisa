@@ -23,7 +23,7 @@ const Newsletter = () => {
                 </label>
                 <div className="flex absolute inset-y-0 left-0 items-center pl-3 pointer-events-none">
                   <svg
-                    className="w-5 h-5 text-[#FFC224] dark:text-gray-400"
+                    className="w-5 h-5 text-[#fe720f] dark:text-gray-400"
                     fill="#FFC224"
                     viewBox="0 0 20 20"
                     xmlns="http://www.w3.org/2000/svg"
@@ -43,7 +43,7 @@ const Newsletter = () => {
               <div>
                 <button
                   type="submit"
-                  className="py-3 px-5 w-full text-sm font-medium text-center text-black rounded-lg border cursor-pointer bg-[#FFC224] border-[#FFC224] sm:rounded-none sm:rounded-r-lg focus:ring-4 focus:ring-primary-300 "
+                  className="py-3 px-5 w-full text-sm font-medium text-center text-black rounded-lg border cursor-pointer bg-[#fe720f] border-[#fe720f] sm:rounded-none sm:rounded-r-lg focus:ring-4 focus:ring-primary-300 "
                 >
                   Subscribe
                 </button>
@@ -53,7 +53,7 @@ const Newsletter = () => {
               We care about the protection of your data.{' '}
               <a
                 href="#"
-                className="font-medium text-[#FFC224] dark:text-primary-500 hover:underline"
+                className="font-medium text-[#fe720f] dark:text-primary-500 hover:underline"
               >
                 Read our Privacy Policy
               </a>

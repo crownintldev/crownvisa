@@ -65,7 +65,7 @@ export default function VisaSlider() {
   const buttonClass = (index) =>
     `${
       index === activeIndex
-        ? "text-black border border-[#FFC224] bg-[#FFC224] focus:ring-4 focus:outline-none focus:ring-blue-300 rounded-full text-base font-medium px-4 py-1.5 text-center me-3 mb-3 dark:border-blue-500 dark:text-blue-500 dark:hover:bg-blue-500 dark:bg-gray-900 dark:focus:ring-blue-800"
+        ? "text-black border border-[#fe720f] bg-[#fe720f] focus:ring-4 focus:outline-none focus:ring-blue-300 rounded-full text-base font-medium px-4 py-1.5 text-center me-3 mb-3 dark:border-blue-500 dark:text-blue-500 dark:hover:bg-blue-500 dark:bg-gray-900 dark:focus:ring-blue-800"
         : "text-gray-900 border border-white hover:border-gray-200 dark:border-gray-900 dark:bg-gray-900 dark:hover:border-gray-700 bg-white focus:ring-4 focus:outline-none focus:ring-gray-300 rounded-full text-base font-medium px-4 py-1.5 text-center me-3 mb-3 dark:text-white dark:focus:ring-gray-800"
     }`;
 
@@ -129,7 +129,7 @@ export default function VisaSlider() {
                 <a href="/VisaDescription">
                   <Badge.Ribbon
                     text="Visa Application Center"
-                    color="#FFC224"
+                    color="#fe720f"
                     className="p-1 pl-2"
                     placement="start"
                   >
@@ -167,13 +167,13 @@ export default function VisaSlider() {
                             {title[index]}
                           </a>
                         </h2>
-                        <div className="flex space-x-2 mx-2">
+                        <div className="flex space-x-2 mx-2 mt-1">
                           <div className="flex  items-center  space-x-1">
-                            <FaStar className="text-[#FFC224]" size={12} />
-                            <FaStar className="text-[#FFC224]" size={12} />
-                            <FaStar className="text-[#FFC224]" size={12} />
-                            <FaStar className="text-[#FFC224]" size={12} />
-                            <FaStar className="text-[#FFC224]" size={12} />
+                            <FaStar className="text-[#fe720f]" size={12} />
+                            <FaStar className="text-[#fe720f]" size={12} />
+                            <FaStar className="text-[#fe720f]" size={12} />
+                            <FaStar className="text-[#fe720f]" size={12} />
+                            <FaStar className="text-[#fe720f]" size={12} />
                           </div>
                         </div>
                       </div>

@@ -34,13 +34,13 @@ const CarouselComp: React.FC<CarouselProps> = ({ images, duration = 3000 }) => {
       />
       <button
         onClick={goToPrevious}
-        className="absolute top-1/2 left-[20px] transform -translate-y-1/2 p-2 border rounded-xl hover:bg-white duration-200 transition text-white hover:text-[#FFC224] z-10"
+        className="absolute top-1/2 left-[20px] transform -translate-y-1/2 p-2 border rounded-xl hover:bg-white duration-200 transition text-white hover:text-[#fe720f] z-10"
       >
         <FaArrowLeft size={25} />
       </button>
       <button
         onClick={goToNext}
-        className="absolute top-1/2 right-[20px] transform -translate-y-1/2 p-2 border rounded-xl hover:bg-white duration-200 transition text-white hover:text-[#FFC224] z-10"
+        className="absolute top-1/2 right-[20px] transform -translate-y-1/2 p-2 border rounded-xl hover:bg-white duration-200 transition text-white hover:text-[#fe720f] z-10"
       >
         <FaArrowRight size={25} />
       </button>
@@ -50,7 +50,7 @@ const CarouselComp: React.FC<CarouselProps> = ({ images, duration = 3000 }) => {
             key={index}
             onClick={() => goToSlide(index)}
             className={`cursor-pointer block w-2 h-2 rounded-full ${
-              index === activeIndex ? "bg-white" : "bg-gray-700"
+              index === activeIndex ? "bg-white" : "bg-[#fe720f]"
             }`}
           />
         ))}

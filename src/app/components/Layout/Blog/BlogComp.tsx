@@ -22,7 +22,7 @@ const BlogComp: React.FC<BlogCompProps> = ({
           <div className="mb-8 rounded hover:scale-105 transition-all">
             <Badge.Ribbon
               text={date}
-              color="#FFC224"
+              color="#fe720f"
               className="p-1 pr-3"
             >
               <Image
