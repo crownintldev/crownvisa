@@ -1,103 +1,5 @@
 "use client";
-import React from "react";
-import { Card, Collapse, CollapseProps, Tabs, Timeline } from "antd";
-
-import { Space, Table, Tag } from "antd";
-import type { ColumnsType } from "antd/es/table";
-import {
-  CheckCircleTwoTone,
-  EditOutlined,
-  EllipsisOutlined,
-  SettingOutlined,
-} from "@ant-design/icons";
-import { Avatar } from "antd";
-import { BiLogoFacebook } from "react-icons/bi";
-import { AiOutlineGooglePlus, AiOutlineTwitter } from "react-icons/ai";
-import { FaLinkedinIn } from "react-icons/fa6";
-import { BsWhatsapp } from "react-icons/bs";
-
-const { Meta } = Card;
-
-interface DataType {
-  key: string;
-  name: string;
-  age: number;
-  address: string;
-  tags: string[];
-}
-
-const columns: ColumnsType<DataType> = [
-  {
-    title: "Name",
-    dataIndex: "name",
-    key: "name",
-    render: (text) => <a>{text}</a>,
-  },
-  {
-    title: "Age",
-    dataIndex: "age",
-    key: "age",
-  },
-  {
-    title: "Address",
-    dataIndex: "address",
-    key: "address",
-  },
-  {
-    title: "Tags",
-    key: "tags",
-    dataIndex: "tags",
-    render: (_, { tags }) => (
-      <>
-        {tags.map((tag) => {
-          let color = tag.length > 5 ? "geekblue" : "green";
-          if (tag === "loser") {
-            color = "volcano";
-          }
-          return (
-            <Tag color={color} key={tag}>
-              {tag.toUpperCase()}
-            </Tag>
-          );
-        })}
-      </>
-    ),
-  },
-  {
-    title: "Action",
-    key: "action",
-    render: (_, record) => (
-      <Space size="middle">
-        <a>Invite {record.name}</a>
-        <a>Delete</a>
-      </Space>
-    ),
-  },
-];
-
-const data: DataType[] = [
-  {
-    key: "1",
-    name: "John Brown",
-    age: 32,
-    address: "New York No. 1 Lake Park",
-    tags: ["nice", "developer"],
-  },
-  {
-    key: "2",
-    name: "Jim Green",
-    age: 42,
-    address: "London No. 1 Lake Park",
-    tags: ["loser"],
-  },
-  {
-    key: "3",
-    name: "Joe Black",
-    age: 32,
-    address: "Sydney No. 1 Lake Park",
-    tags: ["cool", "teacher"],
-  },
-];
+import { Collapse, CollapseProps, Tabs, Timeline } from "antd";
 
 const text = `
   A dog is a type of domesticated animal.
@@ -128,59 +30,95 @@ const VisaDescriptionPage = () => {
     console.log(key);
   };
   return (
-    <div className="bg-[#F3F3F3] pt-[110px]">
-      <div className=" container mx-auto flex justify-between border p-5 bg-white">
-        <div className="w-[50%]">
+    <div className="pt-[110px]">
+      <div className=" container mx-auto p-5 bg-white">
+        <div>
           <h1 className="font-bold text-[35px]">Visa Description Page</h1>
-          <Tabs
-            defaultActiveKey="1"
-            type="card"
-            size="large"
-            items={new Array(3).fill(null).map((_, i) => {
-              const id = String(i + 1);
-              return {
-                label: `Card Tab ${id}`,
-                key: id,
-                children: `Content of card tab ${id}`,
-              };
-            })}
-          />
-          <Collapse items={items} defaultActiveKey={['1']} onChange={onChange} />
-          <div className="my-3">
-            <h2 className="text-[25px]">Required Documents</h2>
+          <div className="mb-10">
+            <Tabs
+              defaultActiveKey="1"
+              type="card"
+              size="large"
+              items={new Array(3).fill(null).map((_, i) => {
+                const id = String(i + 1);
+                return {
+                  label: `Card Tab ${id}`,
+                  key: id,
+                  children: `Content of card tab ${id}`,
+                };
+              })}
+            />
+            <Collapse items={items} defaultActiveKey={['1']} onChange={onChange} />
+          </div>
+          <div className="mb-10">
+            <h2 className="text-[25px] mb-5">Overview About Malaysia</h2>
             <p className="text-justify">
-              Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sit
-              dolor ut esse eligendi velit accusantium distinctio pariatur,
-              facere sunt accusamus asperiores? Nam eaque, et ut vitae repellat
-              exercitationem quisquam unde.
+              Malaysia is a vibrant and diverse country located in Southeast Asia, known for its stunning natural landscapes, rich cultural heritage, and modern cities. It is a melting pot of various cultures, including Malay, Chinese, Indian, and indigenous groups. Malaysia is home to numerous attractions, including beautiful beaches, lush rainforests, and impressive architecture, such as the iconic Petronas Twin Towers in Kuala Lumpur.
+
+              The country is also known for its delicious cuisine, which is a fusion of various culinary traditions. Popular dishes include nasi lemak, satay, and laksa. Additionally, Malaysia is a shopper’s paradise, with an abundance of shopping malls and markets offering everything from luxury brands to unique local handicrafts.
+
+              In terms of tourism, Malaysia is a popular destination for both leisure and business travelers, with a well-developed tourism industry that offers a range of services and experiences. From exploring the historic sites of Malacca to scuba diving in the waters of Sipadan Island, there is something for everyone in Malaysia.
+
+              To make the most of your trip to Malaysia, it is recommended to plan ahead and book accommodation, transportation, and activities in advance. With its friendly locals, stunning scenery, and vibrant culture, Malaysia is truly a destination worth experiencing.
             </p>
           </div>
-          <div className="my-3">
-            <h2>About The Tour</h2>
-            <Table columns={columns} dataSource={data} pagination={false} />
-          </div>
-          <div className="my-3">
-            <h2>Detailed Day</h2>
+          <div className="mb-10">
+            <h2 className="mb-5 text-[25px]">Malaysia Travel Itinerary</h2>
             <Timeline
-              className="my-3"
               items={[
                 {
-                  children: "Create a services site 2015-09-01",
+                  children: <div>
+                    <h2 className="font-bold">Day 1 Planning</h2>
+                    <ul className="list-disc pl-5">
+                      <li>Arrive at Kuala Lumpur International Airport and check into your hotel.</li>
+                      <li>Visit the iconic Petronas Twin Towers and take in the breathtaking views of the city from the observation deck.</li>
+                      <li>Stroll around the lively Bukit Bintang shopping district and indulge in some retail therapy.</li>
+                      <li>End the day with a visit to the vibrant night market at Jalan Alor and taste some delicious local street food.</li>
+                    </ul>
+                  </div>,
+                  color: "#fe720f"
                 },
                 {
-                  children: "Solve initial network problems 2015-09-01",
+                  children: <div>
+                    <h2 className="font-bold">Day 1 Planning</h2>
+                    <ul className="list-disc pl-5">
+                      <li>Arrive at Kuala Lumpur International Airport and check into your hotel.</li>
+                      <li>Visit the iconic Petronas Twin Towers and take in the breathtaking views of the city from the observation deck.</li>
+                      <li>Stroll around the lively Bukit Bintang shopping district and indulge in some retail therapy.</li>
+                      <li>End the day with a visit to the vibrant night market at Jalan Alor and taste some delicious local street food.</li>
+                    </ul>
+                  </div>,
+                  color: "#fe720f"
                 },
                 {
-                  children: "Technical testing 2015-09-01",
+                  children: <div>
+                    <h2 className="font-bold">Day 1 Planning</h2>
+                    <ul className="list-disc pl-5">
+                      <li>Arrive at Kuala Lumpur International Airport and check into your hotel.</li>
+                      <li>Visit the iconic Petronas Twin Towers and take in the breathtaking views of the city from the observation deck.</li>
+                      <li>Stroll around the lively Bukit Bintang shopping district and indulge in some retail therapy.</li>
+                      <li>End the day with a visit to the vibrant night market at Jalan Alor and taste some delicious local street food.</li>
+                    </ul>
+                  </div>,
+                  color: "#fe720f"
                 },
                 {
-                  children: "Network problems being solved 2015-09-01",
+                  children: <div>
+                    <h2 className="font-bold">Day 1 Planning</h2>
+                    <ul className="list-disc pl-5">
+                      <li>Arrive at Kuala Lumpur International Airport and check into your hotel.</li>
+                      <li>Visit the iconic Petronas Twin Towers and take in the breathtaking views of the city from the observation deck.</li>
+                      <li>Stroll around the lively Bukit Bintang shopping district and indulge in some retail therapy.</li>
+                      <li>End the day with a visit to the vibrant night market at Jalan Alor and taste some delicious local street food.</li>
+                    </ul>
+                  </div>,
+                  color: "#fe720f"
                 },
               ]}
             />
           </div>
-          <div className="my-3">
-            <h2>Location</h2>
+          <div className="mb-10">
+            <h2 className="mb-5">Location</h2>
             <iframe
               src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d6646.779679693498!2d73.05559420000002!3d33.595188200000024!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x38df949dbba75c4f%3A0xaab826c83f4d297!2sKFC!5e0!3m2!1sen!2s!4v1698855696743!5m2!1sen!2s"
               style={{ border: "0", width: "100%" }}
@@ -189,80 +127,6 @@ const VisaDescriptionPage = () => {
               referrerPolicy="no-referrer-when-downgrade"
             ></iframe>
           </div>
-          <div className="my-3">
-            <Card style={{ width: "100%" }}>
-              <Meta
-                avatar={
-                  <Avatar src="https://xsgames.co/randomusers/avatar.php?g=pixel" />
-                }
-                title="Card title"
-                description="This is the description"
-              />
-            </Card>
-          </div>
-        </div>
-        <div className="w-[40%]">
-          <Card
-            title="Trip Information"
-            style={{ width: "100%" }}
-            headStyle={{ background: "#253D52", color: "white" }}
-            className="mb-4"
-          >
-            <p>
-              <CheckCircleTwoTone className="mr-5" />
-              Location : Rio,Brazil
-            </p>
-            <p>
-              <CheckCircleTwoTone className="mr-5" />
-              Arrival Date: Nov 12, 2017
-            </p>
-            <p>
-              <CheckCircleTwoTone className="mr-5" />
-              Departure Date: Nov 21, 2017
-            </p>
-            <p>
-              <CheckCircleTwoTone className="mr-5" />
-              Free Sightseeing & Hotel
-            </p>
-          </Card>
-          <Card
-            title="Trip Information"
-            style={{ width: "100%" }}
-            headStyle={{ background: "#253D52", color: "white" }}
-          >
-            <div className="flex">
-              <p className="border border-black rounded-3xl p-2 mr-2 bg-[#3B5998]">
-                <BiLogoFacebook
-                  size={25}
-                  style={{ color: "white", fontSize: "24px" }}
-                />
-              </p>
-              <p className="border border-black rounded-3xl p-2 mr-2 bg-[#DD4B39]">
-                <AiOutlineGooglePlus
-                  size={25}
-                  style={{ color: "white", fontSize: "24px" }}
-                />
-              </p>
-              <p className="border border-black rounded-3xl p-2 mr-2 bg-[#55acee]">
-                <AiOutlineTwitter
-                  size={25}
-                  style={{ color: "white", fontSize: "24px" }}
-                />
-              </p>
-              <p className="border border-black rounded-3xl p-2 mr-2 bg-[#0077b5]">
-                <FaLinkedinIn
-                  size={25}
-                  style={{ color: "white", fontSize: "24px" }}
-                />
-              </p>
-              <p className="border border-black rounded-3xl p-2 mr-2 bg-[#3ead19]">
-                <BsWhatsapp
-                  size={25}
-                  style={{ color: "white", fontSize: "24px" }}
-                />
-              </p>
-            </div>
-          </Card>
         </div>
       </div>
     </div>

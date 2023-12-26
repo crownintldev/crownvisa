@@ -6,6 +6,7 @@ import { useRouter } from "next/navigation";
 import React, { useEffect, useState } from "react";
 import CustomModal from "../../../utils/CustomModel";
 import CountriesForm from "./countriesForm";
+import CountriesEditForm from "./CountriesEditForm";
 
 interface DataType {
   key: number;
@@ -101,7 +102,8 @@ const CountriesTable: React.FC = () => {
 
   const handleEditClick = (id: number) => {
     setSelectedId(id);
-    router.push(`/VisaFormPage/CountriesEditFormPage?id=${id}`);
+    showDrawer();
+    // router.push(`/VisaFormPage/CountriesEditFormPage?id=${id}`);
   };
 
   const columns: ColumnsType<DataType> = [
@@ -182,7 +184,6 @@ const CountriesTable: React.FC = () => {
         <Button
           type="primary"
           className="bg-blue-700 mx-2 my-2"
-          onClick={showDrawer}
         >
           Add
         </Button>
@@ -213,7 +214,7 @@ const CountriesTable: React.FC = () => {
         key={placement}
         width={600}
       >
-        <CountriesForm />
+        <CountriesEditForm id={selectedId} />
       </Drawer>
     </>
   );

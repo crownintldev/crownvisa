@@ -43,7 +43,11 @@ const fetchCountryTypes = async () => {
   return data.countrytype;
 };
 
-const CountriesEditForm: React.FC = () => {
+interface Props{
+  id:any;
+}
+
+const CountriesEditForm: React.FC<Props> = ({id}) => {
   const router = useRouter();
   const { setTitle } = useTitleContext();
   const [form] = Form.useForm();
@@ -54,29 +58,43 @@ const CountriesEditForm: React.FC = () => {
   const [countryData, setCountryData] = useState<any>(null);
 
   useEffect(() => {
-    if (typeof window !== "undefined") {
-      const urlParams = new URLSearchParams(window.location.search);
-      const queryCardId = urlParams.get("id");
-      if (queryCardId) {
-        setId(queryCardId);
-        console.log(queryCardId);
-        axios.get(`/api/visaapi/countries/${queryCardId}`).then((res) => {
-          const fetchedData = res.data.country;
-          setCountryData(fetchedData);
-          // Assuming fetchedData contains fields like title, details, etc.
-          form.setFieldsValue({
-            title: fetchedData.title,
-            details: fetchedData.details,
-            tagId: fetchedData.tagId,
-            countryname: fetchedData.countryname,
-            overview: fetchedData.overview,
-          });
-          setText(fetchedData.overview || "");
-          console.log(res.data.country);
-        });
-      }
-    }
-  }, [form]);
+    // if (typeof window !== "undefined") {
+    //   const urlParams = new URLSearchParams(window.location.search);
+    //   const queryCardId = urlParams.get("id");
+    //   if (queryCardId) {
+    //     setId(queryCardId);
+    //     console.log(queryCardId);
+    //     axios.get(`/api/visaapi/countries/${queryCardId}`).then((res) => {
+    //       const fetchedData = res.data.country;
+    //       setCountryData(fetchedData);
+    //       // Assuming fetchedData contains fields like title, details, etc.
+    //       form.setFieldsValue({
+    //         title: fetchedData.title,
+    //         details: fetchedData.details,
+    //         tagId: fetchedData.tagId,
+    //         countryname: fetchedData.countryname,
+    //         overview: fetchedData.overview,
+    //       });
+    //       setText(fetchedData.overview || "");
+    //       console.log(res.data.country);
+    //     });
+    //   }
+    // }
+    axios.get(`/api/visaapi/countries/${id}`).then((res) => {
+      const fetchedData = res.data.country;
+      setCountryData(fetchedData);
+      // Assuming fetchedData contains fields like title, details, etc.
+      form.setFieldsValue({
+        title: fetchedData.title,
+        details: fetchedData.details,
+        tagId: fetchedData.tagId,
+        countryname: fetchedData.countryname,
+        overview: fetchedData.overview,
+      });
+      setText(fetchedData.overview || "");
+      console.log(res.data.country);
+    });
+  }, [form,id]);
 
   // useQuery for initial data fetch
   const { data: countryTypesData } = useQuery(
@@ -214,9 +232,6 @@ const CountriesEditForm: React.FC = () => {
               className="bg-blue-700 mr-3"
             >
               Update
-            </Button>
-            <Button type="primary" htmlType="submit" className="bg-red-700">
-              Reset
             </Button>
           </Form.Item>
         </Form>

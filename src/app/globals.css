@@ -7,100 +7,6 @@
 /* Import Google Fonts from @fontsource packages */
 @import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&family=Poppins:wght@400;700&display=swap");
 
-/* Apply the fonts to your styles */
-/* body {
-  font-family: "Open Sans", sans-serif;
-  box-sizing: border-box;
-}
-
-h1,
-h2,
-h3 {
-  font-family: "Poppins", sans-serif;
-} */
-
-.mega-menu {
-  display: none;
-  left: 0;
-  position: absolute;
-  text-align: left;
-  width: 100%;
-}
-
-/* #hoverable Class Styles
-  –––––––––––––––––––––––––––––––––––––––––––––––––– */
-.hoverable {
-  position: static;
-}
-
-.hoverable > a:after {
-  content: "\25BC";
-  font-size: 10px;
-  padding-left: 6px;
-  position: relative;
-  top: -1px;
-}
-
-.hoverable:hover .mega-menu {
-  display: block;
-}
-
-/* #toggle Class Styles
-  –––––––––––––––––––––––––––––––––––––––––––––––––– */
-
-.toggleable > label:after {
-  content: "\25BC";
-  font-size: 10px;
-  padding-left: 6px;
-  position: relative;
-  top: -1px;
-}
-
-.toggle-input {
-  display: none;
-}
-.toggle-input:not(checked) ~ .mega-menu {
-  display: none;
-}
-
-.toggle-input:checked ~ .mega-menu {
-  display: block;
-}
-
-.toggle-input:checked + label {
-  color: white;
-  background: #2c5282; /*@apply bg-blue-800 */
-}
-
-.toggle-input:checked ~ label:after {
-  content: "\25B2";
-  font-size: 10px;
-  padding-left: 6px;
-  position: relative;
-  top: -1px;
-}
-
-.card {
-  width: 300px;
-  padding: 20px;
-  border: 1px solid #eaeaea;
-  border-radius: 10px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
-
-.icon {
-  font-size: 24px;
-  margin-bottom: 10px;
-}
-
-.title {
-  font-size: 20px;
-  margin-bottom: 10px;
-}
-
-.description {
-  font-size: 16px;
-}
 
 .countries-slider .swiper-slide {
   text-align: center;
@@ -215,11 +121,6 @@ h3 {
   z-index: 0; /* Below the content */
   transition: background 0.3s; /* Smooth transition for background change */
 }
-
-/* Add a CSS rule for when the parent div is hovered */
-/* .parent-div:hover .gradient-overlay {
-  background: none; 
-} */
 
 :where(.css-dev-only-do-not-override-xu9wm8).ant-ribbon .ant-ribbon-text {
   color: black;
