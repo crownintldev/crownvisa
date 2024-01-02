@@ -4,6 +4,7 @@ import About from "./About";
 import Mission from "./Mission";
 import Values from "./Values";
 import Vision from "./Vision";
+import Image from "next/image";
 
 const AboutPage = () => {
   return (
@@ -57,6 +58,19 @@ const AboutPage = () => {
           </ol>
         </nav>
       </div>
+      <section className="bg-white dark:bg-gray-900 mb-10">
+        <div className=" gap-10 items-center mx-auto max-w-screen-xl lg:grid lg:grid-cols-2">
+          <div className="sm:text-lg">
+            <h2 className="mb-2 text-4xl tracking-tight font-extrabold text-gray-900 dark:text-white">We didnt reinvent the wheel</h2>
+            <p className="mb-2">We are strategists, designers and developers. Innovators and problem solvers. Small enough to be simple and quick, but big enough to deliver the scope you want at the pace you need. Small enough to be simple and quick, but big enough to deliver the scope you want at the pace you need.</p>
+            <p>We are strategists, designers and developers. Innovators and problem solvers. Small enough to be simple and quick.</p>
+          </div>
+          <div className="grid grid-cols-2 gap-4">
+            <Image className="w-full rounded-lg" src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/content/office-long-2.png" alt="office content 1" width={200} height={200} />
+            <Image className="mt-4 w-full lg:mt-10 rounded-lg" src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/content/office-long-1.png" alt="office content 2" width={200} height={200} />
+          </div>
+        </div>
+      </section>
       <div className="container mx-auto px-4 grid grid-cols-12 gap-6  mb-10">
         {/* <About /> */}
         <Mission />
@@ -64,7 +78,7 @@ const AboutPage = () => {
         <Values />
       </div>
       <div className="container mx-auto flex flex-col my-3 px-4">
-        <Stats/>
+        <Stats />
       </div>
     </div>
   );

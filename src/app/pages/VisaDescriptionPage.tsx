@@ -1,5 +1,9 @@
+//@ts-nocheck
 "use client";
 import { Collapse, CollapseProps, Tabs, Timeline } from "antd";
+import axios from "axios";
+import { useEffect, useState } from "react";
+import { useQuery } from "react-query";
 
 const text = `
   A dog is a type of domesticated animal.
@@ -26,6 +30,31 @@ const items: CollapseProps['items'] = [
 ];
 
 const VisaDescriptionPage = () => {
+  const [visaRequirements, setVisaRequirements] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
+  const [error, setError] = useState(null);
+  useEffect(() => {
+    const fetchVisaRequirements = async () => {
+      try {
+        setIsLoading(true);
+        // Replace with your API endpoint
+        const { data } = await axios.get('/api/visaapi/visarequirements/6');
+        console.log(data);
+        setVisaRequirements(data.visaRequirements);
+      } catch (err) {
+        setError(err);
+      } finally {
+        setIsLoading(false);
+      }
+    };
+
+    fetchVisaRequirements();
+  }, []);
+  const tabItems = visaRequirements.map(req => ({
+    label: req.title,
+    key: req.id.toString(),
+    children: <div dangerouslySetInnerHTML={{ __html: req.description }} />, // Handle rich text
+  }));
   const onChange = (key: string | string[]) => {
     console.log(key);
   };
@@ -39,16 +68,9 @@ const VisaDescriptionPage = () => {
               defaultActiveKey="1"
               type="card"
               size="large"
-              items={new Array(3).fill(null).map((_, i) => {
-                const id = String(i + 1);
-                return {
-                  label: `Card Tab ${id}`,
-                  key: id,
-                  children: `Content of card tab ${id}`,
-                };
-              })}
+              items={tabItems}
             />
-            <Collapse items={items} defaultActiveKey={['1']} onChange={onChange} />
+            {/* <Collapse items={items} defaultActiveKey={['1']} onChange={onChange} /> */}
           </div>
           <div className="mb-10">
             <h2 className="text-[25px] mb-5">Overview About Malaysia</h2>

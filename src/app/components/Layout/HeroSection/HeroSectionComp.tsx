@@ -31,7 +31,7 @@ const HeroSectionComp = () => {
     <>
       <div className="relative bg-transparent rounded-[30px] mx-[35px] lg:pt-[120px]">
         <CarouselComp images={images} />
-        <div className="absolute md:top-[140px] lg:top-[230px] md:left-[250px] top-[100px] left-0">
+        <div className="absolute md:top-[140px] lg:top-[230px] md:left-[400px] top-[100px] left-0">
           <section>
             <div
               className="py-8 md:px-4 mx-auto max-w-screen-xl text-center lg:py-16"
@@ -40,9 +40,6 @@ const HeroSectionComp = () => {
                 textShadow: "2px 2px 4px rgba(0, 0, 0, 0.5)",
               }}
             >
-              <h1 className="mb-8 md:text-[65px] text-9xl font-bold tracking-tight leading-none text-white dark:text-white">
-                We invest in the world’s potential 
-              </h1>
               <div>
                 <div className="mb-1">
                   <ul

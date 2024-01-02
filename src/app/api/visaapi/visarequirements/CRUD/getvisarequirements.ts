@@ -29,9 +29,9 @@ export const getvisarequirementsbyid = async (
   { params }: { params: Params }
 ) => {
   const id = params.id;
-  const visaRequirements = await prisma.visaRequirements.findUnique({
+  const visaRequirements = await prisma.visaRequirements.findMany({
     where: {
-      id: parseInt(id, 10),
+      countryid: parseInt(id, 10),
     },
   });
   if (!visaRequirements) {
