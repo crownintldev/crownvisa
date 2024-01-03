@@ -29,9 +29,12 @@ export const gettravelitinerarybyid = async (
   { params }: { params: Params }
 ) => {
   const id = params.id;
-  const travelItinerary = await prisma.travelItinerary.findUnique({
+  const travelItinerary = await prisma.travelItinerary.findMany({
     where: {
-      id: parseInt(id, 10),
+      countryid: parseInt(id, 10),
+    },
+    orderBy: {
+      id: 'asc', // or 'desc' for descending order
     },
   });
   if (!travelItinerary) {

@@ -28,7 +28,7 @@ const Mission = () => {
       ></div>
       <div className="">
         <h2 className="font-bold text-[35px] mb-5">
-          Our <span className="text-[#FFC224]">Mission</span>
+          Our <span className="text-[#fe720f]">Mission</span>
         </h2>
         <p className='text-justify'>
           Crown International Technology’s aim is to empower people, businesses,

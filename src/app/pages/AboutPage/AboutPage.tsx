@@ -61,9 +61,9 @@ const AboutPage = () => {
       <section className="bg-white dark:bg-gray-900 mb-10">
         <div className=" gap-10 items-center mx-auto max-w-screen-xl lg:grid lg:grid-cols-2">
           <div className="sm:text-lg">
-            <h2 className="mb-2 text-4xl tracking-tight font-extrabold text-gray-900 dark:text-white">We didnt reinvent the wheel</h2>
-            <p className="mb-2">We are strategists, designers and developers. Innovators and problem solvers. Small enough to be simple and quick, but big enough to deliver the scope you want at the pace you need. Small enough to be simple and quick, but big enough to deliver the scope you want at the pace you need.</p>
-            <p>We are strategists, designers and developers. Innovators and problem solvers. Small enough to be simple and quick.</p>
+            <h2 className="mb-2 text-4xl tracking-tight font-extrabold text-gray-900 dark:text-white">Our Company <span className="text-[#fe720f]">History</span></h2>
+            <p className="mb-2">We are a family-owned business, established in 1990 by Mr. Nazir Ahmed (Late), We have been offering a range of travel and tourism services for over 32 years. The journey started with just four people and now we have grown to and now we have grown to More Mature and lot number of staff in counts. In 2007 we expanded our business to a corporate level and registered with many local and international organizations.</p>
+            <p>In 2010 we were awarded the Sustainable Tourism Award sponsored by the Travel Port. This award recognizes our work in promoting sustainable tourism through an eco-friendly approach.</p>
           </div>
           <div className="grid grid-cols-2 gap-4">
             <Image className="w-full rounded-lg" src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/content/office-long-2.png" alt="office content 1" width={200} height={200} />

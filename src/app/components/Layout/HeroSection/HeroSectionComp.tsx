@@ -31,7 +31,7 @@ const HeroSectionComp = () => {
     <>
       <div className="relative bg-transparent rounded-[30px] mx-[35px] lg:pt-[120px]">
         <CarouselComp images={images} />
-        <div className="absolute md:top-[140px] lg:top-[230px] md:left-[400px] top-[100px] left-0">
+        <div className="mt-[-200px] z-20 relative">
           <section>
             <div
               className="py-8 md:px-4 mx-auto max-w-screen-xl text-center lg:py-16"

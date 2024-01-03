@@ -1,36 +1,12 @@
 //@ts-nocheck
 "use client";
-import { Collapse, CollapseProps, Tabs, Timeline } from "antd";
+import { Tabs, Timeline } from "antd";
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { useQuery } from "react-query";
-
-const text = `
-  A dog is a type of domesticated animal.
-  Known for its loyalty and faithfulness,
-  it can be found as a welcome guest in many households across the world.
-`;
-
-const items: CollapseProps['items'] = [
-  {
-    key: '1',
-    label: 'This is panel header 1',
-    children: <p>{text}</p>,
-  },
-  {
-    key: '2',
-    label: 'This is panel header 2',
-    children: <p>{text}</p>,
-  },
-  {
-    key: '3',
-    label: 'This is panel header 3',
-    children: <p>{text}</p>,
-  },
-];
 
 const VisaDescriptionPage = () => {
   const [visaRequirements, setVisaRequirements] = useState([]);
+  const [travelitinerary, settravelitinerary] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null);
   useEffect(() => {
@@ -47,17 +23,36 @@ const VisaDescriptionPage = () => {
         setIsLoading(false);
       }
     };
-
+    const fetchTravelItinerary = async () => {
+      try {
+        setIsLoading(true);
+        // Replace with your API endpoint
+        const { data } = await axios.get('/api/visaapi/travelitinerary/10');
+        console.log(data);
+        settravelitinerary(data.travelItinerary);
+      } catch (err) {
+        setError(err);
+      } finally {
+        setIsLoading(false);
+      }
+    }
     fetchVisaRequirements();
+    fetchTravelItinerary();
   }, []);
   const tabItems = visaRequirements.map(req => ({
     label: req.title,
     key: req.id.toString(),
-    children: <div dangerouslySetInnerHTML={{ __html: req.description }} />, // Handle rich text
+    children: <div className="custom-list-style" dangerouslySetInnerHTML={{ __html: req.description }} />, // Handle rich text
   }));
-  const onChange = (key: string | string[]) => {
-    console.log(key);
-  };
+  const timelineItems = travelitinerary.map(itinerary => ({
+    children: (
+      <div>
+        <h2 className="font-bold">{itinerary.title}</h2>
+        <div className="custom-list-style" dangerouslySetInnerHTML={{ __html: itinerary.description }} />
+      </div>
+    ),
+    color: "#fe720f" // or any other color logic you have
+  }));
   return (
     <div className="pt-[110px]">
       <div className=" container mx-auto p-5 bg-white">
@@ -69,8 +64,8 @@ const VisaDescriptionPage = () => {
               type="card"
               size="large"
               items={tabItems}
+              className="custom-tabs-style" // Apply custom class here
             />
-            {/* <Collapse items={items} defaultActiveKey={['1']} onChange={onChange} /> */}
           </div>
           <div className="mb-10">
             <h2 className="text-[25px] mb-5">Overview About Malaysia</h2>
@@ -87,56 +82,7 @@ const VisaDescriptionPage = () => {
           <div className="mb-10">
             <h2 className="mb-5 text-[25px]">Malaysia Travel Itinerary</h2>
             <Timeline
-              items={[
-                {
-                  children: <div>
-                    <h2 className="font-bold">Day 1 Planning</h2>
-                    <ul className="list-disc pl-5">
-                      <li>Arrive at Kuala Lumpur International Airport and check into your hotel.</li>
-                      <li>Visit the iconic Petronas Twin Towers and take in the breathtaking views of the city from the observation deck.</li>
-                      <li>Stroll around the lively Bukit Bintang shopping district and indulge in some retail therapy.</li>
-                      <li>End the day with a visit to the vibrant night market at Jalan Alor and taste some delicious local street food.</li>
-                    </ul>
-                  </div>,
-                  color: "#fe720f"
-                },
-                {
-                  children: <div>
-                    <h2 className="font-bold">Day 1 Planning</h2>
-                    <ul className="list-disc pl-5">
-                      <li>Arrive at Kuala Lumpur International Airport and check into your hotel.</li>
-                      <li>Visit the iconic Petronas Twin Towers and take in the breathtaking views of the city from the observation deck.</li>
-                      <li>Stroll around the lively Bukit Bintang shopping district and indulge in some retail therapy.</li>
-                      <li>End the day with a visit to the vibrant night market at Jalan Alor and taste some delicious local street food.</li>
-                    </ul>
-                  </div>,
-                  color: "#fe720f"
-                },
-                {
-                  children: <div>
-                    <h2 className="font-bold">Day 1 Planning</h2>
-                    <ul className="list-disc pl-5">
-                      <li>Arrive at Kuala Lumpur International Airport and check into your hotel.</li>
-                      <li>Visit the iconic Petronas Twin Towers and take in the breathtaking views of the city from the observation deck.</li>
-                      <li>Stroll around the lively Bukit Bintang shopping district and indulge in some retail therapy.</li>
-                      <li>End the day with a visit to the vibrant night market at Jalan Alor and taste some delicious local street food.</li>
-                    </ul>
-                  </div>,
-                  color: "#fe720f"
-                },
-                {
-                  children: <div>
-                    <h2 className="font-bold">Day 1 Planning</h2>
-                    <ul className="list-disc pl-5">
-                      <li>Arrive at Kuala Lumpur International Airport and check into your hotel.</li>
-                      <li>Visit the iconic Petronas Twin Towers and take in the breathtaking views of the city from the observation deck.</li>
-                      <li>Stroll around the lively Bukit Bintang shopping district and indulge in some retail therapy.</li>
-                      <li>End the day with a visit to the vibrant night market at Jalan Alor and taste some delicious local street food.</li>
-                    </ul>
-                  </div>,
-                  color: "#fe720f"
-                },
-              ]}
+              items={timelineItems}
             />
           </div>
           <div className="mb-10">
