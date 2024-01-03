@@ -1,10 +1,9 @@
 //@ts-nocheck
 import Stats from "@/app/components/Layout/Stats/Stats";
-import About from "./About";
+import Image from "next/image";
 import Mission from "./Mission";
 import Values from "./Values";
 import Vision from "./Vision";
-import Image from "next/image";
 
 const AboutPage = () => {
   return (
@@ -72,7 +71,6 @@ const AboutPage = () => {
         </div>
       </section>
       <div className="container mx-auto px-4 grid grid-cols-12 gap-6  mb-10">
-        {/* <About /> */}
         <Mission />
         <Vision />
         <Values />

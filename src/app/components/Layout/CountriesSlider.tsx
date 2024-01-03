@@ -75,9 +75,9 @@ export default function CountriesSlider() {
               <Image
                 src="https://www.crownintltravels.com/wp-content/uploads/2023/09/3405911-936597760.jpg"
                 alt=""
-                className="cover-image rounded-xl"
+                className="cover-image rounded-xl h-[350px]"
                 width={250}
-                height={250}
+                height={350}
               />
               <div className="gradient-overlay rounded-xl"></div>
               <div className="centered-content">

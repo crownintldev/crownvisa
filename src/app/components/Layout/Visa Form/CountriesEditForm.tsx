@@ -58,28 +58,6 @@ const CountriesEditForm: React.FC<Props> = ({id}) => {
   const [countryData, setCountryData] = useState<any>(null);
 
   useEffect(() => {
-    // if (typeof window !== "undefined") {
-    //   const urlParams = new URLSearchParams(window.location.search);
-    //   const queryCardId = urlParams.get("id");
-    //   if (queryCardId) {
-    //     setId(queryCardId);
-    //     console.log(queryCardId);
-    //     axios.get(`/api/visaapi/countries/${queryCardId}`).then((res) => {
-    //       const fetchedData = res.data.country;
-    //       setCountryData(fetchedData);
-    //       // Assuming fetchedData contains fields like title, details, etc.
-    //       form.setFieldsValue({
-    //         title: fetchedData.title,
-    //         details: fetchedData.details,
-    //         tagId: fetchedData.tagId,
-    //         countryname: fetchedData.countryname,
-    //         overview: fetchedData.overview,
-    //       });
-    //       setText(fetchedData.overview || "");
-    //       console.log(res.data.country);
-    //     });
-    //   }
-    // }
     axios.get(`/api/visaapi/countries/${id}`).then((res) => {
       const fetchedData = res.data.country;
       setCountryData(fetchedData);
@@ -163,7 +141,7 @@ const CountriesEditForm: React.FC<Props> = ({id}) => {
     mutation.mutate(countrydata);
   };
   return (
-    <div className="flex justify-center flex-col items-center h-screen">
+    <div className="flex justify-center flex-col items-center">
       <div className="border border-black p-5">
         <Form
           name="countryform"

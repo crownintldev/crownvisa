@@ -57,13 +57,13 @@ export default function ServicesSlider() {
               }
             }}
           >
-            <div  className='rounded-xl'>
+            <div className='rounded-xl'>
               <Image
                 src="https://www.crownintltravels.com/wp-content/uploads/2023/09/3405911-936597760.jpg"
                 alt=""
-                className="cover-image hover:blur-sm group-hover:blur-sm rounded-xl"
-                width={400}
-                height={400}
+                className="cover-image hover:blur-sm group-hover:blur-sm rounded-xl h-[350px]"
+                width={350}
+                height={250}
               />
               <div className="group">
                 <BsFillArrowRightCircleFill
