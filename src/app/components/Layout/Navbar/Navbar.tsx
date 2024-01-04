@@ -60,16 +60,16 @@ const Navbar = () => {
                 >
                   {/* Your dropdown links here */}
                   <ul>
-                    <li className="border-b border-black px-4 py-2">
+                    <li className=" px-4 py-2">
                       <Link href="/AboutCeoPage">About Ceo</Link>
                     </li>
-                    <li className="border-b border-black px-4 py-2">
+                    <li className=" px-4 py-2">
                       <Link href="/AboutPage">About Company</Link>
                     </li>
-                    <li className="border-b border-black px-4 py-2">
+                    <li className=" px-4 py-2">
                       <Link href="/AboutTeamPage">Our Team</Link>
                     </li>
-                    <li className="border-b border-black px-4 py-2">
+                    <li className=" px-4 py-2">
                       <Link href="/Option4">Company Profile</Link>
                     </li>
                   </ul>

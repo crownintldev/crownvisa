@@ -11,7 +11,7 @@ const FooterComp = () => {
       <div className="bg-black py-[30px] md:px-2 px-2 text-white">
         <div className="container mx-auto grid grid-cols-12 gap-6">
           <div className=" lg:col-span-3 md:col-start-1 md:col-span-4 col-span-6">
-            <h2 className="text-[20px] font-bold py-3">About us</h2>
+            <h2 className="text-[20px] font-bold py-3 underline decoration-[#fe720f] decoration-3">About us</h2>
             <p>
               Earnest team committed delivering the best in industry. Were
               more than happy to deliver you the best! Reach out. to partner
@@ -51,7 +51,7 @@ const FooterComp = () => {
             </div>
           </div>
           <div className="lg:col-span-3 md:col-span-4 col-span-6">
-            <h2 className="text-[20px] font-bold py-3">Quick Links</h2>
+            <h2 className="text-[20px] font-bold py-3 underline decoration-[#fe720f] decoration-3">Quick Links</h2>
             <ul>
               <li className="py-1">
                 <Link href="">HOME</Link>
@@ -74,7 +74,7 @@ const FooterComp = () => {
             </ul>
           </div>
           <div className="lg:col-span-3 md:col-span-4 col-span-6">
-            <h2 className="text-[20px] font-bold py-3">
+            <h2 className="text-[20px] font-bold py-3 underline decoration-[#fe720f] decoration-3">
               Product & Services
             </h2>
             <ul>
@@ -99,7 +99,7 @@ const FooterComp = () => {
             </ul>
           </div>
           <div className="lg:col-span-3 md:col-span-4 col-span-6">
-            <h2 className="text-[20px] font-bold py-3">Contact US</h2>
+            <h2 className="text-[20px] font-bold py-3  underline decoration-[#fe720f] decoration-3">Contact US</h2>
             <p className="py-1">Email: info@cloudi5.com</p>
             <p className="py-1">Phone: +91 91599 13344</p>
             <p className="py-1">Phone: +91 97874 67575</p>

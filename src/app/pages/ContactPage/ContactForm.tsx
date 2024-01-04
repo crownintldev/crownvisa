@@ -9,12 +9,12 @@ import { FaServicestack } from 'react-icons/fa6';
 
 const ContactForm = () => {
   return (
-    <div className="grid grid-cols-12 gap-6 mt-3 mb-3">
+    <div className="grid grid-cols-12 gap-6 mb-10">
       <div className="md:col-span-6 col-span-12">
-        <h2 className="text-[35px] font-bold">Get in touch</h2>
-        <p>Do you want to know more or contact our sales department?</p>
-        <div className="flex  mt-3 mb-3 hover:scale-105 transition duration-300">
-          <BsBookHalf className="mr-2 pt-2" size={35} />
+        <h2 className="text-[35px] font-bold mb-5 underline decoration-[#fe720f] decoration-3">Get in touch</h2>
+        <p className='mb-5'>Do you want to know more or contact our sales department?</p>
+        <div className="flex mb-5 hover:scale-105 transition duration-300">
+          <BsBookHalf className="mr-4 pt-2" size={35} />
           <div>
             <h3 className="font-bold">Visit the Knowledge Base</h3>
             <p>
@@ -23,8 +23,8 @@ const ContactForm = () => {
             </p>
           </div>
         </div>
-        <div className="flex mt-3 mb-3 hover:scale-105 transition duration-300">
-          <FaServicestack className="mr-2 pt-2" size={35} />
+        <div className="flex mb-5  hover:scale-105 transition duration-300">
+          <FaServicestack className="mr-4 pt-2" size={35} />
           <div>
             <h3 className="font-bold">View Our Service</h3>
             <p>
@@ -33,8 +33,8 @@ const ContactForm = () => {
             </p>
           </div>
         </div>
-        <div className="flex mt-3 mb-3 hover:scale-105 transition duration-300">
-          <BiSupport className="mr-2 pt-2" size={35} />
+        <div className="flex mb-5 hover:scale-105 transition duration-300">
+          <BiSupport className="mr-4 pt-2" size={35} />
           <div>
             <h3 className="font-bold">Get in touch with Team</h3>
             <p>
@@ -82,10 +82,10 @@ const ContactForm = () => {
           />
         </div>
         <div className="flex justify-start py-3">
-          <button className="btn bg-[#FFC224] text-black mr-3 flex justify-center items-center p-[10px]">
+          <button className="btn bg-[#fe720f] px-3 py-1 rounded-md text-md text-white mr-3 flex justify-center items-center ">
             Submit
           </button>
-          <button className="btn bg-[#FFC224] text-black mr-3 flex justify-center items-center p-[10px]">
+          <button className="btn bg-[#fe720f] px-3 py-1 rounded-md text-md text-white mr-3 flex justify-center items-center ">
             Reset
           </button>
         </div>
