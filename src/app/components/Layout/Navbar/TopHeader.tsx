@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { BiLogoFacebook } from "react-icons/bi";
 import { BsTelephoneFill, BsWhatsapp } from "react-icons/bs";
 import { FaInstagram } from "react-icons/fa6";
@@ -8,29 +9,29 @@ const TopHeader = () => {
     <div className="lg:flex hidden items-center justify-between container mx-auto py-1 border-b-2 border-black">
       <div className="flex items-center text-black ml-3">
         <MdEmail className="mx-1 text-black" />
-        <p className="mx-1 lg:text-[13px] md:text-[10px]">
+        <p className="mx-1 lg:text-[13px] md:text-[10px] antialiased">
           needhelp@company.com
         </p>
-        <p className="mx-1">/</p>
+        /
         <BsTelephoneFill className="mx-1 text-black" />
-        <p className="mx-1 lg:text-[13px] md:text-[10px]">+60123456789</p>
-        <p className="mx-1">/</p>
+        <p className="mx-1 lg:text-[13px] md:text-[10px] antialiased">+60123456789</p>
+        /
         <BsTelephoneFill className="mx-1 text-black" />
-        <p className="mx-1 lg:text-[13px] md:text-[10px]">+60123456789</p>
+        <p className="mx-1 lg:text-[13px] md:text-[10px] antialiased">+60123456789</p>
       </div>
       <div className="text-black flex items-center mr-2 lg:flex-row md:flex-col">
         <p>
-          <a href="" className="mx-1 lg:text-[13px] md:text-[10px]">
+          <Link href="" className="mx-1 lg:text-[13px] md:text-[10px]">
             Terms and Conditions
-          </a>
+          </Link>
           |
-          <a href="" className="mx-1 lg:text-[13px] md:text-[10px]">
+          <Link href="" className="mx-1 lg:text-[13px] md:text-[10px]">
             Cancellation Policy{" "}
-          </a>
+          </Link>
           |
-          <a href="" className="mx-1 lg:text-[13px] md:text-[10px]">
+          <Link href="" className="mx-1 lg:text-[13px] md:text-[10px]">
             Refund Policy
-          </a>
+          </Link>
         </p>
         <div className="flex">
           <BiLogoFacebook

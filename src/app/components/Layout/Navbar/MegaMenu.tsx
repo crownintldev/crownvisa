@@ -9,9 +9,6 @@ const MegaMenu = () => {
   const [subHeading, setSubHeading] = useState("");
   const [itemid, setitemid] = useState(0);
   console.log(itemid);
-  // const changevalue=(id)=>{
-  //   console.log(id);
-  // }
   return (
     <>
       {links.map((link) => (
@@ -39,7 +36,7 @@ const MegaMenu = () => {
                     <div className="lg:col-span-2 md:col-span-6 col-span-12 border-r border-black">
                       {link.sublinks.map((mysublinks) => (
                         <h2
-                          className="text-lg font-semibold py-2"
+                          className="border border-black p-3 rounded-md bg-[#fe720f] my-5 mr-3"
                           key={mysublinks.id}
                           onClick={() => setitemid(mysublinks.id - 1)}
                         >
@@ -47,28 +44,17 @@ const MegaMenu = () => {
                         </h2>
                       ))}
                     </div>
-                    <div className="lg:col-span-8 md:col-span-6 col-span-12">
+                    <div className="lg:col-span-10 md:col-span-6 col-span-12">
                       <div className="grid grid-cols-12">
                         {link.sublinks[itemid].sublink.map((slink) => (
-                          <div className="col-span-4 text-sm text-gray-600 my-2.5" key={slink.id}>
+                          <div className="col-span-4 text-sm text-black my-5" key={slink.id}>
                             <Link
                               href={slink.link}
-                              className="hover:text-primary"
+                              className="hover:text-primary border border-black p-3 rounded-md bg-[#fe720f]"
                             >
                               {slink.name}
                             </Link>
                           </div>
-                          // <li
-                          //   className="text-sm text-gray-600 my-2.5"
-                          //   key={slink.id}
-                          // >
-                          //   <Link
-                          //     href={slink.link}
-                          //     className="hover:text-primary"
-                          //   >
-                          //     {slink.name}
-                          //   </Link>
-                          // </li>
                         ))}
                       </div>
                     </div>

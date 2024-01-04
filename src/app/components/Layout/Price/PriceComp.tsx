@@ -1,3 +1,4 @@
+import Link from "next/link";
 import React from "react";
 
 interface Props {
@@ -9,12 +10,12 @@ interface Props {
 
 const PriceComp: React.FC<Props> = ({ title, description, price, details }) => {
   return (
-    <div className="flex flex-col p-6 mx-auto max-w-lg text-center text-gray-900 bg-white rounded-lg border border-gray-100 shadow dark:border-gray-600 xl:p-8">
+    <div className="flex flex-col p-6 mx-auto max-w-lg text-center  bg-white rounded-lg border border-gray-100 shadow dark:border-gray-600 xl:p-8">
       <h3 className="mb-4 text-2xl font-semibold">{title}</h3>
-      <p className="font-light text-gray-500 sm:text-lg">{description}</p>
+      <p className="font-light  sm:text-lg">{description}</p>
       <div className="flex justify-center items-baseline my-8">
         <span className="mr-2 text-5xl font-extrabold">${price}</span>
-        <span className="text-gray-500">/month</span>
+        <span className="">/month</span>
       </div>
       {/* <!-- List --> */}
       <ul role="list" className="mb-8 space-y-4 text-left">
@@ -37,12 +38,12 @@ const PriceComp: React.FC<Props> = ({ title, description, price, details }) => {
           </li>
         ))}
       </ul>
-      <a
+      <Link
         href="#"
         className="text-black bg-[#fe720f] rounded-md focus:ring-4 focus:ring-primary-200 font-medium text-sm px-5 py-2.5 text-center"
       >
         Get started
-      </a>
+      </Link>
     </div>
   );
 };

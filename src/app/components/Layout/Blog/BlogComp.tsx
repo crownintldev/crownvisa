@@ -38,12 +38,12 @@ const BlogComp: React.FC<BlogCompProps> = ({
             <h3>
               <a
                 href="/#"
-                className="mb-4 inline-block text-xl font-semibold text-dark hover:text-primary dark:text-white sm:text-2xl lg:text-xl xl:text-2xl"
+                className="mb-4 inline-block text-xl font-semibold hover:text-primary dark:text-white sm:text-2xl lg:text-xl xl:text-2xl"
               >
                 {CardTitle}
               </a>
             </h3>
-            <p className="text-base text-body-color dark:text-dark-6">
+            <p className=" dark:text-dark-6">
               {CardDescription}
             </p>
           </div>

@@ -27,7 +27,7 @@ const Features = () => {
   }, []);
 
   return (
-    <div className='mb-10'>
+    <div className='mb-10 antialiased'>
       <h2 className="font-bold text-[25px] mb-5 text-center">
         WHY Choose CROWN INTERNATIONAL TRAVELS
       </h2>

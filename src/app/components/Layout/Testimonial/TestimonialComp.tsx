@@ -26,13 +26,13 @@ const TestimonialComp: React.FC<Props> = ({ title, description, author }) => {
               {title}
             </p>
 
-            <p className="mt-4 leading-relaxed text-gray-700">
+            <p className="mt-4 leading-relaxed ">
               {description}
             </p>
           </div>
         </div>
 
-        <footer className="mt-4 text-sm font-medium text-gray-700 sm:mt-6">
+        <footer className="mt-4 text-sm font-medium  sm:mt-6">
           &mdash; {author}
         </footer>
       </blockquote>

@@ -2,13 +2,13 @@ import TeamComp from "./TeamComp";
 
 const Team = () => {
   return (
-    <section className="bg-white">
+    <section className="bg-white antialiased">
       <div className="py-8 px-4 mx-auto max-w-screen-xl text-center lg:py-16 lg:px-6">
         <div className="mx-auto mb-8 max-w-screen-sm lg:mb-16">
-          <h2 className="mb-4 text-4xl tracking-tight font-extrabold text-gray-900">
-            Our <span className="text-[#FFC224]">team</span>
+          <h2 className="mb-4 text-4xl tracking-tight font-extrabold ">
+            Our <span className="text-[#fe720f]">team</span>
           </h2>
-          <p className="font-light text-gray-500 sm:text-xl dark:text-gray-400">
+          <p className="font-light  sm:text-xl dark:text-gray-400">
             Explore the whole collection of open-source web components and
             elements built with the utility classNamees from Tailwind
           </p>

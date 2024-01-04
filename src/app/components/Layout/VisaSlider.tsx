@@ -13,6 +13,7 @@ import { Avatar, Badge } from "antd";
 import Image from "next/image";
 import { FaStar } from "react-icons/fa6";
 import { Autoplay, Navigation, Pagination } from "swiper/modules";
+import Link from "next/link";
 
 const imgurl = [
   "https://www.crownintltravels.com/wp-content/uploads/2023/09/1000_F_100218316_WbRzPWf4xNTI2xUfljBxKv7R3RILjVq6-e1695710038465.jpg",
@@ -63,14 +64,13 @@ export default function VisaSlider() {
   };
 
   const buttonClass = (index) =>
-    `${
-      index === activeIndex
-        ? "text-black border border-[#fe720f] bg-[#fe720f] focus:ring-4 focus:outline-none focus:ring-blue-300 rounded-full text-base font-medium px-4 py-1.5 text-center me-3 mb-3 dark:border-blue-500 dark:text-blue-500 dark:hover:bg-blue-500 dark:bg-gray-900 dark:focus:ring-blue-800"
-        : "text-gray-900 border border-white hover:border-gray-200 dark:border-gray-900 dark:bg-gray-900 dark:hover:border-gray-700 bg-white focus:ring-4 focus:outline-none focus:ring-gray-300 rounded-full text-base font-medium px-4 py-1.5 text-center me-3 mb-3 dark:text-white dark:focus:ring-gray-800"
+    `${index === activeIndex
+      ? "text-black border border-[#fe720f] bg-[#fe720f] focus:ring-4 focus:outline-none focus:ring-blue-300 rounded-full text-base font-medium px-4 py-1.5 text-center me-3 mb-3 dark:border-blue-500 dark:text-blue-500 dark:hover:bg-blue-500 dark:bg-gray-900 dark:focus:ring-blue-800"
+      : "text-gray-900 border border-white hover:border-gray-200 dark:border-gray-900 dark:bg-gray-900 dark:hover:border-gray-700 bg-white focus:ring-4 focus:outline-none focus:ring-gray-300 rounded-full text-base font-medium px-4 py-1.5 text-center me-3 mb-3 dark:text-white dark:focus:ring-gray-800"
     }`;
 
   return (
-    <div className="mb-10">
+    <div className="mb-10 antialiased">
       <h2 className="font-bold lg:text-[25px] md:text-[15px] text-center my-3">
         We Have Authorized Embassy Visa Application Centre & Dropbox
       </h2>
@@ -126,7 +126,7 @@ export default function VisaSlider() {
           <SwiperSlide key={index - 1}>
             <div className=" max-w-sm my-5 relative">
               <div className="relative hover:scale-105 transition-all mx-1 group">
-                <a href="/VisaDescription">
+                <Link href="/VisaDescription">
                   <Badge.Ribbon
                     text="Visa Application Center"
                     color="#fe720f"
@@ -141,7 +141,7 @@ export default function VisaSlider() {
                       className="rounded-xl transition-all duration-300 w-full h-[350px]"
                     />
                   </Badge.Ribbon>
-                </a>
+                </Link>
                 <div className="absolute top-[10px] right-[15px] bg-white p-[2px] rounded-full shadow">
                   <Avatar
                     src={
@@ -160,14 +160,22 @@ export default function VisaSlider() {
                     <div className="p-2">
                       <div className="flex flex-col group">
                         <h2 className="text-md font-semibold mt-2 text-black">
-                          <a
+                          <Link
                             href="/VisaDescription"
                             className="no-underline group hover-underline-animation transition-all duration-700"
                           >
                             {title[index]}
-                          </a>
+                          </Link>
                         </h2>
-                        <div className="flex space-x-2 mx-2 mt-1">
+                        <p className="text-black mt-1 text-sm line-clamp-1">
+                          <Link
+                            href="/VisaDescription"
+                            className="no-underline hover-underline-animation"
+                          >
+                            Officially Authorized Visa Application Center
+                          </Link>
+                        </p>
+                        <div className="flex space-x-2 mt-1">
                           <div className="flex  items-center  space-x-1">
                             <FaStar className="text-[#fe720f]" size={12} />
                             <FaStar className="text-[#fe720f]" size={12} />
@@ -177,14 +185,6 @@ export default function VisaSlider() {
                           </div>
                         </div>
                       </div>
-                      <p className="text-black mt-1 text-sm ">
-                        <a
-                          href="/VisaDescription"
-                          className="no-underline hover-underline-animation"
-                        >
-                          Officially Authorized Visa Application Center
-                        </a>
-                      </p>
                     </div>
                   </div>
                 </div>

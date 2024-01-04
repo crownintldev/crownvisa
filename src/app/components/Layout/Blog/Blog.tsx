@@ -4,7 +4,7 @@ import BlogComp from "./BlogComp";
 const Blog = () => {
   return (
     <>
-      <section className="bg-white dark:bg-dark mb-10">
+      <section className="bg-white dark:bg-dark mb-10 antialiased">
         <div className="container">
           <div className="-mx-4 flex flex-wrap">
             <div className="w-full px-4">
@@ -12,7 +12,7 @@ const Blog = () => {
                 <h2 className="mb-4 text-3xl font-bold text-dark sm:text-4xl md:text-[40px]">
                   Our Recent Blogs
                 </h2>
-                <p className="text-base text-body-color dark:text-dark-6">
+                <p className="">
                   There are many variations of passages of Lorem Ipsum available
                   but the majority have suffered alteration in some form.
                 </p>

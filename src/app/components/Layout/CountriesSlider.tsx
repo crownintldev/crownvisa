@@ -18,7 +18,7 @@ export default function CountriesSlider() {
   const [swiperRef, setSwiperRef] = useState(null);
 
   return (
-    <div className="countries-slider mb-10">
+    <div className="countries-slider mb-10 antialiased">
       {/* Custom Navigation Buttons */}
       <div className="flex justify-between">
         <div>

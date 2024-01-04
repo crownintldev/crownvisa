@@ -5,7 +5,7 @@ import TopHeader from './TopHeader';
 
 const HeaderComp: React.FC = () => {
   return (
-    <header className=" text-gray-900 flex flex-col items-center z-10 w-full bg-white lg:fixed">
+    <header className=" text-gray-900 flex flex-col items-center z-20 w-full bg-white lg:fixed">
       <TopHeader />
       <Navbar />
     </header>

@@ -33,7 +33,7 @@ const Navbar = () => {
           <AiOutlineMenuFold />
         </div>
         <div>
-          <ul className="lg:flex hidden uppercase items-center gap-4 font-[Poppins]">
+          <ul className="lg:flex hidden uppercase items-center gap-4 antialiased">
             <li>
               <Link
                 href="/"
@@ -89,11 +89,11 @@ const Navbar = () => {
         </div>
         <div className="lg:block hidden">
           <div className="flex">
-            <button className="btn bg-[#fe720f] px-3 py-1 rounded-md text-sm text-black mr-3 flex justify-center items-center ">
+            <button className="btn bg-[#fe720f] px-3 py-1 rounded-md text-md text-white mr-3 flex justify-center items-center ">
               Visa Tracking
             </button>
             <a href="/AuthPage">
-              <button className="btn bg-[#fe720f] px-3 py-1 rounded-md text-sm text-black mr-3 flex justify-center items-center ">
+              <button className="btn bg-[#fe720f] px-3 py-1 rounded-md text-md text-white mr-3 flex justify-center items-center ">
                 Get Started
               </button>
             </a>

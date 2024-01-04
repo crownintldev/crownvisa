@@ -17,7 +17,7 @@ export default function ServicesSlider() {
   const [swiperRef, setSwiperRef] = useState(null);
 
   return (
-    <div className="countries-slider mb-10">
+    <div className="countries-slider mb-10 antialiased">
       {/* Custom Navigation Buttons */}
       <Swiper
         //@ts-ignore

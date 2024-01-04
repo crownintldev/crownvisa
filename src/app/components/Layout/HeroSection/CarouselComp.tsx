@@ -32,26 +32,27 @@ const CarouselComp: React.FC<CarouselProps> = ({ images, duration = 3000 }) => {
         style={{ backgroundImage: `url(${images[activeIndex]})` }}
         className="w-full h-full bg-cover bg-fixed"
       />
-      <button
-        onClick={goToPrevious}
-        className="absolute top-1/2 left-[20px] transform -translate-y-1/2 p-2 border rounded-xl hover:bg-white duration-200 transition text-white hover:text-[#fe720f] z-10"
-      >
-        <FaArrowLeft size={25} />
-      </button>
-      <button
-        onClick={goToNext}
-        className="absolute top-1/2 right-[20px] transform -translate-y-1/2 p-2 border rounded-xl hover:bg-white duration-200 transition text-white hover:text-[#fe720f] z-10"
-      >
-        <FaArrowRight size={25} />
-      </button>
+      <div className="flex justify-between mt-[-300px] px-3">
+        <button
+          onClick={goToPrevious}
+          className="transform-translate-y-1/2 p-2 border-2 border-black rounded-xl bg-white duration-200 transition text-black hover:text-[#fe720f]"
+        >
+          <FaArrowLeft size={25} />
+        </button>
+        <button
+          onClick={goToNext}
+          className="transform-translate-y-1/2 p-2 border-2 border-black rounded-xl bg-white duration-200 transition text-black hover:text-[#fe720f]"
+        >
+          <FaArrowRight size={25} />
+        </button>
+      </div>
       <div className="absolute bottom-5 left-1/2 transform -translate-x-1/2 flex space-x-3">
         {images.map((_, index) => (
           <span
             key={index}
             onClick={() => goToSlide(index)}
-            className={`cursor-pointer block w-2 h-2 rounded-full ${
-              index === activeIndex ? "bg-white" : "bg-[#fe720f]"
-            }`}
+            className={`cursor-pointer block w-2 h-2 rounded-full ${index === activeIndex ? "bg-white" : "bg-[#fe720f]"
+              }`}
           />
         ))}
       </div>

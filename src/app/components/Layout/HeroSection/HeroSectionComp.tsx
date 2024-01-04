@@ -29,9 +29,9 @@ const HeroSectionComp = () => {
 
   return (
     <>
-      <div className="relative bg-transparent rounded-[30px] mx-[35px] lg:pt-[120px]">
+      <div className="relative bg-transparent rounded-[30px] mx-[35px] lg:pt-[120px] antialiased">
         <CarouselComp images={images} />
-        <div className="mt-[-200px] z-20 relative">
+        <div className="mt-[-200px] relative">
           <section>
             <div
               className="py-8 md:px-4 mx-auto max-w-screen-xl text-center lg:py-16"
@@ -43,18 +43,17 @@ const HeroSectionComp = () => {
               <div>
                 <div className="mb-1">
                   <ul
-                    className="flex justify-center items-center text-sm font-medium text-center"
+                    className="flex justify-center items-center text-md text-center "
                     role="tablist"
                   >
                     {/* Tab Buttons */}
                     {tabs.map((tab) => (
                       <li key={tab} className="me-2" role="presentation">
                         <button
-                          className={`inline-block w-full px-3 text-md text-gray-900 rounded-lg  active focus:outline-none ${
-                            activeTab === tab
-                              ? "bg-[#fe720f] text-black"
-                              : "bg-gray-100 hover:text-gray-600"
-                          }`}
+                          className={`inline-block w-full px-3 text-md text-black rounded-lg  active focus:outline-none ${activeTab === tab
+                            ? "bg-[#fe720f] text-white"
+                            : "bg-gray-100 text-black"
+                            }`}
                           type="button"
                           role="tab"
                           onClick={() => handleTabClick(tab)}
@@ -75,10 +74,9 @@ const HeroSectionComp = () => {
                           <FaLocationDot size={30} />
                         </div>
                         <div>
-                          <p>Where</p>
                           <Select
-                            defaultValue="lucy"
                             className="w-[150px]"
+                            placeholder="where"
                             onChange={handleChange}
                             options={[
                               { value: "jack", label: "Jack" },
@@ -98,7 +96,6 @@ const HeroSectionComp = () => {
                           <MdDateRange size={30} />
                         </div>
                         <div>
-                          <p>When</p>
                           <DatePicker onChange={onChange} />
                         </div>
                       </div>
@@ -107,11 +104,10 @@ const HeroSectionComp = () => {
                           <MdTour size={30} />
                         </div>
                         <div>
-                          <p>Where</p>
                           <Select
-                            defaultValue="lucy"
                             className="w-[150px]"
                             onChange={handleChange}
+                            placeholder="where"
                             options={[
                               { value: "jack", label: "Jack" },
                               { value: "lucy", label: "Lucy" },
@@ -126,7 +122,7 @@ const HeroSectionComp = () => {
                         </div>
                       </div>
                       <div>
-                        <button className="btn bg-[#fe720f] px-3 py-3 text-sm text-black flex justify-center items-center rounded-md h-full">
+                        <button className="btn bg-[#fe720f] px-3 py-3 text-md text-white flex justify-center items-center rounded-md h-full">
                           Search
                         </button>
                       </div>
@@ -141,10 +137,9 @@ const HeroSectionComp = () => {
                           <FaLocationDot size={30} />
                         </div>
                         <div>
-                          <p>Where</p>
                           <Select
-                            defaultValue="lucy"
                             className="w-[150px]"
+                            placeholder="where"
                             onChange={handleChange}
                             options={[
                               { value: "jack", label: "Jack" },
@@ -164,7 +159,6 @@ const HeroSectionComp = () => {
                           <MdDateRange size={30} />
                         </div>
                         <div>
-                          <p>When</p>
                           <DatePicker onChange={onChange} />
                         </div>
                       </div>
@@ -173,11 +167,10 @@ const HeroSectionComp = () => {
                           <MdTour size={30} />
                         </div>
                         <div>
-                          <p>Where</p>
                           <Select
-                            defaultValue="lucy"
                             className="w-[150px]"
                             onChange={handleChange}
+                            placeholder="where"
                             options={[
                               { value: "jack", label: "Jack" },
                               { value: "lucy", label: "Lucy" },
@@ -192,7 +185,7 @@ const HeroSectionComp = () => {
                         </div>
                       </div>
                       <div>
-                        <button className="btn bg-[#fe720f] text-sm text-black flex justify-center items-center md:p-[7px] rounded-md h-full">
+                        <button className="btn bg-[#fe720f] px-3 py-3 text-md text-white flex justify-center items-center rounded-md h-full">
                           Search
                         </button>
                       </div>
@@ -207,10 +200,9 @@ const HeroSectionComp = () => {
                           <FaLocationDot size={30} />
                         </div>
                         <div>
-                          <p>Where</p>
                           <Select
-                            defaultValue="lucy"
                             className="w-[150px]"
+                            placeholder="where"
                             onChange={handleChange}
                             options={[
                               { value: "jack", label: "Jack" },
@@ -230,7 +222,6 @@ const HeroSectionComp = () => {
                           <MdDateRange size={30} />
                         </div>
                         <div>
-                          <p>When</p>
                           <DatePicker onChange={onChange} />
                         </div>
                       </div>
@@ -239,11 +230,10 @@ const HeroSectionComp = () => {
                           <MdTour size={30} />
                         </div>
                         <div>
-                          <p>Where</p>
                           <Select
-                            defaultValue="lucy"
                             className="w-[150px]"
                             onChange={handleChange}
+                            placeholder="where"
                             options={[
                               { value: "jack", label: "Jack" },
                               { value: "lucy", label: "Lucy" },
@@ -258,7 +248,7 @@ const HeroSectionComp = () => {
                         </div>
                       </div>
                       <div>
-                        <button className="btn bg-[#fe720f] text-sm text-black flex justify-center items-center md:p-[7px] rounded-md h-full">
+                        <button className="btn bg-[#fe720f] px-3 py-3 text-md text-white flex justify-center items-center rounded-md h-full">
                           Search
                         </button>
                       </div>
@@ -273,10 +263,9 @@ const HeroSectionComp = () => {
                           <FaLocationDot size={30} />
                         </div>
                         <div>
-                          <p>Where</p>
                           <Select
-                            defaultValue="lucy"
                             className="w-[150px]"
+                            placeholder="where"
                             onChange={handleChange}
                             options={[
                               { value: "jack", label: "Jack" },
@@ -296,7 +285,6 @@ const HeroSectionComp = () => {
                           <MdDateRange size={30} />
                         </div>
                         <div>
-                          <p>When</p>
                           <DatePicker onChange={onChange} />
                         </div>
                       </div>
@@ -305,11 +293,10 @@ const HeroSectionComp = () => {
                           <MdTour size={30} />
                         </div>
                         <div>
-                          <p>Where</p>
                           <Select
-                            defaultValue="lucy"
                             className="w-[150px]"
                             onChange={handleChange}
+                            placeholder="where"
                             options={[
                               { value: "jack", label: "Jack" },
                               { value: "lucy", label: "Lucy" },
@@ -324,7 +311,7 @@ const HeroSectionComp = () => {
                         </div>
                       </div>
                       <div>
-                        <button className="btn bg-[#fe720f] text-sm text-black flex justify-center items-center md:p-[7px] rounded-md h-full">
+                        <button className="btn bg-[#fe720f] px-3 py-3 text-md text-white flex justify-center items-center rounded-md h-full">
                           Search
                         </button>
                       </div>
