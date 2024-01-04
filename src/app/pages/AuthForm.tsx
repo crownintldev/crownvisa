@@ -3,8 +3,8 @@
 import React, { useState } from 'react';
 import Signup from '../components/Layout/Auth/Signup';
 import Login from '../components/Layout/Auth/Login';
-import HeaderComp from '../components/Layout/Navbar/header';
-import FooterComp from '../components/Layout/footer';
+import HeaderComp from '../components/Layout/Navbar/HeaderComp';
+import FooterComp from '../components/Layout/FooterComp';
 
 type AuthFormProps = {
   // Define any props here if needed

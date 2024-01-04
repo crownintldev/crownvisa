@@ -1,5 +1,5 @@
-import HeaderComp from "@/app/components/Layout/Navbar/header";
-import FooterComp from "@/app/components/Layout/footer";
+import HeaderComp from "@/app/components/Layout/Navbar/HeaderComp";
+import FooterComp from "@/app/components/Layout/FooterComp";
 import AboutTeamPage from "@/app/pages/AboutTeamPage";
 
 const page = () => {
