@@ -1,7 +1,7 @@
 import React from 'react';
 import ContactPage from '../pages/ContactPage/ContactPage';
-import HeaderComp from '../components/Layout/Navbar/HeaderComp';
-import FooterComp from '../components/Layout/FooterComp';
+import HeaderComp from '../../components/Navbar/HeaderComp';
+import FooterComp from '../../components/FooterComp';
 
 const page = () => {
   return (

@@ -1,25 +1,25 @@
 //@ts-nocheck
 "use client";
-import Blog from "@/app/components/Layout/Blog/Blog";
-import CompaniesSlider from "@/app/components/Layout/CompaniesSlider";
-import CountriesSlider from "@/app/components/Layout/CountriesSlider";
-import Faq from "@/app/components/Layout/Faq/Faq";
-import HeroSectionComp from "@/app/components/Layout/HeroSection/HeroSectionComp";
-import HeaderComp from "@/app/components/Layout/Navbar/HeaderComp";
-import Newsletter from "@/app/components/Layout/Newsletter";
-import Price from "@/app/components/Layout/Price/Price";
-import Services from "@/app/components/Layout/Services/Services";
-import ServicesSlider from "@/app/components/Layout/ServicesSlider";
-import Testimonial from "@/app/components/Layout/Testimonial/Testimonial";
-import VisaSlider from "@/app/components/Layout/VisaSlider";
-import FooterComp from "@/app/components/Layout/FooterComp";
+import Blog from "@/components/Blog/Blog";
+import CompaniesSlider from "@/components/CompaniesSlider";
+import CountriesSlider from "@/components/CountriesSlider";
+import Faq from "@/components/Faq/Faq";
+import HeroSectionComp from "@/components/HeroSection/HeroSectionComp";
+import HeaderComp from "@/components/Navbar/HeaderComp";
+import Newsletter from "@/components/Newsletter";
+import Price from "@/components/Price/Price";
+import ServicesSlider from "@/components/ServicesSlider";
+import Testimonial from "@/components/Testimonial/Testimonial";
+import VisaSlider from "@/components/VisaSlider";
+import FooterComp from "@/components/FooterComp";
 import AOS from 'aos';
 import { useEffect } from "react";
-import Features from "../../../app/components/Layout/Features/Features";
+import Features from "@/components/Features/Features";
+import Services from "@/components/Services/Services";
 
 export default function HomePage() {
   useEffect(() => {
-
+    
     // Initialize AOS
     AOS.init();
   }, []);

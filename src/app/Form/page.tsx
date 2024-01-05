@@ -1,5 +1,5 @@
 import React from 'react'
-import RegistrationComp from '../components/Layout/RegistrationForm'
+import RegistrationComp from '../../components/RegistrationForm'
 
 const page = () => {
   return (

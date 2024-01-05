@@ -1,10 +1,10 @@
 'use client';
 // components/AuthForm.tsx
 import React, { useState } from 'react';
-import Signup from '../components/Layout/Auth/Signup';
-import Login from '../components/Layout/Auth/Login';
-import HeaderComp from '../components/Layout/Navbar/HeaderComp';
-import FooterComp from '../components/Layout/FooterComp';
+import Signup from '../../components/Auth/Signup';
+import Login from '../../components/Auth/Login';
+import HeaderComp from '../../components/Navbar/HeaderComp';
+import FooterComp from '../../components/FooterComp';
 
 type AuthFormProps = {
   // Define any props here if needed

@@ -1,5 +1,5 @@
 //@ts-nocheck
-import Stats from "@/app/components/Layout/Stats/Stats";
+import Stats from "@/components/Stats/Stats";
 import Image from "next/image";
 import Mission from "./Mission";
 import Values from "./Values";

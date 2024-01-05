@@ -2,7 +2,7 @@
 import React, { useState } from "react";
 import Link from "next/link";
 import { AiOutlineDown } from "react-icons/ai";
-import { links } from "@/app/constants/constants";
+import { links } from "@/constants/constants";
 
 const MegaMenu = () => {
   const [heading, setHeading] = useState("");

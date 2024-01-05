@@ -1,7 +1,7 @@
 import Link from "next/link";
 import ContactForm from "./ContactForm";
 import ContactInfo from "./ContactInfo";
-import Newsletter from "@/app/components/Layout/Newsletter";
+import Newsletter from "@/components/Newsletter";
 
 const ContactPage = () => {
   return (
