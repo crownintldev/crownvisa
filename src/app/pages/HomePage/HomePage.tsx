@@ -19,6 +19,7 @@ import Features from "@/app/components/Layout/Features/Features";
 
 export default function HomePage() {
   useEffect(() => {
+    
     // Initialize AOS
     AOS.init();
   }, []);
