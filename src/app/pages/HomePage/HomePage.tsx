@@ -4,7 +4,6 @@ import Blog from "@/app/components/Layout/Blog/Blog";
 import CompaniesSlider from "@/app/components/Layout/CompaniesSlider";
 import CountriesSlider from "@/app/components/Layout/CountriesSlider";
 import Faq from "@/app/components/Layout/Faq/Faq";
-import Features from "@/app/components/Layout/Features/Features";
 import HeroSectionComp from "@/app/components/Layout/HeroSection/HeroSectionComp";
 import HeaderComp from "@/app/components/Layout/Navbar/HeaderComp";
 import Newsletter from "@/app/components/Layout/Newsletter";
@@ -16,6 +15,7 @@ import VisaSlider from "@/app/components/Layout/VisaSlider";
 import FooterComp from "@/app/components/Layout/FooterComp";
 import AOS from 'aos';
 import { useEffect } from "react";
+import Features from "@/app/components/Layout/Features/Features";
 
 export default function HomePage() {
   useEffect(() => {
