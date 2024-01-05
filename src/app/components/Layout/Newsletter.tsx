@@ -2,13 +2,13 @@ import React from 'react';
 
 const Newsletter = () => {
   return (
-    <section className="bg-white mb-10">
+    <section className="bg-white mb-10 antialiased">
       <div className="px-4 mx-auto max-w-screen-xl lg:px-6">
         <div className="mx-auto max-w-screen-md sm:text-center">
-          <h2 className="mb-4 text-3xl tracking-tight font-extrabold text-gray-900 sm:text-4xl">
+          <h2 className="mb-4 text-3xl tracking-tight font-extrabold sm:text-4xl">
             Sign up for our newsletter
           </h2>
-          <p className="mx-auto mb-8 max-w-2xl font-light text-gray-500 md:mb-12 sm:text-xl">
+          <p className="mx-auto mb-8 max-w-2xl font-light md:mb-12 sm:text-xl">
             Stay up to date with the roadmap progress, announcements and
             exclusive discounts feel free to sign up with your email.
           </p>
@@ -17,7 +17,7 @@ const Newsletter = () => {
               <div className="relative w-full">
                 <label
                   htmlFor="email"
-                  className="hidden mb-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+                  className="hidden mb-2 text-sm font-medium  dark:text-gray-300"
                 >
                   Email address
                 </label>
@@ -33,7 +33,7 @@ const Newsletter = () => {
                   </svg>
                 </div>
                 <input
-                  className="block p-3 pl-10 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 sm:rounded-none sm:rounded-l-lg focus:ring-primary-500 focus:border-primary-500"
+                  className="block p-3 pl-10 w-full text-sm bg-gray-50 rounded-lg border border-gray-300 sm:rounded-none sm:rounded-l-lg focus:ring-primary-500 focus:border-primary-500"
                   placeholder="Enter your email"
                   type="email"
                   id="email"
@@ -49,7 +49,7 @@ const Newsletter = () => {
                 </button>
               </div>
             </div>
-            <div className="mx-auto max-w-screen-sm text-sm text-left text-gray-500 newsletter-form-footer">
+            <div className="mx-auto max-w-screen-sm text-sm text-left newsletter-form-footer">
               We care about the protection of your data.{' '}
               <a
                 href="#"

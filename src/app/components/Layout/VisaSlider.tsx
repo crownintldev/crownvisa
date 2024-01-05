@@ -120,10 +120,10 @@ export default function VisaSlider() {
         }}
         autoplay={false}
         modules={[Pagination, Navigation, Autoplay]}
-        className="mySwiper container mx-auto px-4"
+        className="mySwiper"
       >
         {[...Array(13)].map((_, index) => (
-          <SwiperSlide key={index - 1}>
+          <SwiperSlide key={index - 1} className="pl-3">
             <div className=" max-w-sm my-5 relative">
               <div className="relative hover:scale-105 transition-all mx-1 group">
                 <Link href="/VisaDescription">
@@ -170,7 +170,7 @@ export default function VisaSlider() {
                         <p className="text-black mt-1 text-sm line-clamp-1">
                           <Link
                             href="/VisaDescription"
-                            className="no-underline hover-underline-animation"
+                            className="no-underline line-clamp-1"
                           >
                             Officially Authorized Visa Application Center
                           </Link>

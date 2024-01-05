@@ -34,7 +34,7 @@ const Faq = () => {
           />
         </div>
 
-        <p className="text-center text-gray-600 textbase mt-9">
+        <p className="text-center textbase mt-9">
           Didn’t find the answer you are looking for?{" "}
           <Link
             href="#"

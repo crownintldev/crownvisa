@@ -1,14 +1,13 @@
 //@ts-nocheck
 import React, { useState } from "react";
 import Link from "next/link";
-import { links } from "./Mylinks";
 import { AiOutlineDown } from "react-icons/ai";
+import { links } from "@/app/constants/constants";
 
 const MegaMenu = () => {
   const [heading, setHeading] = useState("");
   const [subHeading, setSubHeading] = useState("");
   const [itemid, setitemid] = useState(0);
-  console.log(itemid);
   return (
     <>
       {links.map((link) => (

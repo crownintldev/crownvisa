@@ -12,6 +12,7 @@ import {
 import { Button, Layout, Menu, MenuProps, theme } from "antd";
 import React, { useState } from "react";
 import CountriesTable from "./Visa Form/CountriesTable";
+import Image from "next/image";
 
 const { Header, Sider, Content } = Layout;
 type MenuItem = Required<MenuProps>["items"][number];
@@ -88,6 +89,9 @@ const Dashboard: React.FC = () => {
         style={siderStyle}
       >
         <div className="demo-logo-vertical" />
+        <div className="flex justify-center items-center">
+          <Image class="w-10 h-10 rounded-full" src="https://www.crownintltravels.com/wp-content/uploads/2023/03/circle-flag-of-malaysia-free-png-980x980.webp" alt="Rounded avatar" width={50} height={50}></Image>
+        </div>
         <Menu
           theme="dark"
           mode="inline"
