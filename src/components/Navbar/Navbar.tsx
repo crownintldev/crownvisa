@@ -89,14 +89,13 @@ const Navbar = () => {
             <button className="btn bg-[#fe720f] px-3 py-1 rounded-md text-md text-white mr-3 flex justify-center items-center ">
               Visa Tracking
             </button>
-            <a href="/AuthPage">
+            <Link href="/AuthPage">
               <button className="btn bg-[#fe720f] px-3 py-1 rounded-md text-md text-white mr-3 flex justify-center items-center ">
                 Get Started
               </button>
-            </a>
+            </Link>
           </div>
         </div>
-        {/* Mobile nav */}
         <div
           className={`
     lg:hidden bg-white fixed w-full top-0 overflow-y-auto bottom-0 py-24 pl-4
@@ -128,9 +127,7 @@ const Navbar = () => {
                 </span>
               </div>
               {showDropdown && (
-                <div
-                // className="dropdown-content w-48 absolute top-[30px] bg-white shadow-none backdrop-blur-sm opacity-100 card-shadow"
-                >
+                <div>
                   {/* Your dropdown links here */}
                   <ul>
                     <li className=" px-4 py-2">
@@ -155,10 +152,15 @@ const Navbar = () => {
               </Link>
             </li>
             <MegaMenu />
-            <div className="py-5">
-              <button className="btn bg-blue-700 text-white mr-3 flex justify-center items-center lg:p-[20px] md:p-[5px] rounded-3xl">
-                Default Button
+            <div className="flex">
+              <button className="btn bg-[#fe720f] px-3 py-1 rounded-md text-md text-white mr-3 flex justify-center items-center ">
+                Visa Tracking
               </button>
+              <a href="/AuthPage">
+                <button className="btn bg-[#fe720f] px-3 py-1 rounded-md text-md text-white mr-3 flex justify-center items-center ">
+                  Get Started
+                </button>
+              </a>
             </div>
           </ul>
         </div>

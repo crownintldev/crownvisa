@@ -1,6 +1,6 @@
 import HeaderComp from "@/components/Navbar/HeaderComp";
 import FooterComp from "@/components/FooterComp";
-import AboutTeamPage from "@/app/pages/AboutTeamPage";
+import AboutTeamPage from "@/pages/AboutTeamPage";
 
 const page = () => {
   return (

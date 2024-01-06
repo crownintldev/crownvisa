@@ -13,7 +13,7 @@ const MegaMenu = () => {
       {links.map((link) => (
         <div key={link.id} className="px-1">
           <div className="md:cursor-pointer group">
-            <h2
+            <li
               className="py-1 flex justify-between items-center md:px-0 group px-3"
               onClick={() => {
                 heading !== link.name ? setHeading(link.name) : setHeading("");
@@ -27,7 +27,7 @@ const MegaMenu = () => {
               <span className=" md:ml-2  md:block hidden group-hover:rotate-180">
                 <AiOutlineDown />
               </span>
-            </h2>
+            </li>
             {link.submenu && (
               <div>
                 <div className="absolute left-0 top-[50px] hidden w-full group-hover:md:block hover:md:block bg-white py-5 card-shadow px-3">
@@ -78,7 +78,7 @@ const MegaMenu = () => {
                         ? setSubHeading(slinks.Head)
                         : setSubHeading("")
                     }
-                    className="py-4 pl-7 font-semibold md:pr-0 pr-5 flex justify-between items-center md:pr-0 pr-5"
+                    className="py-4 pl-7 font-semibold md:pr-0 pr-5 flex justify-between items-center"
                   >
                     {slinks.Head}
 

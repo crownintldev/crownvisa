@@ -64,12 +64,12 @@
 .ant-rate-star:not(.ant-rate-star-zero)
   .ant-rate-star-full
   > .ant-rate-star-second {
-  color: black; /* Full star color */
+  color: black; 
 }
 
 .ant-rate-star-zero .ant-rate-star-first,
 .ant-rate-star-zero .ant-rate-star-second {
-  color: rgba(0, 0, 0, 0.25); /* Half star or empty star color */
+  color: rgba(0, 0, 0, 0.25); 
 }
 
 .custom-tabs-style .ant-tabs-tab {
