@@ -1,5 +1,5 @@
 import React from "react";
-import VisaDescriptionPage from "../../pages/VisaDescriptionPage";
+import VisaDescriptionPage from "../../pages/VisaDescription";
 import HeaderComp from "../../components/Navbar/HeaderComp";
 import FooterComp from "../../components/FooterComp";
 

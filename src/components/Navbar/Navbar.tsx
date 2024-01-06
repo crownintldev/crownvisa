@@ -46,10 +46,10 @@ const Navbar = () => {
             // onClick={toggleDropdown}
             className="flex items-center group relative"
           >
-            <span className="py-1 px-1 inline-block hover-underline-animation">
+            <span className="py-1 px-1 inline-block hover-underline-animation ">
               About
             </span>
-            <span>
+            <span className="group-hover:rotate-180">
               <AiOutlineDown />
             </span>
             {showDropdown && (

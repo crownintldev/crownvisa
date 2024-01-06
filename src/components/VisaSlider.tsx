@@ -126,7 +126,7 @@ export default function VisaSlider() {
           <SwiperSlide key={index - 1} className="pl-3">
             <div className=" max-w-sm my-5 relative">
               <div className="relative hover:scale-105 transition-all mx-1 group">
-                <Link href="/VisaDescription">
+                <Link href="/VisaDescriptionPage">
                   <Badge.Ribbon
                     text="Visa Application Center"
                     color="#fe720f"
@@ -161,7 +161,7 @@ export default function VisaSlider() {
                       <div className="flex flex-col group">
                         <h2 className="text-md font-semibold mt-2 text-black">
                           <Link
-                            href="/VisaDescription"
+                            href="/VisaDescriptionPage"
                             className="no-underline group hover-underline-animation transition-all duration-700"
                           >
                             {title[index]}
@@ -169,7 +169,7 @@ export default function VisaSlider() {
                         </h2>
                         <p className="text-black mt-1 text-sm line-clamp-1">
                           <Link
-                            href="/VisaDescription"
+                            href="/VisaDescriptionPage"
                             className="no-underline line-clamp-1"
                           >
                             Officially Authorized Visa Application Center

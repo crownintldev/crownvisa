@@ -46,12 +46,12 @@ const ContactPage = () => {
                     d="m1 9 4-4-4-4"
                   />
                 </svg>
-                <a
+                <Link
                   href="/ContactPage"
                   className="ms-1 text-sm font-medium   md:ms-2 dark:text-gray-400 dark:hover:text-white"
                 >
                   Contact Us
-                </a>
+                </Link>
               </div>
             </li>
           </ol>

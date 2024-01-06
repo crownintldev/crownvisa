@@ -139,7 +139,7 @@ const Testimonial = () => {
             onClick={() => slider?.prev()}
             aria-label="Previous slide"
             id="keen-slider-previous"
-            className="rounded-full border border-[#FFC224] p-4 text-[#FFC224] transition hover:bg-[#FFC224] hover:text-black"
+            className="rounded-full border border-[#fe720f] p-4 text-[#fe720f] transition hover:bg-[#fe720f] hover:text-black"
           >
             <svg
               className="h-5 w-5 -rotate-180 transform"
@@ -161,7 +161,7 @@ const Testimonial = () => {
             onClick={() => slider?.next()}
             aria-label="Next slide"
             id="keen-slider-next"
-            className="rounded-full border border-[#FFC224] p-4 text-[#FFC224] transition hover:bg-[#FFC224] hover:text-black"
+            className="rounded-full border border-[#fe720f] p-4 text-[#fe720f] transition hover:bg-[#fe720f] hover:text-black"
           >
             <svg
               className="h-5 w-5"

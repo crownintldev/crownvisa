@@ -1,6 +1,6 @@
 //@ts-nocheck
 "use client";
-import { useTitleContext } from "@/app/ContextProvider";
+import { useTitleContext } from "@/context/ContextProvider";
 import { CloseOutlined, UploadOutlined } from "@ant-design/icons";
 import {
   Button,

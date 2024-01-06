@@ -8,6 +8,7 @@ const MegaMenu = () => {
   const [heading, setHeading] = useState("");
   const [subHeading, setSubHeading] = useState("");
   const [itemid, setitemid] = useState(0);
+  const [submenuOpen, setSubmenuOpen] = useState(false); 
   return (
     <>
       {links.map((link) => (
@@ -18,21 +19,22 @@ const MegaMenu = () => {
               onClick={() => {
                 heading !== link.name ? setHeading(link.name) : setHeading("");
                 setSubHeading("");
+                setSubmenuOpen(!submenuOpen);
               }}
             >
               {link.name}
               <span className="md:hidden inline">
                 <AiOutlineDown />
               </span>
-              <span className=" md:ml-2  md:block hidden group-hover:rotate-180">
+              <span className={`md:ml-2 md:block hidden ${submenuOpen ? 'group-hover:rotate-180' : ''} `}>
                 <AiOutlineDown />
               </span>
             </li>
-            {link.submenu && (
+            {link.submenu && submenuOpen && (
               <div>
-                <div className="absolute left-0 top-[50px] hidden w-full group-hover:md:block hover:md:block bg-white py-5 card-shadow px-3">
+                <div className="lg:absolute lg:left-0 lg:top-[80px] w-full bg-white py-5 lg:card-shadow px-3">
                   <div className="grid grid-cols-12 gap-10 container mx-auto">
-                    <div className="lg:col-span-2 md:col-span-6 col-span-12 border-r border-black">
+                    <div className="lg:col-span-2 sm:col-span-4 border-r border-black">
                       {link.sublinks.map((mysublinks) => (
                         <h2
                           className="border border-black p-3 rounded-md bg-[#fe720f] my-5 mr-3"
@@ -43,10 +45,10 @@ const MegaMenu = () => {
                         </h2>
                       ))}
                     </div>
-                    <div className="lg:col-span-10 md:col-span-6 col-span-12">
+                    <div className="lg:col-span-10 sm:col-span-8">
                       <div className="grid grid-cols-12">
                         {link.sublinks[itemid].sublink.map((slink) => (
-                          <div className="col-span-4 text-sm text-black my-5" key={slink.id}>
+                          <div className="lg:col-span-4 sm:col-span-12 text-sm text-black my-5" key={slink.id}>
                             <Link
                               href={slink.link}
                               className="hover:text-primary border border-black p-3 rounded-md bg-[#fe720f]"
@@ -61,44 +63,6 @@ const MegaMenu = () => {
                 </div>
               </div>
             )}
-          </div>
-          {/* Mobile menus */}
-          <div
-            className={`
-            ${heading === link.name ? "md:hidden" : "hidden"}
-          `}
-          >
-            {/* sublinks */}
-            {link.sublinks.map((slinks) => (
-              <div key={slinks.id}>
-                <div>
-                  <h2
-                    onClick={() =>
-                      subHeading !== slinks.Head
-                        ? setSubHeading(slinks.Head)
-                        : setSubHeading("")
-                    }
-                    className="py-4 pl-7 font-semibold md:pr-0 pr-5 flex justify-between items-center"
-                  >
-                    {slinks.Head}
-
-                    <span className="text-xl md:mt-1 md:ml-2 inline">
-                      <AiOutlineDown />
-                    </span>
-                  </h2>
-                  <div
-                    className={`${subHeading === slinks.Head ? "md:hidden" : "hidden"
-                      }`}
-                  >
-                    {slinks.sublink.map((slink) => (
-                      <li className="py-3 pl-14" key={slink.id}>
-                        <Link href={slink.link}>{slink.name}</Link>
-                      </li>
-                    ))}
-                  </div>
-                </div>
-              </div>
-            ))}
           </div>
         </div>
       ))}

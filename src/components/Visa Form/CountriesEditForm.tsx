@@ -1,6 +1,6 @@
 //@ts-nocheck
 "use client";
-import { useTitleContext } from "@/app/ContextProvider";
+import { useTitleContext } from "@/context/ContextProvider";
 import { Button, Form, Input, Select } from "antd";
 import axios from "axios";
 import dynamic from "next/dynamic";

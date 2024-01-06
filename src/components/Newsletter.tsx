@@ -24,7 +24,7 @@ const Newsletter = () => {
                 <div className="flex absolute inset-y-0 left-0 items-center pl-3 pointer-events-none">
                   <svg
                     className="w-5 h-5 text-[#fe720f] dark:text-gray-400"
-                    fill="#FFC224"
+                    fill="#fe720f"
                     viewBox="0 0 20 20"
                     xmlns="http://www.w3.org/2000/svg"
                   >

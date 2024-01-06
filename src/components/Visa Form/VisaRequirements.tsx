@@ -1,6 +1,6 @@
 //@ts-nocheck
 "use client";
-import { useTitleContext } from "@/app/ContextProvider";
+import { useTitleContext } from "@/context/ContextProvider";
 import { CloseOutlined } from "@ant-design/icons";
 import { Button, Card, Form, Input, Typography } from "antd";
 import axios from "axios";
