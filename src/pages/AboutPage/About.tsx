@@ -61,7 +61,7 @@ const AboutPage = () => {
           <h2 className="text-6xl">About us</h2>
         </div>
       </div>
-      <section className="container mx-auto bg-white mb-10">
+      <section className="container mx-auto px-4 bg-white mb-10">
         <div className=" gap-10 items-center mx-auto max-w-screen-xl lg:grid lg:grid-cols-2 mb-10">
           <div className="sm:text-lg">
             <h2 className="mb-2 text-3xl tracking-tight font-semibold  dark:text-white">
@@ -140,15 +140,15 @@ const AboutPage = () => {
             agent of Vietnam.
           </p>
         </div>
+        <div className="grid grid-cols-12 gap-6 mb-10">
+          <Mission />
+          <Vision />
+          <Values />
+        </div>
+        <div className="flex flex-col mb-10">
+          <Stats />
+        </div>
       </section>
-      <div className="container mx-auto px-4 grid grid-cols-12 gap-6  mb-10">
-        <Mission />
-        <Vision />
-        <Values />
-      </div>
-      <div className="container mx-auto flex flex-col my-3 px-4">
-        <Stats />
-      </div>
     </div>
   );
 };
