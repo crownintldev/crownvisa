@@ -235,7 +235,7 @@ const CountriesTable: React.FC = () => {
         columns={columns}
         dataSource={data}
         bordered={true}
-        className="mx-3"
+        className="mx-3 overflow-x-scroll"
       />{" "}
       <CustomModal
         isOpen={isModalOpen}

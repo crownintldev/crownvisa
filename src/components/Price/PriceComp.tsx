@@ -11,10 +11,10 @@ interface Props {
 const PriceComp: React.FC<Props> = ({ title, description, price, details }) => {
   return (
     <div className="flex flex-col p-6 mx-auto max-w-lg text-center  bg-white rounded-lg border border-gray-100 shadow dark:border-gray-600 xl:p-8">
-      <h3 className="mb-4 text-2xl font-semibold">{title}</h3>
-      <p className="font-light  sm:text-lg">{description}</p>
+      <h3 className="mb-4 text-xl font-semibold">{title}</h3>
+      <p className="sm:text-lg">{description}</p>
       <div className="flex justify-center items-baseline my-8">
-        <span className="mr-2 text-5xl font-extrabold">${price}</span>
+        <span className="mr-2 text-4xl font-extrabold">${price}</span>
         <span className="">/month</span>
       </div>
       {/* <!-- List --> */}

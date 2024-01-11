@@ -26,8 +26,8 @@ const Values = () => {
         ref={animationContainer}
         className="relative h-[200px]"
       ></div>
-      <div className="">
-        <h2 className="font-bold text-[35px] mb-5">
+      <div>
+        <h2 className="font-semibold text-3xl mb-5">
           Our <span className="text-[#fe720f]">Values</span>
         </h2>
         <p className='text-justify'>

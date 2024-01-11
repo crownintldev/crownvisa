@@ -32,7 +32,7 @@ export default function HomePage() {
         <CompaniesSlider />
         <Services />
         <ServicesSlider />
-        <CountriesSlider />
+        {/* <CountriesSlider /> */}
         <Features />
         <Price />
         <Testimonial />

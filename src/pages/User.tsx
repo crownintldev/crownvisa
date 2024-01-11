@@ -1,6 +1,6 @@
 //@ts-nocheck
 "use client"
-import { adduser } from '@/redux/slice';
+import { adduser, removeuser } from '@/redux/slice';
 import React, { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 
@@ -23,8 +23,9 @@ const User = () => {
                 <h3>user list</h3>
                 {
                     userdata.map((item) => {
-                        <div>
-                            {item.name}
+                        return <div key={item.id}>
+                            <span>{item.name}</span>
+                            <button onClick={()=>dispatch(removeuser(item.id))}>Remove</button>
                         </div>
                     })
                 }

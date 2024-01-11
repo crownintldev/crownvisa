@@ -107,15 +107,15 @@ export default function VisaSlider() {
         breakpoints={{
           640: {
             slidesPerView: 2,
-            spaceBetween: 20,
+            spaceBetween: 10,
           },
           768: {
             slidesPerView: 3,
-            spaceBetween: 20,
+            spaceBetween: 10,
           },
           1024: {
             slidesPerView: 4,
-            spaceBetween: 30,
+            spaceBetween: 10,
           },
         }}
         autoplay={false}
@@ -138,7 +138,7 @@ export default function VisaSlider() {
                       alt="Kuala Lumpur"
                       width={350}
                       height={250}
-                      className="rounded-xl transition-all duration-300 w-full h-[350px]"
+                      className="rounded-xl transition-all duration-300 w-full h-[280px]"
                     />
                   </Badge.Ribbon>
                 </Link>

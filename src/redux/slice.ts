@@ -17,9 +17,15 @@ const slice=createSlice({
                 name:action.payload,
             }
             state.users.push(data);
+        },
+        removeuser:(state,action)=>{
+            const data=state.users.filter((item)=>{
+                return item.id !== action.payload
+            })
+            state.users=data;
         }
     }
 });
 
-export const {adduser}=slice.actions;
+export const {adduser,removeuser}=slice.actions;
 export default slice.reducer;

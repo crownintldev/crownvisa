@@ -90,7 +90,7 @@ const Dashboard: React.FC = () => {
       >
         <div className="demo-logo-vertical" />
         <div className="flex justify-center items-center">
-          <Image class="w-10 h-10 rounded-full" src="https://www.crownintltravels.com/wp-content/uploads/2023/03/circle-flag-of-malaysia-free-png-980x980.webp" alt="Rounded avatar" width={50} height={50}></Image>
+          <Image class="w-30 h-30 rounded-full my-3" src="https://www.crownintltravels.com/wp-content/uploads/2023/03/circle-flag-of-malaysia-free-png-980x980.webp" alt="Rounded avatar" width={50} height={50}></Image>
         </div>
         <Menu
           theme="dark"

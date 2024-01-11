@@ -27,7 +27,7 @@ const Vision = () => {
         className="relative h-[200px]"
       ></div>
       <div className="">
-        <h2 className="font-bold text-[35px] mb-5">
+        <h2 className="font-semibold text-3xl mb-5">
           Our <span className="text-[#fe720f]">Vision</span>
         </h2>
         <p className='text-justify'>

@@ -27,12 +27,13 @@ const CarouselComp: React.FC<CarouselProps> = ({ images, duration = 3000 }) => {
     setActiveIndex(index);
   };
   return (
-    <div className="relative w-full h-[600px] rounded-[30px] overflow-hidden">
+    <div className="relative w-full h-[500px] rounded-[30px] overflow-hidden">
+      <div className="w-full h-full bg-gray-700 opacity-70 rounded-3xl absolute top-0 left-0"></div>
       <div
         style={{ backgroundImage: `url(${images[activeIndex]})` }}
         className="w-full h-full bg-cover bg-fixed"
       />
-      <div className="flex justify-between mt-[-300px] px-3">
+      {/* <div className="flex justify-between mt-[-300px] px-3">
         <button
           onClick={goToPrevious}
           className="transform-translate-y-1/2 p-2 border-2 border-black rounded-xl bg-white duration-200 transition text-black hover:text-[#fe720f]"
@@ -45,7 +46,7 @@ const CarouselComp: React.FC<CarouselProps> = ({ images, duration = 3000 }) => {
         >
           <FaArrowRight size={25} />
         </button>
-      </div>
+      </div> */}
       <div className="absolute bottom-5 left-1/2 transform -translate-x-1/2 flex space-x-3">
         {images.map((_, index) => (
           <span
