@@ -3,8 +3,8 @@ import Link from "next/link";
 
 const AboutCeoPage = () => {
   return (
-    <section className="about-us lg:pt-[115px]">
-      <div className="h-auto space-y-4 flex justify-center flex-col rounded-[30px] mx-[35px] bg-[#fe720f] mb-10">
+    <section className="about-us lg:pt-[125px]">
+      <div className="h-auto flex justify-center flex-col rounded-[30px] mx-[35px] bg-[#fe720f] mb-10">
         <div className="grid grid-cols-12 gap-10 container mx-auto">
           <div className="col-span-8 my-5">
             <nav className="flex" aria-label="Breadcrumb">
@@ -76,9 +76,9 @@ const AboutCeoPage = () => {
             <Image
               src="/images/about-ceo_msg.png"
               alt="ceo image"
-              className="pic h-full"
+              className="pic"
               width={300}
-              height={300}
+              height={250}
             />
           </div>
         </div>

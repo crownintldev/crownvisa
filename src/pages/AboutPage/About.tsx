@@ -10,7 +10,7 @@ const AboutPage = () => {
   return (
     <div className="lg:pt-[110px] antialiased">
       <div className="h-[400px] flex flex-col rounded-3xl mx-[35px] bg-[url('https://motivoweb.com/saga/wp-content/themes/saga/assets/images/bg-titlebar.jpg')] bg-fixed bg-cover bg-no-repeat mb-10 relative">
-        <div className="w-full h-full bg-gray-700 opacity-50 rounded-3xl absolute top-0 left-0"></div>
+        <div className="w-full h-full bg-gray-700 opacity-70 rounded-3xl absolute top-0 left-0"></div>
         <div className="flex justify-center items-center h-full flex-col z-10">
           <nav className="flex" aria-label="Breadcrumb">
             <ol className="inline-flex items-center space-x-1 md:space-x-2 rtl:space-x-reverse">
@@ -64,7 +64,7 @@ const AboutPage = () => {
       <section className="container mx-auto px-4 bg-white mb-10">
         <div className=" gap-10 items-center mx-auto max-w-screen-xl lg:grid lg:grid-cols-2 mb-10">
           <div className="sm:text-lg">
-            <h2 className="mb-2 text-3xl tracking-tight font-semibold  dark:text-white">
+            <h2 className="mb-3 text-3xl tracking-tight font-semibold  dark:text-white">
               Our Company <span className="text-[#fe720f]">History</span>
             </h2>
             <p className="mb-2">
