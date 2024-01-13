@@ -72,7 +72,7 @@ const AboutCeoPage = () => {
               Crown International Travels (Pvt) Ltd to the next level!
             </p>
           </div>
-          <div className="col-span-4">
+          <div className="col-span-4 mt-5">
             <Image
               src="/images/about-ceo_msg.png"
               alt="ceo image"

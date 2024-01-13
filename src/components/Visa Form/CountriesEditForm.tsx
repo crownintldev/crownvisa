@@ -23,12 +23,6 @@ const onFinishFailed = (errorInfo: any) => {
   console.log("Failed:", errorInfo);
 };
 
-type FieldType = {
-  username?: string;
-  password?: string;
-  remember?: string;
-};
-
 interface TagType {
   id: number;
   title: string;
@@ -145,7 +139,7 @@ const CountriesEditForm: React.FC<Props> = ({id}) => {
       <div className="border border-black p-5">
         <Form
           name="countryform"
-          // labelCol={{ span: 8 }}
+          labelCol={{ span: 8 }}
           wrapperCol={{ span: 24 }}
           style={{ maxWidth: 800 }}
           form={form}
@@ -154,15 +148,17 @@ const CountriesEditForm: React.FC<Props> = ({id}) => {
           onFinishFailed={onFinishFailed}
           autoComplete="off"
         >
-          <Form.Item<FieldType>
+          <Form.Item
             name="title"
+            label="title"
             rules={[{ required: true, message: "Please input your title!" }]}
           >
             <Input placeholder="Enter Title" />
           </Form.Item>
 
-          <Form.Item<FieldType>
+          <Form.Item
             name="details"
+            label="details"
             rules={[{ required: true, message: "Please input your Details!" }]}
           >
             <TextArea
@@ -172,8 +168,9 @@ const CountriesEditForm: React.FC<Props> = ({id}) => {
             />
           </Form.Item>
 
-          <Form.Item<FieldType>
+          <Form.Item
             name="tagId"
+            label="visa type"
             rules={[{ required: true, message: "Please select visa type!" }]}
           >
             <Select
@@ -187,8 +184,9 @@ const CountriesEditForm: React.FC<Props> = ({id}) => {
             />
           </Form.Item>
 
-          <Form.Item<FieldType>
+          <Form.Item
             name="countryname"
+            label="country name"
             rules={[
               { required: true, message: "Please input your country name!" },
             ]}
@@ -196,8 +194,9 @@ const CountriesEditForm: React.FC<Props> = ({id}) => {
             <Input placeholder="Enter Country Name" />
           </Form.Item>
 
-          <Form.Item<FieldType>
+          <Form.Item
             name="overview"
+            label="overview"
             rules={[{ required: true, message: "Please input your username!" }]}
           >
             <ReactQuill value={text} onChange={OverviewChange} />

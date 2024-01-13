@@ -34,7 +34,7 @@ const MegaMenu = () => {
               <div>
                 <div className="lg:absolute lg:left-0 lg:top-[80px] w-full bg-white py-5 lg:card-shadow px-3">
                   <div className="grid grid-cols-12 gap-10 container mx-auto">
-                    <div className="lg:col-span-2 sm:col-span-4 border-r border-black">
+                    <div className="lg:col-span-3 sm:col-span-4 border-r border-black">
                       {link.sublinks.map((mysublinks) => (
                         <h2
                           className="border border-black p-3 rounded-md bg-[#fe720f] my-5 mr-3"
@@ -45,7 +45,7 @@ const MegaMenu = () => {
                         </h2>
                       ))}
                     </div>
-                    <div className="lg:col-span-10 sm:col-span-8">
+                    <div className="lg:col-span-9 sm:col-span-8">
                       <div className="grid grid-cols-12">
                         {link.sublinks[itemid].sublink.map((slink) => (
                           <div className="lg:col-span-4 sm:col-span-12 text-sm text-black my-5" key={slink.id}>
