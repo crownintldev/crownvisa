@@ -73,11 +73,10 @@ const TravelItinerary: React.FC = () => {
   };
 
   return (
-    <div className="flex justify-center flex-col items-center h-screen">
-      <CustomVisaSteps step3></CustomVisaSteps>
+    <div className="flex justify-center flex-col">
       <div className="border border-black p-5">
       <Form
-      // labelCol={{ span: 6 }}
+      labelCol={{ span: 6 }}
       wrapperCol={{ span: 24 }}
       form={form}
       name="dynamic_form_complex"
@@ -105,6 +104,7 @@ const TravelItinerary: React.FC = () => {
                 {/* <Form onFinish={onSubmitVisaRequirements}> */}
                 <Form.Item
                   name={[field.name, 'title']}
+                  label="Title"
                   rules={[{ required: true }]}
                 >
                   <Input />
@@ -112,6 +112,7 @@ const TravelItinerary: React.FC = () => {
 
                 <Form.Item
                   name={[field.name, 'description']}
+                  label="Description"
                   rules={[
                     {
                       required: true,

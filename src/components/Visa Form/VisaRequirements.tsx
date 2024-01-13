@@ -80,11 +80,10 @@ const VisaRequirements: React.FC = () => {
   };
 
   return (
-    <div className="flex justify-center flex-col items-center h-screen">
-      <CustomVisaSteps step2></CustomVisaSteps>
+    <div className="flex justify-center flex-col">
       <div className="border border-black p-5">
         <Form
-          // labelCol={{ span: 8 }}
+          labelCol={{ span: 8 }}
           wrapperCol={{ span: 24 }}
           form={form}
           name="dynamic_form_complex"
@@ -114,6 +113,7 @@ const VisaRequirements: React.FC = () => {
                     {/* <Form onFinish={onSubmitVisaRequirements}> */}
                     <Form.Item
                       name={[field.name, "title"]}
+                      label="Title"
                       rules={[{ required: true }]}
                     >
                       <Input />
@@ -121,6 +121,7 @@ const VisaRequirements: React.FC = () => {
 
                     <Form.Item
                       name={[field.name, "description"]}
+                      label="Description"
                       rules={[
                         {
                           required: true,
@@ -145,14 +146,6 @@ const VisaRequirements: React.FC = () => {
               </div>
             )}
           </Form.List>
-
-          <Form.Item noStyle shouldUpdate>
-            {() => (
-              <Typography>
-                <pre>{JSON.stringify(form.getFieldsValue(), null, 2)}</pre>
-              </Typography>
-            )}
-          </Form.Item>
           <Button type="primary" htmlType="submit" className="bg-blue-700">
             Submit
           </Button>
