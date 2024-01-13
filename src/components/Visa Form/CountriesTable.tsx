@@ -1,5 +1,5 @@
 "use client";
-import { Button, Drawer, DrawerProps, Space, Table, Tag } from "antd";
+import { Avatar, Button, Drawer, DrawerProps, Space, Table, Tag } from "antd";
 import type { ColumnsType } from "antd/es/table";
 import axios from "axios";
 import { useRouter } from "next/navigation";
@@ -7,9 +7,11 @@ import React, { useEffect, useState } from "react";
 import CustomModal from "../../utils/CustomModel";
 import CountriesEditForm from "./CountriesEditForm";
 import CountriesForm from "./countriesForm";
+import Image from "next/image";
 
 interface DataType {
   key: number;
+  countryflagurl: string;
   title: string;
   details: string;
   tags: string[];
@@ -25,6 +27,8 @@ interface TagType {
 interface Country {
   key: string;
   id: number;
+  countryflagurl: string;
+  countrybgurl: string;
   title: string;
   details: string;
   tagId: number;
@@ -68,6 +72,7 @@ const CountriesTable: React.FC = () => {
           );
           return {
             key: country.id,
+            countryflagurl: country.countryflagurl,
             title: country.title,
             details: country.details,
             tags: tagType ? [tagType.title] : [],
@@ -113,6 +118,24 @@ const CountriesTable: React.FC = () => {
   };
 
   const columns: ColumnsType<DataType> = [
+    {
+      title: "Name",
+      dataIndex: "countryflagurl",
+      key: "countryflagurl",
+      render: (text) => (
+        <Avatar
+          src={
+            <Image
+              src={text}
+              alt="avatar"
+              width={100}
+              height={100}
+            />
+          }
+          size={45}
+        />
+      ),
+    },
     {
       title: "Name",
       dataIndex: "title",

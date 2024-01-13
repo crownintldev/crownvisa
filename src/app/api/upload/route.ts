@@ -15,7 +15,7 @@ export async function POST(req) {
         // Check if the file already exists
         await access(path);
         // If no error is thrown, the file exists
-        return NextResponse.json({ "message": "file already exists", "path": path, success: false });
+        return NextResponse.json({ "message": "file already exists", success: false });
     } catch {
         // If an error is thrown, the file does not exist, proceed with saving
         const byteData = await file.arrayBuffer();

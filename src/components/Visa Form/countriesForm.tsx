@@ -17,12 +17,6 @@ interface TagType {
   title: string;
 }
 
-const onChange = (
-  e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
-) => {
-  console.log("Change:", e.target.value);
-};
-
 const onFinishFailed = (errorInfo: any) => {
   console.log("Failed:", errorInfo);
 };
@@ -65,6 +59,10 @@ const CountriesForm: React.FC = () => {
   const queryClient = useQueryClient();
   const [tagTypes, setTagTypes] = useState<TagType[]>([]); // New state variable
   const [countryData, setCountryData] = useState(null);
+  const [flagimg, setflagimg] = useState();
+  const [flagurl, setflagurl] = useState();
+  const [bgimg, setbgimg] = useState();
+  const [bgurl, setbgurl] = useState();
 
   // useQuery for initial data fetch
   const { data: countryTypesData } = useQuery(
@@ -119,56 +117,81 @@ const CountriesForm: React.FC = () => {
   const onFinish = async (values: any) => {
     console.log("Success:", values);
     settitle(values.title);
-    const countrydata = {
-      title: values.title,
-      details: values.details,
-      overview: values.overview,
-      tagId: values.tagId,
-      countryname: values.countryname,
-    };
-    console.log(countrydata);
-    console.log(title);
-    try {
-      // Await the mutation to complete
-      await mutation.mutateAsync(countrydata);
-      // Fetch country data after successful mutation
-      const response = await axios.get(
-        `/api/visaapi/countries/title/${values.title}`
-      );
-      console.log(response.data.country.id);
-      setCountryData(response.data.country.id); // Update the state with fetched data
-    } catch (error) {
-      console.error("Error fetching country data:", error);
+    console.log(flagimg);
+    const data = new FormData();
+    data.set("file", flagimg);
+    const response = await fetch("api/upload", {
+      method: "POST",
+      body: data,
+    });
+    const result = await response.json();
+    console.log(result);
+    console.log(bgimg);
+    const data1 = new FormData();
+    data1.set("file", bgimg);
+    const response1 = await fetch("api/upload", {
+      method: "POST",
+      body: data1,
+    });
+    const result1 = await response1.json();
+    console.log(result1);
+    if (result.success && result1.success) {
+      setflagurl(result.path); // Update state with the file path
+      console.log(result.path);
+      setbgurl(result1.path); // Update state with the file path
+      console.log(result1.path);
+      const countrydata = {
+        title: values.title,
+        details: values.details,
+        overview: values.overview,
+        tagId: values.tagId,
+        countryname: values.countryname,
+        countryflagurl: result.path,
+        countrybgurl: result1.path,
+      };
+      console.log(countrydata);
+      console.log(title);
+      try {
+        // Await the mutation to complete
+        await mutation.mutateAsync(countrydata);
+        // Fetch country data after successful mutation
+        const response = await axios.get(
+          `/api/visaapi/countries/title/${values.title}`
+        );
+        console.log(response.data.country.id);
+        // Accessing the items array
+        const items = values.visarequirements;
+        console.log("Items:", items);
+        // You can now process each item as needed
+        items.forEach((item, index) => {
+          console.log(`Item ${index + 1}:`, item.title);
+          const VisaRequirementsData = {
+            title: item.title,
+            description: item.description,
+            countryid: response.data.country.id,
+          };
+          console.log(VisaRequirementsData);
+          visarequirementmutation.mutate(VisaRequirementsData);
+        });
+        // Accessing the items array
+        const items1 = values.travelitinerary;
+        console.log("Items:", items1);
+        // You can now process each item as needed
+        items1.forEach((item, index) => {
+          console.log(`Item ${index + 1}:`, item.title);
+          const TravelItineraryData = {
+            title: item.title,
+            description: item.description,
+            countryid: response.data.country.id,
+          };
+          console.log(TravelItineraryData);
+          travelitinerarymutation.mutate(TravelItineraryData);
+        });
+        router.push(`/DashboardPage`);
+      } catch (error) {
+        console.error("Error fetching country data:", error);
+      }
     }
-    // Accessing the items array
-    const items = values.visarequirements;
-    console.log("Items:", items);
-    // You can now process each item as needed
-    items.forEach((item, index) => {
-      console.log(`Item ${index + 1}:`, item.title);
-      const VisaRequirementsData = {
-        title: item.title,
-        description: item.description,
-        countryid: countryData,
-      };
-      console.log(VisaRequirementsData);
-      visarequirementmutation.mutate(VisaRequirementsData);
-    });
-    // Accessing the items array
-    const items1 = values.travelitinerary;
-    console.log("Items:", items1);
-    // You can now process each item as needed
-    items1.forEach((item, index) => {
-      console.log(`Item ${index + 1}:`, item.title);
-      const TravelItineraryData = {
-        title: item.title,
-        description: item.description,
-        countryid: countryData,
-      };
-      console.log(TravelItineraryData);
-      travelitinerarymutation.mutate(TravelItineraryData);
-    });
-    router.push(`/DashboardPage`);
   };
   return (
     <div className="flex justify-center flex-col items-center">
@@ -189,6 +212,40 @@ const CountriesForm: React.FC = () => {
           autoComplete="off"
         >
           <Form.Item
+            name="flagurl"
+            label="country flag image"
+            rules={[
+              {
+                required: true,
+                message: "Please input your country flag image!",
+              },
+            ]}
+          >
+            <input
+              type="file"
+              name="file"
+              className="border-gray-400 rounded-md"
+              onChange={(e) => setflagimg(e.target.files?.[0])}
+            />
+          </Form.Item>
+          <Form.Item
+            name="bgurl"
+            label="country bg image"
+            rules={[
+              {
+                required: true,
+                message: "Please input your country background image!",
+              },
+            ]}
+          >
+            <input
+              type="file"
+              name="file"
+              className="border-gray-400 rounded-md"
+              onChange={(e) => setbgimg(e.target.files?.[0])}
+            />
+          </Form.Item>
+          <Form.Item
             name="title"
             label="Title"
             rules={[{ required: true, message: "Please input your title!" }]}
@@ -198,19 +255,16 @@ const CountriesForm: React.FC = () => {
               className="border-gray-400 rounded-md"
             />
           </Form.Item>
-
           <Form.Item
             name="details"
             label="Details"
             rules={[{ required: true, message: "Please input your Details!" }]}
           >
             <TextArea
-              onChange={onChange}
               placeholder="Enter Details"
               style={{ height: 50, resize: "none" }}
             />
           </Form.Item>
-
           <Form.Item
             name="tagId"
             label="Visa Type"
@@ -226,7 +280,6 @@ const CountriesForm: React.FC = () => {
               }))}
             />
           </Form.Item>
-
           <Form.Item
             name="countryname"
             label="Country Name"
@@ -239,7 +292,6 @@ const CountriesForm: React.FC = () => {
               className="border-gray-400 rounded-md"
             />
           </Form.Item>
-
           <Form.Item
             name="overview"
             label="Overview"
@@ -247,7 +299,6 @@ const CountriesForm: React.FC = () => {
           >
             <ReactQuill value={text} onChange={OverviewChange} />
           </Form.Item>
-
           <Form.List name="visarequirements">
             {(fields, { add, remove }) => (
               <div
@@ -274,7 +325,6 @@ const CountriesForm: React.FC = () => {
                     >
                       <Input />
                     </Form.Item>
-
                     <Form.Item
                       name={[field.name, "description"]}
                       label="Description"
@@ -287,22 +337,17 @@ const CountriesForm: React.FC = () => {
                     >
                       <ReactQuill value={text} onChange={OverviewChange} />
                     </Form.Item>
-
                     <Form.Item name="countryid" hidden={true}>
                       <Input />
                     </Form.Item>
-
-                    {/* </Form> */}
                   </Card>
                 ))}
-
                 <Button type="dashed" onClick={() => add()} block>
                   + Add Item
                 </Button>
               </div>
             )}
           </Form.List>
-
           <Form.List name="travelitinerary">
             {(fields, { add, remove }) => (
               <div
@@ -321,7 +366,6 @@ const CountriesForm: React.FC = () => {
                       />
                     }
                   >
-                    {/* <Form onFinish={onSubmitVisaRequirements}> */}
                     <Form.Item
                       name={[field.name, "title"]}
                       label="Title"
@@ -329,7 +373,6 @@ const CountriesForm: React.FC = () => {
                     >
                       <Input />
                     </Form.Item>
-
                     <Form.Item
                       name={[field.name, "description"]}
                       label="Description"
@@ -342,22 +385,17 @@ const CountriesForm: React.FC = () => {
                     >
                       <ReactQuill value={text} onChange={OverviewChange} />
                     </Form.Item>
-
                     <Form.Item name="countryid" hidden={true}>
                       <Input />
                     </Form.Item>
-
-                    {/* </Form> */}
                   </Card>
                 ))}
-
                 <Button type="dashed" onClick={() => add()} block>
                   + Add Item
                 </Button>
               </div>
             )}
           </Form.List>
-
           <Form.Item wrapperCol={{ span: 16 }}>
             <Button
               type="primary"
