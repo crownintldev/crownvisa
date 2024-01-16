@@ -6,7 +6,7 @@ import Values from "./Values";
 import Vision from "./Vision";
 import Link from "next/link";
 
-const AboutPage = () => {
+const About = () => {
   return (
     <div className="lg:pt-[120px] antialiased">
       <div className="h-[400px] flex flex-col rounded-3xl mx-[35px] bg-[url('https://motivoweb.com/saga/wp-content/themes/saga/assets/images/bg-titlebar.jpg')] bg-fixed bg-cover bg-no-repeat mb-10 relative">
@@ -153,4 +153,4 @@ const AboutPage = () => {
   );
 };
 
-export default AboutPage;
+export default About;

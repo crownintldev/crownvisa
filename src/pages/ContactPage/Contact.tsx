@@ -3,7 +3,7 @@ import ContactForm from "./ContactForm";
 import ContactInfo from "./ContactInfo";
 import Newsletter from "@/components/Newsletter";
 
-const ContactPage = () => {
+const Contact = () => {
   return (
     <div className="lg:pt-[100px] antialiased">
       <div className="h-[400px] flex flex-col rounded-3xl mx-[35px] bg-[url('https://motivoweb.com/saga/wp-content/themes/saga/assets/images/bg-titlebar.jpg')] bg-fixed bg-cover bg-no-repeat mb-10 relative">
@@ -67,4 +67,4 @@ const ContactPage = () => {
   );
 };
 
-export default ContactPage;
+export default Contact;
