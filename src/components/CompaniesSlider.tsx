@@ -55,42 +55,42 @@ export default function CompaniesSlider() {
           <Marquee>
             <MarqueeGroup>
               <ImageGroup>
-                <Image src="icons/amazon.svg" alt="image" height={100} width={100} />
+                <Image src="icons/amazon.svg" className="w-auto h-auto" alt="image" height={100} width={100} />
               </ImageGroup>
               <ImageGroup>
-                <Image src="icons/amd.svg" alt="image" height={100} width={100} />
+                <Image src="icons/amd.svg" className="w-auto h-auto" alt="image" height={100} width={100} />
               </ImageGroup>
               <ImageGroup>
-                <Image src="icons/cisco.svg" alt="image" height={100} width={100} />
+                <Image src="icons/cisco.svg" className="w-auto h-auto" alt="image" height={100} width={100} />
               </ImageGroup>
               <ImageGroup>
-                <Image src="icons/dropcam.svg" alt="image" height={100} width={100} />
+                <Image src="icons/dropcam.svg" className="w-auto h-auto" alt="image" height={100} width={100} />
               </ImageGroup>
               <ImageGroup>
-                <Image src="icons/logitech.svg" alt="image" height={100} width={100} />
+                <Image src="icons/logitech.svg" className="w-auto h-auto" alt="image" height={100} width={100} />
               </ImageGroup>
               <ImageGroup>
-                <Image src="icons/spotify.svg" alt="image" height={100} width={100} />
+                <Image src="icons/spotify.svg" className="w-auto h-auto" alt="image" height={100} width={100} />
               </ImageGroup>
             </MarqueeGroup>
             <MarqueeGroup>
               <ImageGroup>
-                <Image src="icons/amazon.svg" alt="image" height={100} width={100} />
+                <Image src="icons/amazon.svg" className="w-auto h-auto" alt="image" height={100} width={100} />
               </ImageGroup>
               <ImageGroup>
-                <Image src="icons/amd.svg" alt="image" height={100} width={100} />
+                <Image src="icons/amd.svg" className="w-auto h-auto" alt="image" height={100} width={100} />
               </ImageGroup>
               <ImageGroup>
-                <Image src="icons/cisco.svg" alt="image" height={100} width={100} />
+                <Image src="icons/cisco.svg" className="w-auto h-auto" alt="image" height={100} width={100} />
               </ImageGroup>
               <ImageGroup>
-                <Image src="icons/dropcam.svg" alt="image" height={100} width={100} />
+                <Image src="icons/dropcam.svg" className="w-auto h-auto" alt="image" height={100} width={100} />
               </ImageGroup>
               <ImageGroup>
-                <Image src="icons/logitech.svg" alt="image" height={100} width={100} />
+                <Image src="icons/logitech.svg" className="w-auto h-auto" alt="image" height={100} width={100} />
               </ImageGroup>
               <ImageGroup>
-                <Image src="icons/spotify.svg" alt="image" height={100} width={100} />
+                <Image src="icons/spotify.svg" className="w-auto h-auto" alt="image" height={100} width={100} />
               </ImageGroup>
             </MarqueeGroup>
           </Marquee>

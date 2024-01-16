@@ -5,7 +5,7 @@ const AboutCeoPage = () => {
   return (
     <section className="about-us lg:pt-[125px]">
       <div className="h-auto flex justify-center flex-col rounded-[30px] mx-[35px] bg-[#fe720f] mb-10">
-        <div className="grid grid-cols-12 gap-10 container mx-auto">
+        <div className="grid grid-cols-12 gap-6 container mx-auto px-4">
           <div className="col-span-8 my-5">
             <nav className="flex" aria-label="Breadcrumb">
               <ol className="inline-flex items-center space-x-1 md:space-x-2 rtl:space-x-reverse">
@@ -83,7 +83,7 @@ const AboutCeoPage = () => {
           </div>
         </div>
       </div>
-      <div className="container mx-auto mb-10">
+      <div className="container mx-auto px-4 mb-10">
         <h2 className="text-3xl font-semibold">CEO Message</h2>
         <p className="pt-5">
           Crown International is a renowned name in the Travel industry since

@@ -7,6 +7,7 @@ import { useQuery, useQueryClient, useMutation } from "react-query";
 import { useRouter } from "next/navigation";
 import { useTitleContext } from "@/context/ContextProvider";
 import CustomServiceSteps from "./CustomServiceSteps";
+import InputComp from "../UI components/InputComp";
 
 const { TextArea } = Input;
 
@@ -18,12 +19,6 @@ const onChange = (
 
 const onFinishFailed = (errorInfo: any) => {
   console.log("Failed:", errorInfo);
-};
-
-type FieldType = {
-  username?: string;
-  password?: string;
-  remember?: string;
 };
 
 interface TagType {
@@ -96,15 +91,15 @@ const ServiceForm: React.FC = () => {
           onFinishFailed={onFinishFailed}
           autoComplete="off"
         >
-          <Form.Item<FieldType>
+          <InputComp
+            formname="title"
             label="Title"
-            name="title"
             rules={[{ required: true, message: "Please input your title!" }]}
-          >
-            <Input placeholder="Enter Title" />
-          </Form.Item>
+            type="text"
+            placeholder="Enter Title"
+          />
 
-          <Form.Item<FieldType>
+          <Form.Item
             label="Details"
             name="metadata"
             rules={[{ required: true, message: "Please input your Details!" }]}
@@ -116,7 +111,7 @@ const ServiceForm: React.FC = () => {
             />
           </Form.Item>
 
-          <Form.Item<FieldType>
+          <Form.Item
             label="Select Category Type"
             name="categoryid"
             rules={[{ required: true, message: "Please select category type!" }]}

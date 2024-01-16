@@ -1,5 +1,14 @@
 "use client";
-import { Avatar, Button, Drawer, DrawerProps, Space, Table, Tag } from "antd";
+import {
+  Avatar,
+  Button,
+  Drawer,
+  DrawerProps,
+  Modal,
+  Space,
+  Table,
+  Tag,
+} from "antd";
 import type { ColumnsType } from "antd/es/table";
 import axios from "axios";
 import { useRouter } from "next/navigation";
@@ -8,6 +17,7 @@ import CustomModal from "../../utils/CustomModel";
 import CountriesEditForm from "./CountriesEditForm";
 import CountriesForm from "./countriesForm";
 import Image from "next/image";
+import Link from "next/link";
 
 interface DataType {
   key: number;
@@ -124,14 +134,7 @@ const CountriesTable: React.FC = () => {
       key: "countryflagurl",
       render: (text) => (
         <Avatar
-          src={
-            <Image
-              src={text}
-              alt="avatar"
-              width={100}
-              height={100}
-            />
-          }
+          src={<Image src={text} alt="avatar" width={100} height={100} />}
           size={45}
         />
       ),
@@ -274,18 +277,20 @@ const CountriesTable: React.FC = () => {
                   </svg>
                   Add
                 </button>
-                <button
+                <Link
+                  href="VisaFormPage/VisaRequirementsTable"
                   type="button"
                   className="flex items-center justify-center px-4 py-2 text-sm font-medium text-white rounded-lg bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 dark:bg-primary-600 dark:hover:bg-primary-700 focus:outline-none dark:focus:ring-primary-800"
                 >
                   Visa Requirements
-                </button>
-                <button
+                </Link>
+                <Link
+                  href="VisaFormPage/TravelItineraryTable"
                   type="button"
                   className="flex items-center justify-center px-4 py-2 text-sm font-medium text-white rounded-lg bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 dark:bg-primary-600 dark:hover:bg-primary-700 focus:outline-none dark:focus:ring-primary-800"
                 >
                   Travel Itinerary
-                </button>
+                </Link>
               </div>
             </div>
           </div>
@@ -297,11 +302,13 @@ const CountriesTable: React.FC = () => {
         bordered={true}
         className="mx-3 overflow-x-scroll"
       />{" "}
-      <CustomModal
-        isOpen={isModalOpen}
-        onClose={handleCloseModal}
-        onConfirm={handleConfirmDelete}
-      />
+      <Modal
+        title="Basic Modal"
+        open={isModalOpen}
+        onOk={handleConfirmDelete}
+        onCancel={handleCloseModal}
+        className="modelbtn"
+      ></Modal>
       <Drawer
         title={formType === "edit" ? "Edit Country" : "Add Country"}
         placement={placement}

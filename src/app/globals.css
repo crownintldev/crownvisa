@@ -232,3 +232,7 @@
 .custom-list-style li {
   margin-bottom: 5px; /* Adjust as needed */
 }
+
+.modelbtn .ant-btn-primary{
+  background-color: #4070f4 !important;
+}

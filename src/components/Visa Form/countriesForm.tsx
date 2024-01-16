@@ -7,6 +7,7 @@ import dynamic from "next/dynamic";
 import { useRouter } from "next/navigation";
 import React, { useState } from "react";
 import { useMutation, useQuery, useQueryClient } from "react-query";
+import InputComp from "../UI components/InputComp";
 
 const ReactQuill = dynamic(() => import("react-quill"), { ssr: false });
 
@@ -93,31 +94,27 @@ const CountriesForm: React.FC = () => {
   const visarequirementmutation = useMutation(postVisaRequirements, {
     onSuccess: () => {
       // Perform actions on successful data posting
-      console.log("Country data posted successfully");
-      //   router.push(`/VisaRequirementsPage?title=${encodeURIComponent(values.title)}`);
+      console.log("Visa Requirements data posted successfully");
     },
     onError: (error) => {
       // Handle any errors here
-      console.error("Error posting country data:", error);
+      console.error("Error posting Visa Requirements data:", error);
     },
   });
 
   const travelitinerarymutation = useMutation(postTravelItinerary, {
     onSuccess: () => {
       // Perform actions on successful data posting
-      console.log("Country data posted successfully");
-      //   router.push(`/VisaRequirementsPage?title=${encodeURIComponent(values.title)}`);
+      console.log("Travel Itinerary data posted successfully");
     },
     onError: (error) => {
       // Handle any errors here
-      console.error("Error posting country data:", error);
+      console.error("Error posting Travel Itinerary data:", error);
     },
   });
 
   const onFinish = async (values: any) => {
-    console.log("Success:", values);
     settitle(values.title);
-    console.log(flagimg);
     const data = new FormData();
     data.set("file", flagimg);
     const response = await fetch("api/upload", {
@@ -125,8 +122,6 @@ const CountriesForm: React.FC = () => {
       body: data,
     });
     const result = await response.json();
-    console.log(result);
-    console.log(bgimg);
     const data1 = new FormData();
     data1.set("file", bgimg);
     const response1 = await fetch("api/upload", {
@@ -134,12 +129,9 @@ const CountriesForm: React.FC = () => {
       body: data1,
     });
     const result1 = await response1.json();
-    console.log(result1);
     if (result.success && result1.success) {
       setflagurl(result.path); // Update state with the file path
-      console.log(result.path);
       setbgurl(result1.path); // Update state with the file path
-      console.log(result1.path);
       const countrydata = {
         title: values.title,
         details: values.details,
@@ -149,8 +141,6 @@ const CountriesForm: React.FC = () => {
         countryflagurl: result.path,
         countrybgurl: result1.path,
       };
-      console.log(countrydata);
-      console.log(title);
       try {
         // Await the mutation to complete
         await mutation.mutateAsync(countrydata);
@@ -158,36 +148,29 @@ const CountriesForm: React.FC = () => {
         const response = await axios.get(
           `/api/visaapi/countries/title/${values.title}`
         );
-        console.log(response.data.country.id);
         // Accessing the items array
         const items = values.visarequirements;
-        console.log("Items:", items);
         // You can now process each item as needed
         items.forEach((item, index) => {
-          console.log(`Item ${index + 1}:`, item.title);
           const VisaRequirementsData = {
             title: item.title,
             description: item.description,
             countryid: response.data.country.id,
           };
-          console.log(VisaRequirementsData);
           visarequirementmutation.mutate(VisaRequirementsData);
         });
         // Accessing the items array
         const items1 = values.travelitinerary;
-        console.log("Items:", items1);
         // You can now process each item as needed
         items1.forEach((item, index) => {
-          console.log(`Item ${index + 1}:`, item.title);
           const TravelItineraryData = {
             title: item.title,
             description: item.description,
             countryid: response.data.country.id,
           };
-          console.log(TravelItineraryData);
           travelitinerarymutation.mutate(TravelItineraryData);
         });
-        router.push(`/DashboardPage`);
+        router.push(`/AboutPage`);
       } catch (error) {
         console.error("Error fetching country data:", error);
       }
@@ -211,8 +194,8 @@ const CountriesForm: React.FC = () => {
           onFinishFailed={onFinishFailed}
           autoComplete="off"
         >
-          <Form.Item
-            name="flagurl"
+          <InputComp
+            formname="flagurl"
             label="country flag image"
             rules={[
               {
@@ -220,16 +203,12 @@ const CountriesForm: React.FC = () => {
                 message: "Please input your country flag image!",
               },
             ]}
-          >
-            <input
-              type="file"
-              name="file"
-              className="border-gray-400 rounded-md"
-              onChange={(e) => setflagimg(e.target.files?.[0])}
-            />
-          </Form.Item>
-          <Form.Item
-            name="bgurl"
+            type="file"
+            fieldname="file"
+            onchange={(e) => setflagimg(e.target.files?.[0])}
+          />
+          <InputComp
+            formname="bgurl"
             label="country bg image"
             rules={[
               {
@@ -237,34 +216,24 @@ const CountriesForm: React.FC = () => {
                 message: "Please input your country background image!",
               },
             ]}
-          >
-            <input
-              type="file"
-              name="file"
-              className="border-gray-400 rounded-md"
-              onChange={(e) => setbgimg(e.target.files?.[0])}
-            />
-          </Form.Item>
-          <Form.Item
-            name="title"
+            type="file"
+            fieldname="file"
+            onchange={(e) => setbgimg(e.target.files?.[0])}
+          />
+          <InputComp
+            formname="title"
             label="Title"
             rules={[{ required: true, message: "Please input your title!" }]}
-          >
-            <Input
-              placeholder="Enter Title"
-              className="border-gray-400 rounded-md"
-            />
-          </Form.Item>
-          <Form.Item
-            name="details"
+            type="text"
+            placeholder="Enter Title"
+          />
+          <InputComp
+            formname="details"
             label="Details"
             rules={[{ required: true, message: "Please input your Details!" }]}
-          >
-            <TextArea
-              placeholder="Enter Details"
-              style={{ height: 50, resize: "none" }}
-            />
-          </Form.Item>
+            type="text"
+            placeholder="Enter Details"
+          />
           <Form.Item
             name="tagId"
             label="Visa Type"
@@ -280,18 +249,15 @@ const CountriesForm: React.FC = () => {
               }))}
             />
           </Form.Item>
-          <Form.Item
-            name="countryname"
+          <InputComp
+            formname="countryname"
             label="Country Name"
             rules={[
               { required: true, message: "Please input your country name!" },
             ]}
-          >
-            <Input
-              placeholder="Enter Country Name"
-              className="border-gray-400 rounded-md"
-            />
-          </Form.Item>
+            type="text"
+            placeholder="Enter Country Name"
+          />
           <Form.Item
             name="overview"
             label="Overview"
@@ -317,13 +283,15 @@ const CountriesForm: React.FC = () => {
                       />
                     }
                   >
-                    {/* <Form onFinish={onSubmitVisaRequirements}> */}
                     <Form.Item
                       name={[field.name, "title"]}
                       label="Title"
                       rules={[{ required: true }]}
                     >
-                      <Input />
+                      <Input
+                        placeholder="Enter Visa Requirement"
+                        className="border-gray-400 rounded-md"
+                      />
                     </Form.Item>
                     <Form.Item
                       name={[field.name, "description"]}
@@ -371,7 +339,10 @@ const CountriesForm: React.FC = () => {
                       label="Title"
                       rules={[{ required: true }]}
                     >
-                      <Input />
+                      <Input
+                        placeholder="Enter Travel Itinerary"
+                        className="border-gray-400 rounded-md"
+                      />
                     </Form.Item>
                     <Form.Item
                       name={[field.name, "description"]}

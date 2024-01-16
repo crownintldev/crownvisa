@@ -6,7 +6,7 @@ import { MdEmail } from "react-icons/md";
 
 const TopHeader = () => {
   return (
-    <div className="lg:flex hidden items-center justify-between container mx-auto py-1 border-b-2 border-black">
+    <div className="lg:flex hidden items-center justify-between py-1 border-b-2 border-black w-full container mx-auto">
       <div className="flex items-center text-black ml-3">
         <MdEmail className="mx-1 text-black" />
         <p className="mx-1 lg:text-[13px] md:text-[10px] antialiased">

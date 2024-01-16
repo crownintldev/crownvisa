@@ -9,7 +9,7 @@ const FooterComp = () => {
   return (
     <div className='w-full antialiased'>
       <div className="bg-black py-[30px] md:px-2 px-2 text-white">
-        <div className="container mx-auto grid grid-cols-12 gap-6">
+        <div className="container mx-auto px-4 grid grid-cols-12 gap-6">
           <div className=" lg:col-span-3 md:col-start-1 md:col-span-4 col-span-6">
             <h2 className="text-[20px] font-bold py-3 underline decoration-[#fe720f] decoration-3">About us</h2>
             <p>
