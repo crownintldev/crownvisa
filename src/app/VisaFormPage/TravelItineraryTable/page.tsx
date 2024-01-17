@@ -1,4 +1,4 @@
-import TravelItineraryTable from '@/components/Visa Form/TravelItineraryTable'
+import TravelItineraryTable from '@/components/Dashboard/TravelItineraryTable'
 import React from 'react'
 
 const page = () => {

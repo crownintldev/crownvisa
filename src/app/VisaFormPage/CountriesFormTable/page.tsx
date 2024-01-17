@@ -1,4 +1,4 @@
-import CountriesTable from '@/components/Visa Form/CountriesTable'
+import CountriesTable from '@/components/Dashboard/CountriesTable'
 import React from 'react'
 
 const page = () => {

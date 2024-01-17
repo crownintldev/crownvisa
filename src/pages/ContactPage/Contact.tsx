@@ -1,7 +1,6 @@
 import Link from "next/link";
 import ContactForm from "./ContactForm";
 import ContactInfo from "./ContactInfo";
-import Newsletter from "@/components/Newsletter";
 
 const Contact = () => {
   return (
@@ -61,7 +60,7 @@ const Contact = () => {
       <div className="container mx-auto px-4 pt-3">
         <ContactInfo />
         <ContactForm />
-        <Newsletter />
+        {/* <Newsletter /> */}
       </div>
     </div>
   );

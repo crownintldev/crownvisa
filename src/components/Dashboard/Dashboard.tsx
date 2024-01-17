@@ -8,7 +8,7 @@ import {
 import { Button, Layout, Menu, theme } from "antd";
 import Image from "next/image";
 import React, { useState } from "react";
-import CountriesTable from "./Visa Form/CountriesTable";
+import CountriesTable from "./CountriesTable";
 
 const { Header, Sider, Content } = Layout;
 

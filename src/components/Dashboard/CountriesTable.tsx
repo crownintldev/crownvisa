@@ -14,8 +14,8 @@ import axios from "axios";
 import { useRouter } from "next/navigation";
 import React, { useEffect, useState } from "react";
 import CustomModal from "../../utils/CustomModel";
-import CountriesEditForm from "./CountriesEditForm";
-import CountriesForm from "./countriesForm";
+import CountriesEditForm from "../Visa Form/CountriesEditForm";
+import CountriesForm from "../Visa Form/countriesForm";
 import Image from "next/image";
 import Link from "next/link";
 

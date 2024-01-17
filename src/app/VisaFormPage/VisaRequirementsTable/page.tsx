@@ -1,4 +1,4 @@
-import VisaRequirementsTable from "@/components/Visa Form/VisaRequirementsTable";
+import VisaRequirementsTable from "@/components/Dashboard/VisaRequirementsTable";
 import React from "react";
 
 const page = () => {

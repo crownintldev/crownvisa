@@ -1,17 +1,25 @@
 //@ts-nocheck
 "use client";
-import { Button, Drawer, DrawerProps, Space, Table } from "antd";
+import { items } from "@/constants/constants";
+import { MenuFoldOutlined, MenuUnfoldOutlined } from "@ant-design/icons";
+import {
+  Button,
+  Drawer,
+  DrawerProps,
+  Layout,
+  Menu,
+  Space,
+  Table,
+  theme,
+} from "antd";
 import type { ColumnsType } from "antd/es/table";
 import axios from "axios";
+import Image from "next/image";
 import { useRouter } from "next/navigation";
 import React, { useEffect, useState } from "react";
 import CustomModal from "../../utils/CustomModel";
-import CountriesEditForm from "./CountriesEditForm";
-import TravelItinerary from "./TravelItinerary";
-import { items } from "@/constants/constants";
-import { MenuFoldOutlined, MenuUnfoldOutlined } from "@ant-design/icons";
-import { Layout, Menu, theme } from "antd";
-import Image from "next/image";
+import CountriesEditForm from "../Visa Form/CountriesEditForm";
+import VisaRequirements from "../Visa Form/VisaRequirements";
 
 const { Header, Sider, Content } = Layout;
 
@@ -22,7 +30,7 @@ interface DataType {
   country: string;
 }
 
-interface TravelItinerary {
+interface VisaRequirements {
   key: string;
   id: number;
   title: string;
@@ -35,7 +43,7 @@ interface Country {
   title: string;
 }
 
-const TravelItineraryTable: React.FC = () => {
+const VisaRequirementsTable: React.FC = () => {
   const [data, setData] = useState<DataType[]>([]);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedId, setSelectedId] = useState<number | null>(null);
@@ -91,20 +99,20 @@ const TravelItineraryTable: React.FC = () => {
         const countriesResponse = await axios.get("/api/visaapi/countries");
         const countriesData = countriesResponse.data.countries;
         const VisaRequirementsResponse = await axios.get(
-          "/api/visaapi/travelitinerary"
+          "/api/visaapi/visarequirements"
         );
         const VisaRequirementsData =
-          VisaRequirementsResponse.data.travelItinerary;
+          VisaRequirementsResponse.data.visaRequirements;
 
         const transformedData = VisaRequirementsData.map(
-          (travelitinerary: TravelItinerary) => {
+          (visarequirements: VisaRequirements) => {
             const Title = countriesData.find(
-              (country: Country) => country.id === travelitinerary.countryid
+              (country: Country) => country.id === visarequirements.countryid
             );
             return {
-              key: travelitinerary.id,
-              title: travelitinerary.title,
-              description: travelitinerary.description,
+              key: visarequirements.id,
+              title: visarequirements.title,
+              description: visarequirements.description,
               country: Title ? [Title.title] : [],
             };
           }
@@ -312,7 +320,7 @@ const TravelItineraryTable: React.FC = () => {
             width={600}
           >
             {formType === "edit" && <CountriesEditForm id={selectedId} />}
-            {formType === "add" && <TravelItinerary />}
+            {formType === "add" && <VisaRequirements />}
           </Drawer>
         </Content>
       </Layout>
@@ -320,4 +328,4 @@ const TravelItineraryTable: React.FC = () => {
   );
 };
 
-export default TravelItineraryTable;
+export default VisaRequirementsTable;

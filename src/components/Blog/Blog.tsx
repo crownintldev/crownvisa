@@ -1,5 +1,6 @@
 import React from "react";
 import BlogComp from "./BlogComp";
+import { blogs } from "@/constants/constants";
 
 const Blog = () => {
   return (
@@ -21,30 +22,16 @@ const Blog = () => {
           </div>
 
           <div className="-mx-4 flex flex-wrap">
-            <BlogComp
-              date="Dec 22, 2023"
-              CardTitle="Meet AutoManage, the best AI management tools"
-              CardDescription="Lorem Ipsum is simply dummy text of the printing and typesetting industry."
-              image="https://i.ibb.co/Cnwd4q6/image-01.jpg"
-            />
-            <BlogComp
-              date="Dec 22, 2023"
-              CardTitle="Meet AutoManage, the best AI management tools"
-              CardDescription="Lorem Ipsum is simply dummy text of the printing and typesetting industry."
-              image="https://i.ibb.co/Y23YC07/image-02.jpg"
-            />
-            <BlogComp
-              date="Dec 22, 2023"
-              CardTitle="Meet AutoManage, the best AI management tools"
-              CardDescription="Lorem Ipsum is simply dummy text of the printing and typesetting industry."
-              image="https://i.ibb.co/7jdcnwn/image-03.jpg"
-            />
-            <BlogComp
-              date="Dec 22, 2023"
-              CardTitle="Meet AutoManage, the best AI management tools"
-              CardDescription="Lorem Ipsum is simply dummy text of the printing and typesetting industry."
-              image="https://i.ibb.co/7jdcnwn/image-03.jpg"
-            />
+            {blogs.map((blog, index) => (
+              <div className="w-full px-4 md:w-1/2 lg:w-1/4" key={index}>
+                <BlogComp
+                  date={blog.date}
+                  CardTitle={blog.CardTitle}
+                  CardDescription={blog.CardDescription}
+                  image={blog.image}
+                />
+              </div>
+            ))}
           </div>
         </div>
       </section>

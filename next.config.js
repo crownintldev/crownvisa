@@ -1,8 +1,15 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
     images: {
-        domains: ['i.ibb.co', 'www.crownintltravels.com', 'kodesolution.com', "creativelayers.net", "rn53themes.net","flowbite.s3.amazonaws.com"],
+        remotePatterns: [
+            { protocol: 'https', hostname: 'i.ibb.co' },
+            { protocol: 'https', hostname: 'www.crownintltravels.com' },
+            { protocol: 'https', hostname: 'kodesolution.com' },
+            { protocol: 'https', hostname: 'creativelayers.net' },
+            { protocol: 'https', hostname: 'rn53themes.net' },
+            { protocol: 'https', hostname: 'flowbite.s3.amazonaws.com' },
+        ],
     },
 }
 
-module.exports = nextConfig
+module.exports = nextConfig;

@@ -1,6 +1,7 @@
 import React from "react";
 import FaqComp from "./FaqComp";
 import Link from "next/link";
+import { faqs } from "@/constants/constants";
 
 const Faq = () => {
   return (
@@ -16,22 +17,9 @@ const Faq = () => {
         </div>
 
         <div className="max-w-3xl mx-auto mt-8 space-y-4 md:mt-16">
-          <FaqComp
-            title="How to create an account?"
-            details="Amet minim mollit non deserunt ullamco est sit"
-          />
-          <FaqComp
-            title="How can I make payment using Paypal?"
-            details="Amet minim mollit non deserunt ullamco est sit"
-          />
-          <FaqComp
-            title="Can I cancel my plan?"
-            details="Amet minim mollit non deserunt ullamco est sit"
-          />
-          <FaqComp
-            title="How can I reach to support?"
-            details="Amet minim mollit non deserunt ullamco est sit"
-          />
+          {faqs.map((faq, index) => (
+              <FaqComp title={faq.title} details={faq.details} key={index} />
+          ))}
         </div>
 
         <p className="text-center textbase mt-9">
