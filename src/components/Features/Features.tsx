@@ -36,7 +36,7 @@ const Features = () => {
         <div className="lg:col-span-6 md:col-span-12 col-span-12">
           <div className="grid grid-cols-12 gap-6">
             {features.map((feature, index) => (
-              <div className="md:col-span-6 col-span-6">
+              <div className="md:col-span-6 col-span-6" key={index}>
                 <FeatureComponents
                   icon={feature.icon}
                   title={feature.title}
