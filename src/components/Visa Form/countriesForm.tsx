@@ -8,6 +8,7 @@ import { useRouter } from "next/navigation";
 import React, { useState } from "react";
 import { useMutation, useQuery, useQueryClient } from "react-query";
 import InputComp from "../UI components/InputComp";
+import { toast } from "react-toastify";
 
 const ReactQuill = dynamic(() => import("react-quill"), { ssr: false });
 
@@ -170,9 +171,28 @@ const CountriesForm: React.FC = () => {
           };
           travelitinerarymutation.mutate(TravelItineraryData);
         });
-        router.push(`/AboutPage`);
+        toast.success("Country data Added successfully", {
+          position: "top-right",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+        });
+        router.push(`/DashboardPage`);
       } catch (error) {
-        console.error("Error fetching country data:", error);
+        toast.error(`Error posting country data:${error}`, {
+          position: "top-right",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+        });
       }
     }
   };

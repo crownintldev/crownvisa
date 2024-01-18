@@ -1,6 +1,6 @@
-import { Params } from '@/app/api/params';
-import { PrismaClient } from '@prisma/client';
-import { NextResponse } from 'next/server';
+import { Params } from "@/app/api/params";
+import { PrismaClient } from "@prisma/client";
+import { NextResponse } from "next/server";
 const prisma = new PrismaClient();
 
 export const updatecountries = async (
@@ -14,13 +14,21 @@ export const updatecountries = async (
     },
   });
   if (!country) {
-    return new NextResponse(JSON.stringify({ error: 'id not found' }), {
+    return new NextResponse(JSON.stringify({ error: "id not found" }), {
       status: 400,
     });
   } else {
     const body = await req.json();
     console.log(body);
-    const {title, details, tagId, overview, countryname } = body;
+    const {
+      countryflagurl,
+      countrybgurl,
+      title,
+      details,
+      tagId,
+      overview,
+      countryname,
+    } = body;
     try {
       const existingtagid = await prisma.tagType.findUnique({
         where: {
@@ -30,7 +38,7 @@ export const updatecountries = async (
 
       if (!existingtagid) {
         return new NextResponse(
-          JSON.stringify({ error: 'tagId does not exists' }),
+          JSON.stringify({ error: "tagId does not exists" }),
           {
             status: 400,
           }
@@ -40,16 +48,24 @@ export const updatecountries = async (
         where: {
           id: parseInt(id, 10),
         },
-        data: {title, details, tagId, overview, countryname },
+        data: {
+          countryflagurl,
+          countrybgurl,
+          title,
+          details,
+          tagId,
+          overview,
+          countryname,
+        },
       });
       return new NextResponse(
-        JSON.stringify({ error: 'Country updated successfully' }),
+        JSON.stringify({ error: "Country updated successfully" }),
         { status: 200 }
       );
     } catch (err) {
       console.log(err);
       return new NextResponse(
-        JSON.stringify({ error: 'Country updating error' }),
+        JSON.stringify({ error: "Country updating error" }),
         { status: 400 }
       );
     }

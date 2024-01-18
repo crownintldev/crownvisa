@@ -1,3 +1,4 @@
+//@ts-nocheck
 "use client";
 import {
   Avatar,
@@ -11,13 +12,12 @@ import {
 } from "antd";
 import type { ColumnsType } from "antd/es/table";
 import axios from "axios";
-import { useRouter } from "next/navigation";
-import React, { useEffect, useState } from "react";
-import CustomModal from "../../utils/CustomModel";
-import CountriesEditForm from "../Visa Form/CountriesEditForm";
-import CountriesForm from "../Visa Form/countriesForm";
 import Image from "next/image";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
+import React, { useEffect, useState } from "react";
+import CountriesEditForm from "../Visa Form/CountriesEditForm";
+import CountriesForm from "../Visa Form/countriesForm";
 
 interface DataType {
   key: number;
@@ -129,7 +129,7 @@ const CountriesTable: React.FC = () => {
 
   const columns: ColumnsType<DataType> = [
     {
-      title: "Name",
+      title: "Flag",
       dataIndex: "countryflagurl",
       key: "countryflagurl",
       render: (text) => (
@@ -140,19 +140,19 @@ const CountriesTable: React.FC = () => {
       ),
     },
     {
-      title: "Name",
+      title: "Title",
       dataIndex: "title",
       key: "title",
       render: (text) => <a className="p-3">{text}</a>,
     },
     {
-      title: "Address",
+      title: "Details",
       dataIndex: "details",
       key: "details",
       render: (details) => <div className="line-clamp-1">{details}</div>,
     },
     {
-      title: "Tags",
+      title: "Visa Type",
       key: "tags",
       dataIndex: "tags",
       render: (_, { tags }) => (
@@ -189,12 +189,16 @@ const CountriesTable: React.FC = () => {
         <Space size="middle" direction="vertical">
           {/* Top two buttons */}
           <Space size="middle">
-            <Button type="primary" className="bg-blue-700">
-              Visa Requirements
-            </Button>
-            <Button type="primary" className="bg-blue-700">
-              Travel Itinerary
-            </Button>
+            <Link href={`/VisaFormPage/VisaRequirementsTable/${record.key}`}>
+              <Button type="primary" className="bg-blue-700">
+                Visa Requirements
+              </Button>
+            </Link>
+            <Link href={`/VisaFormPage/TravelItineraryTable/${record.key}`}>
+              <Button type="primary" className="bg-blue-700">
+                Travel Itinerary
+              </Button>
+            </Link>
           </Space>
 
           {/* Bottom two buttons */}

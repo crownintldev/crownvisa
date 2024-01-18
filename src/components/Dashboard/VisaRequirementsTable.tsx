@@ -15,7 +15,7 @@ import {
 import type { ColumnsType } from "antd/es/table";
 import axios from "axios";
 import Image from "next/image";
-import { useRouter } from "next/navigation";
+import { useParams } from "next/navigation";
 import React, { useEffect, useState } from "react";
 import CustomModal from "../../utils/CustomModel";
 import CountriesEditForm from "../Visa Form/CountriesEditForm";
@@ -47,7 +47,6 @@ const VisaRequirementsTable: React.FC = () => {
   const [data, setData] = useState<DataType[]>([]);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedId, setSelectedId] = useState<number | null>(null);
-  const router = useRouter();
   const [open, setOpen] = useState(false);
   const [placement, setPlacement] = useState<DrawerProps["placement"]>("right");
   const [formType, setFormType] = useState<"edit" | "add" | null>(null);
@@ -55,6 +54,8 @@ const VisaRequirementsTable: React.FC = () => {
   const {
     token: { colorBgContainer, borderRadiusLG },
   } = theme.useToken();
+  const params = useParams();
+  console.log(params);
 
   const siderWidth = collapsed ? 80 : 200; // Width of the Sider
 
@@ -98,9 +99,16 @@ const VisaRequirementsTable: React.FC = () => {
       try {
         const countriesResponse = await axios.get("/api/visaapi/countries");
         const countriesData = countriesResponse.data.countries;
-        const VisaRequirementsResponse = await axios.get(
-          "/api/visaapi/visarequirements"
-        );
+        let VisaRequirementsResponse;
+        if (params.countryId) {
+          VisaRequirementsResponse = await axios.get(
+            `/api/visaapi/visarequirements/${params.countryId}`
+          );
+        } else {
+          VisaRequirementsResponse = await axios.get(
+            `/api/visaapi/visarequirements`
+          );
+        }
         const VisaRequirementsData =
           VisaRequirementsResponse.data.visaRequirements;
 

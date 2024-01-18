@@ -1,24 +1,17 @@
 //@ts-nocheck
+import { Button, Checkbox, Form, Input, Select } from "antd";
+import axios from "axios";
+import { useRouter } from "next/navigation";
 import React from "react";
-import {
-  Button,
-  Checkbox,
-  Col,
-  Form,
-  Input,
-  Select,
-} from "antd";
-import { FcGoogle } from "react-icons/fc";
-import { BiLogoFacebook } from "react-icons/bi";
 import {
   AiFillGithub,
   AiOutlineMail,
   AiOutlinePhone,
   AiOutlineUser,
 } from "react-icons/ai";
+import { BiLogoFacebook } from "react-icons/bi";
+import { FcGoogle } from "react-icons/fc";
 import { useMutation } from "react-query";
-import axios from "axios";
-import { useRouter } from "next/navigation";
 
 const { Option } = Select;
 
@@ -52,14 +45,14 @@ const postUserData = async (UserData) => {
 };
 
 const Signup: React.FC = () => {
-  const router=useRouter();
+  const router = useRouter();
   const [form] = Form.useForm();
 
   const mutation = useMutation(postUserData, {
     onSuccess: () => {
       // Perform actions on successful data posting
       console.log("Country data posted successfully");
-      router.push('/AboutPage');
+      router.push("/AboutPage");
     },
     onError: (error) => {
       // Handle any errors here
@@ -70,12 +63,12 @@ const Signup: React.FC = () => {
   const onFinish = (values: any) => {
     console.log("Received values of form: ", values);
     const combinedPhoneNumber = `${values.prefix}${values.phonenumber}`;
-    const userdata={
-      username:values.username,
-      email:values.email,
-      password:values.password,
-      phonenumber:combinedPhoneNumber
-    }
+    const userdata = {
+      username: values.username,
+      email: values.email,
+      password: values.password,
+      phonenumber: combinedPhoneNumber,
+    };
     mutation.mutate(userdata);
   };
 

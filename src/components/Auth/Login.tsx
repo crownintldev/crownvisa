@@ -1,12 +1,12 @@
 //@ts-nocheck
-import React from "react";
 import { Button, Checkbox, Form, Input } from "antd";
-import { BiLogoFacebook } from "react-icons/bi";
-import { AiFillGithub, AiOutlineMail, AiOutlineUser } from "react-icons/ai";
-import { FcGoogle } from "react-icons/fc";
-import { signIn } from "next-auth/react";
 import axios from "axios";
+import { signIn } from "next-auth/react";
 import { useRouter } from "next/navigation";
+import React from "react";
+import { AiFillGithub, AiOutlineMail } from "react-icons/ai";
+import { BiLogoFacebook } from "react-icons/bi";
+import { FcGoogle } from "react-icons/fc";
 
 const onFinishFailed = (errorInfo: any) => {
   console.log("Failed:", errorInfo);

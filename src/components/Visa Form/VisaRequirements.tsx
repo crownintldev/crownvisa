@@ -2,13 +2,12 @@
 "use client";
 import { useTitleContext } from "@/context/ContextProvider";
 import { CloseOutlined } from "@ant-design/icons";
-import { Button, Card, Form, Input, Typography } from "antd";
+import { Button, Card, Form, Input } from "antd";
 import axios from "axios";
 import dynamic from "next/dynamic";
 import { useRouter } from "next/navigation";
 import React, { useEffect, useState } from "react";
 import { useMutation } from "react-query";
-import CustomVisaSteps from "./CustomVisaSteps";
 
 const ReactQuill = dynamic(() => import("react-quill"), { ssr: false });
 

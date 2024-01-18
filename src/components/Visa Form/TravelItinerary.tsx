@@ -8,30 +8,19 @@ import dynamic from 'next/dynamic';
 import { useRouter } from 'next/navigation';
 import React, { useEffect, useState } from 'react';
 import { useMutation } from 'react-query';
-import CustomVisaSteps from './CustomVisaSteps';
+
 const ReactQuill = dynamic(() => import('react-quill'), { ssr: false });
 
-const TravelItinerary: React.FC = () => {
+interface Props{
+  id:any;
+}
+
+const TravelItinerary: React.FC<Props> = ({id}) => {
   const [form] = Form.useForm();
   const [text, setText] = useState('');
   const router = useRouter();
   const { title } = useTitleContext();
   const [countryData, setCountryData] = useState(null);
-
-  useEffect(() => {
-    const fetchCountryData = async () => {
-      try {
-        const { data } = await axios.get(`/api/visaapi/countries/title/${title}`);
-        setCountryData(data.country.id); // Update state with fetched data
-      } catch (error) {
-        console.error('Error fetching country data:', error);
-      }
-    };
-
-    if (title) {
-      fetchCountryData();
-    }
-  }, [title]);
 
   const postVisaRequirements = async (VisaRequirements) => {
     const response = await axios.post('/api/visaapi/travelitinerary', VisaRequirements);

@@ -1,6 +1,4 @@
 import React, { useEffect, useState } from "react";
-import { FaArrowRight } from "react-icons/fa";
-import { FaArrowLeft } from "react-icons/fa6";
 
 type CarouselProps = {
   images: string[];

@@ -1,17 +1,16 @@
 //@ts-nocheck
 "use client";
-import { Button, Drawer, DrawerProps, Space, Table } from "antd";
+import { items } from "@/constants/constants";
+import { MenuFoldOutlined, MenuUnfoldOutlined } from "@ant-design/icons";
+import { Button, Drawer, DrawerProps, Layout, Menu, Space, Table, theme } from "antd";
 import type { ColumnsType } from "antd/es/table";
 import axios from "axios";
-import { useRouter } from "next/navigation";
+import Image from "next/image";
+import { useParams } from "next/navigation";
 import React, { useEffect, useState } from "react";
 import CustomModal from "../../utils/CustomModel";
 import CountriesEditForm from "../Visa Form/CountriesEditForm";
 import TravelItinerary from "../Visa Form/TravelItinerary";
-import { items } from "@/constants/constants";
-import { MenuFoldOutlined, MenuUnfoldOutlined } from "@ant-design/icons";
-import { Layout, Menu, theme } from "antd";
-import Image from "next/image";
 
 const { Header, Sider, Content } = Layout;
 
@@ -39,7 +38,6 @@ const TravelItineraryTable: React.FC = () => {
   const [data, setData] = useState<DataType[]>([]);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedId, setSelectedId] = useState<number | null>(null);
-  const router = useRouter();
   const [open, setOpen] = useState(false);
   const [placement, setPlacement] = useState<DrawerProps["placement"]>("right");
   const [formType, setFormType] = useState<"edit" | "add" | null>(null);
@@ -47,6 +45,8 @@ const TravelItineraryTable: React.FC = () => {
   const {
     token: { colorBgContainer, borderRadiusLG },
   } = theme.useToken();
+  const params = useParams();
+  console.log(params);
 
   const siderWidth = collapsed ? 80 : 200; // Width of the Sider
 
@@ -90,13 +90,20 @@ const TravelItineraryTable: React.FC = () => {
       try {
         const countriesResponse = await axios.get("/api/visaapi/countries");
         const countriesData = countriesResponse.data.countries;
-        const VisaRequirementsResponse = await axios.get(
-          "/api/visaapi/travelitinerary"
-        );
-        const VisaRequirementsData =
-          VisaRequirementsResponse.data.travelItinerary;
+        let TravelItineraryResponse;
+        if(params.countryId){
+          TravelItineraryResponse = await axios.get(
+            `/api/visaapi/travelitinerary/${params.countryId}`
+          );
+        }else{
+          TravelItineraryResponse = await axios.get(
+            `/api/visaapi/travelitinerary`
+          );
+        }
+        const TravelItineraryData =
+        TravelItineraryResponse.data.travelItinerary;
 
-        const transformedData = VisaRequirementsData.map(
+        const transformedData = TravelItineraryData.map(
           (travelitinerary: TravelItinerary) => {
             const Title = countriesData.find(
               (country: Country) => country.id === travelitinerary.countryid

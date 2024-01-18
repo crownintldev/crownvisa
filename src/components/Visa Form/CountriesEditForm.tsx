@@ -8,6 +8,7 @@ import { useRouter } from "next/navigation";
 import React, { useEffect, useState } from "react";
 import { useMutation, useQuery, useQueryClient } from "react-query";
 import { toast } from "react-toastify";
+import InputComp from "../UI components/InputComp";
 
 const ReactQuill = dynamic(() => import("react-quill"), { ssr: false });
 
@@ -37,11 +38,11 @@ const fetchCountryTypes = async () => {
   return data.countrytype;
 };
 
-interface Props{
-  id:any;
+interface Props {
+  id: any;
 }
 
-const CountriesEditForm: React.FC<Props> = ({id}) => {
+const CountriesEditForm: React.FC<Props> = ({ id }) => {
   const router = useRouter();
   const { setTitle } = useTitleContext();
   const [form] = Form.useForm();
@@ -50,11 +51,18 @@ const CountriesEditForm: React.FC<Props> = ({id}) => {
   const [tagTypes, setTagTypes] = useState<TagType[]>([]); // New state variable
   const [Id, setId] = useState(null);
   const [countryData, setCountryData] = useState<any>(null);
+  const [flagimg, setflagimg] = useState();
+  const [flagurl, setflagurl] = useState();
+  const [bgimg, setbgimg] = useState();
+  const [bgurl, setbgurl] = useState();
 
   useEffect(() => {
+    setId(id);
     axios.get(`/api/visaapi/countries/${id}`).then((res) => {
       const fetchedData = res.data.country;
       setCountryData(fetchedData);
+      setflagurl(fetchedData.countryflagurl);
+      setbgurl(fetchedData.countrybgurl);
       // Assuming fetchedData contains fields like title, details, etc.
       form.setFieldsValue({
         title: fetchedData.title,
@@ -66,7 +74,12 @@ const CountriesEditForm: React.FC<Props> = ({id}) => {
       setText(fetchedData.overview || "");
       console.log(res.data.country);
     });
-  }, [form,id]);
+  }, [form, id]);
+
+  useEffect(() => {
+    console.log("Flag Image:", flagurl);
+    console.log("Background Image:", bgurl);
+  }, [flagurl, bgurl]);
 
   // useQuery for initial data fetch
   const { data: countryTypesData } = useQuery(
@@ -84,6 +97,7 @@ const CountriesEditForm: React.FC<Props> = ({id}) => {
   };
 
   const postCountryData = async (countryData) => {
+    console.log(Id);
     const response = await axios.put(
       `/api/visaapi/countries/${Id}`,
       countryData
@@ -104,11 +118,11 @@ const CountriesEditForm: React.FC<Props> = ({id}) => {
         progress: undefined,
         theme: "light",
       });
-      router.push(`/VisaFormPage/CountriesFormTable`);
+      router.push(`/DashboardPage`);
     },
     onError: (error) => {
       // Handle any errors here
-      toast.error(`Error posting country data:${error}`, {
+      toast.error(`Error updating country data:${error}`, {
         position: "top-right",
         autoClose: 5000,
         hideProgressBar: false,
@@ -117,22 +131,86 @@ const CountriesEditForm: React.FC<Props> = ({id}) => {
         draggable: true,
         progress: undefined,
         theme: "light",
-        });
+      });
     },
   });
 
   const onFinish = async (values: any) => {
     console.log("Success:", values);
     setTitle(values.title); // Set the title in context
+
+    let newFlagUrl = flagurl;
+    let newBgUrl = bgurl;
+
+    if (flagimg instanceof File) {
+      const flagData = new FormData();
+      flagData.set("file", flagimg);
+      const flagResponse = await fetch("api/upload", {
+        method: "POST",
+        body: flagData,
+      });
+      const flagResult = await flagResponse.json();
+      console.log("Upload Response:", flagResult); // Log to check the response
+      if (flagResult.success) {
+        newFlagUrl = flagResult.path;
+      }
+    }
+
+    if (bgimg instanceof File) {
+      const bgData = new FormData();
+      bgData.set("file", bgimg);
+      const bgResponse = await fetch("api/upload", {
+        method: "POST",
+        body: bgData,
+      });
+      const bgResult = await bgResponse.json();
+      if (bgResult.success) {
+        newBgUrl = bgResult.path;
+      }
+    }
+
     const countrydata = {
       title: values.title,
       details: values.details,
       overview: values.overview,
       tagId: values.tagId,
       countryname: values.countryname,
+      countryflagurl: newFlagUrl,
+      countrybgurl: newBgUrl,
     };
+
     console.log(countrydata);
     mutation.mutate(countrydata);
+
+    // const data = new FormData();
+    // data.set("file", flagimg);
+    // const response = await fetch("api/upload", {
+    //   method: "POST",
+    //   body: data,
+    // });
+    // const result = await response.json();
+    // const data1 = new FormData();
+    // data1.set("file", bgimg);
+    // const response1 = await fetch("api/upload", {
+    //   method: "POST",
+    //   body: data1,
+    // });
+    // const result1 = await response1.json();
+    // if (result.success && result1.success) {
+    //   setflagurl(result.path); // Update state with the file path
+    //   setbgurl(result1.path); // Update state with the file path
+    //   const countrydata = {
+    //     title: values.title,
+    //     details: values.details,
+    //     overview: values.overview,
+    //     tagId: values.tagId,
+    //     countryname: values.countryname,
+    //     countryflagurl: flagurl,
+    //     countrybgurl: bgurl,
+    //   };
+    //   console.log(countrydata);
+    //   // mutation.mutate(countrydata);
+    // }
   };
   return (
     <div className="flex justify-center flex-col items-center">
@@ -148,25 +226,47 @@ const CountriesEditForm: React.FC<Props> = ({id}) => {
           onFinishFailed={onFinishFailed}
           autoComplete="off"
         >
-          <Form.Item
-            name="title"
-            label="title"
+          <InputComp
+            formname="flagurl"
+            label="country flag image"
+            rules={[
+              {
+                required: false,
+                message: "Please input your country flag image!",
+              },
+            ]}
+            type="file"
+            fieldname="file"
+            onchange={(e) => setflagimg(e.target.files?.[0])}
+          />
+          <InputComp
+            formname="bgurl"
+            label="country bg image"
+            rules={[
+              {
+                required: false,
+                message: "Please input your country background image!",
+              },
+            ]}
+            type="file"
+            fieldname="file"
+            onchange={(e) => setbgimg(e.target.files?.[0])}
+          />
+          <InputComp
+            formname="title"
+            label="Title"
             rules={[{ required: true, message: "Please input your title!" }]}
-          >
-            <Input placeholder="Enter Title" />
-          </Form.Item>
+            type="text"
+            placeholder="Enter Title"
+          />
 
-          <Form.Item
-            name="details"
-            label="details"
+          <InputComp
+            formname="details"
+            label="Details"
             rules={[{ required: true, message: "Please input your Details!" }]}
-          >
-            <TextArea
-              onChange={onChange}
-              placeholder="Enter Details"
-              style={{ height: 50, resize: "none" }}
-            />
-          </Form.Item>
+            type="text"
+            placeholder="Enter Details"
+          />
 
           <Form.Item
             name="tagId"
@@ -184,15 +284,15 @@ const CountriesEditForm: React.FC<Props> = ({id}) => {
             />
           </Form.Item>
 
-          <Form.Item
-            name="countryname"
-            label="country name"
+          <InputComp
+            formname="countryname"
+            label="Country Name"
             rules={[
               { required: true, message: "Please input your country name!" },
             ]}
-          >
-            <Input placeholder="Enter Country Name" />
-          </Form.Item>
+            type="text"
+            placeholder="Enter Country Name"
+          />
 
           <Form.Item
             name="overview"

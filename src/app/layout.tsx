@@ -11,7 +11,7 @@ import QueryProvider from "../React-Query/QueryProvider";
 import "./globals.css";
 import "aos/dist/aos.css";
 import Script from "next/script";
-import ReduxProvider from "../redux/provider";
+// import ReduxProvider from "../redux/provider";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -30,7 +30,7 @@ export default function RootLayout({
       <body className={inter.className}>
         <QueryProvider>
           <ContextProvider>
-            <ReduxProvider>
+            {/* <ReduxProvider> */}
               <ToastContainer
                 position="top-right"
                 autoClose={5000}
@@ -45,7 +45,7 @@ export default function RootLayout({
               />
               {children}
               <ToastContainer />
-            </ReduxProvider>
+            {/* </ReduxProvider> */}
           </ContextProvider>
         </QueryProvider>
         <Script src="../path/to/flowbite/dist/flowbite.min.js"></Script>
