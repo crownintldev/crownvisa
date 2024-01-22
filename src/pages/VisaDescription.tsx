@@ -2,6 +2,8 @@
 "use client";
 import { Tabs, Timeline } from "antd";
 import axios from "axios";
+import Link from "next/link";
+import { useParams } from "next/navigation";
 import { useEffect, useState } from "react";
 
 const VisaDescriptionPage = () => {
@@ -9,12 +11,36 @@ const VisaDescriptionPage = () => {
   const [travelitinerary, settravelitinerary] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null);
+  const [countryOverview, setCountryOverview] = useState("");
+  const [countryname, setCountryname] = useState("");
+  const [bgurl, setbgurl] = useState("");
+  const params = useParams();
+  const countryid = parseInt(params.countryId);
+  console.log(countryid);
   useEffect(() => {
+    const fetchCountryData = async () => {
+      try {
+        setIsLoading(true);
+        const { data } = await axios.get(
+          `/api/visaapi/countries/${params.countryId}`
+        );
+        setCountryOverview(data.country.overview); // Set the fetched overview
+        setCountryname(data.country.countryname);
+        setbgurl(data.country.countrybgurl);
+        console.log(data.country.overview);
+      } catch (err) {
+        setError(err);
+      } finally {
+        setIsLoading(false);
+      }
+    };
     const fetchVisaRequirements = async () => {
       try {
         setIsLoading(true);
         // Replace with your API endpoint
-        const { data } = await axios.get('/api/visaapi/visarequirements/6');
+        const { data } = await axios.get(
+          `/api/visaapi/visarequirements/countryid/${params.countryId}`
+        );
         console.log(data);
         setVisaRequirements(data.visaRequirements);
       } catch (err) {
@@ -27,7 +53,9 @@ const VisaDescriptionPage = () => {
       try {
         setIsLoading(true);
         // Replace with your API endpoint
-        const { data } = await axios.get('/api/visaapi/travelitinerary/10');
+        const { data } = await axios.get(
+          `/api/visaapi/travelitinerary/countryid/${params.countryId}`
+        );
         console.log(data);
         settravelitinerary(data.travelItinerary);
       } catch (err) {
@@ -35,26 +63,87 @@ const VisaDescriptionPage = () => {
       } finally {
         setIsLoading(false);
       }
-    }
+    };
+    fetchCountryData();
     fetchVisaRequirements();
     fetchTravelItinerary();
   }, []);
-  const tabItems = visaRequirements.map(req => ({
+  const tabItems = visaRequirements.map((req) => ({
     label: req.title,
     key: req.id.toString(),
-    children: <div className="custom-list-style" dangerouslySetInnerHTML={{ __html: req.description }} />, // Handle rich text
+    children: (
+      <div
+        className="custom-list-style"
+        dangerouslySetInnerHTML={{ __html: req.description }}
+      />
+    ), // Handle rich text
   }));
-  const timelineItems = travelitinerary.map(itinerary => ({
+  const timelineItems = travelitinerary.map((itinerary) => ({
     children: (
       <div>
         <h2 className="font-bold">{itinerary.title}</h2>
-        <div className="custom-list-style" dangerouslySetInnerHTML={{ __html: itinerary.description }} />
+        <div
+          className="custom-list-style"
+          dangerouslySetInnerHTML={{ __html: itinerary.description }}
+        />
       </div>
     ),
-    color: "#fe720f" // or any other color logic you have
+    color: "#fe720f", // or any other color logic you have
   }));
   return (
-    <div className="pt-[110px]">
+    <div className="lg:pt-[120px] antialiased">
+      <div className="h-[400px] flex flex-col rounded-3xl mx-[35px] bg-center bg-fixed bg-cover bg-no-repeat mb-10 relative" style={{ backgroundImage: `url(${bgurl})` }} >
+        <div className="w-full h-full bg-gray-700 opacity-70 rounded-3xl absolute top-0 left-0"></div>
+        <div className="flex justify-center items-center h-full flex-col z-10">
+          <nav className="flex" aria-label="Breadcrumb">
+            <ol className="inline-flex items-center space-x-1 md:space-x-2 rtl:space-x-reverse">
+              <li className="inline-flex items-center">
+                <Link
+                  href="/"
+                  className="inline-flex items-center text-sm font-medium  dark:text-gray-400 dark:hover:text-white"
+                >
+                  <svg
+                    className="w-3 h-3 me-2.5"
+                    aria-hidden="true"
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="currentColor"
+                    viewBox="0 0 20 20"
+                  >
+                    <path d="m19.707 9.293-2-2-7-7a1 1 0 0 0-1.414 0l-7 7-2 2a1 1 0 0 0 1.414 1.414L2 10.414V18a2 2 0 0 0 2 2h3a1 1 0 0 0 1-1v-4a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v4a1 1 0 0 0 1 1h3a2 2 0 0 0 2-2v-7.586l.293.293a1 1 0 0 0 1.414-1.414Z" />
+                  </svg>
+                  Home
+                </Link>
+              </li>
+              <li>
+                <div className="flex items-center">
+                  <svg
+                    className="rtl:rotate-180 w-3 h-3  mx-1"
+                    aria-hidden="true"
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 6 10"
+                  >
+                    <path
+                      stroke="currentColor"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth="2"
+                      d="m1 9 4-4-4-4"
+                    />
+                  </svg>
+                  <Link
+                    href="/AboutPage"
+                    className="ms-1 text-sm font-medium  md:ms-2 dark:text-gray-400 dark:hover:text-white"
+                  >
+                    About Company
+                  </Link>
+                </div>
+              </li>
+            </ol>
+          </nav>
+          <h2 className="text-6xl">About us</h2>
+        </div>
+      </div>
       <div className=" container mx-auto p-5 bg-white">
         <div>
           <h1 className="font-bold text-[35px]">Visa Description Page</h1>
@@ -68,22 +157,15 @@ const VisaDescriptionPage = () => {
             />
           </div>
           <div className="mb-10">
-            <h2 className="text-[25px] mb-5">Overview About Malaysia</h2>
-            <p className="text-justify">
-              Malaysia is a vibrant and diverse country located in Southeast Asia, known for its stunning natural landscapes, rich cultural heritage, and modern cities. It is a melting pot of various cultures, including Malay, Chinese, Indian, and indigenous groups. Malaysia is home to numerous attractions, including beautiful beaches, lush rainforests, and impressive architecture, such as the iconic Petronas Twin Towers in Kuala Lumpur.
-
-              The country is also known for its delicious cuisine, which is a fusion of various culinary traditions. Popular dishes include nasi lemak, satay, and laksa. Additionally, Malaysia is a shopper’s paradise, with an abundance of shopping malls and markets offering everything from luxury brands to unique local handicrafts.
-
-              In terms of tourism, Malaysia is a popular destination for both leisure and business travelers, with a well-developed tourism industry that offers a range of services and experiences. From exploring the historic sites of Malacca to scuba diving in the waters of Sipadan Island, there is something for everyone in Malaysia.
-
-              To make the most of your trip to Malaysia, it is recommended to plan ahead and book accommodation, transportation, and activities in advance. With its friendly locals, stunning scenery, and vibrant culture, Malaysia is truly a destination worth experiencing.
-            </p>
+            <h2 className="text-[25px] mb-5">Overview About {countryname}</h2>
+            <div
+              className="text-justify space-y-3"
+              dangerouslySetInnerHTML={{ __html: countryOverview }}
+            />
           </div>
           <div className="mb-10">
-            <h2 className="mb-5 text-[25px]">Malaysia Travel Itinerary</h2>
-            <Timeline
-              items={timelineItems}
-            />
+            <h2 className="mb-5 text-[25px]">{countryname} Travel Itinerary</h2>
+            <Timeline items={timelineItems} />
           </div>
           <div className="mb-10">
             <h2 className="mb-5">Location</h2>

@@ -31,8 +31,8 @@ export default function HomePage() {
         <VisaSlider />
         <CompaniesSlider />
         <Services />
-        <ServicesSlider />
-        {/* <CountriesSlider /> */}
+        {/* <ServicesSlider /> */}
+        <CountriesSlider />
         <Features />
         <Price />
         <Testimonial />

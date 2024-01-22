@@ -29,6 +29,27 @@ export const gettravelitinerarybyid = async (
   { params }: { params: Params }
 ) => {
   const id = params.id;
+  const travelItinerary = await prisma.travelItinerary.findUnique({
+    where: {
+      id: parseInt(id, 10),
+    },
+  });
+  if (!travelItinerary) {
+    return new NextResponse(JSON.stringify({ error: 'id not found' }), {
+      status: 400,
+    });
+  } else {
+    return new NextResponse(JSON.stringify({ travelItinerary }), {
+      status: 200,
+    });
+  }
+};
+
+export const gettravelitinerarybycountryid = async (
+  req: Request,
+  { params }: { params: Params }
+) => {
+  const id = params.countryid;
   const travelItinerary = await prisma.travelItinerary.findMany({
     where: {
       countryid: parseInt(id, 10),

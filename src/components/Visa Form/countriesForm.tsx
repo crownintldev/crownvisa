@@ -12,8 +12,6 @@ import { toast } from "react-toastify";
 
 const ReactQuill = dynamic(() => import("react-quill"), { ssr: false });
 
-const { TextArea } = Input;
-
 interface TagType {
   id: number;
   title: string;
@@ -114,33 +112,41 @@ const CountriesForm: React.FC = () => {
     },
   });
 
+  const toBase64 = (file) =>
+  new Promise((resolve, reject) => {
+    const reader = new FileReader();
+    reader.readAsDataURL(file);
+    reader.onload = () => resolve(reader.result.split(",")[1]); // Split to remove data URL part
+    reader.onerror = (error) => reject(error);
+  });
+
   const onFinish = async (values: any) => {
     settitle(values.title);
-    const data = new FormData();
-    data.set("file", flagimg);
-    const response = await fetch("api/upload", {
-      method: "POST",
-      body: data,
+    console.log(flagimg.name);
+    console.log(bgimg.name);
+    const flagBase64 = await toBase64(flagimg);
+    const bgBase64 = await toBase64(bgimg);
+
+    const uploadFlagResponse = await axios.post('/api/upload', {
+      file: flagBase64,
+      filename: flagimg.name
     });
-    const result = await response.json();
-    const data1 = new FormData();
-    data1.set("file", bgimg);
-    const response1 = await fetch("api/upload", {
-      method: "POST",
-      body: data1,
+
+    const uploadBgResponse = await axios.post('/api/upload', {
+      file: bgBase64,
+      filename: bgimg.name
     });
-    const result1 = await response1.json();
-    if (result.success && result1.success) {
-      setflagurl(result.path); // Update state with the file path
-      setbgurl(result1.path); // Update state with the file path
+    if (uploadFlagResponse.data.success && uploadBgResponse.data.success) {
+      setflagurl(uploadFlagResponse.data.path); // Update state with the file path
+      setbgurl(uploadBgResponse.data.path); // Update state with the file path
       const countrydata = {
         title: values.title,
         details: values.details,
         overview: values.overview,
         tagId: values.tagId,
         countryname: values.countryname,
-        countryflagurl: result.path,
-        countrybgurl: result1.path,
+        countryflagurl: uploadFlagResponse.data.path,
+        countrybgurl: uploadBgResponse.data.path,
       };
       try {
         // Await the mutation to complete

@@ -15,8 +15,6 @@ import { GiPathDistance } from "react-icons/gi";
 import { MdFlightTakeoff } from "react-icons/md";
 import { TbWorld } from "react-icons/tb";
 
-type MenuItem = Required<MenuProps>["items"][number];
-
 export const links = [
   {
     id: 1,
@@ -85,14 +83,18 @@ export const links = [
   },
 ];
 
+type MenuItem = Required<MenuProps>["items"][number];
+
 function getItem(
   label: React.ReactNode,
   key: React.Key,
+  href?:React.ReactNode,
   icon?: React.ReactNode,
-  children?: MenuItem[]
+  children?: MenuItem[],
 ): MenuItem {
   return {
     key,
+    href,
     icon,
     children,
     label,
@@ -100,18 +102,18 @@ function getItem(
 }
 
 export const items: MenuItem[] = [
-  getItem("Option 1", "1", <PieChartOutlined />),
-  getItem("Option 2", "2", <DesktopOutlined />),
-  getItem("User", "sub1", <UserOutlined />, [
-    getItem("Tom", "3"),
-    getItem("Bill", "4"),
-    getItem("Alex", "5"),
+  getItem("Visas", "1","/", <PieChartOutlined size={25} />),
+  getItem("File Processing", "2","/", <DesktopOutlined size={25} />),
+  getItem("User", "sub1","/", <UserOutlined size={25} />, [
+    getItem("Tom", "3","/",),
+    getItem("Bill", "4","/",),
+    getItem("Alex", "5","/",),
   ]),
-  getItem("Team", "sub2", <TeamOutlined />, [
-    getItem("Team 1", "6"),
-    getItem("Team 2", "8"),
+  getItem("Team", "sub2","/", <TeamOutlined size={25} />, [
+    getItem("Team 1", "6","/",),
+    getItem("Team 2", "8","/",),
   ]),
-  getItem("Files", "9", <FileOutlined />),
+  getItem("Files", "9","/", <FileOutlined size={25} />),
 ];
 
 export const services = [

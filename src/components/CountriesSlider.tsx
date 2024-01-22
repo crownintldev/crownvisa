@@ -1,5 +1,5 @@
 //@ts-nocheck
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
 
@@ -13,9 +13,28 @@ import { Pagination, Navigation, Autoplay } from "swiper/modules";
 import { Avatar } from "antd";
 import { AiFillLeftCircle, AiFillRightCircle } from "react-icons/ai";
 import Image from "next/image";
+import axios from "axios";
+import Link from "next/link";
 
 export default function CountriesSlider() {
   const [swiperRef, setSwiperRef] = useState(null);
+  const [activeIndex, setActiveIndex] = useState(0);
+  const [fileprocessing, setfileprocessing] = useState([]);
+
+  useEffect(() => {
+    const fetchfileprocessing = async () => {
+      try {
+        const response = await axios.get(
+          "/api/fileprocessingapi/fileprocessing"
+        );
+        setfileprocessing(response.data.fileprocessing); // Update the state with fetched countries
+      } catch (error) {
+        console.error("Error fetching countries:", error);
+      }
+    };
+
+    fetchfileprocessing();
+  }, []);
 
   return (
     <div className="countries-slider mb-10 antialiased">
@@ -56,9 +75,9 @@ export default function CountriesSlider() {
         modules={[Pagination, Navigation, Autoplay]}
         className="mySwiper"
       >
-        {[...Array(9)].map((_, index) => (
+        {fileprocessing.map((fileprocessing, index) => (
           <SwiperSlide
-            key={index}
+            key={fileprocessing.id}
             className="relative bg-cover bg-center bg-no-repeat group cursor-pointer card-shadow parent-div"
             onMouseEnter={() => {
               if (swiperRef && swiperRef.autoplay) {
@@ -71,39 +90,41 @@ export default function CountriesSlider() {
               }
             }}
           >
-            <div className="rounded-xl">
-              <Image
-                src="https://www.crownintltravels.com/wp-content/uploads/2023/09/3405911-936597760.jpg"
-                alt=""
-                className="cover-image rounded-xl h-[350px]"
-                width={250}
-                height={350}
-              />
-              <div className="gradient-overlay rounded-xl"></div>
-              <div className="centered-content">
-                <Avatar
-                  className="absolute bottom-1/3 right-1/5 group-hover:absolute transition-all duration-500"
-                  src={
-                    <Image
-                      src="https://www.crownintltravels.com/wp-content/uploads/2023/08/indonesia-512.webp"
-                      alt="avatar"
-                      width={50}
-                      height={50}
-                    />
-                  }
-                  size={85}
+            <Link href={`/FileProcessingDescriptionPage/${fileprocessing.id}`}>
+              <div className="rounded-xl">
+                <Image
+                  src={fileprocessing.countrybgurl}
+                  alt=""
+                  className="cover-image rounded-xl h-[350px]"
+                  width={250}
+                  height={350}
                 />
-                <h2
-                  className=" text-white font-bold text-[25px] absolute bottom-[-40px] right-1/5 group-hover:absolute group-hover:bottom-[50px] transition-all duration-500"
-                  style={{
-                    background: "transparent",
-                    textShadow: "2px 2px 4px rgba(0, 0, 0, 0.5)",
-                  }}
-                >
-                  Malaysia
-                </h2>
+                {/* <div className="gradient-overlay rounded-xl"></div> */}
+                <div className="centered-content">
+                  <Avatar
+                    className="absolute top-1/5 right-1/5 group-hover:absolute transition-all duration-500"
+                    src={
+                      <Image
+                        src={fileprocessing.countryflagurl}
+                        alt="avatar"
+                        width={50}
+                        height={50}
+                      />
+                    }
+                    size={85}
+                  />
+                  <h2
+                    className=" text-white font-bold text-[25px] absolute bottom-[-40px] right-1/5 group-hover:absolute group-hover:bottom-[50px] transition-all duration-500"
+                    style={{
+                      background: "transparent",
+                      textShadow: "2px 2px 4px rgba(0, 0, 0, 0.5)",
+                    }}
+                  >
+                    {fileprocessing.title}
+                  </h2>
+                </div>
               </div>
-            </div>
+            </Link>
           </SwiperSlide>
         ))}
       </Swiper>

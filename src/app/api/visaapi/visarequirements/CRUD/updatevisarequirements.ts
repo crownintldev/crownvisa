@@ -19,7 +19,7 @@ export const updatevisarequirements = async (
     });
   } else {
     const body = await req.json();
-    const { description, countryid } = body;
+    const {title, description, countryid } = body;
     console.log(body);
     try {
       const existingcountryid = await prisma.countries.findUnique({
@@ -41,7 +41,7 @@ export const updatevisarequirements = async (
         where: {
           id: parseInt(id, 10),
         },
-        data: { description, countryid },
+        data: { title,description, countryid },
       });
       return new NextResponse(
         JSON.stringify({ error: 'Visa Requirement successfully' }),

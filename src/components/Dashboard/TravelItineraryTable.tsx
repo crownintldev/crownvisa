@@ -2,14 +2,22 @@
 "use client";
 import { items } from "@/constants/constants";
 import { MenuFoldOutlined, MenuUnfoldOutlined } from "@ant-design/icons";
-import { Button, Drawer, DrawerProps, Layout, Menu, Space, Table, theme } from "antd";
+import {
+  Button,
+  Drawer,
+  DrawerProps,
+  Layout,
+  Menu,
+  Modal,
+  Space,
+  Table,
+  theme,
+} from "antd";
 import type { ColumnsType } from "antd/es/table";
 import axios from "axios";
 import Image from "next/image";
 import { useParams } from "next/navigation";
 import React, { useEffect, useState } from "react";
-import CustomModal from "../../utils/CustomModel";
-import CountriesEditForm from "../Visa Form/CountriesEditForm";
 import TravelItinerary from "../Visa Form/TravelItinerary";
 
 const { Header, Sider, Content } = Layout;
@@ -46,7 +54,8 @@ const TravelItineraryTable: React.FC = () => {
     token: { colorBgContainer, borderRadiusLG },
   } = theme.useToken();
   const params = useParams();
-  console.log(params);
+  const countryid = parseInt(params.countryId);
+  console.log(countryid);
 
   const siderWidth = collapsed ? 80 : 200; // Width of the Sider
 
@@ -91,17 +100,17 @@ const TravelItineraryTable: React.FC = () => {
         const countriesResponse = await axios.get("/api/visaapi/countries");
         const countriesData = countriesResponse.data.countries;
         let TravelItineraryResponse;
-        if(params.countryId){
+        if (countryid) {
           TravelItineraryResponse = await axios.get(
-            `/api/visaapi/travelitinerary/${params.countryId}`
+            `/api/visaapi/travelitinerary/countryid/${params.countryId}`
           );
-        }else{
+        } else {
           TravelItineraryResponse = await axios.get(
             `/api/visaapi/travelitinerary`
           );
         }
         const TravelItineraryData =
-        TravelItineraryResponse.data.travelItinerary;
+          TravelItineraryResponse.data.travelItinerary;
 
         const transformedData = TravelItineraryData.map(
           (travelitinerary: TravelItinerary) => {
@@ -133,9 +142,9 @@ const TravelItineraryTable: React.FC = () => {
   const handleConfirmDelete = async () => {
     console.log("Confirmed delete for:", selectedId);
     // Add your delete logic here
-    await axios.delete(`/api/visaapi/countries/${selectedId}`);
+    await axios.delete(`/api/visaapi/visarequirements/${selectedId}`);
     setIsModalOpen(false);
-    router.push("/VisaFormPage/CountriesFormTable");
+    router.push("/DashboardPage");
   };
 
   const handleCloseModal = () => {
@@ -164,7 +173,7 @@ const TravelItineraryTable: React.FC = () => {
       title: "Address",
       dataIndex: "description",
       key: "description",
-      // render: (details) => <div className="line-clamp-1">{details}</div>,
+      render: (details) => <div className="line-clamp-1">{details}</div>,
     },
     {
       title: "country",
@@ -215,6 +224,14 @@ const TravelItineraryTable: React.FC = () => {
             width={50}
             height={50}
           ></Image>
+        </div>
+        <div className="text-white">
+            <Link href="/DashboardPage" className="w-ful">
+              <h2 className="p-3 mx-1 mb-2 bg-[#fe720f] rounded-md"><span className="ml-4 mr-3"><PieChartOutlined size={25} /></span>{!collapsed && <span>Visas</span>}</h2>
+            </Link>
+            <Link href="/FileProcessingFormPage/FileProcessingTable" className="w-ful">
+              <h2 className="p-3 mx-1 mb-2 rounded-md"><span className="ml-4 mr-3"><PieChartOutlined size={25} /></span>{!collapsed && <span>File Processing</span>}</h2>
+            </Link>
         </div>
         <Menu
           theme="dark"
@@ -273,26 +290,28 @@ const TravelItineraryTable: React.FC = () => {
                     </form>
                   </div>
                   <div className="flex flex-col items-stretch justify-end flex-shrink-0 w-full space-y-2 md:w-auto md:flex-row md:space-y-0 md:items-center md:space-x-3">
-                    <button
-                      type="button"
-                      className="flex items-center justify-center px-4 py-2 text-sm font-medium text-white rounded-lg bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 dark:bg-primary-600 dark:hover:bg-primary-700 focus:outline-none dark:focus:ring-primary-800"
-                      onClick={() => handleAddClick()}
-                    >
-                      <svg
-                        className="h-3.5 w-3.5 mr-2"
-                        fill="currentColor"
-                        viewBox="0 0 20 20"
-                        xmlns="http://www.w3.org/2000/svg"
-                        aria-hidden="true"
+                    {!isNaN(countryid) && countryid > 0 && (
+                      <button
+                        type="button"
+                        className="flex items-center justify-center px-4 py-2 text-sm font-medium text-white rounded-lg bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 dark:bg-primary-600 dark:hover:bg-primary-700 focus:outline-none dark:focus:ring-primary-800"
+                        onClick={() => handleAddClick()}
                       >
-                        <path
-                          clipRule="evenodd"
-                          fillRule="evenodd"
-                          d="M10 3a1 1 0 011 1v5h5a1 1 0 110 2h-5v5a1 1 0 11-2 0v-5H4a1 1 0 110-2h5V4a1 1 0 011-1z"
-                        />
-                      </svg>
-                      Add
-                    </button>
+                        <svg
+                          className="h-3.5 w-3.5 mr-2"
+                          fill="currentColor"
+                          viewBox="0 0 20 20"
+                          xmlns="http://www.w3.org/2000/svg"
+                          aria-hidden="true"
+                        >
+                          <path
+                            clipRule="evenodd"
+                            fillRule="evenodd"
+                            d="M10 3a1 1 0 011 1v5h5a1 1 0 110 2h-5v5a1 1 0 11-2 0v-5H4a1 1 0 110-2h5V4a1 1 0 011-1z"
+                          />
+                        </svg>
+                        Add
+                      </button>
+                    )}
                   </div>
                 </div>
               </div>
@@ -304,13 +323,19 @@ const TravelItineraryTable: React.FC = () => {
             bordered={true}
             className="mx-3 overflow-x-scroll"
           />{" "}
-          <CustomModal
-            isOpen={isModalOpen}
-            onClose={handleCloseModal}
-            onConfirm={handleConfirmDelete}
-          />
+          <Modal
+            title="Basic Modal"
+            open={isModalOpen}
+            onOk={handleConfirmDelete}
+            onCancel={handleCloseModal}
+            className="modelbtn"
+          ></Modal>
           <Drawer
-            title={formType === "edit" ? "Edit Country" : "Add Country"}
+            title={
+              formType === "edit"
+                ? "Edit Travel Itinerary"
+                : "Add Travel Itinerary"
+            }
             placement={placement}
             closable={false}
             onClose={onClose}
@@ -318,8 +343,8 @@ const TravelItineraryTable: React.FC = () => {
             key={placement}
             width={600}
           >
-            {formType === "edit" && <CountriesEditForm id={selectedId} />}
-            {formType === "add" && <TravelItinerary />}
+            {formType === "edit" && <TravelItinerary id={selectedId} />}
+            {formType === "add" && <TravelItinerary addid={countryid} />}
           </Drawer>
         </Content>
       </Layout>

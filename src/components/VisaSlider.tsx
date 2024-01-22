@@ -1,5 +1,5 @@
 //@ts-nocheck
-import { useState } from "react";
+import { useEffect, useState } from "react";
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
 
@@ -14,43 +14,25 @@ import Image from "next/image";
 import { FaStar } from "react-icons/fa6";
 import { Autoplay, Navigation, Pagination } from "swiper/modules";
 import Link from "next/link";
-
-const imgurl = [
-  "https://www.crownintltravels.com/wp-content/uploads/2023/09/1000_F_100218316_WbRzPWf4xNTI2xUfljBxKv7R3RILjVq6-e1695710038465.jpg",
-  "https://www.crownintltravels.com/wp-content/uploads/2023/09/1976339-e1695710085269.jpg",
-  "https://www.crownintltravels.com/wp-content/uploads/2023/09/3405911-936597760.jpg",
-  "https://www.crownintltravels.com/wp-content/uploads/2023/09/1000_F_100218316_WbRzPWf4xNTI2xUfljBxKv7R3RILjVq6-e1695710038465.jpg",
-  "https://www.crownintltravels.com/wp-content/uploads/2023/09/1000_F_100218316_WbRzPWf4xNTI2xUfljBxKv7R3RILjVq6-e1695710038465.jpg",
-  "https://www.crownintltravels.com/wp-content/uploads/2023/09/1000_F_100218316_WbRzPWf4xNTI2xUfljBxKv7R3RILjVq6-e1695710038465.jpg",
-  "https://www.crownintltravels.com/wp-content/uploads/2023/09/1000_F_100218316_WbRzPWf4xNTI2xUfljBxKv7R3RILjVq6-e1695710038465.jpg",
-  "https://www.crownintltravels.com/wp-content/uploads/2023/09/1000_F_100218316_WbRzPWf4xNTI2xUfljBxKv7R3RILjVq6-e1695710038465.jpg",
-  "https://www.crownintltravels.com/wp-content/uploads/2023/09/1000_F_100218316_WbRzPWf4xNTI2xUfljBxKv7R3RILjVq6-e1695710038465.jpg",
-  "https://www.crownintltravels.com/wp-content/uploads/2023/09/1000_F_100218316_WbRzPWf4xNTI2xUfljBxKv7R3RILjVq6-e1695710038465.jpg",
-  "https://www.crownintltravels.com/wp-content/uploads/2023/09/1000_F_100218316_WbRzPWf4xNTI2xUfljBxKv7R3RILjVq6-e1695710038465.jpg",
-  "https://www.crownintltravels.com/wp-content/uploads/2023/09/1000_F_100218316_WbRzPWf4xNTI2xUfljBxKv7R3RILjVq6-e1695710038465.jpg",
-  "https://www.crownintltravels.com/wp-content/uploads/2023/09/1000_F_100218316_WbRzPWf4xNTI2xUfljBxKv7R3RILjVq6-e1695710038465.jpg",
-];
-
-const title = [
-  "Malaysian Visa",
-  "Vietnam Visa",
-  "Indonesian Visa",
-  "Thailand Visa",
-  "Singapore Visa",
-  "SriLanka Visa",
-  "Nepal Visa",
-  "Cambodia Visa",
-  "Azerbaijan Visa",
-  "Tajikistan Visa",
-  "Uzbekistan Visa",
-  "Egypt Visa",
-  "Kenya Visa",
-  "Turkey Visa",
-];
+import axios from "axios";
 
 export default function VisaSlider() {
   const [swiperRef, setSwiperRef] = useState(null);
   const [activeIndex, setActiveIndex] = useState(0);
+  const [countries, setCountries] = useState([]);
+
+  useEffect(() => {
+    const fetchCountries = async () => {
+      try {
+        const response = await axios.get("/api/visaapi/countries");
+        setCountries(response.data.countries); // Update the state with fetched countries
+      } catch (error) {
+        console.error("Error fetching countries:", error);
+      }
+    };
+
+    fetchCountries();
+  }, []);
   // State to track the active index
 
   // Swiper update event to set active slide index
@@ -64,9 +46,10 @@ export default function VisaSlider() {
   };
 
   const buttonClass = (index) =>
-    `${index === activeIndex
-      ? "text-black border border-[#fe720f] bg-[#fe720f] focus:ring-4 focus:outline-none focus:ring-blue-300 rounded-full text-base font-medium px-4 py-1.5 text-center me-3 mb-3 dark:border-blue-500 dark:text-blue-500 dark:hover:bg-blue-500 dark:bg-gray-900 dark:focus:ring-blue-800"
-      : "text-gray-900 border border-white hover:border-gray-200 dark:border-gray-900 dark:bg-gray-900 dark:hover:border-gray-700 bg-white focus:ring-4 focus:outline-none focus:ring-gray-300 rounded-full text-base font-medium px-4 py-1.5 text-center me-3 mb-3 dark:text-white dark:focus:ring-gray-800"
+    `${
+      index === activeIndex
+        ? "text-black border border-[#fe720f] bg-[#fe720f] focus:ring-4 focus:outline-none focus:ring-blue-300 rounded-full text-base font-medium px-4 py-1.5 text-center me-3 mb-3 dark:border-blue-500 dark:text-blue-500 dark:hover:bg-blue-500 dark:bg-gray-900 dark:focus:ring-blue-800"
+        : "text-gray-900 border border-white hover:border-gray-200 dark:border-gray-900 dark:bg-gray-900 dark:hover:border-gray-700 bg-white focus:ring-4 focus:outline-none focus:ring-gray-300 rounded-full text-base font-medium px-4 py-1.5 text-center me-3 mb-3 dark:text-white dark:focus:ring-gray-800"
     }`;
 
   return (
@@ -74,7 +57,7 @@ export default function VisaSlider() {
       <h2 className="font-bold lg:text-[25px] md:text-[15px] text-center my-3">
         We Have Authorized Embassy Visa Application Centre & Dropbox
       </h2>
-      <div className="flex justify-center my-2">
+      {/* <div className="flex justify-center my-2">
         <button
           type="button"
           className={buttonClass(0)}
@@ -96,7 +79,7 @@ export default function VisaSlider() {
         >
           Bags
         </button>
-      </div>
+      </div> */}
 
       <Swiper
         //@ts-ignore
@@ -122,11 +105,11 @@ export default function VisaSlider() {
         modules={[Pagination, Navigation, Autoplay]}
         className="mySwiper"
       >
-        {[...Array(13)].map((_, index) => (
-          <SwiperSlide key={index - 1} className="pl-3">
+        {countries.map((country, index) => (
+          <SwiperSlide key={country.id} className="pl-3">
             <div className=" max-w-sm my-5 relative">
               <div className="relative hover:scale-105 transition-all mx-1 group">
-                <Link href="/VisaDescriptionPage">
+                <Link href={`/VisaDescriptionPage/${country.id}`}>
                   <Badge.Ribbon
                     text="Visa Application Center"
                     color="#fe720f"
@@ -134,7 +117,7 @@ export default function VisaSlider() {
                     placement="start"
                   >
                     <Image
-                      src={imgurl[index]}
+                      src={country.countrybgurl}
                       alt="Kuala Lumpur"
                       width={350}
                       height={250}
@@ -146,7 +129,7 @@ export default function VisaSlider() {
                   <Avatar
                     src={
                       <Image
-                        src="https://www.crownintltravels.com/wp-content/uploads/2023/03/circle-flag-of-malaysia-free-png.webp"
+                        src={country.countryflagurl}
                         alt="avatar"
                         width={100}
                         height={100}
@@ -161,10 +144,10 @@ export default function VisaSlider() {
                       <div className="flex flex-col group">
                         <h2 className="text-md font-semibold mt-2 text-black">
                           <Link
-                            href="/VisaDescriptionPage"
+                            href={`/VisaDescriptionPage/${country.id}`}
                             className="no-underline group hover-underline-animation transition-all duration-700"
                           >
-                            {title[index]}
+                            {country.title}
                           </Link>
                         </h2>
                         <p className="text-black mt-1 text-sm line-clamp-1">
@@ -172,7 +155,7 @@ export default function VisaSlider() {
                             href="/VisaDescriptionPage"
                             className="no-underline line-clamp-1"
                           >
-                            Officially Authorized Visa Application Center
+                            {country.details}
                           </Link>
                         </p>
                         <div className="flex space-x-2 mt-1">

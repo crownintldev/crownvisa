@@ -1,77 +1,142 @@
 //@ts-nocheck
 "use client";
-import { useTitleContext } from "@/context/ContextProvider";
-import { CloseOutlined } from "@ant-design/icons";
-import { Button, Card, Form, Input } from "antd";
+import { Button, Form, Input } from "antd";
 import axios from "axios";
 import dynamic from "next/dynamic";
 import { useRouter } from "next/navigation";
 import React, { useEffect, useState } from "react";
 import { useMutation } from "react-query";
+import InputComp from "../UI components/InputComp";
+import { toast } from "react-toastify";
 
 const ReactQuill = dynamic(() => import("react-quill"), { ssr: false });
 
-const VisaRequirements: React.FC = () => {
+interface Props {
+  id?: any;
+  addid?: any;
+}
+
+const VisaRequirements: React.FC<Props> = ({ id, addid }) => {
   const [form] = Form.useForm();
   const [text, setText] = useState("");
   const router = useRouter();
-  const { title } = useTitleContext();
   const [countryData, setCountryData] = useState(null);
+  const [Id, setId] = useState(null);
+  const [AddId, setAddId] = useState(null);
 
   useEffect(() => {
-    if (title) {
-      console.log("Title from context:", title);
-      const fetchCountryData = async () => {
-        try {
-          const { data } = await axios.get(`/api/visaapi/countries/title/${title}`);
-          console.log(data.country.id);
-          setCountryData(data.country.id); // Update the state with fetched data
-        } catch (error) {
-          console.error('Error fetching country data:', error);
-        }
-      };
-
-      fetchCountryData();
+    setId(id);
+    setAddId(addid);
+    if (id) {
+      axios.get(`/api/visaapi/visarequirements/${id}`).then((res) => {
+        const fetchedData = res.data.visaRequirements;
+        setCountryData(fetchedData);
+        // Assuming fetchedData contains fields like title, details, etc.
+        form.setFieldsValue({
+          title: fetchedData.title,
+          description: fetchedData.description,
+          countryid: fetchedData.countryid,
+        });
+      });
     }
-  }, [title]);
+  }, [id, form]);
 
   const postVisaRequirements = async (VisaRequirements) => {
     const response = await axios.post(
-      "/api/visaapi/visarequirements",
+      `/api/visaapi/visarequirements`,
       VisaRequirements
     );
     return response.data;
   };
 
-  const mutation = useMutation(postVisaRequirements, {
+  const postmutation = useMutation(postVisaRequirements, {
     onSuccess: () => {
       // Perform actions on successful data posting
-      console.log("Country data posted successfully");
-      //   router.push(`/VisaRequirementsPage?title=${encodeURIComponent(values.title)}`);
+      toast.success("VisaRequirements data posted successfully", {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+      });
+      router.push(`/DashboardPage`);
     },
     onError: (error) => {
       // Handle any errors here
-      console.error("Error posting country data:", error);
+      toast.error(`Error posting VisaRequirements data:${error}`, {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+      });
     },
   });
 
-  const onSubmitVisaRequirements = async(values: any) => {
+  const updateVisaRequirements = async (VisaRequirements) => {
+    const response = await axios.put(
+      `/api/visaapi/visarequirements/${Id}`,
+      VisaRequirements
+    );
+    return response.data;
+  };
+
+  const updatemutation = useMutation(updateVisaRequirements, {
+    onSuccess: () => {
+      // Perform actions on successful data posting
+      toast.success("VisaRequirements data updated successfully", {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+      });
+      router.push(`/DashboardPage`);
+    },
+    onError: (error) => {
+      // Handle any errors here
+      toast.error(`Error updating visarequirements data:${error}`, {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+      });
+    },
+  });
+
+  const onSubmitVisaRequirements = async (values: any) => {
     console.log("onSubmitVisaRequirements" + values);
-    // Accessing the items array
-    const items = values.items;
-    console.log("Items:", items);
-    // You can now process each item as needed
-    items.forEach((item, index) => {
-      console.log(`Item ${index + 1}:`, item.title);
-      const VisaRequirementsData = {
-        title: item.title,
-        description: item.description,
-        countryid: countryData,
+    let VisaRequirementsData;
+    if (AddId) {
+      VisaRequirementsData = {
+        title: values.title,
+        description: values.description,
+        countryid: addid,
       };
       console.log(VisaRequirementsData);
-      mutation.mutate(VisaRequirementsData);
-    });
-    router.push(`/VisaFormPage/TravelItineraryPage`);
+      postmutation.mutate(VisaRequirementsData);
+    } else {
+      VisaRequirementsData = {
+        title: values.title,
+        description: values.description,
+        countryid: values.countryid,
+      };
+      console.log(VisaRequirementsData);
+      updatemutation.mutate(VisaRequirementsData);
+    }
   };
 
   const OverviewChange = (content: string) => {
@@ -89,65 +154,39 @@ const VisaRequirements: React.FC = () => {
           style={{ minWidth: 500 }}
           autoComplete="off"
           onFinish={onSubmitVisaRequirements}
-          initialValues={{ items: [{}] }}
         >
-          <Form.List name="items">
-            {(fields, { add, remove }) => (
-              <div
-                style={{ display: "flex", rowGap: 16, flexDirection: "column" }}
-              >
-                {fields.map((field) => (
-                  <Card
-                    size="small"
-                    title={`VisaRequirements ${field.name + 1}`}
-                    key={field.key}
-                    extra={
-                      <CloseOutlined
-                        onClick={() => {
-                          remove(field.name);
-                        }}
-                      />
-                    }
-                  >
-                    {/* <Form onFinish={onSubmitVisaRequirements}> */}
-                    <Form.Item
-                      name={[field.name, "title"]}
-                      label="Title"
-                      rules={[{ required: true }]}
-                    >
-                      <Input />
-                    </Form.Item>
+          <InputComp
+            formname="title"
+            label="Title"
+            rules={[{ required: true, message: "Please input your title!" }]}
+            type="text"
+            placeholder="Enter Title"
+          />
 
-                    <Form.Item
-                      name={[field.name, "description"]}
-                      label="Description"
-                      rules={[
-                        {
-                          required: true,
-                          message: "Please input your username!",
-                        },
-                      ]}
-                    >
-                      <ReactQuill value={text} onChange={OverviewChange} />
-                    </Form.Item>
-
-                    <Form.Item name="countryid" hidden={true}>
-                      <Input />
-                    </Form.Item>
-
-                    {/* </Form> */}
-                  </Card>
-                ))}
-
-                <Button type="dashed" onClick={() => add()} block>
-                  + Add Item
-                </Button>
-              </div>
-            )}
-          </Form.List>
-          <Button type="primary" htmlType="submit" className="bg-blue-700">
-            Submit
-          </Button>
+          <Form.Item
+            name="description"
+            label="Description"
+            rules={[
+              {
+                required: true,
+                message: "Please input your username!",
+              },
+            ]}
+          >
+            <ReactQuill value={text} onChange={OverviewChange} />
+          </Form.Item>
+          <Form.Item name="countryid" hidden={true}>
+            <Input />
+          </Form.Item>
+          {AddId ? (
+            <Button type="primary" htmlType="submit" className="bg-blue-700">
+              Submit
+            </Button>
+          ) : (
+            <Button type="primary" htmlType="submit" className="bg-green-700">
+              Update
+            </Button>
+          )}
         </Form>
       </div>
     </div>

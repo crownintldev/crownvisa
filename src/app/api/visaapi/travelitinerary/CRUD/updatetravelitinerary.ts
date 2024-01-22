@@ -1,6 +1,6 @@
-import { Params } from '@/app/api/params';
-import { PrismaClient } from '@prisma/client';
-import { NextResponse } from 'next/server';
+import { Params } from "@/app/api/params";
+import { PrismaClient } from "@prisma/client";
+import { NextResponse } from "next/server";
 const prisma = new PrismaClient();
 
 export const updatetravelitinerary = async (
@@ -14,12 +14,12 @@ export const updatetravelitinerary = async (
     },
   });
   if (!travelItinerary) {
-    return new NextResponse(JSON.stringify({ error: 'id not found' }), {
+    return new NextResponse(JSON.stringify({ error: "id not found" }), {
       status: 400,
     });
   } else {
     const body = await req.json();
-    const { description, countryid } = body;
+    const { title, description, countryid } = body;
     console.log(body);
     try {
       const existingcountryid = await prisma.countries.findUnique({
@@ -30,7 +30,7 @@ export const updatetravelitinerary = async (
 
       if (!existingcountryid) {
         return new NextResponse(
-          JSON.stringify({ error: 'countryId does not exists' }),
+          JSON.stringify({ error: "countryId does not exists" }),
           {
             status: 400,
           }
@@ -41,16 +41,16 @@ export const updatetravelitinerary = async (
         where: {
           id: parseInt(id, 10),
         },
-        data: { description, countryid },
+        data: { title, description, countryid },
       });
       return new NextResponse(
-        JSON.stringify({ error: 'Travel Itineraryt successfully' }),
+        JSON.stringify({ error: "Travel Itineraryt successfully" }),
         { status: 200 }
       );
     } catch (err) {
       console.log(err);
       return new NextResponse(
-        JSON.stringify({ error: 'Travel Itinerary updating error' }),
+        JSON.stringify({ error: "Travel Itinerary updating error" }),
         { status: 400 }
       );
     }

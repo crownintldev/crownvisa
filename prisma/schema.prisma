@@ -88,3 +88,29 @@ model Box{
   serviceid Int
   services  Services @relation(fields: [serviceid], references: [id])
 }
+
+model FileProcessing {
+  id       Int      @id @default(autoincrement())
+  countryflagurl String
+  countrybgurl String
+  title    String
+  overview String
+  fileprocessingRequirement FileProcessingRequirements[]
+  fileprocessingtravelitinerary FileProcessingTravelItinerary[] 
+}
+
+model FileProcessingRequirements {
+  id Int @id @default(autoincrement())
+  title String
+  description String
+  countryid Int
+  fileprocessing  FileProcessing @relation(fields: [countryid], references: [id])
+}
+
+model FileProcessingTravelItinerary {
+  id Int @id @default(autoincrement())
+  title String
+  description String
+  countryid Int
+  fileprocessing  FileProcessing @relation(fields: [countryid], references: [id])
+}

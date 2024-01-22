@@ -3,12 +3,14 @@
 import { items } from "@/constants/constants";
 import {
   MenuFoldOutlined,
-  MenuUnfoldOutlined
+  MenuUnfoldOutlined,
+  PieChartOutlined
 } from "@ant-design/icons";
 import { Button, Layout, Menu, theme } from "antd";
 import Image from "next/image";
 import React, { useState } from "react";
 import CountriesTable from "./CountriesTable";
+import Link from "next/link";
 
 const { Header, Sider, Content } = Layout;
 
@@ -57,6 +59,14 @@ const Dashboard: React.FC = () => {
         <div className="demo-logo-vertical" />
         <div className="flex justify-center items-center">
           <Image className="w-30 h-30 rounded-full my-3" src="https://www.crownintltravels.com/wp-content/uploads/2023/03/circle-flag-of-malaysia-free-png-980x980.webp" alt="Rounded avatar" width={50} height={50}></Image>
+        </div>
+        <div className="text-white">
+            <Link href="/DashboardPage" className="w-ful">
+              <h2 className="p-3 mx-1 mb-2 bg-[#fe720f] rounded-md"><span className="ml-4 mr-3"><PieChartOutlined size={25} /></span>{!collapsed && <span>Visas</span>}</h2>
+            </Link>
+            <Link href="/FileProcessingFormPage/FileProcessingTable" className="w-ful">
+              <h2 className="p-3 mx-1 mb-2 rounded-md"><span className="ml-4 mr-3"><PieChartOutlined size={25} /></span>{!collapsed && <span>File Processing</span>}</h2>
+            </Link>
         </div>
         <Menu
           theme="dark"

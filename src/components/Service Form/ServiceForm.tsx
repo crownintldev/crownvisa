@@ -98,18 +98,13 @@ const ServiceForm: React.FC = () => {
             type="text"
             placeholder="Enter Title"
           />
-
-          <Form.Item
+          <InputComp
+            formname="metadata"
             label="Details"
-            name="metadata"
             rules={[{ required: true, message: "Please input your Details!" }]}
-          >
-            <TextArea
-              onChange={onChange}
-              placeholder="Enter Details"
-              style={{ height: 50, resize: "none" }}
-            />
-          </Form.Item>
+            type="text"
+            placeholder="Enter Details"
+          />
 
           <Form.Item
             label="Select Category Type"

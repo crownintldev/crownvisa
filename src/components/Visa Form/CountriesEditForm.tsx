@@ -12,14 +12,6 @@ import InputComp from "../UI components/InputComp";
 
 const ReactQuill = dynamic(() => import("react-quill"), { ssr: false });
 
-const { TextArea } = Input;
-
-const onChange = (
-  e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
-) => {
-  console.log("Change:", e.target.value);
-};
-
 const onFinishFailed = (errorInfo: any) => {
   console.log("Failed:", errorInfo);
 };
@@ -135,6 +127,14 @@ const CountriesEditForm: React.FC<Props> = ({ id }) => {
     },
   });
 
+  const toBase64 = (file) =>
+  new Promise((resolve, reject) => {
+    const reader = new FileReader();
+    reader.readAsDataURL(file);
+    reader.onload = () => resolve(reader.result.split(",")[1]); // Split to remove data URL part
+    reader.onerror = (error) => reject(error);
+  });
+
   const onFinish = async (values: any) => {
     console.log("Success:", values);
     setTitle(values.title); // Set the title in context
@@ -143,16 +143,24 @@ const CountriesEditForm: React.FC<Props> = ({ id }) => {
     let newBgUrl = bgurl;
 
     if (flagimg instanceof File) {
-      const flagData = new FormData();
-      flagData.set("file", flagimg);
-      const flagResponse = await fetch("api/upload", {
-        method: "POST",
-        body: flagData,
+      const flagBase64 = await toBase64(flagimg);
+      const flagResponse = await axios.post("api/upload", {
+        file: flagBase64,
+        filename: flagimg.name
       });
-      const flagResult = await flagResponse.json();
-      console.log("Upload Response:", flagResult); // Log to check the response
-      if (flagResult.success) {
-        newFlagUrl = flagResult.path;
+      if (flagResponse.data.success) {
+        newFlagUrl = flagResponse.data.path;
+      }
+    }
+
+    if (bgimg instanceof File) {
+      const bgBase64 = await toBase64(bgimg);
+      const bgResponse = await axios.post("api/upload", {
+        file: bgBase64,
+        filename: bgimg.name
+      });
+      if (bgResponse.data.success) {
+        newBgUrl = bgResponse.data.path;
       }
     }
 
@@ -181,36 +189,6 @@ const CountriesEditForm: React.FC<Props> = ({ id }) => {
 
     console.log(countrydata);
     mutation.mutate(countrydata);
-
-    // const data = new FormData();
-    // data.set("file", flagimg);
-    // const response = await fetch("api/upload", {
-    //   method: "POST",
-    //   body: data,
-    // });
-    // const result = await response.json();
-    // const data1 = new FormData();
-    // data1.set("file", bgimg);
-    // const response1 = await fetch("api/upload", {
-    //   method: "POST",
-    //   body: data1,
-    // });
-    // const result1 = await response1.json();
-    // if (result.success && result1.success) {
-    //   setflagurl(result.path); // Update state with the file path
-    //   setbgurl(result1.path); // Update state with the file path
-    //   const countrydata = {
-    //     title: values.title,
-    //     details: values.details,
-    //     overview: values.overview,
-    //     tagId: values.tagId,
-    //     countryname: values.countryname,
-    //     countryflagurl: flagurl,
-    //     countrybgurl: bgurl,
-    //   };
-    //   console.log(countrydata);
-    //   // mutation.mutate(countrydata);
-    // }
   };
   return (
     <div className="flex justify-center flex-col items-center">
