@@ -103,7 +103,7 @@ const TravelItineraryTable: React.FC = () => {
         let TravelItineraryResponse;
         if (countryid) {
           TravelItineraryResponse = await axios.get(
-            `/api/visaapi/travelitinerary/countryid/${params.countryId}`
+            `/api/visaapi/travelitinerary/countryid/${countryid}`
           );
         } else {
           TravelItineraryResponse = await axios.get(
@@ -133,7 +133,7 @@ const TravelItineraryTable: React.FC = () => {
     };
 
     fetchData();
-  }, [selectedId]);
+  }, [selectedId,countryid]);
 
   const handleDeleteClick = (id: number) => {
     setSelectedId(id);

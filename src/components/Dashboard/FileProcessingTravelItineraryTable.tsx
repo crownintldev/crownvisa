@@ -104,7 +104,7 @@ const FileProcessingTravelItineraryTable: React.FC = () => {
         let fileprocessingTravelItineraryResponse;
         if (countryid) {
             fileprocessingTravelItineraryResponse = await axios.get(
-            `/api/fileprocessingapi/fileprocessingtravelitinerary/countryid/${params.countryId}`
+            `/api/fileprocessingapi/fileprocessingtravelitinerary/countryid/${countryid}`
           );
         } else {
             fileprocessingTravelItineraryResponse = await axios.get(
@@ -134,7 +134,7 @@ const FileProcessingTravelItineraryTable: React.FC = () => {
     };
 
     fetchData();
-  }, [selectedId]);
+  }, [selectedId,countryid]);
 
   const handleDeleteClick = (id: number) => {
     setSelectedId(id);

@@ -39,7 +39,7 @@ const VisaRequirements: React.FC<Props> = ({ id, addid }) => {
         });
       });
     }
-  }, [id, form]);
+  }, [id, form,addid]);
 
   const postVisaRequirements = async (VisaRequirements) => {
     const response = await axios.post(

@@ -103,7 +103,7 @@ const VisaRequirementsTable: React.FC = () => {
         let VisaRequirementsResponse;
         if (countryid) {
           VisaRequirementsResponse = await axios.get(
-            `/api/visaapi/visarequirements/countryid/${params.countryId}`
+            `/api/visaapi/visarequirements/countryid/${countryid}`
           );
         } else {
           VisaRequirementsResponse = await axios.get(
@@ -133,7 +133,7 @@ const VisaRequirementsTable: React.FC = () => {
     };
 
     fetchData();
-  }, [selectedId]);
+  }, [selectedId,countryid]);
 
   const handleDeleteClick = (id: number) => {
     setSelectedId(id);

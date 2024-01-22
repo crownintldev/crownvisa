@@ -42,7 +42,7 @@ const TravelItinerary: React.FC<Props> = ({ id, addid }) => {
         });
       });
     }
-  }, [id, form]);
+  }, [id, form,addid]);
 
   const postTravelItinerary = async (travelItinerary) => {
     const response = await axios.post(

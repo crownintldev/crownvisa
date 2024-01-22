@@ -39,7 +39,7 @@ const FileProcessingRequirements: React.FC<Props> = ({ id, addid }) => {
         });
       });
     }
-  }, [id, form]);
+  }, [id, form,addid]);
 
   const postfileprocessingRequirements = async (fileprocessingRequirements) => {
     const response = await axios.post(

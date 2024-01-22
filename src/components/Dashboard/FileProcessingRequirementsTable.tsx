@@ -104,7 +104,7 @@ const FileProcessingRequirementsTable: React.FC = () => {
         let fileprocessingRequirementsResponse;
         if (countryid) {
           fileprocessingRequirementsResponse = await axios.get(
-            `/api/fileprocessingapi/fileprocessingrequirements/countryid/${params.countryId}`
+            `/api/fileprocessingapi/fileprocessingrequirements/countryid/${countryid}`
           );
         } else {
           fileprocessingRequirementsResponse = await axios.get(
@@ -134,7 +134,7 @@ const FileProcessingRequirementsTable: React.FC = () => {
     };
 
     fetchData();
-  }, [selectedId]);
+  }, [selectedId,countryid]);
 
   const handleDeleteClick = (id: number) => {
     setSelectedId(id);
