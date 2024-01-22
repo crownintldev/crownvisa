@@ -111,7 +111,7 @@ export default function VisaSlider() {
               <div className="relative hover:scale-105 transition-all mx-1 group">
                 <Link href={`/VisaDescriptionPage/${country.id}`}>
                   <Badge.Ribbon
-                    text="Visa Application Center"
+                    text={country.tag.title}
                     color="#fe720f"
                     className="p-1 pl-2"
                     placement="start"

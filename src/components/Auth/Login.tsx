@@ -71,16 +71,16 @@ const Login: React.FC = () => {
       <Form.Item name="remember" valuePropName="checked">
         <Checkbox>Remember me</Checkbox>
       </Form.Item>
-      <a className="login-form-forgot text-blue-500" href="">
+      <a className="login-form-forgot text-[#fe720f]" href="">
         Forgot password
       </a>
     </div>
-    <Button type="primary" htmlType="submit" className="bg-blue-700 w-[100%]">
+    <Button type="primary" htmlType="submit" className="bg-[#fe720f] w-[100%]">
       Submit
     </Button>
     <div className="flex justify-center my-2">
       <p className="mr-2">Dont have an account?</p>
-      <a className="login-form-forgot text-blue-500" href="">
+      <a className="login-form-forgot text-[#fe720f]" href="">
         Signup
       </a>
     </div>

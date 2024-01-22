@@ -192,17 +192,17 @@ const Signup: React.FC = () => {
       >
         <Checkbox>
           I have read the{" "}
-          <a className="login-form-forgot text-blue-500" href="">
+          <a className="login-form-forgot text-[#fe720f]" href="">
             Terms and Conditions
           </a>
         </Checkbox>
       </Form.Item>
-      <Button type="primary" htmlType="submit" className="bg-blue-700 w-[100%]">
+      <Button type="primary" htmlType="submit" className="bg-[#fe720f] w-[100%]">
         Submit
       </Button>
       <div className="flex justify-center my-2">
         <p className="mr-2">Already have an account?</p>
-        <a className="login-form-forgot text-blue-500" href="">
+        <a className="login-form-forgot text-[#fe720f]" href="">
           Signup
         </a>
       </div>

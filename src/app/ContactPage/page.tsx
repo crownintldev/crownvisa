@@ -18,7 +18,7 @@ const Page = () => {
   return (
     <>
       <HeaderComp />
-      <div className="lg:pt-[100px] antialiased">
+      <div className="lg:pt-[120px] antialiased">
         <div className="h-[400px] flex flex-col rounded-3xl mx-[35px] bg-[url('https://motivoweb.com/saga/wp-content/themes/saga/assets/images/bg-titlebar.jpg')] bg-fixed bg-cover bg-no-repeat mb-10 relative">
           <div className="w-full h-full bg-gray-700 opacity-50 rounded-3xl absolute top-0 left-0"></div>
           <div className="flex justify-center items-center h-full flex-col z-10">

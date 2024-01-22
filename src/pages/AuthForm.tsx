@@ -16,12 +16,12 @@ const AuthForm: React.FC<AuthFormProps> = () => {
   return (
     <>
       <HeaderComp />
-      <div className="flex justify-center items-center h-screen">
-        <div className="auth-form border border-black">
+      <div className="flex justify-center lg:pt-[130px] mb-10">
+        <div className="auth-form border border-black rounded-md">
           <div className="tabs grid grid-cols-12 gap-6">
             <button
               className={`tab col-span-6 w-[100%] p-2 m-1 rounded-3xl transition ${
-                activeTab === 'login' ? 'active bg-blue-700 text-white' : ''
+                activeTab === 'login' ? 'active bg-[#fe720f] text-white' : ''
               }`}
               onClick={() => setActiveTab('login')}
             >
@@ -29,7 +29,7 @@ const AuthForm: React.FC<AuthFormProps> = () => {
             </button>
             <button
               className={`tab col-span-6 p-2 m-1 rounded-3xl transition ${
-                activeTab === 'signup' ? 'active bg-blue-700 text-white' : ''
+                activeTab === 'signup' ? 'active bg-[#fe720f] text-white' : ''
               }`}
               onClick={() => setActiveTab('signup')}
             >

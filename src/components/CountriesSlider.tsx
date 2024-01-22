@@ -41,7 +41,7 @@ export default function CountriesSlider() {
       {/* Custom Navigation Buttons */}
       <div className="flex justify-between">
         <div>
-          <h2 className="font-bold text-[25px]">Countries</h2>
+          <h2 className="font-bold text-[25px]">File Processing</h2>
         </div>
         <div>
           <button onClick={() => swiperRef && swiperRef.slidePrev()}>
