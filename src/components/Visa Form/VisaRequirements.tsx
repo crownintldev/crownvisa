@@ -169,7 +169,7 @@ const VisaRequirements: React.FC<Props> = ({ id, addid }) => {
             rules={[
               {
                 required: true,
-                message: "Please input your username!",
+                message: "Please input your travel itinerary!",
               },
             ]}
           >

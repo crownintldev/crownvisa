@@ -243,7 +243,7 @@ const FileProcessingForm: React.FC = () => {
                 {fields.map((field) => (
                   <Card
                     size="small"
-                    title={`VisaRequirements ${field.name + 1}`}
+                    title={`FileProcessing Requirements ${field.name + 1}`}
                     key={field.key}
                     extra={
                       <CloseOutlined
@@ -269,7 +269,7 @@ const FileProcessingForm: React.FC = () => {
                       rules={[
                         {
                           required: true,
-                          message: "Please input your username!",
+                          message: "Please input your requirements!",
                         },
                       ]}
                     >
@@ -294,7 +294,7 @@ const FileProcessingForm: React.FC = () => {
                 {fields.map((field) => (
                   <Card
                     size="small"
-                    title={`Travel Itinerary ${field.name + 1}`}
+                    title={`FileProcessing Travel Itinerary ${field.name + 1}`}
                     key={field.key}
                     extra={
                       <CloseOutlined
@@ -320,7 +320,7 @@ const FileProcessingForm: React.FC = () => {
                       rules={[
                         {
                           required: true,
-                          message: "Please input your username!",
+                          message: "Please input your travel itinerary!",
                         },
                       ]}
                     >
