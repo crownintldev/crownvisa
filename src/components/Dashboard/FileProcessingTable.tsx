@@ -174,14 +174,14 @@ const FileProcessingTable: React.FC = () => {
             <Link
               href={`/FileProcessingFormPage/FileProcessingRequirementsTable/${record.key}`}
             >
-              <Button type="primary" className="bg-blue-700">
+              <Button type="primary" className="bg-[#fe720f]">
                 FileProcessing Requirements
               </Button>
             </Link>
             <Link
               href={`/FileProcessingFormPage/FileProcessingTravelItineraryTable/${record.key}`}
             >
-              <Button type="primary" className="bg-blue-700">
+              <Button type="primary" className="bg-[#fe720f]">
                 FileProcessing Travel Itinerary
               </Button>
             </Link>
@@ -294,7 +294,7 @@ const FileProcessingTable: React.FC = () => {
                   <div className="flex flex-col items-stretch justify-end flex-shrink-0 w-full space-y-2 md:w-auto md:flex-row md:space-y-0 md:items-center md:space-x-3">
                     <button
                       type="button"
-                      className="flex items-center justify-center px-4 py-2 text-sm font-medium text-white rounded-lg bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 dark:bg-primary-600 dark:hover:bg-primary-700 focus:outline-none dark:focus:ring-primary-800"
+                      className="flex items-center justify-center px-4 py-2 text-sm font-medium text-white rounded-lg bg-[#fe720f] hover:bg-[#fe720f] focus:ring-4 focus:ring-[#fe720f] dark:bg-primary-600 dark:hover:bg-primary-700 focus:outline-none dark:focus:ring-primary-800"
                       onClick={() => handleAddClick()}
                     >
                       <svg
@@ -315,7 +315,7 @@ const FileProcessingTable: React.FC = () => {
                     <Link
                       href="/FileProcessingFormPage/FileProcessingRequirementsTable"
                       type="button"
-                      className="flex items-center justify-center px-4 py-2 text-sm font-medium text-white rounded-lg bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 dark:bg-primary-600 dark:hover:bg-primary-700 focus:outline-none dark:focus:ring-primary-800"
+                      className="flex items-center justify-center px-4 py-2 text-sm font-medium text-white rounded-lg bg-[#fe720f] hover:bg-[#fe720f] focus:ring-4 focus:ring-[#fe720f] dark:bg-primary-600 dark:hover:bg-primary-700 focus:outline-none dark:focus:ring-primary-800"
                     >
                       FileProcessing Requirements
                     </Link>

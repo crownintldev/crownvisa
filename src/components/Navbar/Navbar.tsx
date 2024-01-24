@@ -41,19 +41,26 @@ const Navbar = () => {
             </Link>
           </li>
           <li
-            onMouseEnter={() => setShowDropdown(true)}
-            onMouseLeave={() => setShowDropdown(false)}
-            // onClick={toggleDropdown}
+            // onMouseEnter={() => setShowDropdown(true)}
+            // onMouseLeave={() => setShowDropdown(false)}
+            onClick={() => setShowDropdown(!showDropdown)}
             className="flex items-center group relative"
           >
             <span className="py-1 px-1 inline-block hover-underline-animation ">
               About
             </span>
-            <span className="group-hover:rotate-180">
+            <span
+              className={`${showDropdown ? "group-hover:rotate-180" : ""} `}
+            >
               <AiOutlineDown />
             </span>
             {showDropdown && (
-              <div className="dropdown-content w-48 absolute top-[30px] bg-white shadow-none backdrop-blur-sm opacity-100 card-shadow">
+              <div
+                className="dropdown-content w-48 absolute top-[30px] bg-white shadow-none backdrop-blur-sm opacity-100 card-shadow"
+                onMouseLeave={() => {
+                  setShowDropdown(!showDropdown);
+                }}
+              >
                 {/* Your dropdown links here */}
                 <ul>
                   <li className=" px-4 py-2">
