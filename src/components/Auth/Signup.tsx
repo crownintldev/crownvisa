@@ -12,6 +12,7 @@ import {
 import { BiLogoFacebook } from "react-icons/bi";
 import { FcGoogle } from "react-icons/fc";
 import { useMutation } from "react-query";
+import { toast } from "react-toastify";
 
 const { Option } = Select;
 
@@ -51,12 +52,29 @@ const Signup: React.FC = () => {
   const mutation = useMutation(postUserData, {
     onSuccess: () => {
       // Perform actions on successful data posting
-      console.log("Country data posted successfully");
+      toast.success("Country data Added successfully", {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+      });
       router.push("/AboutPage");
     },
     onError: (error) => {
-      // Handle any errors here
-      console.error("Error posting country data:", error);
+      toast.error(`Error posting country data:${error}`, {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+      });
     },
   });
 
@@ -197,7 +215,11 @@ const Signup: React.FC = () => {
           </a>
         </Checkbox>
       </Form.Item>
-      <Button type="primary" htmlType="submit" className="bg-[#fe720f] w-[100%]">
+      <Button
+        type="primary"
+        htmlType="submit"
+        className="bg-[#fe720f] w-[100%]"
+      >
         Submit
       </Button>
       <div className="flex justify-center my-2">

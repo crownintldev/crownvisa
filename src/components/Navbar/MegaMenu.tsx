@@ -37,7 +37,7 @@ const MegaMenu = () => {
               <div onMouseLeave={()=>{
                 setSubmenuOpen(!submenuOpen);
               }}>
-                <div className="lg:absolute lg:left-0 lg:top-[80px] w-full bg-white py-5 lg:card-shadow px-3">
+                <div className="lg:absolute lg:left-0 lg:top-[80px] w-full mx-9 bg-white py-5 lg:card-shadow px-3">
                   <div className="grid grid-cols-12 gap-10 container mx-auto">
                     <div className="lg:col-span-3 sm:col-span-4 border-r border-black">
                       {link.sublinks.map((mysublinks) => (

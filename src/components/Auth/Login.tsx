@@ -7,6 +7,7 @@ import React from "react";
 import { AiFillGithub, AiOutlineMail } from "react-icons/ai";
 import { BiLogoFacebook } from "react-icons/bi";
 import { FcGoogle } from "react-icons/fc";
+import { toast } from "react-toastify";
 
 const onFinishFailed = (errorInfo: any) => {
   console.log("Failed:", errorInfo);
@@ -26,10 +27,29 @@ const Login: React.FC = () => {
       const { data } = await axios.get(`/api/user/email/${values.email}`);
       console.log(data);
       if(data.user.email === values.email && data.user.password === values.password){
+        toast.success("successfully login", {
+          position: "top-right",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+        });
         router.push('/AboutPage');
       }
     }catch(error) {
-      console.error("Error:", error);
+      toast.error(`Login Failed:${error}`, {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+      });
     }
   };
   return(
