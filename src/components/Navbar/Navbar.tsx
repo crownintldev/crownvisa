@@ -147,14 +147,14 @@ const Navbar = () => {
           </li>
           <MegaMenu />
           <div className="flex">
-            <button className="btn bg-[#fe720f] px-3 py-1 rounded-md text-md text-white mr-3 flex justify-center items-center ">
+            <button className="btn bg-[#fe720f] px-3 py-1 rounded-md text-md text-white mr-3 flex justify-center items-center">
               Visa Tracking
             </button>
-            <a href="/AuthPage">
+            <Link href="/AuthPage">
               <button className="btn bg-[#fe720f] px-3 py-1 rounded-md text-md text-white mr-3 flex justify-center items-center ">
                 Get Started
               </button>
-            </a>
+            </Link>
           </div>
         </ul>
       </div>
