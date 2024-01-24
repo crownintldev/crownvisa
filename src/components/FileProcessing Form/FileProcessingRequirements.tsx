@@ -100,7 +100,7 @@ const FileProcessingRequirements: React.FC<Props> = ({ id, addid }) => {
         progress: undefined,
         theme: "light",
       });
-      router.push(`/DashboardPage`);
+      router.push(`/FileProcessingFormPage/FileProcessingRequirementsTable/${Id}`);
     },
     onError: (error) => {
       // Handle any errors here

@@ -4,15 +4,15 @@ import Link from "next/link";
 const AboutCeoPage = () => {
   return (
     <section className="about-us lg:pt-[125px]">
-      <div className="h-auto flex justify-center flex-col rounded-[30px] mx-[35px] bg-[#fe720f] mb-10">
-        <div className="grid grid-cols-12 gap-6 container mx-auto px-4">
-          <div className="col-span-8 my-5">
+      <div className="h-[400px] flex flex-col rounded-3xl mx-[35px] bg-[url('https://motivoweb.com/saga/wp-content/themes/saga/assets/images/bg-titlebar.jpg')] bg-fixed bg-cover bg-no-repeat mb-10 relative">
+          <div className="w-full h-full bg-gray-700 opacity-70 rounded-3xl absolute top-0 left-0"></div>
+          <div className="flex justify-center items-center h-full flex-col z-10">
             <nav className="flex" aria-label="Breadcrumb">
               <ol className="inline-flex items-center space-x-1 md:space-x-2 rtl:space-x-reverse">
                 <li className="inline-flex items-center">
                   <Link
                     href="/"
-                    className="inline-flex items-center text-sm font-medium dark:text-gray-400 dark:hover:text-white"
+                    className="inline-flex items-center text-sm font-medium  dark:text-gray-400 dark:hover:text-white"
                   >
                     <svg
                       className="w-3 h-3 me-2.5"
@@ -29,7 +29,7 @@ const AboutCeoPage = () => {
                 <li>
                   <div className="flex items-center">
                     <svg
-                      className="rtl:rotate-180 w-3 h-3 mx-1"
+                      className="rtl:rotate-180 w-3 h-3  mx-1"
                       aria-hidden="true"
                       xmlns="http://www.w3.org/2000/svg"
                       fill="none"
@@ -53,8 +53,14 @@ const AboutCeoPage = () => {
                 </li>
               </ol>
             </nav>
-            <h2 className="text-4xl pt-3">CEO</h2>
-            <h1 className="text-5xl underline decoration-black decoration-3">
+            <h2 className="text-6xl">About CEO</h2>
+          </div>
+        </div>
+      <div className="h-auto flex justify-center flex-col rounded-[30px] mx-[35px] mb-10">
+        <div className="grid grid-cols-12 gap-6 container mx-auto px-4">
+          <div className="col-span-8 my-5">
+            <h2 className="text-5xl pt-3">CEO</h2>
+            <h1 className="text-4xl underline decoration-black decoration-3">
               Mubashir Nazir
             </h1>
             <p className="pt-5">

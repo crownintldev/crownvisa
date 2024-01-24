@@ -44,16 +44,16 @@ const AboutTeamPage = () => {
                     />
                   </svg>
                   <Link
-                    href="/AboutPage"
+                    href="/AboutTeamPage"
                     className="ms-1 text-sm font-medium  md:ms-2 dark:text-gray-400 dark:hover:text-white"
                   >
-                    About Company
+                    About Team
                   </Link>
                 </div>
               </li>
             </ol>
           </nav>
-          <h2 className="text-6xl">About us</h2>
+          <h2 className="text-6xl">About Team</h2>
         </div>
       </div>
       <Team />

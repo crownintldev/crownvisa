@@ -65,7 +65,7 @@ const FileProcessingTravelItinerary: React.FC<Props> = ({ id, addid }) => {
         progress: undefined,
         theme: "light",
       });
-      router.push(`/DashboardPage`);
+      router.push(`/FileProcessingFormPage/FileProcessingTravelItineraryTable/${Id}`);
     },
     onError: (error) => {
       // Handle any errors here
