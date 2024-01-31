@@ -2,13 +2,6 @@ import { Props } from "@/types/interfaces";
 import Image from "next/image";
 import React from "react";
 
-// interface Props {
-//   imageurl: string;
-//   alt: string;
-//   name: string;
-//   details: string;
-// }
-
 const TeamComp: React.FC<Props> = ({ image, alt, title, description }) => {
   return (
     <div className="text-center text-gray-500 dark:text-gray-400 border bg-white overflow-hidden relative group hover:scale-105 transition-300">
