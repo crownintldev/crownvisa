@@ -1,3 +1,4 @@
+"use client"
 import { teams } from "@/constants/constants";
 import TeamComp from "./TeamComp";
 import Link from "next/link";
@@ -67,16 +68,16 @@ const Team = () => {
             elements built with the utility classNamees from Tailwind
           </p>
         </div>
-        <div className="grid gap-8 lg:gap-16 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+        <div className="grid gap-8 lg:gap-16 grid-cols-12">
           {teams.map((team, index) => (
-            // <div key={index}>
+            <div key={index} className="lg:col-span-3 md:col-span-4 col-span-12">
               <TeamComp
                 image={team.image}
                 alt={team.alt}
                 title={team.title}
                 description={team.description}
               />
-            // </div>
+            </div>
           ))}
         </div>
       </div>
