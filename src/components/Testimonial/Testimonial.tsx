@@ -1,6 +1,7 @@
 import KeenSlider, { KeenSliderInstance } from "keen-slider";
 import { useEffect, useRef, useState } from "react";
 import TestimonialComp from "./TestimonialComp";
+import { testinominal } from "@/constants/constants";
 
 const Testimonial = () => {
   const [slider, setSlider] = useState<KeenSliderInstance | null>(null);
@@ -103,33 +104,15 @@ const Testimonial = () => {
               className="keen-slider"
               ref={sliderContainerRef}
             >
-              <TestimonialComp
-                title="Stayin Alive"
-                description="No, Rose, they are not breathing. And they have no arms
-                        or legs … Where are they? You know what? If we come
-                        across somebody with no arms or legs, do we bother
-                        resuscitating them? I mean, what quality of life do we
-                        have there?"
-                author="Michael Scott"
-              />
-              <TestimonialComp
-                title="Stayin Alive"
-                description="No, Rose, they are not breathing. And they have no arms
-                        or legs … Where are they? You know what? If we come
-                        across somebody with no arms or legs, do we bother
-                        resuscitating them? I mean, what quality of life do we
-                        have there?"
-                author="Michael Scott"
-              />
-              <TestimonialComp
-                title="Stayin Alive"
-                description="No, Rose, they are not breathing. And they have no arms
-                        or legs … Where are they? You know what? If we come
-                        across somebody with no arms or legs, do we bother
-                        resuscitating them? I mean, what quality of life do we
-                        have there?"
-                author="Michael Scott"
-              />
+              {testinominal.map((testinominal, index) => (
+                <div className="keen-slider__slide" key={index}>
+                  <TestimonialComp
+                    title={testinominal.title}
+                    description={testinominal.description}
+                    author={testinominal.author}
+                  />
+                </div>
+              ))}
             </div>
           </div>
         </div>

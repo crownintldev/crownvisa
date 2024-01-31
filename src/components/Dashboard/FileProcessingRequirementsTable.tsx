@@ -1,6 +1,6 @@
 //@ts-nocheck
 "use client";
-import { items } from "@/constants/constants";
+import { items, siderStyle } from "@/constants/constants";
 import { MenuFoldOutlined, MenuUnfoldOutlined, PieChartOutlined } from "@ant-design/icons";
 import {
   Button,
@@ -16,11 +16,11 @@ import {
 import type { ColumnsType } from "antd/es/table";
 import axios from "axios";
 import Image from "next/image";
+import Link from "next/link";
 import { useParams } from "next/navigation";
 import React, { useEffect, useState } from "react";
-import VisaRequirements from "../Visa Form/VisaRequirements";
 import FileProcessingRequirements from "../FileProcessing Form/FileProcessingRequirements";
-import Link from "next/link";
+import { FileProcessing, FileProcessingRequirement } from "@/types/interfaces";
 
 const { Header, Sider, Content } = Layout;
 
@@ -29,19 +29,6 @@ interface DataType {
   title: string;
   description: string;
   country: string;
-}
-
-interface FileProcessingRequirements {
-  key: string;
-  id: number;
-  title: string;
-  description: string;
-  countryid: number;
-}
-
-interface FileProcessing {
-  id: number;
-  title: string;
 }
 
 const FileProcessingRequirementsTable: React.FC = () => {
@@ -60,15 +47,6 @@ const FileProcessingRequirementsTable: React.FC = () => {
   console.log(countryid);
 
   const siderWidth = collapsed ? 80 : 200; // Width of the Sider
-
-  // Styles for the Sider, Header, and Content
-  const siderStyle = {
-    height: "100vh",
-    overflow: "auto",
-    position: "fixed",
-    left: 0,
-    zIndex: 2,
-  };
 
   const headerStyle = {
     padding: 0,
@@ -115,7 +93,7 @@ const FileProcessingRequirementsTable: React.FC = () => {
         fileprocessingRequirementsResponse.data.fileprocessingRequirements;
 
         const transformedData = fileprocessingRequirementsData.map(
-          (fileprocessingrequirements: FileProcessingRequirements) => {
+          (fileprocessingrequirements: FileProcessingRequirement) => {
             const Title = fileprocessingData.find(
               (fileprocessing: FileProcessing) => fileprocessing.id === fileprocessingrequirements.countryid
             );

@@ -1,20 +1,16 @@
 //@ts-nocheck
 "use client";
+import { Props } from "@/types/interfaces";
 import { Button, Form, Input } from "antd";
 import axios from "axios";
 import dynamic from "next/dynamic";
 import { useRouter } from "next/navigation";
 import React, { useEffect, useState } from "react";
 import { useMutation } from "react-query";
-import InputComp from "../UI components/InputComp";
 import { toast } from "react-toastify";
+import InputComp from "../UI components/InputComp";
 
 const ReactQuill = dynamic(() => import("react-quill"), { ssr: false });
-
-interface Props {
-  id?: any;
-  addid?: any;
-}
 
 const FileProcessingRequirements: React.FC<Props> = ({ id, addid }) => {
   const [form] = Form.useForm();

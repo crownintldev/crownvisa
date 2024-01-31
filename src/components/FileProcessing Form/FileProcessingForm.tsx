@@ -1,14 +1,14 @@
 //@ts-nocheck
 "use client";
 import { CloseOutlined } from "@ant-design/icons";
-import { Button, Card, Form, Input, Select } from "antd";
+import { Button, Card, Form, Input } from "antd";
 import axios from "axios";
 import dynamic from "next/dynamic";
 import { useRouter } from "next/navigation";
 import React, { useState } from "react";
-import { useMutation, useQuery, useQueryClient } from "react-query";
-import InputComp from "../UI components/InputComp";
+import { useMutation, useQueryClient } from "react-query";
 import { toast } from "react-toastify";
+import InputComp from "../UI components/InputComp";
 
 const ReactQuill = dynamic(() => import("react-quill"), { ssr: false });
 

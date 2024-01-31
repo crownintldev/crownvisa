@@ -1,11 +1,6 @@
+import { Props } from "@/types/interfaces";
 import Link from "next/link";
 import React from "react";
-
-interface Props {
-  icon: any;
-  title: string;
-  description: string;
-}
 
 const ServiceComp: React.FC<Props> = ({ icon, title, description }) => {
   return (

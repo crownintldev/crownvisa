@@ -10,13 +10,9 @@ import React, { useEffect, useState } from "react";
 import { useMutation } from "react-query";
 import InputComp from "../UI components/InputComp";
 import { toast } from "react-toastify";
+import { Props } from "@/types/interfaces";
 
 const ReactQuill = dynamic(() => import("react-quill"), { ssr: false });
-
-interface Props {
-  id?: any;
-  addid?: any;
-}
 
 const TravelItinerary: React.FC<Props> = ({ id, addid }) => {
   const [form] = Form.useForm();

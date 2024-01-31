@@ -1,10 +1,5 @@
+import { Props } from '@/types/interfaces';
 import React from 'react';
-
-interface Props {
-  icon: any;
-  title: string;
-  description: string;
-}
 
 const FeatureComponents: React.FC<Props> = ({ title, description, icon }) => {
   return (

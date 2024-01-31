@@ -1,3 +1,4 @@
+import { teams } from "@/constants/constants";
 import TeamComp from "./TeamComp";
 
 const Team = () => {
@@ -13,54 +14,16 @@ const Team = () => {
         </p>
       </div>
       <div className="grid gap-8 lg:gap-16 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
-        <TeamComp
-          imageurl="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/avatars/bonnie-green.png"
-          alt="Bonnie Avatar"
-          name="Bonnie Green"
-          details="CEO/Co-founder"
-        />
-        <TeamComp
-          imageurl="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/avatars/helene-engels.png"
-          alt="Helene Avatar"
-          name="Helene Engel"
-          details="CTO/Co-founder"
-        />
-        <TeamComp
-          imageurl="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/avatars/jese-leos.png"
-          alt="Jese Avatar"
-          name="Jese Leos"
-          details="SEO & Marketing"
-        />
-        <TeamComp
-          imageurl="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/avatars/joseph-mcfall.png"
-          alt="Joseph Avatar"
-          name="Joseph Mcfall"
-          details="Sales"
-        />
-        <TeamComp
-          imageurl="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/avatars/sofia-mcguire.png"
-          alt="Sofia Avatar"
-          name="Lana Byrd"
-          details="Web Designer"
-        />
-        <TeamComp
-          imageurl="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/avatars/thomas-lean.png"
-          alt="Leslie Avatar"
-          name="Leslie Livingston"
-          details="Graphic Designer"
-        />
-        <TeamComp
-          imageurl="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/avatars/michael-gouch.png"
-          alt="Michael Avatar"
-          name="Michael Gough"
-          details="Web Designer"
-        />
-        <TeamComp
-          imageurl="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/avatars/neil-sims.png"
-          alt="Neil Avatar"
-          name="Neil Sims"
-          details="Vue.js Developer"
-        />
+        {teams.map((team, index) => (
+          <div key={index}>
+            <TeamComp
+              image={team.image}
+              alt={team.alt}
+              title={team.title}
+              description={team.description}
+            />
+          </div>
+        ))}
       </div>
     </div>
   );

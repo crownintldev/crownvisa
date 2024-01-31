@@ -21,7 +21,7 @@ const Mission = () => {
     return () => anim.current?.destroy(); // Optional clean up for unmounting
   }, []);
   return (
-    <div className='col-span-4'>
+    <div className='lg:col-span-4 md:col-span-6 col-span-12'>
       <div
         ref={animationContainer}
         className="relative h-[200px]"

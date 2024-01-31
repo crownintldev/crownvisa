@@ -1,6 +1,6 @@
 //@ts-nocheck
 "use client";
-import { items } from "@/constants/constants";
+import { items, siderStyle } from "@/constants/constants";
 import {
   MenuFoldOutlined,
   MenuUnfoldOutlined,
@@ -21,15 +21,6 @@ const Dashboard: React.FC = () => {
   } = theme.useToken();
 
   const siderWidth = collapsed ? 80 : 200; // Width of the Sider
-
-  // Styles for the Sider, Header, and Content
-  const siderStyle = {
-    height: "100vh",
-    overflow: "auto",
-    position: "fixed",
-    left: 0,
-    zIndex: 2,
-  };
 
   const headerStyle = {
     padding: 0,

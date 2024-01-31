@@ -18,6 +18,8 @@ import { useRouter } from "next/navigation";
 import React, { useEffect, useState } from "react";
 import CountriesEditForm from "../Visa Form/CountriesEditForm";
 import CountriesForm from "../Visa Form/countriesForm";
+import { Country } from "@/types/interfaces";
+import { TagType } from "@prisma/client";
 
 interface DataType {
   key: number;
@@ -27,24 +29,6 @@ interface DataType {
   tags: string[];
   countryname: string;
   overview: string;
-}
-
-interface TagType {
-  id: number;
-  title: string;
-}
-
-interface Country {
-  key: string;
-  id: number;
-  countryflagurl: string;
-  countrybgurl: string;
-  title: string;
-  details: string;
-  tagId: number;
-  overview: string;
-  countryname: string;
-  tag: TagType;
 }
 
 const CountriesTable: React.FC = () => {

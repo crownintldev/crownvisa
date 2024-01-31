@@ -1,14 +1,8 @@
+import { Props } from "@/types/interfaces";
 import Link from "next/link";
 import React from "react";
 
-interface Props {
-  title: string;
-  description: string;
-  price: number;
-  details: any[];
-}
-
-const PriceComp: React.FC<Props> = ({ title, description, price, details }) => {
+const PriceComp: React.FC<Props> = ({ title, description, price, details=[] }) => {
   return (
     <div className="flex flex-col p-6 mx-auto max-w-lg text-center  bg-white rounded-lg border border-gray-100 shadow dark:border-gray-600 xl:p-8">
       <h3 className="mb-4 text-xl font-semibold">{title}</h3>

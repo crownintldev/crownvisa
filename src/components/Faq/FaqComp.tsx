@@ -1,12 +1,11 @@
+import { Props } from "@/types/interfaces";
 import React, { useState } from "react";
 import { FaCaretDown, FaCaretUp } from "react-icons/fa6";
 
-interface Props {
-  title: string;
-  details: string;
-}
 
-const FaqComp: React.FC<Props> = ({ title, details }) => {
+const FaqComp: React.FC<Props> = ({
+  title,
+  description, }) => {
   const [isOpen, setIsOpen] = useState(false);
 
   const toggleAccordion = () => {
@@ -26,7 +25,7 @@ const FaqComp: React.FC<Props> = ({ title, details }) => {
       </button>
       {isOpen && (
         <div className="px-4 pb-5 sm:px-6 sm:pb-6">
-          <p>{details}</p>
+          <p>{description}</p>
         </div>
       )}
     </div>

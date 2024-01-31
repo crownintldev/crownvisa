@@ -26,8 +26,8 @@ const Blog = () => {
               <div className="w-full px-4 md:w-1/2 lg:w-1/4" key={index}>
                 <BlogComp
                   date={blog.date}
-                  CardTitle={blog.CardTitle}
-                  CardDescription={blog.CardDescription}
+                  title={blog.CardTitle}
+                  description={blog.CardDescription}
                   image={blog.image}
                 />
               </div>

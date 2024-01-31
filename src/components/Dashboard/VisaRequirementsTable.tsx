@@ -1,6 +1,6 @@
 //@ts-nocheck
 "use client";
-import { items } from "@/constants/constants";
+import { items, siderStyle } from "@/constants/constants";
 import { MenuFoldOutlined, MenuUnfoldOutlined, PieChartOutlined } from "@ant-design/icons";
 import {
   Button,
@@ -20,6 +20,7 @@ import { useParams } from "next/navigation";
 import React, { useEffect, useState } from "react";
 import VisaRequirements from "../Visa Form/VisaRequirements";
 import Link from "next/link";
+import { Country, VisaRequirement } from "@/types/interfaces";
 
 const { Header, Sider, Content } = Layout;
 
@@ -28,19 +29,6 @@ interface DataType {
   title: string;
   description: string;
   country: string;
-}
-
-interface VisaRequirements {
-  key: string;
-  id: number;
-  title: string;
-  description: string;
-  countryid: number;
-}
-
-interface Country {
-  id: number;
-  title: string;
 }
 
 const VisaRequirementsTable: React.FC = () => {
@@ -59,15 +47,6 @@ const VisaRequirementsTable: React.FC = () => {
   console.log(countryid);
 
   const siderWidth = collapsed ? 80 : 200; // Width of the Sider
-
-  // Styles for the Sider, Header, and Content
-  const siderStyle = {
-    height: "100vh",
-    overflow: "auto",
-    position: "fixed",
-    left: 0,
-    zIndex: 2,
-  };
 
   const headerStyle = {
     padding: 0,
@@ -114,7 +93,7 @@ const VisaRequirementsTable: React.FC = () => {
           VisaRequirementsResponse.data.visaRequirements;
 
         const transformedData = VisaRequirementsData.map(
-          (visarequirements: VisaRequirements) => {
+          (visarequirements: VisaRequirement) => {
             const Title = countriesData.find(
               (country: Country) => country.id === visarequirements.countryid
             );

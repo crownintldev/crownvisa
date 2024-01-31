@@ -9,17 +9,13 @@ import React, { useEffect, useState } from "react";
 import { useMutation, useQuery, useQueryClient } from "react-query";
 import { toast } from "react-toastify";
 import InputComp from "../UI components/InputComp";
+import { Props, TagType } from "@/types/interfaces";
 
 const ReactQuill = dynamic(() => import("react-quill"), { ssr: false });
 
 const onFinishFailed = (errorInfo: any) => {
   console.log("Failed:", errorInfo);
 };
-
-interface TagType {
-  id: number;
-  title: string;
-}
 
 const handleChange = (value: string) => {
   console.log(`selected ${value}`);
@@ -29,10 +25,6 @@ const fetchCountryTypes = async () => {
   const { data } = await axios.get("/api/visaapi/countriestype");
   return data.countrytype;
 };
-
-interface Props {
-  id: any;
-}
 
 const CountriesEditForm: React.FC<Props> = ({ id }) => {
   const router = useRouter();

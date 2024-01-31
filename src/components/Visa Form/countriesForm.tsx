@@ -9,13 +9,9 @@ import React, { useState } from "react";
 import { useMutation, useQuery, useQueryClient } from "react-query";
 import InputComp from "../UI components/InputComp";
 import { toast } from "react-toastify";
+import { TagType } from "@/types/interfaces";
 
 const ReactQuill = dynamic(() => import("react-quill"), { ssr: false });
-
-interface TagType {
-  id: number;
-  title: string;
-}
 
 const onFinishFailed = (errorInfo: any) => {
   console.log("Failed:", errorInfo);

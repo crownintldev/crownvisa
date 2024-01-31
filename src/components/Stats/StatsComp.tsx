@@ -1,10 +1,6 @@
+import { Props } from "@/types/interfaces";
 import React from "react";
 import CountUp from "react-countup";
-
-interface Props {
-  icon: any;
-  title: string;
-}
 
 const StatsComp: React.FC<Props> = ({ icon, title }) => {
   return (

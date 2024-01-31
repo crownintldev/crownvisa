@@ -10,27 +10,19 @@ import React, { useEffect, useState } from "react";
 import FileProcessingEditForm from "../FileProcessing Form/FileProcessingEditForm";
 import FileProcessingForm from "../FileProcessing Form/FileProcessingForm";
 import { Button, Layout, Menu, theme } from "antd";
-import { items } from "@/constants/constants";
+import { items, siderStyle } from "@/constants/constants";
 import {
   MenuFoldOutlined,
   MenuUnfoldOutlined,
   PieChartOutlined
 } from "@ant-design/icons";
+import { FileProcessing } from "@/types/interfaces";
 
 const { Header, Sider, Content } = Layout;
 
 interface DataType {
   key: number;
   countryflagurl: string;
-  title: string;
-  overview: string;
-}
-
-interface FileProcessing {
-  key: string;
-  id: number;
-  countryflagurl: string;
-  countrybgurl: string;
   title: string;
   overview: string;
 }
@@ -49,15 +41,6 @@ const FileProcessingTable: React.FC = () => {
   } = theme.useToken();
 
   const siderWidth = collapsed ? 80 : 200; // Width of the Sider
-
-  // Styles for the Sider, Header, and Content
-  const siderStyle = {
-    height: "100vh",
-    overflow: "auto",
-    position: "fixed",
-    left: 0,
-    zIndex: 2,
-  };
 
   const headerStyle = {
     padding: 0,
@@ -320,9 +303,9 @@ const FileProcessingTable: React.FC = () => {
                       FileProcessing Requirements
                     </Link>
                     <Link
-                      href="FileProcessingFormPage/FileProcessingTravelItineraryTable"
+                      href="/FileProcessingFormPage/FileProcessingTravelItineraryTable"
                       type="button"
-                      className="flex items-center justify-center px-4 py-2 text-sm font-medium text-white rounded-lg bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 dark:bg-primary-600 dark:hover:bg-primary-700 focus:outline-none dark:focus:ring-primary-800"
+                      className="flex items-center justify-center px-4 py-2 text-sm font-medium text-white rounded-lg bg-[#fe720f] hover:bg-[#fe720f] focus:ring-4 focus:ring-[#fe720f] dark:bg-primary-600 dark:hover:bg-primary-700 focus:outline-none dark:focus:ring-primary-800"
                     >
                       FileProcessing Travel Itinerary
                     </Link>

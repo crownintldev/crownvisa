@@ -1,12 +1,13 @@
 //@ts-nocheck
 "use client";
 import { useTitleContext } from "@/context/ContextProvider";
-import { Button, Form, Input, Select } from "antd";
+import { Props } from "@/types/interfaces";
+import { Button, Form } from "antd";
 import axios from "axios";
 import dynamic from "next/dynamic";
 import { useRouter } from "next/navigation";
 import React, { useEffect, useState } from "react";
-import { useMutation, useQuery, useQueryClient } from "react-query";
+import { useMutation, useQueryClient } from "react-query";
 import { toast } from "react-toastify";
 import InputComp from "../UI components/InputComp";
 
@@ -15,14 +16,6 @@ const ReactQuill = dynamic(() => import("react-quill"), { ssr: false });
 const onFinishFailed = (errorInfo: any) => {
   console.log("Failed:", errorInfo);
 };
-
-const handleChange = (value: string) => {
-  console.log(`selected ${value}`);
-};
-
-interface Props {
-  id: any;
-}
 
 const FileProcessingEditForm: React.FC<Props> = ({ id }) => {
   const router = useRouter();

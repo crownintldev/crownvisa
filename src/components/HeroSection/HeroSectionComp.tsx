@@ -4,11 +4,7 @@ import { useState } from "react";
 import { FaLocationDot } from "react-icons/fa6";
 import { MdDateRange, MdTour } from "react-icons/md";
 import CarouselComp from "./CarouselComp";
-
-const images = [
-  "https://creativelayers.net/themes/viatours-html/img/hero/1/1.png",
-  "https://wallpapers.com/images/featured/travel-ibk7fgrvtvhs7qzg.jpg",
-];
+import { carouselimages } from "@/constants/constants";
 
 const handleChange = (value: string) => {
   console.log(`selected ${value}`);
@@ -30,7 +26,7 @@ const HeroSectionComp = () => {
   return (
     <>
       <div className="relative rounded-[30px] mx-[35px] lg:pt-[120px] antialiased">
-        <CarouselComp images={images} />
+        <CarouselComp images={carouselimages} />
         <div className="mt-[-200px] relative">
           <section>
             <div
