@@ -10,6 +10,10 @@ export interface Props {
   details?: any[];
   alt?: string;
   author?: string;
+  link1?: string;
+  link1title?: string;
+  link2?: string;
+  link2title?: string;
 }
 
 export interface CarouselProps {
