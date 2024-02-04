@@ -5,7 +5,6 @@ import HeaderComp from "@/components/Navbar/HeaderComp";
 import Newsletter from "@/components/Newsletter";
 import { Input } from "antd";
 import TextArea from "antd/es/input/TextArea";
-import Link from "next/link";
 import { AiOutlineMail, AiOutlinePhone, AiOutlineUser } from "react-icons/ai";
 import { BiSupport } from "react-icons/bi";
 import {

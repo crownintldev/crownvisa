@@ -1,7 +1,7 @@
 import { Params } from '@/app/api/params';
+import { deletefileprocessingrequirements } from '../CRUD/deletefileprocessingrequirements';
 import { getfileprocessingrequirementsbyid } from '../CRUD/getfileprocessingrequirements';
 import { updatefileprocessingrequirements } from '../CRUD/updatefileprocessingrequirements';
-import { deletefileprocessingrequirements } from '../CRUD/deletefileprocessingrequirements';
 
 export const GET = async (req: Request, { params }: { params: Params }) => {
   return getfileprocessingrequirementsbyid(req, { params });

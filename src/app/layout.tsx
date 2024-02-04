@@ -1,17 +1,16 @@
 //@ts-nocheck
 import "@splidejs/splide/dist/css/splide.min.css";
+import "aos/dist/aos.css";
+import "keen-slider/keen-slider.min.css";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
+import Script from "next/script";
 import "react-quill/dist/quill.snow.css";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import "keen-slider/keen-slider.min.css";
-import ContextProvider from "../context/ContextProvider";
 import QueryProvider from "../React-Query/QueryProvider";
+import ContextProvider from "../context/ContextProvider";
 import "./globals.css";
-import "aos/dist/aos.css";
-import Script from "next/script";
-// import ReduxProvider from "../redux/provider";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -30,7 +29,6 @@ export default function RootLayout({
       <body className={inter.className}>
         <QueryProvider>
           <ContextProvider>
-            {/* <ReduxProvider> */}
               <ToastContainer
                 position="top-right"
                 autoClose={5000}
@@ -45,7 +43,6 @@ export default function RootLayout({
               />
               {children}
               <ToastContainer />
-            {/* </ReduxProvider> */}
           </ContextProvider>
         </QueryProvider>
         <Script src="../path/to/flowbite/dist/flowbite.min.js"></Script>

@@ -1,5 +1,5 @@
 // @ts-nocheck
-import { writeFile, access } from 'fs/promises';
+import { access, writeFile } from 'fs/promises';
 import { NextResponse } from 'next/server';
 
 export async function POST(req) {

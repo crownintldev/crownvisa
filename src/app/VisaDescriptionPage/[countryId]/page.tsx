@@ -4,7 +4,6 @@ import FooterComp from "@/components/FooterComp";
 import HeaderComp from "@/components/Navbar/HeaderComp";
 import { Tabs, Timeline } from "antd";
 import axios from "axios";
-import Link from "next/link";
 import { useParams } from "next/navigation";
 import { useEffect, useState } from "react";
 
