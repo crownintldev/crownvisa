@@ -1,4 +1,5 @@
 //@ts-nocheck
+import { Option, formItemLayout, tailFormItemLayout } from "@/constants/constants";
 import { Button, Checkbox, Form, Input, Select } from "antd";
 import axios from "axios";
 import { useRouter } from "next/navigation";
@@ -13,32 +14,6 @@ import { BiLogoFacebook } from "react-icons/bi";
 import { FcGoogle } from "react-icons/fc";
 import { useMutation } from "react-query";
 import { toast } from "react-toastify";
-
-const { Option } = Select;
-
-const formItemLayout = {
-  labelCol: {
-    xs: { span: 24 },
-    sm: { span: 8 },
-  },
-  wrapperCol: {
-    xs: { span: 24 },
-    sm: { span: 16 },
-  },
-};
-
-const tailFormItemLayout = {
-  wrapperCol: {
-    xs: {
-      span: 24,
-      offset: 0,
-    },
-    sm: {
-      span: 20,
-      offset: 5,
-    },
-  },
-};
 
 const postUserData = async (UserData) => {
   const response = await axios.post("/api/user", UserData);

@@ -13,12 +13,6 @@ const onFinishFailed = (errorInfo: any) => {
   console.log("Failed:", errorInfo);
 };
 
-type FieldType = {
-  username?: string;
-  password?: string;
-  remember?: string;
-};
-
 const Login: React.FC = () => {
   const router=useRouter();
   const onFinish = async(values: any) => {
@@ -80,7 +74,7 @@ const Login: React.FC = () => {
       <Input suffix={<AiOutlineMail />} />
     </Form.Item>
 
-    <Form.Item<FieldType>
+    <Form.Item
       label="Password"
       name="password"
       rules={[{ required: true, message: "Please input your password!" }]}

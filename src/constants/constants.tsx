@@ -5,7 +5,7 @@ import {
   TeamOutlined,
   UserOutlined,
 } from "@ant-design/icons";
-import { MenuProps } from "antd";
+import { MenuProps, Select } from "antd";
 import React from "react";
 import { AiFillCar } from "react-icons/ai";
 import { BiSolidTruck } from "react-icons/bi";
@@ -15,6 +15,32 @@ import { GiPathDistance } from "react-icons/gi";
 import { MdFlightTakeoff } from "react-icons/md";
 import { TbWorld } from "react-icons/tb";
 import styled, { css, keyframes } from "styled-components";
+
+export const { Option } = Select;
+
+export const formItemLayout = {
+  labelCol: {
+    xs: { span: 24 },
+    sm: { span: 8 },
+  },
+  wrapperCol: {
+    xs: { span: 24 },
+    sm: { span: 16 },
+  },
+};
+
+export const tailFormItemLayout = {
+  wrapperCol: {
+    xs: {
+      span: 24,
+      offset: 0,
+    },
+    sm: {
+      span: 20,
+      offset: 5,
+    },
+  },
+};
 
 export const AppContainer = styled.div`
   position: relative;
