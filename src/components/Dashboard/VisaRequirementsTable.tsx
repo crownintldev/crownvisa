@@ -21,6 +21,7 @@ import React, { useEffect, useState } from "react";
 import VisaRequirements from "../Visa Form/VisaRequirements";
 import Link from "next/link";
 import { Country, VisaRequirement } from "@/types/interfaces";
+import Navbar from "../Navbar";
 
 const { Header, Sider, Content } = Layout;
 
@@ -232,7 +233,7 @@ const VisaRequirementsTable: React.FC = () => {
               height: 64,
             }}
           />
-        </Header>
+        <Navbar/>
         <Content style={contentStyle}>
           <section className="dark:bg-gray-900 flex items-center">
             <div className=" w-full">

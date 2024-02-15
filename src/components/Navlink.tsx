@@ -1,4 +1,5 @@
 
+//@ts-nocheck
 import Link from 'next/link';
 import React, { useState, Fragment } from 'react';
 import DropDown from './dropdown';

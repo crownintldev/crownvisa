@@ -1,7 +1,7 @@
 //@ts-nocheck
 "use client";
 import FooterComp from "@/components/FooterComp";
-import Header from "@/components/Header";
+import Navbar from "@/components/Navbar";
 import { Tabs, Timeline } from "antd";
 import axios from "axios";
 import { useParams } from "next/navigation";
@@ -96,7 +96,7 @@ const Page = () => {
   }));
   return (
     <>
-      <Header/>
+      <Navbar/>
       <div className="lg:pt-[120px] antialiased">
         <div
           className="h-[400px] flex flex-col rounded-3xl mx-[35px] bg-cover bg-center bg-fixed bg-no-repeat mb-10 relative"

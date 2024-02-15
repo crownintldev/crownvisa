@@ -1,3 +1,5 @@
+//@ts-nocheck
+
 import React, { useState, useRef } from 'react';
 import { ImCross } from 'react-icons/im';
 import {  HeadingH6 } from '../Heading';

@@ -1,7 +1,7 @@
 import BreadCrumb from "@/components/BreadCrumb";
 import ContactDetails from "@/components/ContactDetails";
 import FooterComp from "@/components/FooterComp";
-import Header from "@/components/Header";
+import Navbar from "@/components/Navbar";
 import Newsletter from "@/components/Newsletter";
 import { Input } from "antd";
 import TextArea from "antd/es/input/TextArea";
@@ -18,7 +18,7 @@ import { MdOutlineEmail, MdSubject } from "react-icons/md";
 const Page = () => {
   return (
     <>
-      <Header />
+    <Navbar/>
       <div className="lg:pt-[120px] antialiased">
         <BreadCrumb
           link1="/"

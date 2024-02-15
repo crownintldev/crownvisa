@@ -2,7 +2,7 @@ import Link from 'next/link';
 import React from 'react';
 import { HeadingH1 } from './Heading';
 import Image from 'next/image';
-const Logo = ({ className }) => {
+const Logo = () => {
   
 
 

@@ -1,11 +1,11 @@
 import FooterComp from "@/components/FooterComp";
-import Header from "@/components/Header";
+import Navbar from "@/components/Navbar";
 import Team from "@/components/Team/Team";
 
 const page = () => {
   return (
     <>
-      <Header />
+      <Navbar/>
       <Team />
       <FooterComp />
     </>

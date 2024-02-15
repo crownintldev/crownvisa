@@ -1,12 +1,12 @@
 import BreadCrumb from "@/components/BreadCrumb";
 import Image from "next/image";
 import FooterComp from "../../components/FooterComp";
-import Header from "@/components/Header";
+import Navbar from "@/components/Navbar";
 
 const page = () => {
   return (
     <>
-      <Header/>
+      <Navbar/>
       <section className="about-us lg:pt-[125px]">
         <BreadCrumb
           link1="/"

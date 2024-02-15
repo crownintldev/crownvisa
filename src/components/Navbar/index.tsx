@@ -13,7 +13,7 @@ import SearchData from '../SearchData';
 
 
 
-const Header = () => {
+const Navbar = () => {
   const [open, setOpen] = useState(false);
   const [placement, setPlacement] = useState("left");
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -121,4 +121,4 @@ const Header = () => {
   );
 };
 
-export default Header;
+export default Navbar;
