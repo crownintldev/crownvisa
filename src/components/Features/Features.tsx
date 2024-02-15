@@ -28,7 +28,7 @@ const Features = () => {
       <h2 className="font-bold text-[25px] mb-5 text-center">
         WHY Choose CROWN INTERNATIONAL TRAVELS
       </h2>
-      <div className="grid grid-cols-12 gap-6">
+      <div className="grid grid-cols-12 gap-6 mt-20">
         <div
           ref={animationContainer}
           className="relative lg:col-span-6 md:col-span-12 col-span-12"

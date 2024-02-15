@@ -5,7 +5,7 @@ import { blogs } from "@/constants/constants";
 const Blog = () => {
   return (
     <>
-      <section className="bg-white dark:bg-dark mb-10 antialiased">
+      <section className="bg-white dark:bg-dark   mt-32 antialiased">
         <div className="container">
           <div className="-mx-4 flex flex-wrap">
             <div className="w-full px-4">
@@ -21,7 +21,7 @@ const Blog = () => {
             </div>
           </div>
 
-          <div className="-mx-4 flex flex-wrap">
+          <div className="-mx-4 flex flex-wrap mt-20">
             {blogs.map((blog, index) => (
               <div className="w-full px-4 md:w-1/2 lg:w-1/4" key={index}>
                 <BlogComp

@@ -37,7 +37,7 @@ export default function CountriesSlider() {
   }, []);
 
   return (
-    <div className="countries-slider mb-10 antialiased">
+    <div className="countries-slider mt-32 antialiased">
       {/* Custom Navigation Buttons */}
       <div className="flex justify-between">
         <div>
