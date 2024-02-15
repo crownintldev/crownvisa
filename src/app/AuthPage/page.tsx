@@ -8,7 +8,7 @@ const page = () => {
   
   return (
     <>
-      <Header />
+    <Header/>
       <Auth/>
       <FooterComp />
     </>
