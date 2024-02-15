@@ -1,7 +1,7 @@
 //@ts-nocheck
 "use client";
 import FooterComp from "@/components/FooterComp";
-import Header from "../../../components/Header/index.tsx";
+import Header from "@/components/Header";
 import { Tabs, Timeline } from "antd";
 import axios from "axios";
 import { useParams } from "next/navigation";
