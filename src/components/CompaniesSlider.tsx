@@ -4,7 +4,7 @@ import Image from "next/image";
 
 export default function CompaniesSlider() {
   return (
-    <div className="mb-10 antialiased">
+    <div className=" mt-32 antialiased">
       <div className="flex justify-center items center">
         <h2 className="text-[25px] font-bold mb-3">Our Clients & Partners</h2>
       </div>
