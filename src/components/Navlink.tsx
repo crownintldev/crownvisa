@@ -49,10 +49,10 @@ const Navlink = ({ onClose }) => {
           array={[
             {
               items: [
-                { id: "1",  title: "About Ceo", subtitle:"CEO",href: "/AboutCeoPage" },
-                { id: "2", title: "About Company", subtitle:"CROWN",href: "/AboutPage" },
-                { id: "3", title: "Our Team", subtitle:"CROWN TEAM",href: "/AboutTeamPage" },
-                { id: "4", title: "Company Profile", subtitle:"PDF PROFILE",href: "/Option4" },
+                { id: "1",  title: "About Ceo", subtitle:"CEO",href: "/ceo" },
+                { id: "2", title: "About Company", subtitle:"CROWN",href: "/about" },
+                { id: "3", title: "Our Team", subtitle:"CROWN TEAM",href: "/team" },
+                { id: "4", title: "Company Profile", subtitle:"PDF PROFILE",href: "/" },
               ],
             },
           ]}
@@ -78,7 +78,7 @@ const Navlink = ({ onClose }) => {
         />
       </div>
       
-      <Link className='font-semibold' href="/ContactPage" onClick={onClose}>
+      <Link className='font-semibold' href="/contact" onClick={onClose}>
         Contact
       </Link>
     </>

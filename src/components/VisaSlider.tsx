@@ -53,7 +53,7 @@ export default function VisaSlider() {
     }`;
 
   return (
-    <div className="mb-10 antialiased">
+    <div className="mb-10 antialiased z-20 mt-10">
       <h2 className="font-bold lg:text-[25px] md:text-[15px] text-center my-3">
         We Have Authorized Embassy Visa Application Centre & Dropbox
       </h2>
