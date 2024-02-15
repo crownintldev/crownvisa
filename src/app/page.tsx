@@ -6,6 +6,7 @@ import CountriesSlider from "@/components/CountriesSlider";
 import Faq from "@/components/Faq/Faq";
 import Features from "@/components/Features/Features";
 import FooterComp from "@/components/FooterComp";
+import Header from "@/components/Header";
 import HeroSectionComp from "@/components/HeroSection/HeroSectionComp";
 import HeaderComp from "@/components/Navbar/HeaderComp";
 import Newsletter from "@/components/Newsletter";
@@ -23,7 +24,7 @@ const Page = () => {
   }, []);
   return (
     <>
-      <HeaderComp />
+      <Header />
       <HeroSectionComp />
       <div className="container mx-auto flex flex-col my-3 px-4">
         <VisaSlider />

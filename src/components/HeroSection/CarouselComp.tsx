@@ -13,8 +13,8 @@ const CarouselComp: React.FC<CarouselProps> = ({ images, duration = 3000 }) => {
     setActiveIndex(index);
   };
   return (
-    <div className="relative w-full h-[500px] rounded-[30px] overflow-hidden">
-      <div className="w-full h-full bg-gray-700 opacity-70 rounded-3xl absolute top-0 left-0"></div>
+    <div className="relative w-full h-[500px]  overflow-hidden">
+      <div className="w-full h-full bg-gray-700 opacity-70  absolute top-0 left-0"></div>
       <div
         style={{ backgroundImage: `url(${images[activeIndex]})` }}
         className="w-full h-full bg-cover bg-fixed"
@@ -24,7 +24,7 @@ const CarouselComp: React.FC<CarouselProps> = ({ images, duration = 3000 }) => {
           <span
             key={index}
             onClick={() => goToSlide(index)}
-            className={`cursor-pointer block w-2 h-2 rounded-full ${index === activeIndex ? "bg-white" : "bg-[#fe720f]"
+            className={`cursor-pointer block w-2 h-2  ${index === activeIndex ? "bg-white" : "bg-[#fe720f]"
               }`}
           />
         ))}

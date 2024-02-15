@@ -1,14 +1,14 @@
 "use client"
 import Auth from "@/components/Auth/Auth";
 import FooterComp from "@/components/FooterComp";
-import HeaderComp from "@/components/Navbar/HeaderComp";
+import Header from "@/components/Header";
 
 
 const page = () => {
   
   return (
     <>
-      <HeaderComp />
+      <Header />
       <Auth/>
       <FooterComp />
     </>

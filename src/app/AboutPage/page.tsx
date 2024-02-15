@@ -1,8 +1,8 @@
 //@ts-nocheck
 import BreadCrumb from "@/components/BreadCrumb";
 import FooterComp from "@/components/FooterComp";
+import Header from "@/components/Header";
 import Mission from "@/components/Mission";
-import HeaderComp from "@/components/Navbar/HeaderComp";
 import Stats from "@/components/Stats/Stats";
 import Values from "@/components/Values";
 import Vision from "@/components/Vision";
@@ -11,7 +11,7 @@ import Image from "next/image";
 const Page = () => {
   return (
     <>
-      <HeaderComp />
+      <Header/>
       <div className="lg:pt-[120px] antialiased">
         <BreadCrumb
           link1="/"

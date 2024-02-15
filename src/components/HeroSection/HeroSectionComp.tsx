@@ -25,7 +25,7 @@ const HeroSectionComp = () => {
 
   return (
     <>
-      <div className="relative rounded-[30px] mx-[35px] lg:pt-[120px] antialiased">
+      <div className="relative antialiased">
         <CarouselComp images={carouselimages} />
         <div className="mt-[-200px] relative">
           <section>

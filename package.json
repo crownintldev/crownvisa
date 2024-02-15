@@ -27,6 +27,7 @@
     "flowbite": "^2.2.1",
     "keen-slider": "^6.8.6",
     "lottie-web": "^5.12.2",
+    "mysql2": "^3.9.1",
     "next": "^14.0.0",
     "next-auth": "^4.24.5",
     "react": "^18.2.0",
