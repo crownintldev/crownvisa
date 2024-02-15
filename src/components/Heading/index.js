@@ -16,7 +16,7 @@ export const HeadingH1 = ({icon, title,title1,className ,spanclass}) => {
 export const HeadingH2 = ({icon, title ,className}) => {
   return (
     <div>
-      <p className={`xl:text-xl-h2 lg:text-lg-h2 text-md-h2 font-semibold  gap-2 ${className}`}>
+      <p className={`xl:text-xl-h2 lg:text-lg-h2 text-md-h2 font-semibold  gap-3 ${className}`}>
         {icon}{title}
       </p>
     </div>
