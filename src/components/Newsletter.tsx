@@ -2,7 +2,7 @@ import React from 'react';
 
 const Newsletter = () => {
   return (
-    <section className="bg-white mb-10 antialiased">
+    <section className="bg-white mt-32 antialiased">
       <div className="px-4 mx-auto max-w-screen-xl lg:px-6">
         <div className="mx-auto max-w-screen-md sm:text-center">
           <h2 className="mb-4 text-3xl tracking-tight font-extrabold sm:text-4xl">

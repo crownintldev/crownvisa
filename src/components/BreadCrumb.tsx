@@ -10,8 +10,8 @@ const BreadCrumb: React.FC<Props> = ({
   title,
 }) => {
   return (
-    <div className="h-[400px] flex flex-col rounded-3xl mx-[35px] bg-[url('https://motivoweb.com/saga/wp-content/themes/saga/assets/images/bg-titlebar.jpg')] bg-fixed bg-cover bg-no-repeat mb-10 relative">
-      <div className="w-full h-full bg-gray-700 opacity-70 rounded-3xl absolute top-0 left-0"></div>
+    <div className="h-[400px] flex flex-col  bg-[url('https://motivoweb.com/saga/wp-content/themes/saga/assets/images/bg-titlebar.jpg')] bg-fixed bg-cover bg-no-repeat mb-10 relative">
+      <div className="w-full h-full bg-gray-400 opacity-70  absolute top-0 left-0"></div>
       <div className="flex justify-center items-center h-full flex-col z-10">
         <nav className="flex" aria-label="Breadcrumb">
           <ol className="inline-flex items-center space-x-1 md:space-x-2 rtl:space-x-reverse">
@@ -19,7 +19,7 @@ const BreadCrumb: React.FC<Props> = ({
               {link1 && (
                 <Link
                   href={link1}
-                  className="inline-flex items-center text-sm font-medium  dark:text-gray-400 dark:hover:text-white"
+                  className="inline-flex items-center text-sm font-medium  "
                 >
                   <svg
                     className="w-3 h-3 me-2.5"
@@ -54,7 +54,7 @@ const BreadCrumb: React.FC<Props> = ({
                 {link2 && (
                   <Link
                     href={link2}
-                    className="ms-1 text-sm font-medium  md:ms-2 dark:text-gray-400 dark:hover:text-white"
+                    className="ms-1 text-sm font-medium  md:ms-2 text-yellow100"
                   >
                     {link2title}
                   </Link>

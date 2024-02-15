@@ -12,7 +12,7 @@ const Page = () => {
   return (
     <>
    <Navbar/>
-      <div className="lg:pt-[120px] antialiased">
+      <div className=" antialiased">
         <BreadCrumb
           link1="/"
           link1title="home"

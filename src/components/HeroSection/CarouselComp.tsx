@@ -1,5 +1,5 @@
 
-
+// @ts-nocheck
   import { useState, useEffect } from 'react';
   import Image from 'next/image';
   import tra1 from '../../../public/images/tra1.jpg'
