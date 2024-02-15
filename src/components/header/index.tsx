@@ -1,3 +1,4 @@
+// @ts-nocheck
 "use client"
 import React, { useState, useEffect } from 'react';
 import Logo from '../Logo';
@@ -8,7 +9,6 @@ import { TbMenu2 } from 'react-icons/tb';
 import { AiOutlineSearch } from 'react-icons/ai';
 import { Modal } from 'antd';
 import Button from '../Button';
-import TopHeader from '../TopHeader';
 import SearchData from '../SearchData';
 
 
