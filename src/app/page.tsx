@@ -8,7 +8,6 @@ import Features from "@/components/Features/Features";
 import FooterComp from "@/components/FooterComp";
 import Header from "@/components/Header";
 import HeroSectionComp from "@/components/HeroSection/HeroSectionComp";
-import HeaderComp from "@/components/Navbar/HeaderComp";
 import Newsletter from "@/components/Newsletter";
 import Price from "@/components/Price/Price";
 import Services from "@/components/Services/Services";
