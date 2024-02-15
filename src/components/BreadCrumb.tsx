@@ -63,7 +63,7 @@ const BreadCrumb: React.FC<Props> = ({
             </li>
           </ol>
         </nav>
-        <h2 className="text-6xl">{title}</h2>
+        <h2 className="text-5xl">{title}</h2>
       </div>
     </div>
   );
