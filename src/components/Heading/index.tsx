@@ -1,3 +1,4 @@
+// @ts-nocheck
 import React from 'react'
 
 export const HeadingH1 = ({icon, title,title1,className ,spanclass}) => {

@@ -7,7 +7,7 @@ const page = () => {
   return (
     <>
       <Navbar/>
-      <section className="about-us lg:pt-[125px]">
+      <section className="about-us ">
         <BreadCrumb
           link1="/"
           link1title="home"

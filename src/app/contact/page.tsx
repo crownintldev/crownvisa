@@ -19,16 +19,16 @@ const Page = () => {
   return (
     <>
     <Navbar/>
-      <div className="lg:pt-[120px] antialiased">
+      <div className="">
         <BreadCrumb
           link1="/"
           link1title="home"
-          link2="/ContactPage"
+          link2="/contact"
           link2title="Contact Us"
           title="Contact Us"
         />
         <div className="container mx-auto px-4 pt-3">
-          <div className="grid grid-cols-12 gap-10 mb-10">
+          <div className="grid grid-cols-12 gap-10  mt-20">
             <div className="lg:col-span-4 md:col-span-6 col-span-12 flex hover:scale-105 transition duration-300">
               <ContactDetails
                 icon={<MdOutlineEmail className="mr-2 pt-2" size={25} />}
@@ -54,7 +54,7 @@ const Page = () => {
               />
             </div>
           </div>
-          <div className="grid grid-cols-12 gap-6 mb-10">
+          <div className="grid grid-cols-12 gap-6 mt-32">
             <div className="md:col-span-6 col-span-12">
               <h2 className="text-[35px] font-bold mb-5 underline decoration-[#fe720f] decoration-3">
                 Get in touch
@@ -90,7 +90,7 @@ const Page = () => {
                 />
               </div>
             </div>
-            <div className="md:col-span-6 col-span-12">
+            <div className="md:col-span-6 col-span-12  p-4 rounded-md shadow">
               <div className="flex justify-between py-3">
                 <Input
                   size="large"
@@ -140,7 +140,7 @@ const Page = () => {
                 </button>
               </div>
             </div>
-            <div className="col-span-12">
+            <div className="col-span-12 mt-32">
               <iframe
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d6646.779679693498!2d73.05559420000002!3d33.595188200000024!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x38df949dbba75c4f%3A0xaab826c83f4d297!2sKFC!5e0!3m2!1sen!2s!4v1698855696743!5m2!1sen!2s"
                 style={{ border: "0", width: "100%", height: "400px" }}

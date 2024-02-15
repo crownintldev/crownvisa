@@ -7,7 +7,7 @@ import Link from 'next/link';
 
 const FooterComp = () => {
   return (
-    <div className='w-full antialiased'>
+    <div className='w-full antialiased mt-32'>
       <div className="bg-black py-[30px] md:px-2 px-2 text-white">
         <div className="container mx-auto px-4 grid grid-cols-12 gap-6">
           <div className=" lg:col-span-3 md:col-start-1 md:col-span-4 col-span-6">

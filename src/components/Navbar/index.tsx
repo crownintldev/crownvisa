@@ -65,7 +65,7 @@ const Navbar = () => {
     <>
   
   <nav
-        className={` bg-white text-black sticky top-0  z-20 shadow-xl drop-shadow ${scrollingUp ? 'show' : 'hide'}`}
+        className={` bg-transparent backdrop-blur-md text-black sticky top-0  z-50 shadow-xl drop-shadow ${scrollingUp ? 'show' : 'hide'}`}
       >
 
       <Container className="flex justify-between py-4 pt-2 pb-2 ">

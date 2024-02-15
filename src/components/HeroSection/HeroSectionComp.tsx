@@ -4,7 +4,6 @@ import { useState } from "react";
 import { FaLocationDot } from "react-icons/fa6";
 import { MdDateRange, MdTour } from "react-icons/md";
 import CarouselComp from "./CarouselComp";
-import { carouselimages } from "@/constants/constants";
 
 const handleChange = (value: string) => {
   console.log(`selected ${value}`);
@@ -26,11 +25,11 @@ const HeroSectionComp = () => {
   return (
     <>
       <div className="relative antialiased">
-        <CarouselComp images={carouselimages} />
-        <div className="mt-[-200px] relative">
-          <section>
+        
+        <div className=" absolute top-32  md:top-52    z-20 w-full m-auto">
+          <section className="">
             <div
-              className="py-8 md:px-4 mx-auto max-w-screen-xl text-center lg:py-16"
+              className="mx-auto max-w-screen-xl text-center "
               style={{
                 background: "transparent",
                 textShadow: "2px 2px 4px rgba(0, 0, 0, 0.5)",
@@ -318,6 +317,7 @@ const HeroSectionComp = () => {
             </div>
           </section>
         </div>
+        <CarouselComp  />
       </div>
     </>
   );
