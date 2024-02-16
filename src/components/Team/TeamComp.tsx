@@ -1,26 +1,104 @@
 import { Props } from "@/types/interfaces";
 import Image from "next/image";
 import React from "react";
+import { HeadingH1 } from "../Heading";
 
 const TeamComp: React.FC<Props> = ({ image, alt, title, description }) => {
   return (
-    <div className="text-center text-gray-500 dark:text-gray-400 border bg-white overflow-hidden relative group hover:scale-105 transition-300">
-      {image && alt && (
-        <Image
-        className="w-full"
-        src={image}
-        alt={alt}
-        height={100}
-        width={100}
-      />
-      )}
-      <div className="absolute transition-all duration-1500 bottom-5 w-full right-0 bg-[#FFC224] rounded-full">
-        <h3 className="mb-1 text-2xl font-bold tracking-tight text-black dark:text-white">
-          <a href="#">{title}</a>
-        </h3>
-        <p className="text-black">{description}</p>
+    <div className="mt-20 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+    <div className="card card0 mt-5 mb-5">
+      <div className="borderteam text-start">
+        <div className="flex flex-col p-2">
+        <HeadingH1 className="text-start text-white text-2xl" title="Mubashir"/>
+        <HeadingH1 className="text-start text-white text-2xl" title="CEO"/>
+        </div>
+        <div className="icons">
+          <i className="fa fa-codepen" aria-hidden="true" />
+          <i className="fa fa-instagram" aria-hidden="true" />
+          <i className="fa fa-dribbble" aria-hidden="true" />
+          <i className="fa fa-twitter" aria-hidden="true" />
+          <i className="fa fa-facebook" aria-hidden="true" />
+        </div>
       </div>
     </div>
+    <div className="card card1 mt-5 mb-5">
+      <div className="borderteam text-start">
+        <div className="flex flex-col p-2">
+        <HeadingH1 className="text-start text-white text-2xl" title="Mubashir"/>
+        <HeadingH1 className="text-start text-white text-2xl" title="CEO"/>
+        </div>
+        <div className="icons">
+          <i className="fa fa-codepen" aria-hidden="true" />
+          <i className="fa fa-instagram" aria-hidden="true" />
+          <i className="fa fa-dribbble" aria-hidden="true" />
+          <i className="fa fa-twitter" aria-hidden="true" />
+          <i className="fa fa-facebook" aria-hidden="true" />
+        </div>
+      </div>
+    </div>
+    <div className="card card2 mt-5 mb-5">
+      <div className="borderteam text-start">
+        <div className="flex flex-col p-2">
+        <HeadingH1 className="text-start text-white text-2xl" title="Mubashir"/>
+        <HeadingH1 className="text-start text-white text-2xl" title="CEO"/>
+        </div>
+        <div className="icons">
+          <i className="fa fa-codepen" aria-hidden="true" />
+          <i className="fa fa-instagram" aria-hidden="true" />
+          <i className="fa fa-dribbble" aria-hidden="true" />
+          <i className="fa fa-twitter" aria-hidden="true" />
+          <i className="fa fa-facebook" aria-hidden="true" />
+        </div>
+      </div>
+    </div>
+    <div className="card card0 mt-5 mb-5">
+      <div className="borderteam text-start">
+        <div className="flex flex-col p-2">
+        <HeadingH1 className="text-start text-white text-2xl" title="Mubashir"/>
+        <HeadingH1 className="text-start text-white text-2xl" title="CEO"/>
+        </div>
+        <div className="icons">
+          <i className="fa fa-codepen" aria-hidden="true" />
+          <i className="fa fa-instagram" aria-hidden="true" />
+          <i className="fa fa-dribbble" aria-hidden="true" />
+          <i className="fa fa-twitter" aria-hidden="true" />
+          <i className="fa fa-facebook" aria-hidden="true" />
+        </div>
+      </div>
+    </div>
+    <div className="card card0 mt-5 mb-5">
+      <div className="borderteam text-start">
+        <div className="flex flex-col p-2">
+        <HeadingH1 className="text-start text-white text-2xl" title="Mubashir"/>
+        <HeadingH1 className="text-start text-white text-2xl" title="CEO"/>
+        </div>
+        <div className="icons">
+          <i className="fa fa-codepen" aria-hidden="true" />
+          <i className="fa fa-instagram" aria-hidden="true" />
+          <i className="fa fa-dribbble" aria-hidden="true" />
+          <i className="fa fa-twitter" aria-hidden="true" />
+          <i className="fa fa-facebook" aria-hidden="true" />
+        </div>
+      </div>
+    </div>
+    <div className="card card0 mt-5 mb-5">
+      <div className="borderteam text-start">
+        <div className="flex flex-col p-2">
+        <HeadingH1 className="text-start text-white text-2xl" title="Mubashir"/>
+        <HeadingH1 className="text-start text-white text-2xl" title="CEO"/>
+        </div>
+        <div className="icons">
+          <i className="fa fa-codepen" aria-hidden="true" />
+          <i className="fa fa-instagram" aria-hidden="true" />
+          <i className="fa fa-dribbble" aria-hidden="true" />
+          <i className="fa fa-twitter" aria-hidden="true" />
+          <i className="fa fa-facebook" aria-hidden="true" />
+        </div>
+      </div>
+    </div>
+    
+
+  </div>
   );
 };
 
