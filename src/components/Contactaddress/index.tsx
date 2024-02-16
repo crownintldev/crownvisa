@@ -11,7 +11,7 @@ const Contactaddress: React.FC = () => {
     <>
     <Container classNam='mt-32'>
         <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 justify-items-center p-5'>
-            <div className=' rounded-md shadow bg-yellowlight text-white  p-4 pb-10  space-y-4 relative mt-5 mb-5 w-full md:w-[350px]'>
+            <div className=' rounded-md shadow bg-yellow100/90 hover:bg-yellow100 duration-300 transition text-white  p-4 pb-10  space-y-4 relative mt-5 mb-5 w-full md:w-[350px]'>
                 <div className='border flex items-center justify-center shadow rounded-full w-14 h-14 absolute -top-6 -left-6 backdrop-blur-md '>
                     <MdMail className="text-yellow100/50" size={25} />
                 </div> 
@@ -24,7 +24,7 @@ const Contactaddress: React.FC = () => {
                 
             </div>
 
-            <div className=' rounded-md shadow bg-yellowlight text-white  p-4 pb-10  space-y-4 relative mt-5 mb-5 w-full md:w-[350px]'>
+            <div className=' rounded-md shadow bg-yellow100/90 hover:bg-yellow100 duration-300 transition text-white  p-4 pb-10  space-y-4 relative mt-5 mb-5 w-full md:w-[350px]'>
                 <div className='border flex items-center justify-center shadow rounded-full w-14 h-14 absolute -top-6 -left-6 backdrop-blur-md '>
                     <BsFillTelephoneFill className="text-yellow100/50" size={25} />
                 </div> 
@@ -37,7 +37,7 @@ const Contactaddress: React.FC = () => {
               
             </div>
 
-            <div className=' rounded-md shadow bg-yellowlight text-white  p-4 pb-10  space-y-4 relative mt-5 mb-5 w-full md:w-[350px]'>
+            <div className=' rounded-md shadow bg-yellow100/90 hover:bg-yellow100 duration-300 transition text-white  p-4 pb-10  space-y-4 relative mt-5 mb-5 w-full md:w-[350px]'>
                 <div className='border flex items-center justify-center shadow rounded-full w-14 h-14 absolute -top-6 -left-6 backdrop-blur-md '>
                     <FaAddressCard className="text-yellow100/50" size={25} />
                 </div> 
