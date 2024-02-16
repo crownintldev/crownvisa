@@ -1,11 +1,9 @@
 //@ts-nocheck
+import Aboutmission from "@/components/Aboutmission";
 import BreadCrumb from "@/components/BreadCrumb";
 import FooterComp from "@/components/FooterComp";
-import Mission from "@/components/Mission";
 import Navbar from "@/components/Navbar";
 import Stats from "@/components/Stats/Stats";
-import Values from "@/components/Values";
-import Vision from "@/components/Vision";
 import Image from "next/image";
 
 const Page = () => {
@@ -20,10 +18,10 @@ const Page = () => {
           link2title="About Us"
           title="About Us"
         />
-        <section className="container mx-auto px-4 bg-white mb-10">
-          <div className=" gap-10 items-center mx-auto max-w-screen-xl lg:grid lg:grid-cols-2 mb-10">
+        <section className="container mx-auto px-4 bg-white pt-32">
+          <div className=" gap-10 items-center mx-auto max-w-screen-xl lg:grid lg:grid-cols-2 ">
             <div className="sm:text-lg">
-              <h2 className="mb-3 text-3xl tracking-tight font-semibold  dark:text-white">
+              <h2 className="mb-3 text-3xl tracking-tight font-semibold   ">
                 Our Company <span className="text-[#fe720f]">History</span>
               </h2>
               <p className="mb-2">
@@ -58,8 +56,11 @@ const Page = () => {
               />
             </div>
           </div>
-          <div className="mb-10">
-            <h2 className="text-3xl font-semibold mb-3">
+          <div className="flex flex-col pt-32">
+            <Stats />
+          </div>
+          <div className="pt-32 space-y-3">
+            <h2 className="text-3xl font-semibold ">
               Crown International Travels (Pvt) Ltd.
             </h2>
             <p>
@@ -99,14 +100,8 @@ const Page = () => {
               agent of Vietnam.
             </p>
           </div>
-          <div className="grid grid-cols-12 gap-6 mb-10">
-            <Mission />
-            <Vision />
-            <Values />
-          </div>
-          <div className="flex flex-col mb-10">
-            <Stats />
-          </div>
+          <Aboutmission/>
+         
         </section>
       </div>
       <FooterComp />

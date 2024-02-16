@@ -2,7 +2,7 @@
 
 import React from 'react'
 
-const Container = ({className, children}) => {
+const Container:React.FC<props> = ({className, children}) => {
 
   return (
 

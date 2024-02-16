@@ -2,10 +2,13 @@
 import { teams } from "@/constants/constants";
 import TeamComp from "./TeamComp";
 import Link from "next/link";
+import Container from "../Container";
+import { HeadingH2 } from "../Heading";
 
 const Team = () => {
   return (
     <>
+
       <div className="h-[400px] flex flex-col  bg-[url('https://motivoweb.com/saga/wp-content/themes/saga/assets/images/bg-titlebar.jpg')] bg-fixed bg-cover bg-no-repeat mb-10 relative">
         <div className="w-full h-full bg-gray-700 opacity-70  absolute top-0 left-0"></div>
         <div className="flex justify-center items-center h-full flex-col z-10">
@@ -58,29 +61,19 @@ const Team = () => {
           <h2 className="text-6xl">About Team</h2>
         </div>
       </div>
-      <div className="py-8 px-4 container mx-auto max-w-screen-xl text-center lg:py-16 lg:px-6 bg-white antialiased">
-        <div className="mx-auto mb-8 max-w-screen-sm lg:mb-16">
-          <h2 className="mb-4 text-4xl tracking-tight font-extrabold ">
-            Our <span className="text-[#fe720f]">team</span>
-          </h2>
-          <p className="font-light  sm:text-xl dark:text-gray-400">
+      
+      <Container className="mt-32">
+        <div className="  space-y-3">
+         <HeadingH2 className="text-3xl text-center" title="OUR TEAM"/>
+          <p className="font-light  text-center line-clamp-2 ">
             Explore the whole collection of open-source web components and
             elements built with the utility classNamees from Tailwind
           </p>
         </div>
-        <div className="grid gap-8 lg:gap-16 grid-cols-12">
-          {teams.map((team, index) => (
-            <div key={index} className="lg:col-span-3 md:col-span-4 col-span-12">
-              <TeamComp
-                image={team.image}
-                alt={team.alt}
-                title={team.title}
-                description={team.description}
-              />
-            </div>
-          ))}
-        </div>
-      </div>
+        <TeamComp/>
+
+      </Container>
+
     </>
   );
 };

@@ -1,3 +1,4 @@
+"use client"
 import KeenSlider, { KeenSliderInstance } from "keen-slider";
 import { useEffect, useRef, useState } from "react";
 import TestimonialComp from "./TestimonialComp";
