@@ -494,3 +494,15 @@ header .menu{
 
 
 
+.from-gradient-purple {
+  --gradient-from-color: #833ab4;
+}
+
+.to-gradient-pink {
+  --gradient-to-color: #fd1d1d;
+}
+
+/* Create gradient */
+.bg-gradient-to-br {
+  background: linear-gradient(to bottom right, var(--gradient-from-color), var(--gradient-to-color));
+}

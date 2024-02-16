@@ -29,10 +29,10 @@ const HeroSectionComp = () => {
         <div className=" absolute top-32  md:top-52    z-20 w-full m-auto">
           <section className="">
             <div
-              className="mx-auto max-w-screen-xl text-center "
+              className="mx-auto max-w-screen-xl text-center text-black "
               style={{
                 background: "transparent",
-                textShadow: "2px 2px 4px rgba(0, 0, 0, 0.5)",
+                
               }}
             >
               <div>
