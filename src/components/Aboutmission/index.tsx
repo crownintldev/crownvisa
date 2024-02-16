@@ -10,7 +10,7 @@ const Aboutmission: React.FC = () => {
 
 {
     aboutmission.map((array , index)=>(
-        <div className="max-w-sm bg-white px-6 pt-6 pb-2 rounded-xl shadow-lg transform hover:scale-105 transition duration-500">
+        <div className="max-w-sm bg-white px-6 pt-6 pb-2 rounded-xl shadow-lg transform hover:scale-105 transition duration-500" key={index}>
           <h3 className="mb-3 text-xl font-bold text-yellow100">{array.title}</h3>
             <Image src={array.image} alt='image'/>
     
