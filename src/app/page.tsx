@@ -35,7 +35,6 @@ const Page = () => {
         <Testimonial />
         <Blog />
         <Faq />
-        <Newsletter />
       </div>
       <FooterComp />
     </>

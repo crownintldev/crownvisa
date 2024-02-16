@@ -9,7 +9,7 @@ const Team = () => {
   return (
     <>
 
-      <div className="h-[400px] flex flex-col  bg-[url('https://motivoweb.com/saga/wp-content/themes/saga/assets/images/bg-titlebar.jpg')] bg-fixed bg-cover bg-no-repeat mb-10 relative">
+      <div className="h-[400px] flex flex-col bg-[url('https://motivoweb.com/saga/wp-content/themes/saga/assets/images/bg-titlebar.jpg')] bg-fixed bg-cover bg-no-repeat mb-10 relative">
         <div className="w-full h-full bg-gray-700 opacity-70  absolute top-0 left-0"></div>
         <div className="flex justify-center items-center h-full flex-col z-10">
           <nav className="flex" aria-label="Breadcrumb">

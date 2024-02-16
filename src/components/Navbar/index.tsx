@@ -95,7 +95,7 @@ const Navbar = () => {
           <div className="lg:hidden">
             <button
               onClick={toggleMobileMenu}
-              className="inline-flex items-center bg-yellow100  rounded-lg p-2 hover:bg-yellow100 transition duration-300"
+              className="inline-flex items-center  pt-3 "
               >
               {mobileMenuOpen ? (
                 <IoIosArrowUp className="text-2xl mt-[5px]" />
